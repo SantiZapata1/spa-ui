@@ -1,8 +1,14 @@
+'use client' 
+
 import React from 'react';
 import InputText from '../components/NavBar/InputText'; // Importamos el componente InputText
 import NavBar from '../components/NavBar/NavBar';
+import { useForm } from 'react-hook-form';
 
 const ContactoForm = () => {
+  const { register, watch, handleSubmit, setValue, formState: { errors } } = useForm();
+
+
   return (
     <>
       <NavBar /> {/* Incluimos la NavBar aquí */}
@@ -10,25 +16,37 @@ const ContactoForm = () => {
         <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
           Contáctanos
         </h1>
-        <form className="space-y-6">
+        <form className="space-y-6" onSubmit={
+          handleSubmit(async (values) => {
+            console.log(values)
+          })
+        }>
           <InputText
-            nombre="Nombre"
+            campo= "Nombre"
+            nombre="nombre"
             type="text"
             placeholder="Tu nombre"
+            register = {register}
+            setValue = {setValue}
+            errors = {errors.nombre}
           />
           <InputText
-            nombre="Correo Electrónico"
+            campo= "Correo Electrónico"
+            nombre="correo_electronico"
             type="email"
             placeholder="tucorreo@example.com"
+            register = {register}
+            setValue = {setValue}
+            errors = {errors.nombre}
           />
           <div>
             <label className="block text-sm font-medium text-gray-700">
               Mensaje
             </label>
             <textarea
-              className="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-              placeholder="Escribe tu mensaje aquí"
+              className="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none"
               rows={4}
+              {...register("Mensaje", { required:  true  })} placeholder="Escribe tu mensaje aquí"
             ></textarea>
           </div>
           <div className="text-center">

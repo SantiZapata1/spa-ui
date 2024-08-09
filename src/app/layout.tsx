@@ -17,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={inter.className}>{children}</body>
+      <link rel="icon" href="logo sin fondo.png" sizes="any" />
     </html>
   );
 }
