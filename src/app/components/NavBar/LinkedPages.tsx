@@ -1,0 +1,19 @@
+import React from 'react'
+import Link from 'next/link'
+
+type LinkedPagesProps = {
+    url: string;
+    nombre: string;
+}
+
+function LinkedPages({url, nombre}: LinkedPagesProps) {
+    return (
+        <Link href={url}>
+            <div>
+                <h1 className='text-2xl text-white font-bold p-4'>{nombre}</h1>
+            </div>
+        </Link>
+    )
+}
+
+export default LinkedPages
