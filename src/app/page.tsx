@@ -19,7 +19,7 @@ export default function Home() {
           <Image
               src={imagenSpa}
               alt="imagen del spa"
-              className="hero-image"
+              className="w-full object-fill	md:object-cover	"
             />       
         
       </div>
