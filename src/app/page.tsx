@@ -12,7 +12,7 @@ export default function Home() {
       {/* barra de navegacion */}
       <NavBar/>
 
-      <div className='vinoLogo'> hola</div>
+      <div className='redLogo'> hola</div>
       <div className='greenLogo'> hola</div>
 
 
