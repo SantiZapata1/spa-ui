@@ -1,8 +1,9 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+// import styles from "./page.module.css";
 import Link from "next/link";
 import NavBar from "./components/NavBar/NavBar";
-import "./otro.css"
+import "./globals.css"
+import logo from "../../public/logo sin fondo.png"
 
 //componente principal
 export default function Home() {
@@ -12,8 +13,15 @@ export default function Home() {
       {/* barra de navegacion */}
       <NavBar/>
 
-      <div className='redLogo'> hola</div>
-      <div className='greenLogo'> hola</div>
+      <div className='border-indigo-300 main'> 
+        <Image
+          src={logo}
+          alt="logo del spa"
+        />
+      </div>
+
+      <div className='bg-green-logo'> hola</div>
+
 
 
 

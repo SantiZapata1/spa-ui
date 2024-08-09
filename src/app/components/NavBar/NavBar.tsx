@@ -1,5 +1,7 @@
 import React from 'react'
 import LinkedPages from './LinkedPages'
+
+
 function NavBar() {
   return (
     <div className='flex flex-row bg-green-600 w-full'>
