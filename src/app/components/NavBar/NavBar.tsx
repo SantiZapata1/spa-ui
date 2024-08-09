@@ -5,7 +5,8 @@ function NavBar() {
     <div className='flex flex-row bg-green-600 w-full'>
      <LinkedPages nombre="Inicio" url="/"/>
      <LinkedPages nombre="Contacto" url="/contacto"/>
-     <LinkedPages nombre="Información" url="/info"/>
+     <LinkedPages nombre="Quienes somos" url="/info"/>
+     <LinkedPages nombre="Servicios" url="/servicios"/>
     </div>
 
 )
