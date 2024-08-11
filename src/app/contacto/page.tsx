@@ -34,7 +34,7 @@ const ContactoForm = () => {
             campo= "Correo Electrónico"
             nombre="correo_electronico"
             type="email"
-            placeholder="tucorreo@example.com"
+            placeholder="tucorreo@ejemplo.com"
             register = {register}
             setValue = {setValue}
             errors = {errors.nombre}
