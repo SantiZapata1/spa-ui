@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import "./globals.css"
 import logo from "../../public/logo sin fondo.png"
 import imagenSpa from "../../public/imagen spa.jpg"
+import Footer from './components/NavBar/Footer';
 
 //componente principal
 export default function Home() {
@@ -21,7 +22,7 @@ export default function Home() {
               alt="imagen del spa"
               className="w-full object-fill	md:object-cover	"
             />       
-        
+        <Footer/>
       </div>
 
  
