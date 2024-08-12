@@ -35,7 +35,6 @@ export default function NoticiasPage() {
           {/* Agrega más tarjetas si es necesario */}
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -32,9 +32,7 @@ function NavBar() {
         <Link href="/" className={linkClass}>
           Inicio
         </Link>
-        <Link href="#contacto" className={linkClass}>
-          Contacto
-        </Link>
+        
         <Link href="/info" className={linkClass}>
           Quienes somos
         </Link>
@@ -61,7 +59,10 @@ function NavBar() {
             </div>
           )}
         </div>
-
+        
+        <Link href="/#contacto" className={linkClass}>
+          Contacto
+        </Link>
         <Link href="/login" className={linkClass}>
           Login
         </Link>

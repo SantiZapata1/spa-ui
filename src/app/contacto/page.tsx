@@ -61,7 +61,6 @@ const ContactoForm = () => {
           </div>
         </form>
       </main>
-      {/* <Footer />  */}
     </div>
   );
 };

@@ -31,7 +31,6 @@ export default function InfoPage() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

@@ -11,12 +11,13 @@ function Login() {
     formState: { errors }
    } = useForm()
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex flex-col">
     {/* <NavBar/> */}
     <main className="flex-grow bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
-    <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
-          Inicia sesión
-        </h1>
+      <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
+            Inicia sesión
+      </h1>
+
     <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
           // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
           console.log(values)
@@ -48,7 +49,6 @@ function Login() {
           
             </form>
             </main>
-    <Footer/>
     </div>
 )
 }

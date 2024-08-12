@@ -17,11 +17,8 @@
 html {
     scroll-behavior: smooth;
 }
-  
 *{
     font-family: montserrat;
-    scroll-behavior:initial;
-
 }
 .center{
     margin: auto;

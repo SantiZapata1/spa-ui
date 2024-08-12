@@ -74,10 +74,6 @@ export default function Home() {
 
 
 
-      {/* footer */}
-      <Footer/>
-
-
     </main>
   );
 }
