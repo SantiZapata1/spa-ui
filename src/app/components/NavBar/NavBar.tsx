@@ -36,7 +36,7 @@ function NavBar() {
           Inicio
         </Link>
         
-        <Link href="/info" className={linkClass} onClick={() => toggleDropdownFalse()}>
+        <Link href="/about" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Quienes somos
         </Link>
         <Link href="/noticias" className={linkClass} onClick={() => toggleDropdownFalse()}>
