@@ -1,11 +1,5 @@
-import Image from "next/image";
-import styles from "./page.module.css";
 import Link from "next/link";
-import NavBar from "./components/NavBar/NavBar";
 import "./globals.css"
-import logo from "../../public/logo sin fondo.png"
-import imagenSpa from "../../public/imagen spa.jpg"
-import Footer from './components/NavBar/Footer';
 import ContactoForm from "./contacto/page";
 
 //componente principal

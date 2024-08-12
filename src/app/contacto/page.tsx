@@ -1,10 +1,10 @@
 'use client'
 
 import React from 'react';
-import InputText from '../components/NavBar/InputText'; // Importamos el componente InputText
+import InputText from '../components/Inputs/InputText'; // Importamos el componente InputText
 // import NavBar from '../components/NavBar/NavBar';
 import { useForm } from 'react-hook-form';
-// import Footer from '../components/NavBar/Footer';
+// import Footer from '../components/Footer/Footer';
 
 const ContactoForm = () => {
   const { register, watch, handleSubmit, setValue, formState: { errors } } = useForm();

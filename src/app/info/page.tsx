@@ -1,7 +1,5 @@
-import NavBar from '../components/NavBar/NavBar';
 import Image from 'next/image';
 import logo from '../../../public/logo sin fondo.png'; 
-import Footer from '../components/NavBar/Footer';
 
 export default function InfoPage() {
   return (

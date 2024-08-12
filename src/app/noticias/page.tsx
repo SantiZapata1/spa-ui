@@ -1,7 +1,5 @@
 import React from 'react';
-import NavBar from '../components/NavBar/NavBar';
-import Card from '../components/NavBar/Card';
-import Footer from '../components/NavBar/Footer';
+import Card from '../components/Cards/Card';
 
 
 

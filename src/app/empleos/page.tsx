@@ -2,9 +2,7 @@
 
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
-import InputText from '../components/NavBar/InputText'; // Asegúrate de que esta ruta sea correcta
-import NavBar from '../components/NavBar/NavBar';
-import Footer from '../components/NavBar/Footer';
+import InputText from '../components/Inputs/InputText'; // Asegúrate de que esta ruta sea correcta
 
 // Define el tipo para los datos del formulario
 type FormData = {

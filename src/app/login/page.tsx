@@ -1,8 +1,6 @@
 "use client"
 // Componentes
-import InputText from '../components/NavBar/InputText'
-import NavBar from '../components/NavBar/NavBar'
-import Footer from '../components/NavBar/Footer'
+import InputText from '../components/Inputs/InputText'
 import Link from 'next/link'
 // Hooks
 import { useForm } from 'react-hook-form'
