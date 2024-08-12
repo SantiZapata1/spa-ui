@@ -26,7 +26,7 @@ export default function Home() {
 
             <section className="contenido">
                 <section className="eslogan">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quod exercitationem expedita molestias et voluptate debitis, adipisci modi hic porro accusamus, blanditiis id, sunt sit dicta suscipit est nostrum quam!</p>
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quod exercitationem expedita molestias et voluptate debitis, adipisci modi hic porro accusamus.</p>
                 </section>
 
                 <Link href="/contacto">
@@ -38,17 +38,44 @@ export default function Home() {
 
         </div>
 
-        
       </div>
+
+      <div className="nose">
+
+        {/* servicios */}
+        <section className="servicios">
+          <h2>servicios</h2>
+        </section>
+
+        {/* testimonios */}
+        <section className="testimonios">
+          <h2>testimonios</h2>
+        </section>
+
+        {/* galeria */}
+        <section className="galeria">
+          <h2>galeria</h2>
+        </section>
+
+        {/* ubicacion */}
+        <section className="ubicacion">
+          <h2>ubicacion</h2>
+        </section>
+
+        <section className="contacto">
+          <h2>contacto</h2>
+        </section>
+
+
+      </div>
+
+        
+
+
+
+
+      {/* footer */}
       <Footer/>
-
-
-
- 
-
-
-
-
 
 
     </main>

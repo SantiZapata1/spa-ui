@@ -2,11 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'montserrat';
+    src: url('../../public/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
+}
+
 :root{
     --violet-color: #F075AA;
     --violet-color-2: #BC5A94;
     --green-color: #ADD899;
     --yellow-color: #FFDE95;
+}
+*{
+    font-family: montserrat;
+}
+.center{
+    margin: auto;
 }
 
 .bg-violet-logo{
@@ -41,8 +52,22 @@
    justify-content: space-around;
    color: white;
 }
+.navbar-button{
+    background-color: #cb66a3;
+    border-radius: 20px;
+    margin: 10px;
+    transition: border 0.2s;
+
+}
+.navbar-button:hover{
+    border: thin solid white;
+
+}
+.navbar-father > :last-child{
+    background-color: #9f2c71;
+}
 h1{
-    font-size: 44px;
+    font-size: 74px;
 }
 .contenido{
     position: relative;
@@ -53,24 +78,40 @@ h1{
     align-items: center;
     /* background-color: rgb(84, 83, 83,0.6); */
     padding: 20px;
-    box-shadow: 14px 14px 50px rgba(73, 72, 72, 0.25);
-    z-index: 20;
 
 }
 .eslogan{
     color: white;
+    font-size: 24px;
     /* border: thin solid rgb(220, 34, 34); */
 
 }
 .primary-button{
     background-color: var(--violet-color-2);
-    padding: 10px;
+    padding: 10px 30px;
     border: thin solid white;
     color: white;
     border-radius: 20px;
     margin-top: 20px;
+}
+.primary-button:hover{
+    background-color: #8c3c6c;
+    transition: background-color 0.3s;
 
+}
+.nose{
+    background-color: var(--green-color);
+}
+.nose >:nth-child(odd){
+    background-color: var(--violet-color);
+}
+.servicios, .testimonios, .galeria, .ubicacion, .contacto{
+    height: 80vh;
 
+}
+h2{
+    font-size: 44px;
+    text-align: center;
 }
 
 

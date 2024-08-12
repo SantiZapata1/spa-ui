@@ -13,13 +13,14 @@ function NavBar() {
   };
 
   // Clase común para todos los enlaces
-  const linkClass = 'text-white px-4 py-2 text-lg font-semibold hover:bg-green-700 focus:outline-none'; 
+  const linkClass = 'text-white px-4 py-2 text-lg font-semibold navbar-button'; 
 
   return (
-    <div className='flex flex-row bg-green-logo w-full items-center'>
+    <div className='flex flex-row bg-violet-logo w-full items-center'>
 
      
-      <div className='flex flex-row items-center ml-4 space-x-4 '>
+      <div className='flex flex-row items-center ml-4 space-x-6 center navbar-father'>
+
         <Link href="/">
           <Image
             src={logo}
