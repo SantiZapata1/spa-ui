@@ -10,9 +10,9 @@ const ContactoForm = () => {
   const { register, watch, handleSubmit, setValue, formState: { errors } } = useForm();
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full md:w-4/10">
       {/* <NavBar /> Incluimos la NavBar aquí */}
-      <main className="flex-grow bg-white p-8 rounded-lg shadow-lg max-w-md min-w-96">
+      <main className="flex-grow bg-white p-8 rounded-lg shadow-lg">
 
         <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
           Contáctanos
