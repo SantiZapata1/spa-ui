@@ -49,10 +49,10 @@ function NavBar() {
           </button>
           {dropdownOpen && (
             <div className='absolute bg-white text-gray-700 mt-2 rounded-lg shadow-lg z-50'>
-              <Link href="/masajes" className='block px-4 py-2 text-base hover:bg-gray-100'>Masajes</Link>
-              <Link href="/belleza" className='block px-4 py-2 text-base hover:bg-gray-100'>Belleza</Link>
-              <Link href="/tFacial" className='block px-4 py-2 text-base hover:bg-gray-100'>Tratamientos faciales</Link>
-              <Link href="/tCorporales" className='block px-4 py-2 text-base hover:bg-gray-100'>Tratamientos corporales</Link>
+              <Link href="/servicios/masaje" className='block px-4 py-2 text-base hover:bg-gray-100'>Masajes</Link>
+              <Link href="/servicios/masaje/belleza" className='block px-4 py-2 text-base hover:bg-gray-100'>Belleza</Link>
+              <Link href="/servicios/masaje/tFacial" className='block px-4 py-2 text-base hover:bg-gray-100'>Tratamientos faciales</Link>
+              <Link href="/servicios/masaje/tCorporales" className='block px-4 py-2 text-base hover:bg-gray-100'>Tratamientos corporales</Link>
             </div>
           )}
         </div>
