@@ -8,7 +8,7 @@ import Footer from '../components/NavBar/Footer';
 export default function NoticiasPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="flex-grow p-8 lg:p-10">
         {/* Grid layout para hasta 4 tarjetas en fila */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

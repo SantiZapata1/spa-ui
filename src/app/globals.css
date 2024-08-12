@@ -7,7 +7,7 @@
     src: url('../../public/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
 }
 
-
+/* variables de colores para usar */
 :root{
     --violet-color: #F075AA;
     --violet-color-2: #BC5A94;
@@ -26,6 +26,12 @@
 }
 .bg-green-logo{
     background-color: var(--green-color);
+}
+.tx-violet-logo{
+    color: var(--violet-color);
+}
+.tx-green-logo{
+    color: var(--green-color);
 }
 .main{
     height: 100vh;
@@ -73,7 +79,7 @@ h1{
 .contenido{
     position: relative;
     /* border: thin solid white; */
-    width: 800px;
+    width: 900px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -84,6 +90,7 @@ h1{
 .eslogan{
     color: white;
     font-size: 24px;
+    text-wrap:stable;
     /* border: thin solid rgb(220, 34, 34); */
 
 }
@@ -114,5 +121,14 @@ h2{
     font-size: 44px;
     text-align: center;
 }
-
+.contacto{
+    display: flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content: space-around;
+}
+.ubicacion{
+    height: 500px;
+    width: 500px;
+}
 

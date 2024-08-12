@@ -2,20 +2,22 @@
 
 import React from 'react';
 import InputText from '../components/NavBar/InputText'; // Importamos el componente InputText
-import NavBar from '../components/NavBar/NavBar';
+// import NavBar from '../components/NavBar/NavBar';
 import { useForm } from 'react-hook-form';
-import Footer from '../components/NavBar/Footer';
+// import Footer from '../components/NavBar/Footer';
 
 const ContactoForm = () => {
   const { register, watch, handleSubmit, setValue, formState: { errors } } = useForm();
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <NavBar /> {/* Incluimos la NavBar aquí */}
+    <div className="flex flex-col">
+      {/* <NavBar /> Incluimos la NavBar aquí */}
       <main className="flex-grow bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
+
         <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
           Contáctanos
         </h1>
+        
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
           // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
           console.log(values)
@@ -59,7 +61,7 @@ const ContactoForm = () => {
           </div>
         </form>
       </main>
-      <Footer /> 
+      {/* <Footer />  */}
     </div>
   );
 };

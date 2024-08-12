@@ -5,7 +5,7 @@ export default function contacto(){
 
     return ( 
     <div> 
-        <NavBar/>
+        {/* <NavBar/> */}
         <h1 className='text-4xl'>Empleos</h1>
 
     <Footer/>

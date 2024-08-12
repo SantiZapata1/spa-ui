@@ -15,7 +15,7 @@ export default function Masajes() {
 
   return (
     <div>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="relative">
         <Carousel 
           images={carouselImages} 

@@ -12,7 +12,7 @@ function Login() {
    } = useForm()
   return (
     <div className="min-h-screen flex flex-col">
-    <NavBar/>
+    {/* <NavBar/> */}
     <main className="flex-grow bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
     <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
           Inicia sesión

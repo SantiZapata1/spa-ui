@@ -6,7 +6,7 @@ import Footer from '../components/NavBar/Footer';
 export default function InfoPage() {
   return (
     <div className="h-screen flex flex-col">
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="flex-grow flex items-center justify-center relative">
         {/* Imagen de fondo difuminada */}
         <div 

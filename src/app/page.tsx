@@ -6,6 +6,7 @@ import "./globals.css"
 import logo from "../../public/logo sin fondo.png"
 import imagenSpa from "../../public/imagen spa.jpg"
 import Footer from './components/NavBar/Footer';
+import ContactoForm from "./contacto/page";
 
 //componente principal
 export default function Home() {
@@ -17,20 +18,20 @@ export default function Home() {
       <div className='main'> 
 
         {/* barra de navegacion */}
-        <NavBar/>
+        {/* <NavBar/> */}
 
         <div className="hero-image">
 
           <div className="filtro">
-          <h1>Título de la página</h1>
+          <h1>SPA - Sentirse Bien</h1>
 
             <section className="contenido">
                 <section className="eslogan">
-                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quod exercitationem expedita molestias et voluptate debitis, adipisci modi hic porro accusamus.</p>
+                  <p>Sumérgete en una experiencia de pura tranquilidad. Regálate el descanso que mereces y reserva hoy mismo tu momento de renovación total en nuestro spa. ¡Tu bienestar no puede esperar!</p>
                 </section>
 
                 <Link href="/contacto">
-                  <button className="primary-button">Botón</button>
+                  <button className="primary-button">Quiero mi sesion</button>
                 </Link>
 
             </section>
@@ -57,13 +58,12 @@ export default function Home() {
           <h2>Galería</h2>
         </section>
 
-        {/* ubicacion */}
-        <section className="ubicacion">
-          <h2>Ubicación</h2>
-        </section>
 
         <section className="contacto">
-          <h2>Contacto</h2>
+          {/* <h2>Contacto</h2> */}
+          <ContactoForm/>
+          <iframe className="ubicacion" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3540.5827771761133!2d-58.981585523622684!3d-27.451110615916157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94450cf0c80be0d3%3A0xc9f9278c74810912!2sUTN%20-%20Facultad%20Regional%20Resistencia!5e0!3m2!1ses-419!2sar!4v1723472004268!5m2!1ses-419!2sar" loading="lazy"></iframe>
+
         </section>
 
 
