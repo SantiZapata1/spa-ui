@@ -17,6 +17,7 @@ const ContactoForm = () => {
           Contáctanos
         </h1>
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
+          // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
           console.log(values)
         })}>
           <InputText

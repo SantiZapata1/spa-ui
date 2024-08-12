@@ -15,8 +15,8 @@ export default function InfoPage() {
         ></div>
 
         {/* Contenido centrado */}
-        <div className="relative bg-stone-200 bg-opacity-70 text-center p-10 rounded-lg shadow-lg max-w-md z-10">
-          <p className="text-green-500 font-bold text-3xl mb-6">
+        <div className="flex flex-col justify-between bg-stone-200 bg-opacity-90 text-center p-10 rounded-lg shadow-lg max-w-md md:max-w-screen-xl md:w-full md:h-8/10 z-10">
+          <p className="font-sans text-green-500 font-bold text-3xl md:text-5xl mb-6">
             Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos.
             Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
           </p>

@@ -62,7 +62,7 @@ function NavBar() {
           )}
         </div>
 
-        <Link href="" className={linkClass}>
+        <Link href="/login" className={linkClass}>
           Login
         </Link>
 

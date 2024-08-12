@@ -22,7 +22,7 @@ export default function Home() {
         <div className="hero-image">
 
           <div className="filtro">
-          <h1>Titulo de la pagina</h1>
+          <h1>Título de la página</h1>
 
             <section className="contenido">
                 <section className="eslogan">
@@ -30,7 +30,7 @@ export default function Home() {
                 </section>
 
                 <Link href="/contacto">
-                  <button className="primary-button">llamada a la accion</button>
+                  <button className="primary-button">Botón</button>
                 </Link>
 
             </section>
@@ -44,26 +44,26 @@ export default function Home() {
 
         {/* servicios */}
         <section className="servicios">
-          <h2>servicios</h2>
+          <h2>Servicios</h2>
         </section>
 
         {/* testimonios */}
         <section className="testimonios">
-          <h2>testimonios</h2>
+          <h2>Testimonios</h2>
         </section>
 
         {/* galeria */}
         <section className="galeria">
-          <h2>galeria</h2>
+          <h2>Galería</h2>
         </section>
 
         {/* ubicacion */}
         <section className="ubicacion">
-          <h2>ubicacion</h2>
+          <h2>Ubicación</h2>
         </section>
 
         <section className="contacto">
-          <h2>contacto</h2>
+          <h2>Contacto</h2>
         </section>
 
 
