@@ -23,18 +23,18 @@ export default function Home() {
         <div className="hero-image">
 
           <div className="filtro">
-          <h1>SPA - Sentirse Bien</h1>
+            <h1>SPA - Sentirse Bien</h1>
 
-            <section className="contenido">
-                <section className="eslogan">
-                  <p>Sumérgete en una experiencia de pura tranquilidad. Regálate el descanso que mereces y reserva hoy mismo tu momento de renovación total en nuestro spa. ¡Tu bienestar no puede esperar!</p>
-                </section>
+              <section className="contenido">
+                  <section className="eslogan">
+                    <p>Sumérgete en una experiencia de pura tranquilidad. Regálate el descanso que mereces y reserva hoy mismo tu momento de renovación total en nuestro spa. ¡Tu bienestar no puede esperar!</p>
+                  </section>
 
-                <Link href="/contacto">
-                  <button className="primary-button">Quiero mi sesion</button>
-                </Link>
+                  <Link href="/contacto">
+                    <button className="primary-button">Quiero mi sesion</button>
+                  </Link>
 
-            </section>
+              </section>
           </div>
 
         </div>

@@ -37,7 +37,7 @@ html {
     color: var(--green-color);
 }
 .main{
-    height: 100vh;
+    height: 94vh;
     background-color: azure;
 }
 .hero-image{
@@ -49,6 +49,12 @@ html {
    width:100%;
    height: 100%;
    
+}
+.bg-image-spa{
+    background-image: url(../../public/imagen\ spa.jpg);
+   background-attachment: fixed;
+   background-size: cover;
+   background-repeat: no-repeat;
 }
 .filtro{
     background-color: rgb(29, 29, 29,0.8);
