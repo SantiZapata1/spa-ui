@@ -1,18 +1,18 @@
+import Image from "next/image";
+import styles from "./page.module.css";
 import Link from "next/link";
+import NavBar from "./components/NavBar/NavBar";
 import "./globals.css"
+import logo from "../../public/logo sin fondo.png"
+import imagenSpa from "../../public/imagen spa.jpg"
+import Footer from './components/NavBar/Footer';
 import ContactoForm from "./contacto/page";
 
-//componente principal
+
 export default function Home() {
   return (
     <main>
-
-      
-
       <div className='main'> 
-
-        {/* barra de navegacion */}
-        {/* <NavBar/> */}
 
         <div className="hero-image">
 
@@ -24,7 +24,7 @@ export default function Home() {
                     <p>Sumérgete en una experiencia de pura tranquilidad. Regálate el descanso que mereces y reserva hoy mismo tu momento de renovación total en nuestro spa. ¡Tu bienestar no puede esperar!</p>
                   </section>
 
-                  <Link href="/contacto">
+                  <Link href="/#contacto">
                     <button className="primary-button">Quiero mi sesion</button>
                   </Link>
 

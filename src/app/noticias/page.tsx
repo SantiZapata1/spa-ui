@@ -2,7 +2,6 @@ import React from 'react';
 import Card from '../components/Cards/Card';
 
 
-
 export default function NoticiasPage() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -13,22 +12,22 @@ export default function NoticiasPage() {
           <Card 
             title="Descuento" 
             text="Nuevo descuento en nuestro spa."
-            imageUrl="/path/to/image1.jpg"
+            imageUrl=""
           />
           <Card 
             title="Nuevo plan mensual" 
             text="Se renueva el plan mensual con beneficios adicionales."
-            imageUrl="/path/to/image2.jpg"
+            imageUrl=""
           />
           <Card 
             title="Nuevo descuento con tarjeta VISA" 
             text="Obtén un descuento especial pagando con tarjeta VISA."
-            imageUrl="/path/to/image3.jpg"
+            imageUrl=""
           />
           <Card 
             title="Promoción especial" 
             text="Promoción especial solo por tiempo limitado."
-            imageUrl="/path/to/image4.jpg"
+            imageUrl=""
           />
           {/* Agrega más tarjetas si es necesario */}
         </div>

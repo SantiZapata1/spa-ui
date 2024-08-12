@@ -36,10 +36,12 @@ html {
 .tx-green-logo{
     color: var(--green-color);
 }
+
 .main{
     height: 94vh;
     background-color: azure;
 }
+
 .hero-image{
    background-color: antiquewhite;
    background-image: url(../../public/imagen\ spa.jpg);
@@ -118,7 +120,7 @@ h1{
 }
 
 .nose > section{
-    border-bottom: thin solid black;
+    border-bottom: thin solid rgb(108, 106, 106);
 }
 .servicios, .testimonios, .galeria, .ubicacion, .contacto{
     height: 80vh;
