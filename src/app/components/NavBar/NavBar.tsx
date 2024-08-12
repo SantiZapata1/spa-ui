@@ -12,6 +12,9 @@ function NavBar() {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const toggleDropdownFalse = () => {
+    setDropdownOpen(false);
+  }
   // Clase común para todos los enlaces
   const linkClass = 'text-white px-4 py-2 text-lg font-semibold navbar-button'; 
 
@@ -21,7 +24,7 @@ function NavBar() {
      
       <div className='flex flex-row items-center ml-4 space-x-6 center navbar-father'>
 
-        <Link href="/">
+        <Link href="/" onClick={() => toggleDropdownFalse()}>
           <Image
             src={logo}
             alt="logo del spa"
@@ -29,14 +32,14 @@ function NavBar() {
           />
         </Link>
       
-        <Link href="/" className={linkClass}>
+        <Link href="/" className={linkClass}  onClick={() => toggleDropdownFalse()}>
           Inicio
         </Link>
         
-        <Link href="/info" className={linkClass}>
+        <Link href="/info" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Quienes somos
         </Link>
-        <Link href="/noticias" className={linkClass}>
+        <Link href="/noticias" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Noticias
         </Link>
         
@@ -58,10 +61,10 @@ function NavBar() {
           )}
         </div>
         
-        <Link href="/#contacto" className={linkClass}>
+        <Link href="/#contacto" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Contacto
         </Link>
-        <Link href="/login" className={linkClass}>
+        <Link href="/login" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Login
         </Link>
 
