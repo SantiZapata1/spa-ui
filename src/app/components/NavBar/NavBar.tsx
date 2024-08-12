@@ -32,7 +32,7 @@ function NavBar() {
         <Link href="/" className={linkClass}>
           Inicio
         </Link>
-        <Link href="/contacto" className={linkClass}>
+        <Link href="#contacto" className={linkClass}>
           Contacto
         </Link>
         <Link href="/info" className={linkClass}>

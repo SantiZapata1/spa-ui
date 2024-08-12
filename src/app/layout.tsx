@@ -17,8 +17,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <NavBar/>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <NavBar/>
+        {children}
+      </body>
       <link rel="icon" href="logo sin fondo.png" sizes="any" />
     </html>
   );

@@ -12,7 +12,7 @@ const ContactoForm = () => {
   return (
     <div className="flex flex-col">
       {/* <NavBar /> Incluimos la NavBar aquí */}
-      <main className="flex-grow bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
+      <main className="flex-grow bg-white p-8 rounded-lg shadow-lg max-w-md min-w-96">
 
         <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
           Contáctanos

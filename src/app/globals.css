@@ -14,8 +14,14 @@
     --green-color: #ADD899;
     --yellow-color: #FFDE95;
 }
+html {
+    scroll-behavior: smooth;
+}
+  
 *{
     font-family: montserrat;
+    scroll-behavior:initial;
+
 }
 .center{
     margin: auto;
@@ -126,9 +132,12 @@ h2{
     flex-direction: row;
     align-items:center;
     justify-content: space-around;
+    max-width: 80%;
+    /* background-color: #8c3c6c; */
+    margin: auto;
 }
 .ubicacion{
-    height: 500px;
-    width: 500px;
+    height: 550px;
+    width: 550px;
 }
 
