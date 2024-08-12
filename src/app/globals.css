@@ -116,11 +116,9 @@ h1{
     transition: background-color 0.3s;
 
 }
-.nose{
-    background-color: var(--green-color);
-}
-.nose >:nth-child(odd){
-    background-color: var(--violet-color);
+
+.nose > section{
+    border-bottom: thin solid black;
 }
 .servicios, .testimonios, .galeria, .ubicacion, .contacto{
     height: 80vh;
