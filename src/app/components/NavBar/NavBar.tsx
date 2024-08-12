@@ -39,9 +39,7 @@ function NavBar() {
         <Link href="/noticias" className={linkClass}>
           Noticias
         </Link>
-        <Link href="/empleos" className={linkClass}>
-          Empleos
-        </Link>
+        
         
         <div className='relative'>
           <button 
