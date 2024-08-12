@@ -10,7 +10,7 @@ function LinkedPages({url, nombre}: LinkedPagesProps) {
     return (
         <Link href={url}>
             <div>
-                <h1 className='text-sm md:text-lg lg:text-2xl text-white font-bold p-4'>{nombre}</h1>
+                <h1 className='text-sm md:text-lg lg:text-2xl text-white p-4'>{nombre}</h1>
             </div>
         </Link>
     )

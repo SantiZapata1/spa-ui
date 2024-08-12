@@ -12,9 +12,9 @@ export default function InfoPage() {
 
           <p className="text-2xl md:text-4xl mb-6">
             Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la 
-            <span className='text-violet-200'> seducción de los sentidos.</span>
+            <span className='text-violet-300'> seducción de los sentidos.</span>
              <br></br>
-            Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y <span className='text-violet-200'>disfrute</span> de un momento de <span className='text-violet-200'>bienestar</span>, en total <span className='text-violet-200'>armonía</span> con la naturaleza.
+            Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y <span className='text-violet-300'>disfrute</span> de un momento de <span className='text-violet-300'>bienestar</span>, en total <span className='text-violet-300'>armonía</span> con la naturaleza.
           </p>
 
           {/* Logo de la empresa */}

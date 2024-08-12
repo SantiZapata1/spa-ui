@@ -17,9 +17,18 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: white;
 }
 *{
     font-family: montserrat;
+}
+/* titulos */
+h1{
+    font-size: 74px;
+}
+h2{
+    font-size: 44px;
+    text-align: center;
 }
 .center{
     margin: auto;
@@ -38,8 +47,20 @@ html {
 .tx-green-logo{
     color: var(--green-color);
 }
-
-
+/* navbar */
+.navbar-button{
+    background-color: #cb66a3;
+    border-radius: 20px;
+    margin: 10px;
+    transition: border 0.2s;
+}
+.navbar-button:hover{
+    border: thin solid white;
+}
+.navbar-father > :last-child{
+    background-color: #9f2c71;
+}
+/* hero image del inicio */
 .main{
     height: 94vh;
 }
@@ -67,25 +88,7 @@ html {
    justify-content: space-around;
    color: white;
 }
-.navbar-button{
-    background-color: #cb66a3;
-    border-radius: 20px;
-    margin: 10px;
-    transition: border 0.2s;
-}
-.navbar-button:hover{
-    border: thin solid white;
-}
-.navbar-father > :last-child{
-    background-color: #9f2c71;
-}
-h1{
-    font-size: 74px;
-}
-h2{
-    font-size: 44px;
-    text-align: center;
-}
+
 .contenido{
     position: relative;
     width: 900px;
@@ -112,6 +115,7 @@ h2{
     transition: background-color 0.3s;
 }
 
+/* otras secciones del inicio*/
 .secciones > section{
     border-bottom: thin solid rgb(108, 106, 106);
 }
@@ -119,8 +123,6 @@ h2{
 .servicios, .testimonios, .galeria, .contacto{
     height: 80vh;
 }
-
-
 .contacto{
     display: flex;
     flex-direction: row;
@@ -130,4 +132,6 @@ h2{
     margin: auto;
 }
 
-
+.height-full{
+    height: 90vh;
+}

@@ -16,12 +16,12 @@ function NavBar() {
     setDropdownOpen(false);
   }
   // Clase común para todos los enlaces
-  const linkClass = 'text-white px-4 py-2 text-lg font-semibold navbar-button'; 
+  const linkClass = 'text-white px-4 py-2 text-lg navbar-button'; 
 
   return (
+
     <div className='flex flex-row bg-violet-logo w-full items-center'>
 
-     
       <div className='flex flex-row items-center ml-4 space-x-6 center navbar-father'>
 
         <Link href="/" onClick={() => toggleDropdownFalse()}>
