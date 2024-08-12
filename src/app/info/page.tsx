@@ -13,8 +13,10 @@ export default function InfoPage() {
         <div className="flex flex-col justify-between text-balance p-10 rounded-lg md:max-w-screen-lg md:w-full md:h-6/10 z-10">
 
           <p className="text-2xl md:text-4xl mb-6">
-            Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. <br></br>
-            Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
+            Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la 
+            <span className='text-violet-200'> seducción de los sentidos.</span>
+             <br></br>
+            Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y <span className='text-violet-200'>disfrute</span> de un momento de <span className='text-violet-200'>bienestar</span>, en total <span className='text-violet-200'>armonía</span> con la naturaleza.
           </p>
 
           {/* Logo de la empresa */}
