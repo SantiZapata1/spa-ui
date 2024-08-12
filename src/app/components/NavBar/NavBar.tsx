@@ -12,18 +12,22 @@ function NavBar() {
     setDropdownOpen(!dropdownOpen);
   };
 
-  const linkClass = 'text-white px-4 py-2 text-lg font-semibold hover:bg-green-700 focus:outline-none'; // Clase común para todos los enlaces
+  // Clase común para todos los enlaces
+  const linkClass = 'text-white px-4 py-2 text-lg font-semibold hover:bg-green-700 focus:outline-none'; 
 
   return (
-    <div className='flex flex-row bg-green-600 w-full items-center'>
-      <Link href="/">
-        <Image
-          src={logo}
-          alt="logo del spa"
-          className='w-20'
-        />
-      </Link>
-      <div className='flex flex-row items-center ml-4 space-x-4'>
+    <div className='flex flex-row bg-green-logo w-full items-center'>
+
+     
+      <div className='flex flex-row items-center ml-4 space-x-4 '>
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="logo del spa"
+            className='w-20'
+          />
+        </Link>
+      
         <Link href="/" className={linkClass}>
           Inicio
         </Link>
@@ -39,7 +43,7 @@ function NavBar() {
         <Link href="/empleos" className={linkClass}>
           Empleos
         </Link>
-
+        
         <div className='relative'>
           <button 
             onClick={toggleDropdown} 
@@ -56,6 +60,11 @@ function NavBar() {
             </div>
           )}
         </div>
+
+        <Link href="" className={linkClass}>
+          Login
+        </Link>
+
       </div>
     </div>
   );

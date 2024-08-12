@@ -12,18 +12,37 @@ export default function Home() {
   return (
     <main>
 
-      {/* barra de navegacion */}
-      <NavBar/>
+      
 
       <div className='main'> 
 
-          <Image
-              src={imagenSpa}
-              alt="imagen del spa"
-              className="w-full object-fill	md:object-cover	"
-            />       
-        <Footer/>
+        {/* barra de navegacion */}
+        <NavBar/>
+
+        <div className="hero-image">
+
+          <div className="filtro">
+          <h1>Titulo de la pagina</h1>
+
+            <section className="contenido">
+                <section className="eslogan">
+                  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio quod exercitationem expedita molestias et voluptate debitis, adipisci modi hic porro accusamus, blanditiis id, sunt sit dicta suscipit est nostrum quam!</p>
+                </section>
+
+                <Link href="/contacto">
+                  <button className="primary-button">llamada a la accion</button>
+                </Link>
+
+            </section>
+          </div>
+
+        </div>
+
+        
       </div>
+      <Footer/>
+
+
 
  
 
