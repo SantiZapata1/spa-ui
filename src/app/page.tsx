@@ -7,34 +7,17 @@ import logo from "../../public/logo sin fondo.png"
 import imagenSpa from "../../public/imagen spa.jpg"
 import Footer from "./components/Footer/Footer";
 import ContactoForm from "./contacto/page";
-
+import HeroImage from "./components/HeroImage/Heroimage"
 
 export default function Home() {
   return (
     <main>
       
-      <div className='main'> 
-
-        <div className="hero-image bg-image-spa">
-
-          <div className="filtro">
-            <h1>SPA - Sentirse Bien</h1>
-
-              <section className="contenido">
-                  <section className="eslogan">
-                    <p>Sumérgete en una experiencia de pura tranquilidad. Regálate el descanso que mereces y reserva hoy mismo tu momento de renovación total en nuestro spa. ¡Tu bienestar no puede esperar!</p>
-                  </section>
-
-                  <Link href="/#contacto">
-                    <button className="primary-button">Quiero mi sesion</button>
-                  </Link>
-
-              </section>
-          </div>
-
-        </div>
-
-      </div>
+      <HeroImage
+        titulo="SPA - Sentirse Bien"
+        eslogan="Sumérgete en una experiencia de pura tranquilidad. Regálate el descanso que mereces y reserva hoy mismo tu momento de renovación total en nuestro spa. ¡Tu bienestar no puede esperar!"
+        textoBoton="Quiero mi sesion"
+      />
 
       <div className="secciones">
 
