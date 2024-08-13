@@ -45,7 +45,7 @@ function Login() {
                 errors={errors.nombre}
               />
               <div className="text-center"> 
-              <p>¿No tienes cuenta? <Link href="/register" className="text-green-500"> Regístrate </Link></p>
+              <p>¿No tienes cuenta? <Link href=" " className="text-green-500"> Regístrate </Link></p>
               </div>
               <button className="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300">
                 Iniciar Sesión

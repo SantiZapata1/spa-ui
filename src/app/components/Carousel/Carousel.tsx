@@ -10,6 +10,7 @@ interface CarouselProps {
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonText }) => {
+  
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
@@ -58,7 +59,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
       {/* Overlay with title, description, and button */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-gray-800 bg-opacity-50 p-4">
         <h2 className="text-4xl font-bold text-white mb-4">{title}</h2>
-        <p className="text-lg text-white mb-4">{description}</p>
+        <p className="text-lg text-white mb-4 max-w-5xl">{description}</p>
         <button className="bg-blue-500 text-white py-2 px-4 rounded">{buttonText}</button>
       </div>
     </div>

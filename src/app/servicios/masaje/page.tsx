@@ -15,13 +15,13 @@ export default function Masajes() {
 
   return (
     <div>
-      {/* <NavBar /> */}
       <div className="relative">
         <Carousel 
           images={carouselImages} 
           title={title} 
           description={description} 
           buttonText={buttonText} 
+          
         /> 
       </div>
     </div>
