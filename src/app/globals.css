@@ -120,7 +120,7 @@ h2{
     border-bottom: thin solid rgb(108, 106, 106);
 }
 
-.servicios, .testimonios, .galeria, .contacto{
+.quienes-somos, .servicios, .testimonios, .galeria, .contacto{
     height: 80vh;
 }
 .contacto{

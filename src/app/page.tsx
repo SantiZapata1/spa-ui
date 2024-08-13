@@ -38,19 +38,24 @@ export default function Home() {
 
       <div className="secciones">
 
+        {/* quienes somos */}
+        <section className="quienes-somos">
+          <h2>Quienes somos</h2>
+        </section>
+        
         {/* servicios */}
         <section className="servicios">
           <h2>Servicios</h2>
         </section>
 
-        {/* testimonios */}
-        <section className="testimonios">
-          <h2>Testimonios</h2>
-        </section>
-
         {/* galeria */}
         <section className="galeria">
           <h2>Galería</h2>
+        </section>
+
+        {/* testimonios */}
+        <section className="testimonios">
+          <h2>Testimonios</h2>
         </section>
 
         {/* contacto */}
