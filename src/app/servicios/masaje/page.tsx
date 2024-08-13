@@ -21,6 +21,7 @@ export default function Masajes() {
           title={title} 
           description={description} 
           buttonText={buttonText} 
+          buttonLink="./"
           
         /> 
       </div>

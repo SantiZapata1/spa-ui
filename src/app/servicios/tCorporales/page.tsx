@@ -1,5 +1,5 @@
-import NavBar from '../../../components/NavBar/NavBar';
-import Carousel from '../../../components/Carousel/Carousel'; // Importa el componente del carrusel
+import NavBar from '../../components/NavBar/NavBar';
+import Carousel from '../../components/Carousel/Carousel'; // Importa el componente del carrusel
 
 export default function Masajes() {
   const carouselImages = [

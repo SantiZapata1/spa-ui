@@ -1,17 +1,20 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 interface CarouselProps {
   images: string[];
   title: string;
   description: string;
   buttonText: string;
+  buttonLink: string; // Nueva prop para la URL de redirección
 }
 
-const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonText }) => {
+const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonText, buttonLink }) => {
   
   const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter(); // Hook para manejar la navegación
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -27,6 +30,10 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
 
   const goToNext = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const handleButtonClick = () => {
+    router.push(buttonLink); // Redirige a la URL especificada
   };
 
   return (
@@ -60,10 +67,16 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center bg-gray-800 bg-opacity-50 p-4">
         <h2 className="text-4xl font-bold text-white mb-4">{title}</h2>
         <p className="text-lg text-white mb-4 max-w-5xl">{description}</p>
-        <button className="bg-blue-500 text-white py-2 px-4 rounded">{buttonText}</button>
+        <button 
+          className="bg-blue-500 text-white py-2 px-4 rounded" 
+          onClick={handleButtonClick} // Maneja el clic del botón
+        >
+          {buttonText}
+        </button>
       </div>
     </div>
   );
 };
 
 export default Carousel;
+
