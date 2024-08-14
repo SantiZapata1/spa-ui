@@ -27,10 +27,10 @@ function Login() {
               console.log(values)
             })}>
               <InputText
-                campo="Correo Electrónico"
-                nombre="correo_electronico"
+                campo="nombre"
+                nombre="Nombre"
                 type="text"
-                placeholder=""
+                placeholder="Ingrese su nombre de usuario"
                 register={register}
                 setValue={setValue}
                 errors={errors.nombre}
@@ -39,13 +39,13 @@ function Login() {
                 campo="Contraseña"
                 nombre="pass"
                 type="password"
-                placeholder=""
+                placeholder="Ingrese su contraseña"
                 register={register}
                 setValue={setValue}
                 errors={errors.nombre}
               />
               <div className="text-center"> 
-              <p>¿No tienes cuenta? <Link href=" " className="text-green-500"> Regístrate </Link></p>
+              <p>¿No tienes cuenta? <Link href="/register" className="text-green-500"> Regístrate </Link></p>
               </div>
               <button className="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300">
                 Iniciar Sesión
