@@ -22,9 +22,14 @@ export default function Home() {
       <div className="secciones">
 
         {/* quienes somos */}
-        <section className="quienes-somos">
-          <h2>Quienes somos</h2>
-        </section>
+        <section className="flex flex-col items-center justify-center min-h-screen bg-red-100 p-8">
+  <div className="text-center max-w-4xl">
+    <h2 className="text-4xl font-bold mb-4">Quiénes Somos</h2>
+    <h3 className="text-lg font-medium">
+      Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
+    </h3>
+  </div>
+</section>
         
         {/* servicios */}
         <section className="servicios">
