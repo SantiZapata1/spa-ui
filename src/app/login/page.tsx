@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../context/auth'
 import { useEffect } from 'react'
+import { redirect } from 'next/navigation'
 function Login() {
 
   const { 
@@ -17,11 +18,12 @@ function Login() {
    const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
    
 
-   useEffect(() => {
     if(isAuthenticated){
-      console.log("Autenticado")
+      console.log(user)
+      console.log("Auth")
+      redirect('/')
     }
-  }, [user, isAuthenticated])
+
 
   return (
 
@@ -39,8 +41,8 @@ function Login() {
               signIn(values)
             })}>
               <InputText
-                campo="nombre"
-                nombre="Nombre"
+                campo="Nombre de usuario"
+                nombre="nombre_de_usuario"
                 type="text"
                 placeholder="Ingrese su nombre de usuario"
                 register={register}

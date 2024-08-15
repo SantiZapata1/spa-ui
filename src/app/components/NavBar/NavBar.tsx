@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
 import logo from "../../../../public/logo sin fondo.png";
-
+import { useAuth } from './../../../context/auth';
 function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
@@ -17,6 +17,8 @@ function NavBar() {
   }
   // Clase común para todos los enlaces
   const linkClass = 'text-white px-4 py-2 text-lg navbar-button'; 
+
+  const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
 
   return (
 
@@ -64,9 +66,16 @@ function NavBar() {
         <Link href="/#contacto" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Contacto
         </Link>
-        <Link href="/login" className={linkClass} onClick={() => toggleDropdownFalse()}>
+        {!isAuthenticated ? (
+          <Link href="/login" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Login
         </Link>
+        ) : (
+          <Link href="/profile" className={linkClass} onClick={() => toggleDropdownFalse()}>
+          {user.nombre_de_usuario}
+        </Link>
+        )  
+      }
 
       </div>
     </div>
