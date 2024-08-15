@@ -2,7 +2,8 @@
 import InputText from '../components/Inputs/InputText'
 import Link from 'next/link'
 import { useForm } from 'react-hook-form'
-
+import { useAuth } from '../../context/auth'
+import { useEffect } from 'react'
 function Login() {
 
   const { 
@@ -11,6 +12,16 @@ function Login() {
     setValue, 
     formState: { errors }
    } = useForm()
+
+
+   const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
+   
+
+   useEffect(() => {
+    if(isAuthenticated){
+      console.log("Autenticado")
+    }
+  }, [user, isAuthenticated])
 
   return (
 
@@ -25,6 +36,7 @@ function Login() {
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
               // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
               console.log(values)
+              signIn(values)
             })}>
               <InputText
                 campo="nombre"
