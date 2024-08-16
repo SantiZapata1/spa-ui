@@ -22,7 +22,7 @@ function NavBar() {
 
   return (
 
-    <div className='flex flex-row bg-violet-logo w-full items-center'>
+    <div className='flex flex-row bg-violet-logo w-full items-center z-50 relative'>
 
       <div className='flex flex-row items-center ml-4 space-x-6 center navbar-father'>
 
