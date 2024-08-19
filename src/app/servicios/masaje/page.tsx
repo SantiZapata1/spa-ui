@@ -3,8 +3,8 @@ import Carousel from '../../components/Carousel/Carousel'; // Importa el compone
 
 export default function Masajes() {
   const carouselImages = [
-    '/Masajes/masaje1.png',  // Ruta desde la carpeta public
-    '/Masajes/masaje2.jpg',  // Otros ejemplos de rutas
+    '/Masajes/masaje1.png',  
+    '/Masajes/masaje2.jpg',  
     '/Masajes/masaje3.jpg',
     '/Masajes/masaje4.jpg'
   ];
@@ -21,7 +21,7 @@ export default function Masajes() {
           title={title} 
           description={description} 
           buttonText={buttonText} 
-          buttonLink="./"
+          buttonLink="./masaje/turnos"
           
         /> 
       </div>
