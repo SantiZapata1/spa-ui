@@ -8,6 +8,7 @@ import { useAuth } from './../../../context/auth';
 
 export default function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userDropwdownOpen, setUserDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -17,8 +18,13 @@ export default function NavBar() {
     setDropdownOpen(false);
   };
 
+  const toggleUserDropdown = () => {
+    setDropdownOpen(false);
+    setUserDropdownOpen(!userDropwdownOpen);
+  }
+
   // Clase común para todos los enlaces
-  const linkClass = 'text-white px-4 py-2 text-lg navbar-button';
+  const linkClass = 'text-white px-4 py-2 text-lg navbar-button cursor-pointer';
 
   const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
 
@@ -77,13 +83,23 @@ export default function NavBar() {
           <Link href="/login" className={linkClass} onClick={closeDropdown}>
             Login
           </Link>
-        ) : (
-          <Link href="/profile" className={linkClass} >
-            {/* onClick={() => toggleDropdownFalse()} */}
+        ) :           <>
+            
+        <div className={linkClass} onClick={toggleUserDropdown}>
           {user.nombre_de_usuario}
-        </Link>
-        )  
-      }
+        {userDropwdownOpen && (
+          <div className='absolute bg-white text-gray-700 mt-2 rounded-lg shadow-lg z-50'>
+            <Link href="/perfil" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
+              Mi Perfil
+            </Link>
+            <Link href="/logout" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
+              Cerrar sesión
+            </Link>
+          </div>
+        )}
+      </div>
+        </>
+        }
 
       </div>
     </div>
