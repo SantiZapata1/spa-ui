@@ -8,6 +8,7 @@ import { useAuth } from './../../../context/auth';
 
 export default function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userDropwdownOpen, setUserDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownOpen(!dropdownOpen);
@@ -17,8 +18,13 @@ export default function NavBar() {
     setDropdownOpen(false);
   };
 
+  const toggleUserDropdown = () => {
+    setDropdownOpen(false);
+    setUserDropdownOpen(!userDropwdownOpen);
+  }
+
   // Clase común para todos los enlaces
-  const linkClass = 'text-white px-4 py-2 text-lg navbar-button';
+  const linkClass = 'text-white px-4 py-2 text-lg navbar-button cursor-pointer';
 
   const { signIn, errorsAuth, user, isAuthenticated, logOut} = useAuth()
 
@@ -77,15 +83,13 @@ export default function NavBar() {
           <Link href="/login" className={linkClass} onClick={closeDropdown}>
             Login
           </Link>
-        ) : (
-          <Link href="/profile" className={linkClass} >
-            {/* onClick={() => toggleDropdownFalse()} */}
+        ) :           <>
+            
+        <div className={linkClass} onClick={toggleUserDropdown}>
           {user.nombre_de_usuario}
         </Link>
         )  
       }
-      {/* si esta autenticado se muestra el boton de salir */}
-      {isAuthenticated && <Link href="/" className={linkClass} onClick={logOut}>Salir</Link>}
 
       </div>
     </div>
