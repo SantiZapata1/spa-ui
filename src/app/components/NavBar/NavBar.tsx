@@ -20,7 +20,7 @@ export default function NavBar() {
   // Clase común para todos los enlaces
   const linkClass = 'text-white px-4 py-2 text-lg navbar-button';
 
-  const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
+  const { signIn, errorsAuth, user, isAuthenticated, logOut} = useAuth()
 
   return (
     <div className='flex flex-row bg-violet-logo w-full items-center z-50 relative'>
@@ -84,6 +84,8 @@ export default function NavBar() {
         </Link>
         )  
       }
+      {/* si esta autenticado se muestra el boton de salir */}
+      {isAuthenticated && <Link href="/" className={linkClass} onClick={logOut}>Salir</Link>}
 
       </div>
     </div>
