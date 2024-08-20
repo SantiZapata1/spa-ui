@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from 'next/link';
 import logo from "../../../../public/logo sin fondo.png";
 import { useAuth } from './../../../context/auth';
-function NavBar() {
+
+export default function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -18,7 +19,7 @@ function NavBar() {
   // Clase común para todos los enlaces
   const linkClass = 'text-white px-4 py-2 text-lg navbar-button'; 
 
-  const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
+  const { signIn, errorsAuth, user, isAuthenticated, logOut} = useAuth()
 
   return (
 
@@ -65,21 +66,30 @@ function NavBar() {
         
         <Link href="/#contacto" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Contacto
+
         </Link>
+
+        {/* Si no esta logueado el boton sirve para loguearse, y si ya lo esta sirve para ver su perfil */}
         {!isAuthenticated ? (
           <Link href="/login" className={linkClass} onClick={() => toggleDropdownFalse()}>
           Login
         </Link>
         ) : (
           <Link href="/profile" className={linkClass} onClick={() => toggleDropdownFalse()}>
-          {user.nombre_de_usuario}
+
+          Mi perfil
+          {/* Aca no deberia ir un boton para salir de la cuenta? */}
+
         </Link>
         )  
       }
+
+      {/* si esta autenticado se muestra el boton de salir */}
+      {isAuthenticated && <Link href="/" className={linkClass} onClick={logOut}>Salir</Link>}
+
 
       </div>
     </div>
   );
 }
 
-export default NavBar;

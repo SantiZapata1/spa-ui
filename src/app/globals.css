@@ -9,19 +9,29 @@
 
 /* variables de colores para usar */
 :root{
+
     --violet-color: #F075AA;
     --violet-color-2: #BC5A94;
     --green-color: #ADD899;
     --yellow-color: #FFDE95;
+
+    --color-primary: #C8E4B2; /* Verde suave */
+    --color-secondary: #FFC7EA; /* Rosado suave */
+    --color-background: #FEFAE0; /* Beige */
+    --color-text: #333333; /* Gris oscuro */
+    --color-accent: #FFFFFF; /* Blanco */
+
 }
 
 html {
     scroll-behavior: smooth;
-    background-color: white;
+    background-color: var(--color-background);
 }
+
 *{
     font-family: montserrat;
 }
+
 /* titulos */
 h1{
     font-size: 74px;
@@ -47,6 +57,14 @@ h2{
 .tx-green-logo{
     color: var(--green-color);
 }
+
+/* nuevas clases para la pagina */
+.bg-beige{
+    background-color: var(--color-background);
+}
+
+
+
 /* navbar */
 .navbar-button{
     background-color: #cb66a3;

@@ -1,12 +1,21 @@
 "use client"
+// componentes
 import InputText from '../components/Inputs/InputText'
 import Link from 'next/link'
+
+// hooks
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../context/auth'
 import { useEffect } from 'react'
-import { redirect } from 'next/navigation'
-function Login() {
 
+// ?
+import { redirect } from 'next/navigation'
+
+export default function Login() {
+
+  // console.log("estamos en login")
+
+  // destructuramos useForm
   const { 
     register, 
     handleSubmit, 
@@ -14,10 +23,10 @@ function Login() {
     formState: { errors }
    } = useForm()
 
-
+  //  destructuramos useAuth
    const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
    
-
+  //  si esta autenticado rediriquimos al home
     if(isAuthenticated){
       console.log(user)
       console.log("Auth")
@@ -32,14 +41,16 @@ function Login() {
       <main className=" p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
 
         <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
-              Inicia sesión
+              Iniciar sesión
         </h1>
 
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
+          
               // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
               console.log(values)
               signIn(values)
             })}>
+
               <InputText
                 campo="Nombre de usuario"
                 nombre="nombre_de_usuario"
@@ -71,4 +82,3 @@ function Login() {
 )
 }
 
-export default Login

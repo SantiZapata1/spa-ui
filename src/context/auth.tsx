@@ -1,6 +1,12 @@
 "use client"
+
+// Hooks de React para crear y gestionar contextos, estados y efectos secundarios.
 import { createContext, ReactNode, useState, useContext, useEffect } from 'react';
+
+// Funciones de la API para manejar la autenticación
 import { logoutRequest, loginRequest, verifyToken, editUser } from '../api/auth'
+
+// Una librería para manejar cookies en el navegador.
 import Cookies from 'js-cookie'
 
 
@@ -16,15 +22,14 @@ type AuthContextType = {
 };
 
 
-// Exporta AuthContext para poder ser utilizado en el resto de la aplicación
+// Se crea un contexto llamado AuthContext que se inicializa como undefined y luego es utilizado para compartir el estado y funciones de autenticación en toda la aplicación.
 export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 // Se definen el uso de childrens dentro de AuthProvider
 type AuthProviderProps = {
     children: ReactNode;
 };
 
-
-// Se utiliza para poder utilizar el contexto de autenticación en cualquier componente
+// Un custom hook que permite acceder al contexto de autenticación desde cualquier componente. Si useAuth se llama fuera de un AuthProvider, lanza un error.
 export const useAuth = () => {
     const context = useContext(AuthContext);
     // Si el contexto no existe, se lanza un error
@@ -39,11 +44,14 @@ export const useAuth = () => {
 
 // Se exporta AuthProvider para poder ser utilizado en el resto de la aplicación
 export const AuthProvider = ({ children }: AuthProviderProps) => {
+
     // Se definen los estados de usuario, autenticación, errores y carga
-    const [user, setUser] = useState(null)
-    const [isAuthenticated, setIsAuthenticated] = useState(false)
-    const [errorsAuth, setErrors] = useState(null)
-    const [isLoading, setIsLoading] = useState(true)
+    const [user, setUser] = useState(null)//Almacena los datos del usuario autenticado.
+    const [isAuthenticated, setIsAuthenticated] = useState(false)//Indica si el usuario está autenticado.
+    const [errorsAuth, setErrors] = useState(null)//Maneja posibles errores relacionados con la autenticación.
+    const [isLoading, setIsLoading] = useState(true)// Indica si la autenticación está en proceso de carga.
+
+    
     //Registro
     const signUp = async (user: any) => {
         try {
@@ -55,6 +63,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             console.log(error)
         }
     }
+
     //Login
     const signIn = async (user: any) => {
         try {
@@ -70,6 +79,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             setErrors(error.response.data.message);
         }
     }
+
     // Logout de usuarios
     const logOut = async () => {
         try {
@@ -99,6 +109,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         }
     }
 
+    // Un efecto que borra los errores de autenticación después de 3 segundos.
     useEffect(() => {
         // Se establece un temporizador para los errores
         if (errorsAuth) {
@@ -111,6 +122,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         }
     }, [errorsAuth])
 
+    // Otro efecto que verifica si el usuario está autenticado al cargar la aplicación, usando el token almacenado en las cookies.
     useEffect(() => {
         // Se verifica si el usuario está logueado
         const checkLogin = async () => {
