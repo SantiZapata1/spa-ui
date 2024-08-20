@@ -1,7 +1,7 @@
 'use client';
 
-import NavBar from '../components/NavBar/NavBar'
-import Card2 from '../components/Card2/CardAgenda';
+import NavBar from '../../../components/NavBar/NavBar'
+import Card2 from '../../../components/Card2/CardAgenda';
 
 
 export default function contacto(){

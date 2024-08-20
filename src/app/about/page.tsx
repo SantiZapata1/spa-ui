@@ -26,7 +26,6 @@ const QuienesSomos = () => {
     },
   ];
 
-  // Lista de profesionales para la sección "Equipo Profesional"
   const profesionales = [
     {
       nombre: 'Ana',
@@ -41,35 +40,34 @@ const QuienesSomos = () => {
       perfil: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
     {
-      nombre: 'Dr. Lionel',
-      apellido: 'Messi',
+      nombre: 'Dr. Lionel Messi',
+      apellido: 'Rique',
       foto: '/Masajes/masaje1.png',
       perfil: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
     },
-    // Agrega más profesionales según sea necesario
   ];
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="flex flex-grow">
-        <aside className="w-64 p-4 bg-gray-100 border-r border-gray-400">
-          <ul className="space-y-4">
-            {sections.map((section) => (
-              <li key={section.id}>
-                <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-blue-700 rounded-lg transition duration-300">
-                  {section.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </aside>
-        <main className="flex-grow overflow-auto">
+    <div className="flex min-h-screen">
+      <aside className="fixed top-0 left-0 w-64 p-4 bg-gray-100 border-r border-gray-400 h-screen z-0">
+        <ul className="space-y-4 mt-14">
           {sections.map((section) => (
-            <section
-              key={section.id}
-              id={section.id}
-              className={`min-h-screen p-8 ${section.bgColor} flex flex-col`}
-            >
+            <li key={section.id}>
+              <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-blue-700 rounded-lg transition duration-300">
+                {section.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </aside>
+      <main className="flex-grow ml-64">
+        {sections.map((section) => (
+          <section
+            key={section.id}
+            id={section.id}
+            className={`min-h-screen ${section.bgColor} flex flex-col justify-center items-center py-0 px-4`}
+          >
+            <div className="max-w-4xl w-full">
               <h2 className="text-3xl font-bold mb-4 text-center">{section.title}</h2>
               {section.id === 'equipo' ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -88,26 +86,14 @@ const QuienesSomos = () => {
               ) : (
                 <p className="text-center">{section.content}</p>
               )}
-            </section>
-          ))}
-        </main>
-      </div>
+            </div>
+          </section>
+        ))}
+      </main>
     </div>
   );
 };
 
 export default QuienesSomos;
-
-
-
-
-
-
-
-
-
-
-
-
 
 
