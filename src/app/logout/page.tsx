@@ -10,7 +10,7 @@ import { useRouter } from 'next/navigation';
 // Contexto
 import { useAuth } from '../../context/auth'
 
-function index() {
+export default function Index() {
     const { logOut, isAuthenticated } = useAuth()
     const router = useRouter()
 
@@ -19,12 +19,14 @@ function index() {
             logOut()
             setTimeout(() => {
               router.push('/')
-            }, 2000)
+            }, 1000)
         }
-      }, [isAuthenticated])
+      })
+      
     return (
-    <div className='h-screen'>Cerrando sesión...</div>
+      <div className='h-screen'>
+        <h3>      Cerrando sesión...      </h3>
+      </div>
   )
 }
 
-export default index

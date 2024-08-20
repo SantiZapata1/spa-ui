@@ -33,6 +33,11 @@ export default function Login() {
       redirect('/')
     }
 
+    const onSubmit = handleSubmit(async(values)=>{
+      // console.log(values);
+      signIn(values)
+    });
+
 
   return (
 
@@ -44,12 +49,7 @@ export default function Login() {
               Iniciar sesión
         </h1>
 
-        <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
-          
-              // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
-              console.log(values)
-              signIn(values)
-            })}>
+        <form className="space-y-6" onSubmit={onSubmit}>
 
               <InputText
                 campo="Nombre de usuario"
