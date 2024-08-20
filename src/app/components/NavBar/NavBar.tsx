@@ -5,7 +5,8 @@ import Image from "next/image";
 import Link from 'next/link';
 import logo from "../../../../public/logo sin fondo.png";
 import { useAuth } from './../../../context/auth';
-function NavBar() {
+
+export default function NavBar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -77,7 +78,8 @@ function NavBar() {
             Login
           </Link>
         ) : (
-          <Link href="/profile" className={linkClass} onClick={() => toggleDropdownFalse()}>
+          <Link href="/profile" className={linkClass} >
+            {/* onClick={() => toggleDropdownFalse()} */}
           {user.nombre_de_usuario}
         </Link>
         )  
