@@ -60,7 +60,7 @@ function CardComentarios() {
                 <input 
                     type='text' 
                     placeholder='Servicio' 
-                    className={`w-full my-2 border ${errors.servicio ? 'border-red-500' : 'border-black'}`}
+                    className={`w-full p-2 my-2 border ${errors.servicio ? 'border-red-500' : 'border-black'}`}
                     {...register("servicio", { required: "El campo Servicio es obligatorio" })}
                     autoFocus
                 />
@@ -69,7 +69,7 @@ function CardComentarios() {
                 <textarea 
                     rows={3} 
                     placeholder='comentario' 
-                    className={`w-full my-2 border ${errors.descripcion ? 'border-red-500' : 'border-black'}`}
+                    className={`p-2 w-full my-2 border ${errors.descripcion ? 'border-red-500' : 'border-black'}`}
                     {...register("comentario", { required: "El campo comentario es obligatorio" })}
                 ></textarea>
 

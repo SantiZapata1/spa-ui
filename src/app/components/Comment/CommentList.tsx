@@ -1,3 +1,4 @@
+import { AnyBulkWriteOperation } from "mongodb";
 import {getCommentsRequest} from "../../../api/comments"
 import Comment from "./Comment";
 // Utiliza useState para almacenar los comentarios y useEffect para realizar la solicitud cuando el componente se monta.
@@ -21,10 +22,13 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
 
   return (
     <div>
-            <h4>Lista de comentarios</h4>
-            <ul>
-                {comentarios.length > 0 ? (
-                    comentarios.map((comentario:any) => (
+        <h4>Lista de comentarios</h4>
+        <ul>
+            {comentarios.length > 0 ? (
+                // Ordenar los comentarios por fecha, de más nuevo a más viejo
+                comentarios
+                    .sort((a:any, b:any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                    .map((comentario: any) => (
                         <li key={comentario._id} className="border-b py-2">
                             <Comment
                                 servicio={comentario.servicio}
@@ -33,10 +37,11 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
                             />
                         </li>
                     ))
-                ) : (
-                    <p>No hay comentarios disponibles.</p>
-                )}
-            </ul>
-        </div>
+            ) : (
+                <p>No hay comentarios disponibles.</p>
+            )}
+        </ul>
+    </div>
+
   )
 }
