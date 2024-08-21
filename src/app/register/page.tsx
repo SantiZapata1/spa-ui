@@ -1,12 +1,15 @@
 "use client";
+
 // Componentes
 import InputText from "../components/Inputs/InputText";
 
 // Hooks
 import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
+
 // Dependencias
 import { redirect } from 'next/navigation'
+
 // API del BackEnd
 import { registerRequest } from "../../api/auth";
 

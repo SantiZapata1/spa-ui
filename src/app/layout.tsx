@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
 import { AuthProvider } from '../context/auth'
-import { CommentProvider } from "@/context/commentContext";
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -24,11 +24,9 @@ export default function RootLayout({
     <html lang="es">
       <body className={inter.className}>
         <AuthProvider>
-          <CommentProvider>
             <NavBar/>
               {children}
             <Footer/>
-          </CommentProvider>
         </AuthProvider>
 
       </body>

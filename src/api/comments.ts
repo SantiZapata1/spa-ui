@@ -1,13 +1,18 @@
-import axios from "axios";
+import axios from "./axios";
 
 // peticiones CRUD para comentarios
 
-export const getCommentsRequest = () => axios.get("/comments");
+// obtener todos los comentarios
+export const getCommentsRequest = () => axios.get("/comentarios");
 
-export const getCommentRequest = () => axios.get("/comment");
+// obtener un comentarios
+export const getCommentRequest = (id:any) => axios.get(`/comentario/${id}`);
 
-export const createCommentRequest = (comment:any) => axios.post("/comments");
+// crear un comentario
+export const createCommentRequest = (comment:any) => axios.post("/comentarios", comment);
 
-export const updateCommentRequest = (comment:any) => axios.put(`/comments/${comment.id}`, comment);
+// actualiazar un comentario
+export const updateCommentRequest = (comment:any) => axios.put(`/comentarios/${comment.id}`, comment);
 
-export const deleteCommentsRequest = (id:any) => axios.delete(`/comments/${id}`);
+// eliminar un comentario
+export const deleteCommentsRequest = (id:any) => axios.delete(`/comentarios/${id}`);
