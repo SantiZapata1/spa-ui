@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useState} from "react";
+import { useState, useEffect} from "react";
 
 // componentes
 import CommentList from "../Comment/CommentList";
@@ -14,6 +14,23 @@ import {
 
 function CardComentarios() {
 
+    const [comentarios, setComentarios] = useState([]);
+    const [mensajeError, setMensajeError] = useState("");
+
+    // Función para obtener la lista de comentarios
+    const listaComentarios = async () => {
+        try {
+            const response = await getCommentsRequest();
+            setComentarios(response.data); // Guarda los comentarios en el estado
+        } catch (error) {
+            setMensajeError("No se pudieron cargar los comentarios.");
+            console.error("Error al obtener los comentarios:", error);
+        }
+    };
+    useEffect(() => {
+        listaComentarios(); // Cargar comentarios cuando el componente se monta
+    }, []);
+
     // Destructuramos useForm
     const { 
         register, 
@@ -23,14 +40,12 @@ function CardComentarios() {
 
     // Función onSubmit
     const onSubmit = async (datos:any) => {
-
         try {
             await createCommentRequest(datos);
-            console.log(datos);
-            alert("Comentario enviado exitosamente");
-
+            listaComentarios(); // Recargar los comentarios después de crear uno nuevo
         } catch (error) {
             console.error("Error al enviar el comentario:", error);
+            setMensajeError("Hubo un problema al enviar el comentario.");
         }
     };
 
@@ -68,7 +83,10 @@ function CardComentarios() {
                 </button>
             </form>
 
-            <CommentList/>
+            <CommentList 
+                comentarios={comentarios} 
+                recargarComentarios={listaComentarios} 
+            />
 
 
         </div>
