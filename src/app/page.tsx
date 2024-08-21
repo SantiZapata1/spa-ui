@@ -8,6 +8,7 @@ import imagenSpa from "../../public/imagen spa.jpg"
 import Footer from "./components/Footer/Footer";
 import ContactoForm from "./contacto/page";
 import HeroImage from "./components/HeroImage/Heroimage"
+import ComentarioForm from "./components/Comment/ComentarioForm";
 
 export default function Home() {
   return (
@@ -44,6 +45,14 @@ export default function Home() {
         {/* testimonios */}
         <section className="testimonios">
           <h2>Testimonios</h2>
+        </section>
+
+        {/* Coemntarios sin logear */}
+        <section className="testimonios p-8 bg-gray-100 flex flex-col items-center">
+          <h2 className="text-4xl font-bold text-center mb-8">Contanos tu experiencia</h2>
+          <div className="w-full max-w-lg">
+            <ComentarioForm />
+          </div>
         </section>
 
         {/* contacto */}
