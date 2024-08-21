@@ -7,8 +7,6 @@ import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../context/auth'
 import { useEffect } from 'react'
-
-// ?
 import { redirect } from 'next/navigation'
 
 export default function Login() {
@@ -28,8 +26,6 @@ export default function Login() {
    
   //  si esta autenticado rediriquimos al home
     if(isAuthenticated){
-      console.log(user)
-      console.log("Auth")
       redirect('/')
     }
 

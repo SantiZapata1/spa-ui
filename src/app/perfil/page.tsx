@@ -1,89 +1,40 @@
 "use client"
-
+// Dependencias
+import { redirect } from 'next/navigation'
+// Contexto
 import { useAuth } from '../../context/auth';
-import Comment from '../components/Comment/Comment';
-import { useComments } from '@/context/commentContext';
+// Hooks
+import {  useForm } from "react-hook-form";
+import { useState } from 'react';
 
-import { Form, useForm } from "react-hook-form";
+// Componentes
+import CardUserInfo from '../components/Cards/CardUserInfo';
+import CardUserTurnos from '../components/Cards/CardUserTurnos';
+import CardComentarios from '../components/Cards/CardComentarios';
 
 export default function Profile(){
 
-    const { user, isAuthenticated, errorsAuth } = useAuth();
-
-    const {createComment} = useComments();
+    const { user, isAuthenticated, errorsAuth, isLoading } = useAuth();
 
 
-    // destructuramos useForm
-    const { 
-        register, 
-        handleSubmit, 
-        setValue, 
-        formState: { errors }
-   } = useForm()
-
-    const onSubmit = handleSubmit(async(datos)=>{
-    //   console.log(datos);
-      createComment(datos)
-    });
+    // Estados
+    const [isEditing, setIsEditing] = useState(false);
+    const [turnos, setTurnos] = useState([]);
 
 
-    if (!isAuthenticated) {
-        return <p>No estás autenticado</p>;
+
+    if(isLoading){
+        return <p>Cargando...</p>
     }
+    if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 
     return(
         <>
-            <section className="h-screen">
-                {errorsAuth && <p>{errorsAuth}</p>}
-                <div>
-                    {user ? (
-                        <h2> Hola {user.nombre_de_usuario}</h2>
-                    ) : (
-                        <p>Cargando...</p>
-                    )}
-                </div>
-
-                <section>
-                    <h3>Tus turnos:</h3>
-                </section>
-
-                <section>
-
-                    <h3>Tus comentarios:</h3>
-
-                    <form className="m-3 w-80 bg-green-200 p-2 rounded-md" onSubmit={onSubmit}>
-
-                        <input 
-                            type='text' 
-                            placeholder='Servicio' 
-                            className='w-full my-2 border b-black'
-                            {...register("servicio")}
-                            autoFocus
-                        />
-
-                        <textarea 
-                            rows={3} 
-                            placeholder='descripcion' 
-                            className='w-full my-2 border b-black'
-                            {...register("descripcion")}
-                        ></textarea>
-
-                        
-                        <button className="p-3 mt-2 bg-green-900 text-white font-bold rounded-lg shadow-lg">
-                            Guardar
-                        </button>
-                        
-                    </form>
-
-                    
-
-
-                    <Comment
-                        servicio='peluqueria'
-                        comentario='muy buena la peluquera rubia'
-                    />
-
-                </section>
+            <section className="h-full w-full flex flex-col items-center justify-center mt-10">
+                        <h2> Hola {user.nombre_de_usuario}</h2>                
+                <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
+                <CardUserTurnos turnos={[]}/>
+                <CardComentarios />               
 
             </section>
         </>

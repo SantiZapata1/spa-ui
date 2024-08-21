@@ -8,7 +8,7 @@ type CommentProps = {
 export default function Comment({servicio, comentario}:CommentProps){
 
     return(
-        <div className="border border-red-800 w-96">
+        <div className="border border-red-800  w-6/10 p-3">
             <h3> <b>Servicio: </b>{servicio}</h3>
             <p><b>Comentario: </b>{comentario}</p>
         </div>

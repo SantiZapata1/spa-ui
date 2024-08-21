@@ -1,5 +1,5 @@
 'use client';
-import Card2 from '../../../components/Card2/CardAgenda';
+import Card2 from '../../../components/Cards/CardAgenda';
 
 
 export default function contacto(){

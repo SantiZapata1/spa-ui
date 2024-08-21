@@ -11,6 +11,10 @@ module.exports = {
   theme: {
 
     extend: {
+      backgroundColor: {
+        "spa-purple": "#9F2C71",
+        "spa-light-purple": "#F075AA",
+      },
       fontSize: {
         vw: '0.9vw',
         "10xl": '10rem'
