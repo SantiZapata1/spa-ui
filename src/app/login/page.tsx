@@ -39,9 +39,9 @@ export default function Login() {
 
     <div className="flex flex-col height-full">
 
-      <main className=" p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
+      <main className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full mt-16 mx-auto">
 
-        <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
+        <h1 className="text-3xl font-bold text-center text-green-600 mb-8">
               Iniciar sesión
         </h1>
 
@@ -68,7 +68,7 @@ export default function Login() {
               <div className="text-center"> 
               <p>¿No tienes cuenta? <Link href="/register" className="text-green-500"> Regístrate </Link></p>
               </div>
-              <button className="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300">
+              <button className="w-full py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-700 transition duration-300">
                 Iniciar Sesión
               </button>
               

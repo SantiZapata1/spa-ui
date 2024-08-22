@@ -1,4 +1,5 @@
-const QuienesSomos = () => {
+export default function QuienesSomos(){
+
   const sections = [
     {
       id: 'quienes-somos',
@@ -49,7 +50,8 @@ const QuienesSomos = () => {
 
   return (
     <div className="flex min-h-screen">
-      <aside className="fixed top-0 left-0 w-64 p-4 bg-gray-100 border-r border-gray-400 h-screen z-0">
+
+      <aside className="header w-64 p-4 bg-gray-100 border-r border-gray-400 h-screen">
         <ul className="space-y-4 mt-14">
           {sections.map((section) => (
             <li key={section.id}>
@@ -60,7 +62,8 @@ const QuienesSomos = () => {
           ))}
         </ul>
       </aside>
-      <main className="flex-grow ml-64">
+
+      <main className="flex-grow">
         {sections.map((section) => (
           <section
             key={section.id}
@@ -94,6 +97,6 @@ const QuienesSomos = () => {
   );
 };
 
-export default QuienesSomos;
+
 
 

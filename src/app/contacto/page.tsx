@@ -14,7 +14,7 @@ const ContactoForm = () => {
       {/* <NavBar /> Incluimos la NavBar aquí */}
       <main className="flex-grow bg-white p-8 rounded-lg shadow-lg">
 
-        <h1 className="text-3xl font-bold text-center text-green-500 mb-8">
+        <h1 className="text-3xl font-bold text-center text-green-600 mb-8">
           Contáctanos
         </h1>
         
@@ -54,7 +54,7 @@ const ContactoForm = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
+              className="w-full py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
             >
               Enviar Mensaje
             </button>

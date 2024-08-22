@@ -7,13 +7,14 @@ type Comentario = {
   calificacion: number;
 };
 
-const ComentarioForm: React.FC = () => {
+export default function ComentarioForm(){
+
+  // usar useForm()
   const [nombre, setNombre] = useState("");
   const [comentario, setComentario] = useState("");
   const [calificacion, setCalificacion] = useState(0);
 
   const manejarEnvio = (e: React.FormEvent) => {
-    e.preventDefault();
 
     const nuevoComentario: Comentario = {
       nombre,
@@ -31,8 +32,11 @@ const ComentarioForm: React.FC = () => {
   return (
     <form
       onSubmit={manejarEnvio}
-      className="w-full max-w-lg p-8 bg-pink-500 rounded-lg shadow-md"
+      className="w-full max-w-xl p-8 rounded-lg shadow-sm border bg-white"
     >
+
+      <h2 className="text-4xl font-semibold text-center mb-8">Contanos tu experiencia</h2>
+
       <div className="mb-4">
         <label htmlFor="nombre" className="block text-gray-700 font-bold mb-1">
           Nombre:
@@ -42,7 +46,7 @@ const ComentarioForm: React.FC = () => {
           id="nombre"
           value={nombre}
           onChange={(e) => setNombre(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
+          className="w-full p-2 border border-gray-300 rounded-md focus:ring-green-500"
           required
         />
       </div>
@@ -84,7 +88,7 @@ const ComentarioForm: React.FC = () => {
 
       <button
         type="submit"
-        className="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600 transition"
+        className="w-full bg-green-600 text-white text-semibold p-2 rounded-md hover:bg-green-700 transition-all"
       >
         Enviar
       </button>
@@ -92,4 +96,3 @@ const ComentarioForm: React.FC = () => {
   );
 };
 
-export default ComentarioForm;

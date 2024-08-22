@@ -7,6 +7,7 @@ import logo from "../../../../public/logo sin fondo.png";
 import { useAuth } from './../../../context/auth';
 
 export default function NavBar() {
+
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [userDropwdownOpen, setUserDropdownOpen] = useState(false);
 
@@ -24,18 +25,19 @@ export default function NavBar() {
   }
 
   // Clase común para todos los enlaces
-  const linkClass = 'text-white px-4 py-2 text-lg navbar-button cursor-pointer';
+  const linkClass = 'text-pink-700 font-semibold px-4 py-2 transition text-lg navbar-button rounded-3xl cursor-pointer';
 
   const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
 
   return (
-    <div className='flex flex-row bg-violet-logo w-full items-center z-50 relative'>
-      <div className='flex flex-row items-center ml-4 space-x-6 center navbar-father'>
+    <div className='flex flex-row w-full items-center z-50 relative'>
+
+      <div className='flex flex-row items-center ml-4 space-x-6 center py-1 navbar-father'>
         <Link href="/" onClick={closeDropdown}>
           <Image
             src={logo}
             alt="logo del spa"
-            className='w-20'
+            className='w-20 pb-1'
           />
         </Link>
 

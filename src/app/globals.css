@@ -22,6 +22,11 @@
     --color-accent: #FFFFFF; /* Blanco */
 
 }
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Para asegurarte de que se superpone a otros elementos */
+}
 
 html {
     scroll-behavior: smooth;
@@ -63,20 +68,13 @@ h2{
     background-color: var(--color-background);
 }
 
-
-
-/* navbar */
-.navbar-button{
-    background-color: #cb66a3;
-    border-radius: 20px;
-    margin: 10px;
-    transition: border 0.2s;
-}
 .navbar-button:hover{
     border: thin solid white;
+    background-color: #f9deee;
 }
+
 .navbar-father > :last-child{
-    background-color: #9f2c71;
+    background-color: #f3e4eb;
 }
 /* hero image del inicio */
 .main{
@@ -116,22 +114,10 @@ h2{
     padding: 20px;
 }
 .eslogan{
-    color: white;
     font-size: 24px;
     text-wrap:stable;
 }
-.primary-button{
-    background-color: var(--violet-color-2);
-    padding: 10px 30px;
-    border: thin solid white;
-    color: white;
-    border-radius: 20px;
-    margin-top: 20px;
-}
-.primary-button:hover{
-    background-color: #8c3c6c;
-    transition: background-color 0.3s;
-}
+
 
 /* otras secciones del inicio*/
 .secciones > section{

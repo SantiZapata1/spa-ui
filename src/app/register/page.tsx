@@ -30,13 +30,14 @@ export default function Page() {
   }, [registrationSuccess]);
 
   return (
-    <main className="h-screen p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
-      <h1 className="text-3xl font-bold text-center text-green-500 mb-8">Registrarse</h1>
+    <main className="my-6 bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
+
+      <h1 className="text-3xl font-bold text-center text-green-600 mb-8">Registrarse</h1>
 
       {mensajeError && <p className="text-red-500 text-center">{mensajeError}</p>}
 
       <form
-        className="space-y-6"
+        className="space-y-3"
         method="post"
         onSubmit={handleSubmit(async (values) => {
           // Validación de contraseñas iguales
