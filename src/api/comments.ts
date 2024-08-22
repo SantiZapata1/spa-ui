@@ -8,6 +8,8 @@ export const getCommentsRequest = () => axios.get("/comentarios");
 // obtener un comentarios
 export const getCommentRequest = (id:any) => axios.get(`/comentario/${id}`);
 
+// obtener comentarios de un usuario
+export const getCommentsFromUserRequest = (id:any) => axios.get(`/comentarios-usuario/${id}`);
 // crear un comentario
 export const createCommentRequest = (comment:any) => axios.post("/comentarios", comment);
 

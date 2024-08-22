@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useEffect } from 'react';
 type InputTextProps = {
   campo: string;
   placeholder: string;
@@ -9,20 +9,30 @@ type InputTextProps = {
   setValue: any;
   errors: any;
   require?: boolean;
+  valor?: string;
 };
 // Definimos el componente funcional InputText
-function InputText({campo, placeholder, type, nombre, register, require, setValue, errors }: InputTextProps) {
+function InputText({  campo, placeholder, type, nombre, register, require, setValue, errors, valor }: InputTextProps) {
+
+  useEffect(() => {
+    if (valor) {
+      setValue(nombre, valor);
+    }
+  }, [setValue, nombre, valor, errors]);
+
+
   return (
-    <div>
+    <>
       <label className="block text-sm font-medium text-gray-700">
         {campo}
       </label>
+       {errors && <span className="mt-2 text-red-600">{placeholder} es requerido</span>} 
       <input
         type={type}
-        className="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500"
-        {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder} 
+        className={`mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500`}
+        {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder}
       />
-    </div>
+    </>
   );
 }
 
