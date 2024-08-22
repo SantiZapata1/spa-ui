@@ -49,10 +49,8 @@ export default function Home() {
         </section>
 
         {/* Coemntarios sin logear */}
-        <section className="testimonios p-8 flex flex-col items-center">
-          <div className="w-full max-w-lg">
+        <section className="flex flex-col items-center h-full p-8">
             <ComentarioForm />
-          </div>
         </section>
 
         {/* contacto */}

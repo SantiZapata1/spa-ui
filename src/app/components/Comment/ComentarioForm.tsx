@@ -1,6 +1,8 @@
 'use client';
 import React, { useState } from "react";
-
+import InputText from "../Inputs/InputText";
+import InputTextArea from "../Inputs/InputTextArea";
+import { useForm } from "react-hook-form";
 type Comentario = {
   nombre: string;
   comentario: string;
@@ -10,60 +12,26 @@ type Comentario = {
 export default function ComentarioForm(){
 
   // usar useForm()
-  const [nombre, setNombre] = useState("");
-  const [comentario, setComentario] = useState("");
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [calificacion, setCalificacion] = useState(0);
 
-  const manejarEnvio = (e: React.FormEvent) => {
-
-    const nuevoComentario: Comentario = {
-      nombre,
-      comentario,
-      calificacion,
-    };
-
-    console.log(nuevoComentario);
-
-    setNombre("");
-    setComentario("");
-    setCalificacion(0);
+  const manejarEnvio = async (datos:any) => {
+    try{
+      datos.calificacion = calificacion
+      console.log(datos);
+      setCalificacion(0);
+    }catch(error){
+      console.log("Error al enviar el comentario", error)
+    }
   };
 
+  
+
   return (
-    <form
-      onSubmit={manejarEnvio}
-      className="w-full max-w-xl p-8 rounded-lg shadow-sm border bg-white"
-    >
-
+    <form className="flex flex-col w-full max-w-xl p-8 rounded-lg shadow-sm border bg-white" onSubmit={handleSubmit(manejarEnvio)}>
       <h2 className="text-4xl font-semibold text-center mb-8">Contanos tu experiencia</h2>
-
-      <div className="mb-4">
-        <label htmlFor="nombre" className="block text-gray-700 font-bold mb-1">
-          Nombre:
-        </label>
-        <input
-          type="text"
-          id="nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md focus:ring-green-500"
-          required
-        />
-      </div>
-
-      <div className="mb-4">
-        <label htmlFor="comentario" className="block text-gray-700 font-bold mb-1">
-          Comentario:
-        </label>
-        <textarea
-          id="comentario"
-          value={comentario}
-          onChange={(e) => setComentario(e.target.value)}
-          className="w-full p-2 border border-gray-300 rounded-md"
-          required
-        />
-      </div>
-
+      <InputText require campo="Nombre" placeholder="" type="text" nombre="nombre" register={register} errors={errors.nombre}  />
+      <InputTextArea require campo="Comentario" nombre="comentario" type="text" placeholder="" register={register} errors={errors.comentario} />
       <div className="mb-4">
         <label htmlFor="calificacion" className="block text-gray-700 font-bold mb-1">
           Calificación:

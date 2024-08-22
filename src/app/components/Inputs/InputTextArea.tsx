@@ -1,3 +1,4 @@
+'use client';
 // Hooks
 import { useEffect } from 'react'
 
@@ -5,12 +6,12 @@ import { useEffect } from 'react'
 interface InputRegisterProps {
     campo: string;
     nombre: string;
-    register?: any;
+    register: any;
     type: string;
     variante?: any;
     valor?: any;
     placeholder: string;
-    setValue: any;
+    setValue?: any;
     errors: any;
     require?: Boolean
 }
@@ -28,7 +29,8 @@ function InputTextArea({ require, errors, campo, nombre, register, type, variant
         <>
                {errors && <span className="mt-2 text-red-600">{placeholder} es requerido</span>} 
             <textarea className="border open-sans pl-4 my-2 py-5 resize-none text-lg border-gray-300 rounded-md w-full h-56 "type={type}
-                {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder} />
+                {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder}
+                 />
                 </>
 
     )
