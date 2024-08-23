@@ -16,7 +16,8 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.52.2",
-    "react-lorem-ipsum": "^1.4.10"
+    "react-lorem-ipsum": "^1.4.10",
+    "sweetalert2": "^11.12.4"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",

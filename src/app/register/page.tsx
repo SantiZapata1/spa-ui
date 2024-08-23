@@ -74,7 +74,7 @@ export default function Page() {
           placeholder=""
           register={register}
           setValue={setValue}
-          errors={errors.nombre}
+          errors={errors.apellido}
         />
         <InputText
           campo="Correo electrónico"
@@ -83,7 +83,16 @@ export default function Page() {
           placeholder=""
           register={register}
           setValue={setValue}
-          errors={errors.nombre}
+          errors={errors.correo_electronico}
+        />
+        <InputText 
+          campo="Teléfono"
+          nombre="telefono"
+          type="text"
+          placeholder=""
+          register={register}
+          setValue={setValue}
+          errors={errors.telefono}
         />
         <InputText
           campo="Nombre de usuario"
@@ -92,7 +101,7 @@ export default function Page() {
           placeholder=""
           register={register}
           setValue={setValue}
-          errors={errors.nombre}
+          errors={errors.nombre_de_usuario}
         />
         <InputText
           campo="Contraseña"
@@ -101,7 +110,7 @@ export default function Page() {
           placeholder=""
           register={register}
           setValue={setValue}
-          errors={errors.nombre}
+          errors={errors.pass}
         />
         <InputText
           campo="Repite la contraseña"
@@ -110,7 +119,7 @@ export default function Page() {
           placeholder=""
           register={register}
           setValue={setValue}
-          errors={errors.nombre}
+          errors={errors.pass}
         />
 
         <button className="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300">
