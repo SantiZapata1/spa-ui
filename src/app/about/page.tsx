@@ -50,9 +50,8 @@ export default function QuienesSomos(){
 
   return (
     <div className="flex min-h-screen">
-
-      <aside className="header w-64 p-4 bg-gray-100 border-r border-gray-400 h-screen">
-        <ul className="space-y-4 mt-14">
+      <aside className="header w-64 p-4 bg-gray-100 border-r border-gray-400 h-screen flex flex-col">
+        <ul className="space-y-4 mt-6"> {/* Ajusta el mt-6 según sea necesario */}
           {sections.map((section) => (
             <li key={section.id}>
               <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-blue-700 rounded-lg transition duration-300">
@@ -95,8 +94,4 @@ export default function QuienesSomos(){
       </main>
     </div>
   );
-};
-
-
-
-
+}

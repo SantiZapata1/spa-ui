@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import ContactoForm from "./contacto/page";
 import HeroImage from "./components/HeroImage/Heroimage"
 import ComentarioForm from "./components/Comment/ComentarioForm";
+import Galeria from "./components/GaleriaFoto/Galeria";
 
 export default function Home() {
   return (
@@ -38,9 +39,9 @@ export default function Home() {
           <h2>Servicios</h2>
         </section>
 
-        {/* galeria */}
+        {/* Galería */}
         <section className="galeria">
-          <h2>Galería</h2>
+          <Galeria />
         </section>
 
         {/* testimonios */}
