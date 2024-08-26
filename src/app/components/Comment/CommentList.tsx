@@ -1,3 +1,4 @@
+"use client"
 import {getCommentsRequest} from "../../../api/comments"
 import Comment from "./Comment";
 // Utiliza useState para almacenar los comentarios y useEffect para realizar la solicitud cuando el componente se monta.

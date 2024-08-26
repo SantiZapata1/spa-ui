@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
+
 type InputTextProps = {
   campo: string;
   placeholder: string;
@@ -11,6 +12,7 @@ type InputTextProps = {
   require?: boolean;
   valor?: string;
 };
+
 // Definimos el componente funcional InputText
 function InputText({  campo, placeholder, type, nombre, register, require, setValue, errors, valor }: InputTextProps) {
 

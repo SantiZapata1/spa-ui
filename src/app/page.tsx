@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 import styles from "./page.module.css";
 import Link from "next/link";
@@ -10,8 +12,45 @@ import ContactoForm from "./contacto/page";
 import HeroImage from "./components/HeroImage/Heroimage"
 import ComentarioForm from "./components/Comment/ComentarioForm";
 import Galeria from "./components/GaleriaFoto/Galeria";
+import CommentList from "./components/Comment/CommentList";
+import {getCommentsRequest} from "../api/comments"
+import { useState, useEffect} from "react";
+
+type Comentario = {
+  id: number;
+  servicio: string;
+  comentario: string;
+};
 
 export default function Home() {
+
+  const [comentarios, setComentarios] = useState<Comentario[]>([]);
+  const [filtro, setFiltro] = useState<string>('ningun');
+
+  const handleFiltroChange = (event:any) => {
+    setFiltro(event.target.value);
+  };
+
+
+  const listaComentarios = async () => {
+    try {
+        const response = await getCommentsRequest();
+        setComentarios(response.data); // Guarda los comentarios en el estado
+
+    } catch (error) {
+        console.error("Error al obtener los comentarios:", error);
+    }
+  }
+
+  useEffect(() => {
+    listaComentarios(); // Cargar comentarios cuando el componente se monta
+}, []);
+
+  // Filtrar los comentarios según el servicio seleccionado
+  const comentariosFiltrados = filtro === 'ningun'
+  ? comentarios
+  : comentarios.filter(comentario => comentario.servicio === filtro);
+
   return (
     <main>
       
@@ -46,7 +85,24 @@ export default function Home() {
 
         {/* testimonios */}
         <section className="testimonios">
-          <h2>Testimonios</h2>
+          <h2>Comentarios</h2>
+          
+          <label htmlFor="opciones">Filtrar:</label>
+          <select id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
+              <option value="ningun">sin filtro</option>
+              <option value="belleza">Belleza</option>
+              <option value="masajes">Masajes</option>
+              <option value="tratamientos-corporales">Tratamientos corporales</option>
+              <option value="tratamientos-faciales">Tratamientos faciales</option>
+            </select>
+
+
+
+
+          <CommentList
+            comentarios={comentariosFiltrados} 
+          />
+
         </section>
 
         {/* Coemntarios sin logear */}

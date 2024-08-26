@@ -28,7 +28,7 @@ function InputTextArea({ require, errors, campo, nombre, register, type, variant
     return (
         <>
                {errors && <span className="mt-2 text-red-600">{placeholder} es requerido</span>} 
-            <textarea className="border open-sans pl-4 my-2 py-5 resize-none text-lg border-gray-300 rounded-md w-full h-56 "type={type}
+            <textarea className="border open-sans p-2 my-2 resize-none text-lg border-gray-300 rounded-md w-96 h-26 "type={type}
                 {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder}
                  />
                 </>

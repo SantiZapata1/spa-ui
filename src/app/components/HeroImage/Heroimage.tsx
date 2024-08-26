@@ -24,7 +24,7 @@ export default function HeroImage({titulo,eslogan,textoBoton}: HeroImageProps){
                         </section>
 
                         <Link href="/#contacto">
-                            <button className="text-white border py-2 px-5 bg-pink-800 mt-5 rounded-3xl text-xl">{textoBoton}</button>
+                            <button className="text-white border py-2 px-5 bg-pink-800 mt-5 rounded-3xl text-xl main-button">{textoBoton}</button>
                         </Link>
 
                     </section>
