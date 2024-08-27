@@ -1,6 +1,7 @@
 "use client"
-import {getCommentsRequest} from "../../../api/comments"
+
 import Comment from "./Comment";
+
 // Utiliza useState para almacenar los comentarios y useEffect para realizar la solicitud cuando el componente se monta.
 import { useState, useEffect } from "react";
 
@@ -22,7 +23,6 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
 
   return (
     <div>
-        <h4 className="text-xl font-bold">Lista de comentarios</h4>
         <ul>
             {comentarios.length > 0 ? (
                 // Ordenar los comentarios por fecha, de más nuevo a más viejo

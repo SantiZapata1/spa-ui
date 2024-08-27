@@ -15,8 +15,8 @@ import CardEditUser from '../components/Cards/CardEditUser';
 
 export default function Profile(){
 
+    // hook de contexto
     const { user, isAuthenticated, errorsAuth, isLoading } = useAuth();
-
 
     useEffect(() => {
         console.log(user)
@@ -34,17 +34,18 @@ export default function Profile(){
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 
     return(
-        <>
-            <section className="h-full w-full flex flex-col items-center justify-center mt-10">
+            <section className="w-full flex flex-col items-center justify-center">
 
                 <h2> Hola {user.nombre_de_usuario}</h2>             
                    
-                {!isEditing ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
-                 : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }
+                {!isEditing 
+                ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
+                : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }
+
                 <CardUserTurnos turnos={[]}/>
+                
                 <CardComentarios />               
 
             </section>
-        </>
     );
 }

@@ -84,32 +84,38 @@ export default function Home() {
         </section>
 
         {/* testimonios */}
-        <section className="h-80vh overflow-scroll mt-10 flex flex-col items-center justify-around">
+        <section className="h-80vh mt-10 flex flex-col items-center">
+
           <h2>Comentarios</h2>
-          
-          <label htmlFor="opciones" className="text-xl font-bold ">Filtrar:</label>
-          <div className="flex flex-col 2xl:flex-col xl:w-1/3">
-          <select className="border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4 w-95/10" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
-              <option value="ningun">Sin filtro</option>
-              <option value="belleza">Belleza</option>
-              <option value="masajes">Masajes</option>
-              <option value="tratamientos-corporales">Tratamientos corporales</option>
-              <option value="tratamientos-faciales">Tratamientos faciales</option>
-            </select>
+
+          <div className="flex flex-row h-9/10">
+
+            <div className="m-5">
+
+              <ComentarioForm />
+
+            </div>
+
+            <div className="overflow-scroll m-5">
+              <div>
+                <label htmlFor="opciones" className="text-xl font-bold ">Filtrar:</label>
+                <select className="border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4 w-95/10" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
+                  <option value="ningun">Sin filtro</option>
+                  <option value="belleza">Belleza</option>
+                  <option value="masajes">Masajes</option>
+                  <option value="tratamientos-corporales">Tratamientos corporales</option>
+                  <option value="tratamientos-faciales">Tratamientos faciales</option>
+                </select>
+              </div>
+
+              <div>
+                <CommentList
+                comentarios={comentariosFiltrados} 
+                />
+              </div>
+            </div>
 
           </div>
-
-
-
-          <CommentList
-            comentarios={comentariosFiltrados} 
-          />
-
-        </section>
-
-        {/* Coemntarios sin logear */}
-        <section className="flex flex-col items-center h-full p-8">
-            <ComentarioForm />
         </section>
 
         {/* contacto */}

@@ -7,7 +7,6 @@ import { useAuth } from '../../../context/auth';
 import CommentList from "../Comment/CommentList";
 import InputText from "../Inputs/InputText";
 import InputTextArea from "../Inputs/InputTextArea";
-// import FormComponent from "../FormComponent/FormComponent";
 
 // controladores api
 import {
@@ -19,7 +18,8 @@ import {
     updateCommentRequest,
 } from "../../../api/comments";
 
-function CardComentarios() {
+export default function CardComentarios() {
+
     const { user, isAuthenticated, errorsAuth, isLoading } = useAuth();
 
     const [comentarios, setComentarios] = useState([]);
@@ -61,7 +61,7 @@ function CardComentarios() {
     };
 
     return (
-        <div className=" mb-5 flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-6/10 p-4 mt-5">
+        <div className="mb-5 flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-6/10 p-4 mt-5">
             <h2 className="text-3xl font-medium">Tus comentarios</h2>
 
             <form 
@@ -107,4 +107,4 @@ function CardComentarios() {
     );
 }
 
-export default CardComentarios;
+
