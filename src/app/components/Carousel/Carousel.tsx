@@ -56,7 +56,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
           <button
             key={index}
             type="button"
-            className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-blue-500' : 'bg-white'}`}
+            className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-green-600 hover:bg-green-600' : 'bg-white'}`}
             aria-current={index === currentIndex ? 'true' : 'false'}
             aria-label={`Slide ${index + 1}`}
             onClick={() => setCurrentIndex(index)}
@@ -68,7 +68,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
         <h2 className="text-4xl font-bold text-white mb-4">{title}</h2>
         <p className="text-lg text-white mb-4 max-w-5xl">{description}</p>
         <button 
-          className="bg-blue-500 text-white py-2 px-4 rounded" 
+          className="bg-green-600 hover:bg-green-400 text-white py-2 px-4 rounded" 
           onClick={handleButtonClick} // Maneja el clic del botón
         >
           {buttonText}

@@ -7,7 +7,7 @@ import { useAuth } from '../../../context/auth';
 import CommentList from "../Comment/CommentList";
 import InputText from "../Inputs/InputText";
 import InputTextArea from "../Inputs/InputTextArea";
-import FormComponent from "../FormComponent/FormComponent";
+// import FormComponent from "../FormComponent/FormComponent";
 
 // controladores api
 import {

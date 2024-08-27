@@ -22,14 +22,14 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
 
   return (
     <div>
-        <h4>Lista de comentarios</h4>
+        <h4 className="text-xl font-bold">Lista de comentarios</h4>
         <ul>
             {comentarios.length > 0 ? (
                 // Ordenar los comentarios por fecha, de más nuevo a más viejo
                 comentarios
                     .sort((a:any, b:any) => new Date(b.date).getTime() - new Date(a.date).getTime())
                     .map((comentario: any) => (
-                        <li key={comentario._id} className="border-b py-2">
+                        <li key={comentario._id} className="border-b my-2 py-2 bg-white rounded-md">
                             <Comment
                                 servicio={comentario.servicio}
                                 comentario={comentario.comentario}

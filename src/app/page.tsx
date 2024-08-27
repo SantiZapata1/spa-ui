@@ -84,18 +84,20 @@ export default function Home() {
         </section>
 
         {/* testimonios */}
-        <section className="testimonios">
+        <section className="h-80vh overflow-scroll mt-10 flex flex-col items-center justify-around">
           <h2>Comentarios</h2>
           
-          <label htmlFor="opciones">Filtrar:</label>
-          <select id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
-              <option value="ningun">sin filtro</option>
+          <label htmlFor="opciones" className="text-xl font-bold ">Filtrar:</label>
+          <div className="flex flex-col 2xl:flex-col xl:w-1/3">
+          <select className="border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4 w-95/10" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
+              <option value="ningun">Sin filtro</option>
               <option value="belleza">Belleza</option>
               <option value="masajes">Masajes</option>
               <option value="tratamientos-corporales">Tratamientos corporales</option>
               <option value="tratamientos-faciales">Tratamientos faciales</option>
             </select>
 
+          </div>
 
 
 

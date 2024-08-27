@@ -1,5 +1,9 @@
-export default function QuienesSomos(){
+"use client"
+import { useState } from 'react';
 
+export default function QuienesSomos() {
+
+  const [menuVisible, setMenuVisible] = useState(false);
   const sections = [
     {
       id: 'quienes-somos',
@@ -50,17 +54,33 @@ export default function QuienesSomos(){
 
   return (
     <div className="flex min-h-screen">
-      <aside className="header w-64 p-4 bg-gray-100 border-r border-gray-400 h-screen flex flex-col">
-        <ul className="space-y-4 mt-6"> {/* Ajusta el mt-6 según sea necesario */}
-          {sections.map((section) => (
-            <li key={section.id}>
-              <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-blue-700 rounded-lg transition duration-300">
-                {section.title}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </aside>
+      <div className="relative group">
+        {/* Botón que despliega el menú al pasar el mouse */}
+        {!menuVisible && (
+          <div className="header h-screen w-full p-4 bg-gray-100  flex flex-col" onMouseEnter={() => setMenuVisible(true)}>
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+            </svg>
+          </div>
+        )}
+        {/* Menú desplegable */}
+        {menuVisible &&
+          (
+            <aside className="header w-64 p-4 bg-gray-100 h-screen flex flex-col" onMouseLeave={() => setMenuVisible(false)}>
+              <ul className="space-y-4 mt-6">
+                {sections.map((section) => (
+                  <li key={section.id}>
+                    <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-blue-700 rounded-lg ">
+                      {section.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+      </div>
+
+
 
       <main className="flex-grow">
         {sections.map((section) => (

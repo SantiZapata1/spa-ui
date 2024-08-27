@@ -88,7 +88,7 @@ const ContactoForm = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="w-full py-3 bg-green-600 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300"
+              className="w-full py-3  text-white font-bold rounded-lg shadow-lg bg-green-600 hover:bg-green-600 transition duration-300"
             >
               Enviar Mensaje
             </button>
