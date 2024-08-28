@@ -109,7 +109,7 @@ export default function Home() {
         {/* Galería */}
         <section className="galeria">
           {/* comento la galeria pq me tira problemas en la consola */}
-          {/* <Galeria /> */}
+          <Galeria /> 
         </section>
 
         {/* testimonios */}
