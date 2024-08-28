@@ -117,7 +117,7 @@ export default function Home() {
         <section className="galeria">
           <h2>Galeria</h2>
           {/* comento la galeria pq me tira problemas en la consola */}
-          {/* <Galeria /> */}
+          <Galeria /> 
         </section>
 
         {/* testimonios */}
