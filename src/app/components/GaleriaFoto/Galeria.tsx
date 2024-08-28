@@ -21,9 +21,12 @@ const Galeria = () => {
             <Image
               src={src}
               alt={`Imagen ${index + 1}`}
-              layout="fill"
+              // layout="fill"
+              width={400}
+              height={400}
               objectFit="cover"
               className="rounded-lg"
+              sizes=""
             />
           </div>
         ))}

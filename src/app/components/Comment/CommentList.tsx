@@ -17,7 +17,7 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
    // Efecto para manejar acciones cuando los comentarios cambian (si es necesario)
    useEffect(() => {
     // Puedes realizar alguna acción aquí cuando los comentarios cambian
-    console.log("Comentarios actualizados:", comentarios);
+    // console.log("Comentarios actualizados:", comentarios);
     }, [comentarios]);
 
 

@@ -1,13 +1,6 @@
 "use client"
 
-import Image from "next/image";
-import styles from "./page.module.css";
-import Link from "next/link";
-import NavBar from "./components/NavBar/NavBar";
 import "./globals.css"
-import logo from "../../public/logo sin fondo.png"
-import imagenSpa from "../../public/imagen spa.jpg"
-import Footer from "./components/Footer/Footer";
 import ContactoForm from "./contacto/page";
 import HeroImage from "./components/HeroImage/Heroimage"
 import ComentarioForm from "./components/Comment/ComentarioForm";
@@ -15,17 +8,52 @@ import Galeria from "./components/GaleriaFoto/Galeria";
 import CommentList from "./components/Comment/CommentList";
 import {getCommentsRequest} from "../api/comments"
 import { useState, useEffect} from "react";
+import { useForm } from "react-hook-form";
+import InputTextArea from "./components/Inputs/InputTextArea";
+import { createCommentRequest } from "../api/comments";
 
+
+// interfaz del comentario
 type Comentario = {
   id: number;
   servicio: string;
   comentario: string;
 };
 
+
 export default function Home() {
 
+  // estados
   const [comentarios, setComentarios] = useState<Comentario[]>([]);
   const [filtro, setFiltro] = useState<string>('ningun');
+  const [mensajeError, setMensajeError] = useState("");
+
+  // destructuramos useform
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState:{errors}
+  } = useForm()
+
+  const onSubmit= async(values:any)=>{
+    try {
+      const response = await createCommentRequest(values);
+      
+      // Opcional: Agregar el nuevo comentario directamente al estado local
+      setComentarios((prevComentarios) => [
+        ...prevComentarios,
+        response.data, // Suponiendo que response.data es el nuevo comentario creado
+      ]);
+      
+      setValue('comentario', ''); // Limpiar el campo de comentario después de enviar
+
+    } catch (error) {
+      console.error("Error al enviar el comentario:", error);
+      setMensajeError("Hubo un problema al enviar el comentario.");
+    }
+
+  }
 
   const handleFiltroChange = (event:any) => {
     setFiltro(event.target.value);
@@ -44,7 +72,7 @@ export default function Home() {
 
   useEffect(() => {
     listaComentarios(); // Cargar comentarios cuando el componente se monta
-}, []);
+  }, []);
 
   // Filtrar los comentarios según el servicio seleccionado
   const comentariosFiltrados = filtro === 'ningun'
@@ -80,7 +108,8 @@ export default function Home() {
 
         {/* Galería */}
         <section className="galeria">
-          <Galeria />
+          {/* comento la galeria pq me tira problemas en la consola */}
+          {/* <Galeria /> */}
         </section>
 
         {/* testimonios */}
@@ -88,11 +117,40 @@ export default function Home() {
 
           <h2>Comentarios</h2>
 
-          <div className="flex flex-row h-9/10">
+          <div className="flex flex-row justify-center h-9/10 ">
 
-            <div className="m-5">
+            <div className="">
 
-              <ComentarioForm />
+              <form 
+                className="m-3 w-6/10 p-2 rounded-md" 
+                onSubmit={handleSubmit(onSubmit)}
+                >
+                {mensajeError && <p className="text-red-500">{mensajeError}</p>}
+
+                {/* Lista de servicios */}
+                <div>
+                    <label htmlFor="servicio">Elige una opción:</label>
+                    <input
+                    list="lista-servicio"
+                    id="servicio"
+                    className="p-1 m-1 font-bold"
+                    {...register('servicio', { required: true })} 
+                    />
+                    <datalist id="lista-servicio">
+                        <option value="belleza" />
+                        <option value="masajes" />
+                        <option value="tratamientos-corporales" />
+                        <option value="tratamientos-faciales"/>
+                    </datalist>
+                    {errors.servicio && <p className="text-red-500">Este campo es requerido</p>}
+                </div>
+
+                <InputTextArea require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario"  errors={errors.comentario}/>
+
+                <button type="submit" className="p-3 mt-2 bg-green-900 w-96 hover:bg-green-700 text-white font-bold rounded-lg shadow-lg">
+                    Enviar
+                </button>
+              </form>
 
             </div>
 
@@ -116,6 +174,7 @@ export default function Home() {
             </div>
 
           </div>
+          
         </section>
 
         {/* contacto */}
