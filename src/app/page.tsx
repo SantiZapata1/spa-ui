@@ -10,6 +10,7 @@ import {getCommentsRequest} from "../api/comments"
 import { useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 import InputTextArea from "./components/Inputs/InputTextArea";
+import CardServi from "./components/Cards/CardServi";
 import { createCommentRequest } from "../api/comments";
 import Link from "next/link";
 
@@ -110,9 +111,7 @@ export default function Home() {
         {/* servicios */}
         <section className="servicios flex flex-col">
           <h2>Servicios</h2>
-          <button className="bg-green-300 px-6 py-4 rounded-3xl mt-5 hover:bg-green-400 m-auto">
-              <Link href="/servicios" >Ver todos los servicios</Link>
-            </button>
+          <CardServi />
         </section>
 
         {/* Galería */}

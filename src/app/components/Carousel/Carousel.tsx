@@ -46,7 +46,12 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
             className={`duration-700 ease-in-out ${index === currentIndex ? 'block' : 'hidden'}`}
             data-carousel-item
           >
-            <Image src={image} alt={`Slide ${index + 1}`} layout="fill" objectFit="cover" />
+            <Image 
+              src={image} 
+              alt={`Slide ${index + 1}`} 
+              fill 
+              style={{ objectFit: 'cover' }} 
+            />
           </div>
         ))}
       </div>
