@@ -13,6 +13,16 @@ function Footer() {
           <a href="/empleos" className="hover:underline me-4 md:me-6">Empleo</a>
         </li>
         <li>
+          <a href="" className="hover:underline me-4 md:me-6">Direccion</a>
+        </li>
+        <li>
+          <a href="" className="hover:underline me-4 md:me-6">Telefono</a>
+        </li>
+        <li>
+          <a href="" className="hover:underline me-4 md:me-6">Email</a>
+        </li>
+
+        <li>
           <a href="#" className="hover:underline me-4 md:me-6">Politicas de privacidad</a>
         </li>
         <li>
