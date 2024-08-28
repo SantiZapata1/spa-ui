@@ -15,19 +15,18 @@ export default function HeroImage({titulo,eslogan,textoBoton}: HeroImageProps){
 
             <div className="hero-image bg-image-spa">
 
-                <div className="filtro ">
-                    <h1>{titulo}</h1>
+                <div className="filtro">
 
-                    <section className="contenido">
-                        <section className="eslogan pl-14">
-                            <p>{eslogan}</p>
-                        </section>
+                    <h2 className='intro'>BIENVENIDO A</h2>
+
+                    <h1 className='titulo'>{titulo}</h1>
+
+                    <p className="eslogan">{eslogan}</p>
 
                         <Link href="/#contacto">
-                            <button className="text-white border py-2 px-5 bg-pink-800 mt-5 rounded-3xl text-xl main-button">{textoBoton}</button>
+                            <button className="text-white py-2 mt-5 rounded-3xl text-2xl">{textoBoton}</button>
                         </Link>
 
-                    </section>
                 </div>
             </div> 
         </div>

@@ -6,6 +6,10 @@
     font-family: 'montserrat';
     src: url('../../public/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
 }
+@font-face {
+    font-family: 'bodoni';
+    src: url('../../public/Bodoni_Moda/static/BodoniModa_9pt-MediumItalic.ttf') format('ttf');
+}
 
 /* variables de colores para usar */
 :root{
@@ -17,7 +21,7 @@
 
     --color-primary: #C8E4B2; /* Verde suave */
     --color-secondary: #FFC7EA; /* Rosado suave */
-    --color-background: #FEFAE0; /* Beige */
+    --color-background: #fdfbf4; /* Beige */
     --color-text: #333333; /* Gris oscuro */
     --color-accent: #FFFFFF; /* Blanco */
 
@@ -26,6 +30,13 @@
     position: sticky;
     top: 0;
     z-index: 1000; /* Para asegurarte de que se superpone a otros elementos */
+}
+
+.bg-musgo{
+    background-color: #729762;
+}
+.tx-musgo{
+    color: #729762;
 }
 
 html {
@@ -94,32 +105,29 @@ h2{
 }
 
 .filtro{
-    background-color: rgb(29, 29, 29,0.8);
+    background-color: rgba(0, 13, 2, 0.8);
     width: 100%;
     height: 100%;
     display: flex;
    flex-direction: column;
    align-items: center;
    justify-content: center;
-   justify-content: space-around;
+   /* justify-content: space-around; */
    color: white;
 }
+.intro{
+    font-size: 22px;
+    margin-bottom: 100px;
+    letter-spacing: 3px;
+    font-family: 'bodoni';
+}
+.titulo{
 
-.contenido{
-    position: relative;
-    width: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
 }
+
 .eslogan{
-    font-size: 24px;
+    font-size: 20px;
     text-wrap:stable;
-}
-.main-button:hover{
-    font-size: 1.35rem;
-    transition: font-size 0.5s ease-in-out; /* 0.5s es la duración de la transición */
 }
 
 

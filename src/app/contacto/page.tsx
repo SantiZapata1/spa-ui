@@ -11,16 +11,21 @@ import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 // Backend
 import { sendMessageContacto } from '../../api/contacto'; // Importamos la función para enviar el mensaje de contacto
-const ContactoForm = () => {
+
+export default function ContactoForm(){
+
   const { register, watch, handleSubmit, setValue, formState: { errors } } = useForm();
   const { user } = useAuth(); // Obtenemos el usuario del contexto de autenticación
+
   return (
     <div className="flex flex-col w-full md:w-4/10">
       <main className="flex-grow bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-center text-green-600 mb-8">
+
+        <h1 className="text-3xl text-center tx-musgo mb-8">
           Contáctanos
         </h1>
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
+          
           // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
           Swal.fire({
             title: '¿Estás seguro?',
@@ -88,9 +93,9 @@ const ContactoForm = () => {
           <div className="text-center">
             <button
               type="submit"
-              className="w-full py-3  text-white font-bold rounded-lg shadow-lg bg-green-600 hover:bg-green-600 transition duration-300"
+              className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-musgo transition duration-300"
             >
-              Enviar Mensaje
+              Enviar mensaje
             </button>
           </div>
         </form>
@@ -98,5 +103,3 @@ const ContactoForm = () => {
     </div>
   );
 };
-
-export default ContactoForm;

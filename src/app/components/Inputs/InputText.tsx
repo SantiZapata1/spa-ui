@@ -14,7 +14,7 @@ type InputTextProps = {
 };
 
 // Definimos el componente funcional InputText
-function InputText({  campo, placeholder, type, nombre, register, require, setValue, errors, valor }: InputTextProps) {
+export default function InputText({  campo, placeholder, type, nombre, register, require, setValue, errors, valor }: InputTextProps) {
 
   useEffect(() => {
     if (valor) {
@@ -25,7 +25,7 @@ function InputText({  campo, placeholder, type, nombre, register, require, setVa
 
   return (
     <>
-      <label className="block font-bold mb-1 text-gray-700
+      <label className="block font-bold text-gray-700
       ">
         {campo}
       </label>
@@ -39,4 +39,3 @@ function InputText({  campo, placeholder, type, nombre, register, require, setVa
   );
 }
 
-export default InputText;
