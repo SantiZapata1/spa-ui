@@ -14,13 +14,12 @@ import {
 
 // componentes
 import Service from "../components/ServiceList/Service";
-import InputText from "../components/Inputs/InputText";
-
-
+import ServiceEdit from '../components/ServiceList/ServiceEdit';
+import ServiceItem from '../components/ServiceList/ServiceItem';
 
 
 // interfaz del comentario
-type Servicio = {
+type ServicioProps = {
     id: number,
     nombre: string,
     tipo: string,
@@ -30,7 +29,7 @@ type Servicio = {
 
 export default function Servicios(){
 
-    const [servicios, setServicios] = useState<Servicio[]>([]);
+    const [servicios, setServicios] = useState<ServicioProps[]>([]);
 
     // destructuramos useform
     const {
@@ -196,19 +195,14 @@ export default function Servicios(){
                         .map((service: any) => (
                             <li key={service._id} className="border-b my-2 py-2 bg-white rounded-md">
 
-                                
-                                <Service
-                                    _id={service._id}
+                                <ServiceItem
+                                    id={service._id}
                                     nombre={service.nombre}
                                     tipo={service.tipo}
                                     precio={service.precio}
                                     detalles={service.detalles}
-                                    deleteService={()=>deleteService(service._id)}
-
-                                   
-                                />
-                                
-
+                                    deleteService={()=>deleteService}
+                                />                                
                                 
                             </li>
                         ))
