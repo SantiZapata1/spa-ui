@@ -3,6 +3,7 @@
 // Componentes
 import InputText from '../components/Inputs/InputText'; // Importamos el componente InputText
 import InputTextArea from '../components/Inputs/InputTextArea';
+
 // Contexto
 import { useAuth } from '../../context/auth'; // Importamos el contexto de autenticación
 // Hooks
@@ -24,6 +25,7 @@ export default function ContactoForm(){
         <h1 className="text-3xl text-center tx-musgo mb-8">
           Contáctanos
         </h1>
+
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
           
           // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
@@ -60,6 +62,7 @@ export default function ContactoForm(){
           });
 
         })}>
+
           <InputText
             campo="Nombre"
             nombre="nombre"

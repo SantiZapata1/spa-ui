@@ -6,10 +6,10 @@ import axios from "./axios";
 export const getServicesRequest = () => axios.get("/servicios");
 
 // crear un comentario
-export const createServicetRequest = (comment:any) => axios.post("/comentarios", comment);
+export const createServiceRequest = (servicio:any) => axios.post("/crear-servicio", servicio);
 
 // actualiazar un comentario
-export const updateServiceRequest = (comment:any) => axios.put(`/comentarios/${comment.id}`, comment);
+export const updateServiceRequest = (servicio:any) => axios.put(`/editar-servicio/${servicio.id}`, servicio);
 
 // eliminar un comentario
 export const deleteServicesRequest = (id:any) => axios.delete(`/eliminar-servicio/${id}`);

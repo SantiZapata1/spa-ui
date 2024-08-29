@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import InputText from "../Inputs/InputText";
 import InputTextArea from "../Inputs/InputTextArea";
 import { useForm } from "react-hook-form";
+
 type Comentario = {
   nombre: string;
   comentario: string;
@@ -13,6 +14,7 @@ export default function ComentarioForm(){
 
   // usar useForm()
   const { register, handleSubmit, formState: { errors } } = useForm();
+  
   const [calificacion, setCalificacion] = useState(0);
 
   const manejarEnvio = async (datos:any) => {

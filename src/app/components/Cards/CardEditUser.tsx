@@ -10,6 +10,7 @@ interface CardDataUsuarioProps {
     datosUsuario: any
     setIsEditing: any
 }
+
 function CardDataUsuario({datosUsuario, setIsEditing}: CardDataUsuarioProps) {
     
     useEffect(() => {
@@ -18,6 +19,7 @@ function CardDataUsuario({datosUsuario, setIsEditing}: CardDataUsuarioProps) {
     
     const { handleSubmit, register, setValue, formState: { errors } } = useForm();
     const { editProfile } = useAuth();
+    
     return (
     <div className="bg-white shadow-lg rounded-lg md:w-6/10 p-4">
         <h2 className="text-3xl font-medium">Tus Datos</h2>
