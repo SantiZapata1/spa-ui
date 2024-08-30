@@ -5,7 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import InputText from '../components/Inputs/InputText'; // Asegúrate de ajustar la ruta según sea necesario
-
+import { createCvRequest } from '../../api/cv'; // Ajusta la ruta si es necesario
 // Define el tipo para los datos del formulario
 type FormData = {
   nombre: string;
@@ -18,11 +18,8 @@ type FormData = {
 const CVForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>();
 
-  // Define la URL del endpoint de la API
-  const API_URL = 'http://localhost:4000/api/crear-cv';
-
+  
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-    try {
       Swal.fire({
         title: '¿Estás seguro?',
         icon: 'warning',
@@ -34,32 +31,33 @@ const CVForm: React.FC = () => {
       }).then(async (result) => {
         if (result.isConfirmed) {
           // Enviar los datos a la API
-          const response = await axios.post(API_URL, data, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          });
-          Swal.fire({
-            title: '¡Listo!',
-            text: '¡Tu CV ha sido enviado correctamente!',
-            icon: 'success',
-            confirmButtonText: 'Aceptar',
-            confirmButtonColor: '#7BB263',
-          });
-          console.log('Respuesta de la API:', response.data);
+          try{
+            Swal.fire({
+              title: '¡Listo!',
+              text: '¡Tu CV ha sido enviado correctamente!',
+              icon: 'success',
+              confirmButtonText: 'Aceptar',
+              confirmButtonColor: '#7BB263',
+            }).then((result) => {
+              if (result.isConfirmed) {
+                // Si se confirma, recargar la página
+                createCvRequest(data);
+                window.location.reload();
+              }
+            });
+          } catch (error) {
+            console.error('Error al enviar los datos:', error);
+            Swal.fire({
+              title: 'Error',
+              text: 'Hubo un error al enviar el CV.',
+              icon: 'error',
+              confirmButtonText: 'Aceptar',
+              confirmButtonColor: '#D8316C',
+            });
+          }
         }
       });
-    } catch (error) {
-      console.error('Error al enviar los datos:', error);
-      Swal.fire({
-        title: 'Error',
-        text: 'Hubo un error al enviar el CV.',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-        confirmButtonColor: '#D8316C',
-      });
-    }
-  };
+    } 
 
   return (
     <div className="flex flex-col min-h-screen">
