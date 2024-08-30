@@ -1,30 +1,17 @@
 
-type ServiceProps={
-    _id:string;
-    nombre:string;
-    tipo:string;
-    precio:number;
-    detalles:[string]
-    deleteService: any;
-    setIsEditing:any;
-}
 
-export default function Service({nombre, tipo, precio, detalles,deleteService,setIsEditing}:ServiceProps){
+export default function Service({nombre, tipo, precio, detalles,deleteService,setIsEditing}:any){
 
-    const Click=()=>{
-        setIsEditing(true);
-        console.log("estamos editando");
-    }
     
     return(
-        <div>
-            <h3><b>{nombre}</b></h3>
+        <div className="text-xl space-y-3">
+            <h3 className="font-semibold">{nombre}</h3>
             <h4><i>{tipo}</i></h4>
             <p className="text-green-700">${precio}</p>
             <p>{detalles}</p>
 
-            <button onClick={deleteService} className="bg-red-700 text-white p-1 m-1 rounded-xl">Eliminar</button>
-            <button onClick={Click} className="bg-blue-700 text-white p-1 m-1 rounded-xl">Editar</button>
+            <button onClick={deleteService} className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 mr-2 rounded-xl">Eliminar</button>
+            <button onClick={setIsEditing} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-xl">Editar</button>
 
         </div>
     );
