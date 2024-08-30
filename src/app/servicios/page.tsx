@@ -15,7 +15,6 @@ import {
 // componentes
 import Service from "../components/ServiceList/Service";
 import ServiceEdit from '../components/ServiceList/ServiceEdit';
-import ServiceItem from '../components/ServiceList/ServiceItem';
 
 
 // interfaz del comentario
@@ -30,6 +29,7 @@ type ServicioProps = {
 export default function Servicios(){
 
     const [servicios, setServicios] = useState<ServicioProps[]>([]);
+    const [isEditing, setIsEditing] = useState(false)
 
     // destructuramos useform
     const {
@@ -62,6 +62,7 @@ export default function Servicios(){
 
     useEffect(() => {
         obtenerListaServicios(); // Cargar comentarios cuando el componente se monta
+        
     }, []);
 
     
@@ -193,16 +194,25 @@ export default function Servicios(){
 
                     servicios
                         .map((service: any) => (
-                            <li key={service._id} className="border-b my-2 py-2 bg-white rounded-md">
+                            <li key={service._id} className="border-b my-2 py-2 rounded-md">
+                                
+                                {!isEditing
+                                    ?<Service
+                                        _id={service._id}
+                                        nombre={service.nombre}
+                                        tipo={service.tipo}
+                                        precio={service.precio}
+                                        detalles={service.detalles}
+                                        deleteService={()=>deleteService(service._id)}
+                                        setIsEditing={setIsEditing}
+                                        
+                                    />
+                                    :<ServiceEdit
+                                        setIsEditing={setIsEditing}
+                                    />
+                                }
 
-                                <ServiceItem
-                                    id={service._id}
-                                    nombre={service.nombre}
-                                    tipo={service.tipo}
-                                    precio={service.precio}
-                                    detalles={service.detalles}
-                                    deleteService={()=>deleteService}
-                                />                                
+                                                             
                                 
                             </li>
                         ))

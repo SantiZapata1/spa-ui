@@ -6,11 +6,15 @@ type ServiceProps={
     precio:number;
     detalles:[string]
     deleteService: any;
-    setEstaEditando:any;
+    setIsEditing:any;
 }
 
-export default function Service({nombre, tipo, precio, detalles,deleteService,setEstaEditando}:ServiceProps){
+export default function Service({nombre, tipo, precio, detalles,deleteService,setIsEditing}:ServiceProps){
 
+    const Click=()=>{
+        setIsEditing(true);
+        console.log("estamos editando");
+    }
     
     return(
         <div>
@@ -20,7 +24,7 @@ export default function Service({nombre, tipo, precio, detalles,deleteService,se
             <p>{detalles}</p>
 
             <button onClick={deleteService} className="bg-red-700 text-white p-1 m-1 rounded-xl">Eliminar</button>
-            <button onClick={()=> setEstaEditando(true)} className="bg-blue-700 text-white p-1 m-1 rounded-xl">Editar</button>
+            <button onClick={Click} className="bg-blue-700 text-white p-1 m-1 rounded-xl">Editar</button>
 
         </div>
     );
