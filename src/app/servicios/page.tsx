@@ -1,72 +1,43 @@
-"use client"
+'use client';
 
 import Swal from 'sweetalert2';
-
-// hook
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-
-// metodos api
-import {
-    getServicesRequest, 
-    deleteServicesRequest,
-    createServiceRequest} from "../../api/servicios"
-
-// componentes
+import { getServicesRequest, deleteServicesRequest, createServiceRequest } from "../../api/servicios";
 import Service from "../components/ServiceList/Service";
 import ServiceEdit from '../components/ServiceList/ServiceEdit';
 
-
-export default function Servicios(){
-
+export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
-    const [isCreatingService, setIsCreatingService] = useState(false)
-    const [editingServiceId, setEditingServiceId] = useState<number | null>(null); // Estado para el ID en edición
+    const [isCreatingService, setIsCreatingService] = useState(false);
+    const [editingServiceId, setEditingServiceId] = useState<number | null>(null);
 
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    // destructuramos useform
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        formState:{errors}
-    } = useForm()
-
-    // funcion para obtener lista servicios
-    const obtenerListaServicios = async ()=>{
-        try{
+    const obtenerListaServicios = async () => {
+        try {
             const respuesta = await getServicesRequest();
-            const nuevaListaServicios=respuesta.data; 
-            setServicios(nuevaListaServicios)
-        }catch(error){
+            setServicios(respuesta.data);
+        } catch (error) {
             console.log("error al obtener los Servicios", error);
         }
     }
 
-    const deleteService = async(_id:number)=>{
-        try{
-            await deleteServicesRequest(_id)
-            obtenerListaServicios()
-        }catch(error){
+    const deleteService = async (_id: number) => {
+        try {
+            await deleteServicesRequest(_id);
+            obtenerListaServicios();
+        } catch (error) {
             console.log("error eliminado servicio", error);
         }
     }
 
-
     useEffect(() => {
-        obtenerListaServicios(); // Cargar comentarios cuando el componente se monta
-        
+        obtenerListaServicios();
     }, []);
 
-    
-
-    // funcion cuando se envie el form
-    const onSubmit = async(values:any)=>{
-
-        console.log(values);
-
-        try{
-
+    const onSubmit = async (values: any) => {
+        try {
             Swal.fire({
                 title: '¿Estás seguro?',
                 icon: 'warning',
@@ -75,141 +46,115 @@ export default function Servicios(){
                 cancelButtonColor: '#D8316C',
                 confirmButtonText: 'Sí, enviar',
                 cancelButtonText: 'Cancelar'
-              }).then(async (result) => {
-    
+            }).then(async (result) => {
                 if (result.isConfirmed) {
-                  try {
-                    // Aquí iría la conexión a la BD
-                    Swal.fire({
-                      title: '¡Listo!',
-                      text: '¡Tu mensaje ha sido enviado correctamente!',
-                      icon: 'success',
-                      confirmButtonText: 'Aceptar',
-                      confirmButtonColor: '#7BB263',
-    
-                    }).then(async(result) => {
-                      if (result.isConfirmed) {
-                        // Si se confirma, recargar la página
-                        // sendMessageContacto(values);
-                        const respuesta = await createServiceRequest(values)
-                        console.log("servicio creado correctamente");
-                        obtenerListaServicios()
-                        window.location.reload();
-                      }
-                    });
-                  } catch (error) {
-                    console.log(error)
-                  }
+                    try {
+                        Swal.fire({
+                            title: '¡Listo!',
+                            text: '¡Tu mensaje ha sido enviado correctamente!',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                            confirmButtonColor: '#7BB263',
+                        }).then(async (result) => {
+                            if (result.isConfirmed) {
+                                const respuesta = await createServiceRequest(values);
+                                console.log("servicio creado correctamente");
+                                obtenerListaServicios();
+                                setIsCreatingService(false);
+                            }
+                        });
+                    } catch (error) {
+                        console.log(error);
+                    }
                 }
-              });
-
-        }catch(error){
-
+            });
+        } catch (error) {
             console.log("error al crear un servicio", error);
-
         }
-
     }
 
-    
-    return(
+    return (
+        <div className="min-h-screen p-4 bg-gray-100">
+            <div className="text-center mb-8">
+                <h2 className="text-3xl font-bold mb-4">Todos los servicios ({servicios.length})</h2>
+                {isCreatingService ? (
+                    <form
+                        className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md"
+                        onSubmit={handleSubmit(onSubmit)}
+                    >
+                        <h3 className='text-2xl font-semibold mb-4'>Nuevo servicio</h3>
+                        <div className="mb-4">
+                            <label htmlFor="nombre" className="block text-gray-700">Nombre del servicio:</label>
+                            <input
+                                type="text"
+                                id="nombre"
+                                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                                {...register("nombre", { required: true })}
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="tipo" className="block text-gray-700">Tipo de servicio:</label>
+                            <input
+                                list="lista-servicio"
+                                id="tipo"
+                                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                                {...register('tipo', { required: true })}
+                            />
+                            <datalist id="lista-servicio">
+                                <option value="belleza" />
+                                <option value="masajes" />
+                                <option value="tratamientos-corporales" />
+                                <option value="tratamientos-faciales" />
+                            </datalist>
+                            {errors.tipo && <p className="text-red-500">Este campo es requerido</p>}
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="precio" className="block text-gray-700">Precio:</label>
+                            <input
+                                type="number"
+                                id="precio"
+                                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                                {...register("precio", { required: true })}
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="detalles" className="block text-gray-700">Detalles:</label>
+                            <input
+                                type="text"
+                                id="detalles"
+                                className="mt-1 p-2 border border-gray-300 rounded w-full"
+                                {...register("detalles", { required: true })}
+                            />
+                        </div>
+                        <button type="submit" className="py-2 px-4 bg-green-700 hover:bg-green-800 text-white rounded-lg mr-2">
+                            Enviar
+                        </button>
+                        <button
+                            type='button'
+                            onClick={() => setIsCreatingService(false)}
+                            className='py-2 px-4 bg-red-700 hover:bg-red-800 text-white rounded-lg'
+                        >
+                            Cancelar
+                        </button>
+                    </form>
+                ) : (
+                    <button
+                        className='px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg'
+                        onClick={() => setIsCreatingService(true)}
+                    >
+                        Nuevo
+                    </button>
+                )}
+            </div>
 
-        <div className="h-screen p-2 overflow-scroll">
-            <h2>Todos los servicios ({servicios.length})</h2>
-
-            
-
-
-            {isCreatingService
-            ?
-            <form 
-                className="m-3 w-6/10 p-2 rounded-md" 
-                onSubmit={handleSubmit(onSubmit)}
-                >
-                    <h3 className='text-xl font-semibold'>Nuevo servicio</h3>
-                    <div>
-                        <label htmlFor="nombre">nombre del servicio:</label>
-                        <input 
-                        type="text" 
-                        id="nombre"
-                        {...register("nombre", {required:true})}
-                        />
-                    </div>
-
-                
-
-                {/* Lista de servicios */}
-                <div>
-                    <label htmlFor="servicio">Tipo de servicio:</label>
-                    <input
-                    list="lista-servicio"
-                    id="tipo"
-                    className="p-1 m-1 font-bold"
-                    {...register('tipo', { required: true })} 
-                    />
-                    <datalist id="lista-servicio">
-                        <option value="belleza" />
-                        <option value="masajes" />
-                        <option value="tratamientos-corporales" />
-                        <option value="tratamientos-faciales"/>
-                    </datalist>
-                    {errors.servicio && <p className="text-red-500">Este campo es requerido</p>}
-                </div>
-
-                <div>
-                    <label htmlFor="precio">precio:</label>
-                    <input 
-                        type="number" 
-                        id="precio"
-                        {...register("precio", {required:true})}
-                        />
-                </div>
-                
-
-                <div>
-                    <label htmlFor="detalles">detalles:</label>
-                    <input 
-                        type="text" 
-                        id="detalles"
-                        {...register("detalles", {required:true})}
-                        />
-                </div>
-
-                {/* <InputTextArea require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario"  errors={errors.comentario}/> */}
-
-                <button type="submit" className="mt-3 py-2 px-4 bg-green-700 hover:bg-green-800 text-white rounded-xl">
-                    Enviar
-                </button>
-                <button
-                    type='button'
-                    onClick={()=>setIsCreatingService(false)}
-                    className='bg-red-700 py-2 px-4 mx-2 mt-3 text-white rounded-xl'
-                >
-                    cancelar
-                </button>
-              </form>
-              :
-              <button 
-            className='px-4 py-2 bg-green-600 text-white rounded-2xl hover:bg-green-700'
-            onClick={()=>setIsCreatingService(true)}
-            >Nuevo</button>
-            }
-
-
-            
-
-
-            <ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {servicios.length > 0 ? (
-
-                    servicios
-                        .map((service: any) => (
-                            <li key={service._id} className="border-b my-2 py-2 rounded-md">
-                                
-                                {editingServiceId === service._id
+                    servicios.map((service: any) => (
+                        <div key={service._id} className="bg-white p-4 rounded-lg shadow-md">
+                            {editingServiceId === service._id
                                 ? <ServiceEdit
                                     id={service._id}
-                                    setIsEditing={() => setEditingServiceId(null)} // Desactivar edición
+                                    setIsEditing={() => setEditingServiceId(null)}
                                     obtenerListaServicios={obtenerListaServicios}
                                     service={service}
                                 />
@@ -220,19 +165,15 @@ export default function Servicios(){
                                     precio={service.precio}
                                     detalles={service.detalles}
                                     deleteService={() => deleteService(service._id)}
-                                    setIsEditing={() => setEditingServiceId(service._id)} // Activar edición para este servicio
+                                    setIsEditing={() => setEditingServiceId(service._id)}
                                 />
-                                }
-
-                                                             
-                                
-                            </li>
-                        ))
+                            }
+                        </div>
+                    ))
                 ) : (
-                    <p>No hay servicios disponibles.</p>
+                    <p className="text-center col-span-full">No hay servicios disponibles.</p>
                 )}
-            </ul>
-
+            </div>
         </div>
     );
 }

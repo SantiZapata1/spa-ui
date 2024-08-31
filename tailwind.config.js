@@ -46,7 +46,17 @@ module.exports = {
         "8/10": '80%',
         "9/10": '90%',
         "95/100": '95%',
-      }
+      },
+      screens: {
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        // Esto agregué: breakpoints personalizados
+        'tablet': '640px',
+        'desktop': '1024px',
+      },
     },
   },
   plugins: [],
