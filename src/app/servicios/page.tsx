@@ -148,8 +148,10 @@ export default function Servicios() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {servicios.length > 0 ? (
-                    servicios.map((service: any) => (
+            {servicios.length > 0 ? (
+                servicios
+                    .sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) // Ordenar por fecha de creación (descendente)
+                    .map((service: any) => (
                         <div key={service._id} className="bg-white p-4 rounded-lg shadow-md">
                             {editingServiceId === service._id
                                 ? <ServiceEdit
@@ -170,9 +172,10 @@ export default function Servicios() {
                             }
                         </div>
                     ))
-                ) : (
-                    <p className="text-center col-span-full">No hay servicios disponibles.</p>
-                )}
+            ) : (
+                <p className="text-center col-span-full">No hay servicios disponibles.</p>
+            )}
+
             </div>
         </div>
     );
