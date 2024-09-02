@@ -2,11 +2,15 @@
 
 export default function Service({nombre, tipo, precio, detalles,deleteService,setIsEditing}:any){
 
-    
+
+    const toUpperCaseFirst = (str:string) => {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
     return(
         <div className="text-xl space-y-3">
             <h3 className="font-semibold"><span className="text-fuchsia-800">Título:</span> {nombre}</h3>
-            <h4><span className="text-fuchsia-800 font-semibold">Tipo:</span> <i>{tipo}</i></h4>
+            <h4><span className="text-fuchsia-800 font-semibold">Tipo:</span> <i>{toUpperCaseFirst(tipo)}</i></h4>
             <p><span className="text-fuchsia-800 font-semibold">Precio:</span> ${precio}</p>
             <p><span className="text-fuchsia-800 font-semibold">Detalles:</span> {detalles}</p>
 
