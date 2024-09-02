@@ -14,9 +14,6 @@ export default function HeroImage({ titulo, eslogan, textoBoton }: HeroImageProp
 
       {/* Filtro */}
       <div className="filtro absolute inset-0 flex flex-col items-center justify-center text-center text-white p-8">
-        <h2 className="intro text-1xl font-semibold mb-4 md:text-1xl lg:text-1xl">
-          BIENVENIDO A
-        </h2>
 
         <h1 className="titulo text-7xl font-bold mb-4 md:text-7xl lg:text-7xl">
           {titulo}
