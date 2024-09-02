@@ -8,19 +8,19 @@ export default function QuienesSomos() {
     {
       id: 'quienes-somos',
       title: 'Quiénes Somos',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec dignissim, magna eu faucibus elementum, elit lectus interdum nisi, et ultrices mi est nec erat. Vestibulum ut erat ac eros aliquet tempor. Curabitur at ante at quam pharetra tincidunt eget a orci. Integer id nisl ac lectus ullamcorper tincidunt. Nam venenatis auctor ligula, et pellentesque ligula tempus sed. Suspendisse potenti. Nullam bibendum odio et nisl fermentum, sit amet tempor odio blandit.',
+      content: 'Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.',
       bgColor: 'bg-red-100',
     },
     {
       id: 'vision',
       title: 'Visión',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod, felis a viverra cursus, ipsum turpis pretium magna, vel cursus lectus elit sed sapien. Sed convallis euismod dolor, non bibendum tortor malesuada non. Maecenas fermentum, eros non vehicula efficitur, risus sem consequat urna, in aliquet orci odio at sem. Morbi ut lacus nec odio fermentum consequat. Praesent id odio nec est pharetra varius. Vivamus ut diam nisl, nec fermentum velit.',
+      content: 'Ser el refugio preferido para el bienestar y la relajación, donde cada cliente encuentra armonía y renovación a través de tratamientos personalizados y experiencias de cuidado integral, promoviendo un estilo de vida saludable y equilibrado. Aspiramos a ser líderes en la industria del bienestar, innovando constantemente en nuestros servicios para ofrecer el más alto estándar de calidad y atención, creando un oasis de paz en medio del ajetreo diario.',
       bgColor: 'bg-green-100',
     },
     {
       id: 'mision',
       title: 'Misión',
-      content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla facilisi. Suspendisse ut urna lorem. Sed venenatis arcu sit amet quam interdum, ac suscipit elit dapibus. Cras euismod sem sed augue blandit, ut pretium arcu vestibulum. Curabitur varius, est sed convallis pellentesque, nunc arcu tristique nisi, vel auctor felis augue in ipsum. Donec interdum, nisi id feugiat interdum, augue metus fringilla ligula, et tincidunt urna felis ut eros.',
+      content: 'Nuestra misión es proporcionar a nuestros clientes un espacio acogedor y relajante donde puedan escapar del estrés diario y rejuvenecer cuerpo, mente y espíritu. Ofrecemos una amplia gama de tratamientos personalizados, diseñados para promover la salud, la belleza y el bienestar integral. Nos comprometemos a utilizar productos de alta calidad y técnicas innovadoras, brindando un servicio excepcional a través de un equipo de profesionales apasionados y capacitados. Nos esforzamos por crear una experiencia única y memorable en cada visita, guiados por nuestros valores de respeto, cuidado y excelencia.',
       bgColor: 'bg-blue-100',
     },
     {
@@ -35,20 +35,20 @@ export default function QuienesSomos() {
     {
       nombre: 'Ana',
       apellido: 'Felicidad',
-      foto: '/Masajes/masaje1.png',
-      perfil: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      foto: '/Personas/Ana Felicidad.png',
+      perfil: 'Apasionada especialista en bienestar con más de 10 años de experiencia en la industria del spa y la salud holística. Su enfoque integral y su habilidad para conectar con las personas la convierten en una profesional excepcional en el arte del masaje terapéutico y los tratamientos relajantes.',
     },
     {
       nombre: 'Dra. Romina',
       apellido: 'Felicidad',
-      foto: '/Masajes/masaje1.png',
-      perfil: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      foto: '/Personas/Dra Romina.png',
+      perfil: 'Experta en medicina estética y bienestar, con una sólida formación académica y más de 15 años de experiencia en el campo de la salud y el rejuvenecimiento. Su enfoque médico se basa en la combinación de ciencia y arte para proporcionar tratamientos seguros, efectivos y personalizados que mejoren la calidad de vida de sus pacientes.',
     },
     {
       nombre: 'Dr. Lionel Messi',
       apellido: 'Rique',
-      foto: '/Masajes/masaje1.png',
-      perfil: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      foto: '/Personas/DrMessi.png',
+      perfil: 'Experto en medicina deportiva y rehabilitación con más de 12 años de experiencia en el tratamiento y la prevención de lesiones deportivas. Su enfoque se centra en combinar la ciencia médica con técnicas de rehabilitación avanzadas para ayudar a los clientes a recuperar su máximo rendimiento físico y mejorar su calidad de vida.',
     },
   ];
 
@@ -70,7 +70,7 @@ export default function QuienesSomos() {
               <ul className="space-y-4 mt-6">
                 {sections.map((section) => (
                   <li key={section.id}>
-                    <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-blue-700 rounded-lg ">
+                    <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-green-700 rounded-lg ">
                       {section.title}
                     </a>
                   </li>
@@ -106,7 +106,7 @@ export default function QuienesSomos() {
                   ))}
                 </div>
               ) : (
-                <p className="text-center">{section.content}</p>
+                <p className="text-xl text-center">{section.content}</p>
               )}
             </div>
           </section>

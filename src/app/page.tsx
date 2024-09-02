@@ -38,9 +38,11 @@ export default function Home() {
             <h3 className="text-lg font-medium">
               Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
             </h3>
-            <button className="bg-green-300 px-6 py-4 rounded-3xl mt-5 hover:bg-green-400">
-              <Link href="/about">Ir a Quienes Somos</Link>
+              <Link href="/about" >
+            <button className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-4 rounded-3xl mt-5 ">
+              Ir a Quienes Somos
             </button>
+              </Link>
           </div>
         </section>
 

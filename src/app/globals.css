@@ -32,9 +32,6 @@
     z-index: 1000; /* Para asegurarte de que se superpone a otros elementos */
 }
 
-.bg-musgo{
-    background-color: #729762;
-}
 .tx-musgo{
     color: #729762;
 }

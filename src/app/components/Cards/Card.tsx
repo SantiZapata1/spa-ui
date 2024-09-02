@@ -30,7 +30,7 @@ interface CardProps {
           </p>
           <a 
             href="#" 
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-600 hover:bg-green-600 rounded-lg focus:ring-4 focus:outline-none"
+            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-green-700 hover:bg-green-800 rounded-lg focus:ring-4 focus:outline-none"
           >
             Leer más
             <svg 

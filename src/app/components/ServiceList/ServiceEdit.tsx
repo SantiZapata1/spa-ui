@@ -1,27 +1,69 @@
 import { useForm } from "react-hook-form";
 import { updateServiceRequest } from "../../../api/servicios";
 
-export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, service}: any) {
+import InputText from "../Inputs/InputText";
+import SelectOptions from "../Select/SelectOptions";
+import { useEffect } from "react";
 
-    const { 
-        handleSubmit, 
-        register, 
-        setValue, 
-        formState: { errors } } = useForm({defaultValues:service});
+import Swal from "sweetalert2";
+export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, service }: any) {
+
+    const {
+        handleSubmit,
+        register,
+        setValue,
+        formState: { errors } } = useForm({ defaultValues: service });
 
     // al enviar el form, se ejecuta en metodo axios para actualizar el servicio
     const onSubmit = async (values: any) => {
-        try {
+            // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
+            Swal.fire({
+                title: '¿Estás seguro?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#7BB263',
+                cancelButtonColor: '#D8316C',
+                confirmButtonText: 'Sí, enviar',
+                cancelButtonText: 'Cancelar'
+              }).then(async (result) => {
+    
+                if (result.isConfirmed) {
+                  try {
+                    // Aquí iría la conexión a la BD
+                    Swal.fire({
+                      title: '¡Listo!',
+                      text: '¡Tu mensaje ha sido enviado correctamente!',
+                      icon: 'success',
+                      confirmButtonText: 'Aceptar',
+                      confirmButtonColor: '#7BB263',
+                    }).then(async (result) => {
+                      if (result.isConfirmed) {
+                        // Si se confirma, recargar la página
+                        const response = await updateServiceRequest({ ...values, id: id });
+                        setIsEditing(false);
+                        obtenerListaServicios()
+                        window.location.reload();
+                      }
+                    });
+                  } catch (error) {
+                    console.log(error)
+                  }
+                }
+              });
+    
+            }
 
-            const response = await updateServiceRequest({ ...values, id: id });
-            console.log(response.data);
-            setIsEditing();  
-            obtenerListaServicios()
+    
+    const opcionesServicios = [
+        { value: "belleza", nombre: "Belleza" },
+        { value: "masajes", nombre: "Masajes" },
+        { value: "tratamientos-corporales", nombre: "Tratamientos corporales" },
+        { value: "tratamientos-faciales", nombre: "Tratamientos faciales" },
+    ]
 
-        } catch (error) {
-            console.log("Error al actualizar servicio", error);
-        }
-    };
+    const toUpperFirstLetter = (string: string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+    }
 
     return (
         <div>
@@ -30,65 +72,29 @@ export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, s
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <div>
-                    <label htmlFor="nombre" className="font-semibold">Nombre del servicio:</label>
-                    <input 
-                        type="text" 
-                        id="nombre"
-                        className="w-full"
-                        {...register("nombre", { required: true })}
-                    />
-                    {errors.nombre && <p className="text-red-500">Este campo es requerido</p>}
+                    <InputText campo="Nombre" nombre="nombre" type="text" register={register} setValue={setValue} valor={service.nombre} errors={errors.nombre} require={false} />
                 </div>
-
                 <div>
-                    <label htmlFor="servicio" className="font-semibold">Tipo de servicio:</label>
-                    <input
-                        list="lista-servicio"
-                        id="tipo"
-                        className="p-1 m-1 w-full"
-
-                        {...register('tipo', { required: true })} 
-                    />
-                    <datalist id="lista-servicio">
-                        <option value="belleza" />
-                        <option value="masajes" />
-                        <option value="tratamientos-corporales" />
-                        <option value="tratamientos-faciales"/>
-                    </datalist>
-                    {errors.servicio && <p className="text-red-500">Este campo es requerido</p>}
+                    <SelectOptions campo="Tipo de servicio" nombre="tipo" setValue={setValue} error={errors.servicio} opciones={opcionesServicios} valor={toUpperFirstLetter(service.tipo)} isRequired={false} />
                 </div>
-
                 <div>
-                    <label htmlFor="precio" className="font-semibold">Precio: $</label>
-                    <input 
-                        type="number" 
-                        id="precio"
-                        className="p-1 mx-1 w-full"
-                        {...register("precio", { required: true })}
-                    />
+                    <InputText campo="Precio" nombre="precio" type="number" setValue={setValue} errors={errors.precio} register={register} require={false} />
                 </div>
-
                 <div>
-                    <label htmlFor="detalles" className="font-semibold">Detalles:</label>
-                    <input 
-                        type="text" 
-                        id="detalles"
-                        className="w-full"
-                        {...register("detalles", { required: true })}
-                    />
+                    <InputText campo="Detalles" nombre="detalles" type="text" register={register} setValue={setValue} errors={errors.detalles} valor={service.detalles} require={false} />
                 </div>
 
-                <div className="flex flex-col md:flex-row mt-2">
-                    <button 
+                <div className="flex flex-col md:flex-row mt-2 justify-center">
+                    <button
                         type="button"  // Cambiar tipo a "button"
-                        className="mr-2 bg-red-600 hover:bg-red-700 text-white cursor-pointer py-2 px-4 rounded mt-2 md:mt-0" 
+                        className=" m-2 bg-red-600 hover:bg-red-700 text-white cursor-pointer py-2 px-4 rounded mt-2 md:mt-0"
                         onClick={setIsEditing}  // Desactivar el modo de edición
                     >
                         Cancelar
                     </button>
-                    <button 
-                        type="submit" 
-                        className="bg-green-600 hover:bg-green-700 text-white cursor-pointer py-2 px-4 rounded flex items-center justify-center mt-2 md:mt-0"
+                    <button
+                        type="submit"
+                        className="m-2 bg-green-600 hover:bg-green-700 text-white cursor-pointer py-2 px-4 rounded flex items-center justify-center mt-2 md:mt-0"
                     >
                         Guardar
                     </button>

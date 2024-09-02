@@ -18,7 +18,7 @@ interface Props {
 
 function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, valor, mid }: Props) {
     // Estados
-    const [requiredInput,] = useState(isRequired != null ? isRequired : true)
+    const [requiredInput,] = useState(isRequired != undefined ? isRequired : true)
     const [selectedOpcion, setSelectedOpcion] = useState('');
     const [, setIsEmpty] = useState(false);
 

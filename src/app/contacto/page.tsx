@@ -22,7 +22,7 @@ export default function ContactoForm(){
     <div className="flex flex-col w-full md:w-4/10">
       <main className="flex-grow bg-white p-8 rounded-lg shadow-lg">
 
-        <h1 className="text-3xl text-center tx-musgo mb-8">
+        <h1 className="text-3xl text-center text-green-700 mb-8">
           Contáctanos
         </h1>
 
@@ -96,7 +96,7 @@ export default function ContactoForm(){
           <div className="text-center">
             <button
               type="submit"
-              className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-musgo transition duration-300"
+              className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300"
             >
               Enviar mensaje
             </button>

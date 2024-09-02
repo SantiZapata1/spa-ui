@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 type InputTextProps = {
   campo: string;
-  placeholder: string;
+  placeholder?: string;
   type: string;
   nombre: string;
   register: any;
