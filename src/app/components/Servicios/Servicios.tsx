@@ -3,12 +3,12 @@
 import Swal from 'sweetalert2';
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { getServicesRequest, deleteServicesRequest, createServiceRequest } from "../../api/servicios";
-import Service from "../components/ServiceList/Service";
-import ServiceEdit from '../components/ServiceList/ServiceEdit';
+import { getServicesRequest, deleteServicesRequest, createServiceRequest } from "../../../api/servicios";
+import Service from "../ServiceList/Service";
+import ServiceEdit from '../ServiceList/ServiceEdit';
 
-import InputText from '../components/Inputs/InputText';
-import SelectOptions from '../components/Select/SelectOptions';
+import InputText from '../Inputs/InputText';
+import SelectOptions from '../Select/SelectOptions';
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
     const [isCreatingService, setIsCreatingService] = useState(false);
