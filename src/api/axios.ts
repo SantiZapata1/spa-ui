@@ -3,7 +3,7 @@ import axios from 'axios'
 // Obtenemos la URL base de las variables de entorno
 // const baseUrl = process.env.BASE_URL
 
-const baseUrl = "http://localhost:4000/api"
+const baseUrl =  process.env.NEXT_PUBLIC_API_URL
 
 console.log("Base URL:",baseUrl);
 
