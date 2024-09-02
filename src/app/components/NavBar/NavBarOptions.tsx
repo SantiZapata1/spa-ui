@@ -77,14 +77,14 @@ function NavBarOptions() {
           <Link href="/perfil" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
             Mi Perfil
           </Link>
-          <Link href="/logout" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
-            Cerrar sesión
-          </Link>
           {user.admin && (
             <Link href="/admin" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
               Panel de adminisrador
             </Link>  
           )}
+          <Link href="/logout" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
+            Cerrar sesión
+          </Link>
         </div>
       )}
     </div>

@@ -30,9 +30,9 @@ const CardServi: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full ">
       {cards.map((card, index) => (
-        <div key={index} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full">
+        <div key={index} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full transform transition-transform duration-300 ease-in-out hover:scale-105">
           <a href={card.link}>
             <img className="rounded-t-lg w-full h-48 object-cover" src={card.imgSrc} alt={card.title} />
           </a>
