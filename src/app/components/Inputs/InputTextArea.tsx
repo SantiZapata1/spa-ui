@@ -14,9 +14,10 @@ interface InputRegisterProps {
     setValue?: any;
     errors: any;
     require?: Boolean
+    customSize?: string
 }
 
-function InputTextArea({ require, errors, campo, nombre, register, type, variante, valor, placeholder, setValue }: InputRegisterProps) {
+function InputTextArea({customSize, require, errors, campo, nombre, register, type, variante, valor, placeholder, setValue }: InputRegisterProps) {
     // Si no se recibe un placeholder, se setea como string vacío
     placeholder ? placeholder : ''
     // Si se recibe un valor, se setea en el formulario directamente con setValue
@@ -28,7 +29,7 @@ function InputTextArea({ require, errors, campo, nombre, register, type, variant
     return (
         <>
                {errors && <span className="mt-2 text-red-600">{placeholder} es requerido</span>} 
-            <textarea className="border open-sans p-2 my-2 resize-none text-lg border-gray-300 rounded-md w-96 h-26 "type={type}
+            <textarea className={`border open-sans p-2 my-2 resize-none text-lg border-gray-300 rounded-md w-full ${customSize ? customSize : "h-40"}`} type={type}
                 {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder}
                  />
                 </>

@@ -28,12 +28,33 @@ export default function Servicios() {
     }
 
     const deleteService = async (_id: number) => {
-        try {
-            await deleteServicesRequest(_id);
-            obtenerListaServicios();
-        } catch (error) {
-            console.log("error eliminado servicio", error);
-        }
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "No podrás revertir esto",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#7BB263',
+                cancelButtonColor: '#D8316C',
+                confirmButtonText: 'Sí, borrar',
+                cancelButtonText: 'Cancelar'
+            }).then(async (result) => {
+                Swal.fire({
+                    title: '¡Eliminado!',
+                    text: 'El servicio ha sido eliminado.',
+                    icon: 'success',
+                    confirmButtonText: 'Aceptar',
+                    confirmButtonColor: '#7BB263',
+                }).then(async (result) => {
+                    if (result.isConfirmed) {
+                        try {
+                            const respuesta = await deleteServicesRequest(_id);
+                            obtenerListaServicios();
+                        } catch (error) {
+                            console.log("error eliminado servicio", error);
+                        }
+                    }
+                });
+            });
     }
 
     useEffect(() => {

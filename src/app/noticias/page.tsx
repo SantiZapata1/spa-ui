@@ -1,36 +1,102 @@
-import React from 'react';
-import Card from '../components/Cards/Card';
+"use client"
 
+// Componentes
+import Card from '../components/Cards/Card';
+import InputText from '../components/Inputs/InputText';
+import InputTextArea from '../components/Inputs/InputTextArea';
+// Hooks
+import { useForm } from 'react-hook-form';
+import { useState, useRef } from 'react';
+// Contexto
+import { useAuth } from '../../context/auth';
+// Backend
+import { createNoticia, getNoticias } from '../../api/noticias';
+// Librerías
+import Swal from 'sweetalert2';
+import { useEffect } from 'react';
 
 export default function NoticiasPage() {
+
+  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { user, isAuthenticated, isLoading } = useAuth();
+  const [ noticias, setNoticias ] = useState([]);
+  const fileInputRef = useRef(null);
+
+  
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      try {
+        const noticias = await getNoticias();
+        // Quiero que se muestren las noticias más recientes primero
+        setNoticias(noticias.reverse());
+      } catch (error) {
+        console.log(error);
+      }
+    }  
+    fetchNoticias();
+  }, []);
+
+  if (isLoading) {
+    return <h1 className='text-4xl font-bold text-center mt-20'>Cargando...</h1>
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
 
       <div className="flex-grow p-8 lg:p-10">
-        
+        {user?.admin && (
+          <div className='flex flex-col-items-center justify-center m-4'>
+            <form  encType="multipart/form-data" className='w-full md:w-4/10' onSubmit={
+              handleSubmit(async (values) => {
+                Swal.fire({
+                  title: '¿Estás seguro?',
+                  text: "Estás por subir una noticia",
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonColor: '#7BB263',
+                  cancelButtonColor: '#D8316C',
+                  confirmButtonText: 'Sí, enviar',
+                  cancelButtonText: 'Cancelar'
+                }).then((result: any) => {
+                  if (result.isConfirmed)
+                    Swal.fire({
+                      title: '¡Listo!',
+                      text: '¡Tu noticia ha sido enviada correctamente!',
+                      icon: 'success',
+                      confirmButtonText: 'Aceptar',
+                      confirmButtonColor: '#7BB263',
+                    }).then((result: any) => {
+                      if (result.isConfirmed)
+                        try {
+                          createNoticia(values);
+                          window.location.reload();
+                        } catch (error) {
+                          console.log(error);
+                        }
+                    }
+                    )
+                })
+              })}>
+
+              <InputText campo="Título" nombre="titulo" type="text" register={register} require={true} errors={errors.titulo} />
+              <InputTextArea type="text" placeholder='Contenido de la noticia' campo="Texto" nombre="contenido" register={register} require={true} errors={errors.texto} />
+              <input ref={fileInputRef} type="file" accept="image/*" className='mb-2'/>
+              <button className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300">
+                Subir noticia
+              </button>
+            </form>
+          </div>
+        )}
         {/* Grid layout para hasta 4 tarjetas en fila */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          <Card 
-            title="Descuento" 
-            text="Nuevo descuento en nuestro spa."
-            imageUrl=""
-          />
-          <Card 
-            title="Nuevo plan mensual" 
-            text="Se renueva el plan mensual con beneficios adicionales."
-            imageUrl=""
-          />
-          <Card 
-            title="Nuevo descuento con tarjeta VISA" 
-            text="Obtén un descuento especial pagando con tarjeta VISA."
-            imageUrl=""
-          />
-          <Card 
-            title="Promoción especial" 
-            text="Promoción especial solo por tiempo limitado."
-            imageUrl=""
-          />
-          {/* Agrega más tarjetas si es necesario */}
+          {noticias.map((noticia: any) => (
+            <Card
+              key={noticia?.id}
+              title={noticia?.titulo}
+              text={noticia?.contenido}
+              imageUrl=""
+            />
+          ))}
         </div>
       </div>
     </div>

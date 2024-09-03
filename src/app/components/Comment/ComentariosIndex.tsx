@@ -20,26 +20,24 @@ function ComentariosIndex() {
     const [filtro, setFiltro] = useState<string>('ningun');
     const [comentarios, setComentarios] = useState<Comentario[]>([]);
 
+    // Función para obtener los comentarios de la base de datos
     const listaComentarios = async () => {
         try {
           const response = await getCommentsRequest();
           setComentarios(response.data); // Guarda los comentarios en el estado
-    
         } catch (error) {
           console.error("Error al obtener los comentarios:", error);
         }
       }
-    
+      // Cargar comentarios al montar el componente
       useEffect(() => {
         listaComentarios(); // Cargar comentarios cuando el componente se monta
       }, []);
 
-    // destructuramos useform
-    const {
-        register,
-        handleSubmit,
-        setValue,
-        formState: { errors }
+    // Destructuramos useform
+    const { register, handleSubmit, setValue, formState: {
+         errors
+         }
     } = useForm()
 
 
@@ -93,7 +91,7 @@ function ComentariosIndex() {
         });
     };
 
-
+    // Función para manejar el cambio de filtro
     const handleFiltroChange = (event: any) => {
         setFiltro(event.target.value);
     };
@@ -106,23 +104,21 @@ function ComentariosIndex() {
 
                 <div>
                     <form
-                        className="flex flex-col p-2 rounded-md"
+                        className="flex flex-col p-2 rounded-md h-full justify-evenly"
                         onSubmit={handleSubmit(onSubmit)}
                     >
-                        <h3>Escriba un nuevo comentario!</h3>
+                        <h3 className='text-3xl'>¡Dejanos un comentario!</h3>
                         <SelectOptions campo="" nombre="servicio" setValue={setValue} error={errors.servicios} opciones={opcionesServicios} />
-                        <InputTextArea require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario" errors={errors.comentario} />
+                        <InputTextArea customSize={"h-7/10"} require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario" errors={errors.comentario} />
                         <button type="submit" className="p-3 mt-2 w-96 bg-green-700 hover:bg-green-800 text-white font-bold rounded-lg shadow-lg">
                             Enviar
                         </button>
                     </form>
-
                 </div>
-
                 <div className="overflow-scroll m-5">
                     <div>
                         <label htmlFor="opciones" className="text-xl font-bold ">Filtrar:</label>
-                        <select className="border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4 w-95/10" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
+                        <select className="border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4 w-95/100" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
                             <option value="ningun">Sin filtro</option>
                             <option value="belleza">Belleza</option>
                             <option value="masajes">Masajes</option>
@@ -130,11 +126,8 @@ function ComentariosIndex() {
                             <option value="tratamientos-faciales">Tratamientos faciales</option>
                         </select>
                     </div>
-
                     <div>
-                        <CommentList
-                            comentarios={comentariosFiltrados}
-                        />
+                        <CommentList comentarios={comentariosFiltrados}/>
                     </div>
                 </div>
 

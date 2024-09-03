@@ -36,11 +36,11 @@ export default function Home() {
         <section className="flex flex-col items-center min-h-screen">
           <h2 className="mt-5">Quiénes Somos</h2>
 
-          <div className="flex flex-col items-center justify-around max-w-4xl h-80">
+          <div className="flex flex-col items-center justify-center max-w-4xl h-80">
 
-            {/* <p className="text-lg font-medium">
+            <p className="text-xl font-medium text-justify">
               Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
-            </p> */}
+            </p>
 
               <Link href="/about" >
                 <button className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
