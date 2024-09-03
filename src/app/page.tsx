@@ -14,6 +14,15 @@ import Link from "next/link";
 // Backend
 import ComentariosIndex from "./components/Comment/ComentariosIndex";
 
+import {Bodoni_Moda} from "next/font/google"
+
+
+const bodoni = Bodoni_Moda({
+  weight: '400',
+  subsets: ['latin'],
+  display: 'swap',
+})
+
 // interfaz del comentario
 type Comentario = {
   id: number;
@@ -30,7 +39,7 @@ export default function Home() {
         textoBoton="Quiero mi sesión"
       />
 
-      <div className="secciones bg-beige">
+      <div className="secciones">
         
         {/* Quiénes somos */}
         <section className="flex flex-col items-center min-h-screen">
@@ -43,7 +52,7 @@ export default function Home() {
             </p>
 
               <Link href="/about" >
-                <button className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                <button className="bg-sage text-white font-bold px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
                   Ir a Quienes Somos
                 </button>
               </Link>
@@ -51,9 +60,15 @@ export default function Home() {
         </section>
 
         {/* Servicios */}
-        <section className="flex flex-col py-8">
+        <section className="flex flex-col items-center py-8">
           <h2>Servicios</h2>
           <CardServi />
+          <Link href="/servicios" >
+            <button className="bg-sage text-white px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                Ver todos los servicios
+            </button>
+          </Link>
+
         </section>
 
         {/* Galería */}

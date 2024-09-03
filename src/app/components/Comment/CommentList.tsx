@@ -22,26 +22,26 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
 
 
   return (
-    <div>
-        <ul>
-            {comentarios.length > 0 ? (
-                // Ordenar los comentarios por fecha, de más nuevo a más viejo
-                comentarios
-                    .sort((a:any, b:any) => new Date(b.date).getTime() - new Date(a.date).getTime())
-                    .map((comentario: any) => (
-                        <li key={comentario._id} className="border-b my-2 py-2 bg-white rounded-md">
-                            <Comment
-                                servicio={comentario.servicio}
-                                comentario={comentario.comentario}
-                                date={comentario.date} 
-                            />
-                        </li>
-                    ))
-            ) : (
-                <p>No hay comentarios disponibles.</p>
-            )}
-        </ul>
-    </div>
+    <div className="max-h-screen overflow-scroll w-full">
+    <ul className="flex flex-wrap justify-center">
+        {comentarios.length > 0 ? (
+            comentarios
+                .sort((a:any, b:any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+                .map((comentario: any) => (
+                    <li key={comentario._id} className="border-b m-1 p-1 rounded-md bg-white w-80 flex-shrink-0">
+                        <Comment
+                            servicio={comentario.servicio}
+                            comentario={comentario.comentario}
+                            date={comentario.date} 
+                        />
+                    </li>
+                ))
+        ) : (
+            <p>No hay comentarios disponibles.</p>
+        )}
+    </ul>
+</div>
+
 
   )
 }

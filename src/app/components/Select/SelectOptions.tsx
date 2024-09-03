@@ -35,9 +35,9 @@ function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, v
     }
 
     return (
-        <div className={`flex flex-row w-full`}>
-        <div className='flex flex-col w-full'>
-            <span className='ml-4 font-medium '> {campo} </span> 
+        <div className={`flex flex-row`}>
+        <div className='flex inline'>
+            {/* <span className='ml-4 font-medium '> {campo} </span>  */}
             <div className={`flex flex-col 2xl:flex-col  ${campo=="Unidad"? "xl:w-full 2xl:w-full 2xl:h-10 xl:h-12 xl:mb-5" : "xl:w-full"}`}>
             <select
                 className= {campo=="Unidad"? "border open-sans mt-0.5 border-gray-300  w-95/100 h-10 xl:h-8/10 mx-3 xl:w-full 2xl:h-10 2xl:w-full " : "border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 w-95/10" }

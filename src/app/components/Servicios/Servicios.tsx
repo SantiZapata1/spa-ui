@@ -9,7 +9,9 @@ import ServiceEdit from '../ServiceList/ServiceEdit';
 
 import InputText from '../Inputs/InputText';
 import SelectOptions from '../Select/SelectOptions';
+
 export default function Servicios() {
+
     const [servicios, setServicios] = useState<any[]>([]);
     const [serviciosFiltrados, setServiciosFiltrados] = useState<any[]>([]);
     const [isCreatingService, setIsCreatingService] = useState(false);
@@ -106,9 +108,10 @@ export default function Servicios() {
     ]
 
     return (
-        <div className="min-h-screen p-4 ">
-            <div className="text-center mb-8">
-                <h2 className="text-3xl font-bold mb-4">Todos los servicios ({servicios.length})</h2>
+        <div className="min-h-screen p-7 ">
+
+            <div className="mb-8">
+                <h2 className="text-3xl mb-4 text-left inline mr-5">Todos los servicios ({servicios.length})</h2>
 
                 {isCreatingService ? (
                     <form
@@ -139,17 +142,18 @@ export default function Servicios() {
                     </form>
                 ) : (
                     <button
-                        className='px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg'
+                        className='px-3 py-1 bg-green-800 text-white rounded-lg '
                         onClick={() => setIsCreatingService(true)}
                     >
                         Nuevo
                     </button>
                 )}
             </div>
-            <div className='flex flex-col w-full items-center justify-center m-3'>
-                <div className='w-4/10'>
+            <div className='flex flex-col w-full items-center justify-center my-3'>
+                <div className='w-2/10'>
+
                     <form
-                        className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md"
+                        className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md flex"
                         onSubmit={ 
                             handleSubmit((values) => {
                                 // Modifica servicios para que solo muestre donde coincida tipos con el filtro
@@ -158,8 +162,8 @@ export default function Servicios() {
 
                         }
                     >
-                        <SelectOptions campo="Filtro" nombre='filtro' opciones={opcionesServicios} setValue={setValue} error={errors.tipo} />
-                        <button className='px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-lg'>
+                        <SelectOptions campo="filtro" nombre='filtro' opciones={opcionesServicios} setValue={setValue} error={errors.tipo} />
+                        <button className='px-3 ml-1 py-1 bg-green-800 text-white rounded-lg'>
                             Buscar
                         </button>
 

@@ -32,7 +32,7 @@ export default function Page() {
   return (
     <main className="my-6 bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
 
-      <h1 className="text-3xl font-bold text-center text-green-600 mb-8">Registrarse</h1>
+      <h1 className="text-3xl font-bold text-center tx-sage mb-8">Registrate!</h1>
 
       {mensajeError && <p className="text-red-500 text-center">{mensajeError}</p>}
 
@@ -122,7 +122,7 @@ export default function Page() {
           errors={errors.pass}
         />
 
-        <button className="w-full py-3 bg-green-500 text-white font-bold rounded-lg shadow-lg hover:bg-green-600 transition duration-300">
+        <button className="w-full py-3 bg-sage text-white text-2xl rounded-lg shadow-lg transition duration-300">
           Registrarse
         </button>
       </form>

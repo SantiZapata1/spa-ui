@@ -16,7 +16,7 @@ type Comentario = {
     comentario: string;
 };
 
-function ComentariosIndex() {
+export default function ComentariosIndex() {
     const [filtro, setFiltro] = useState<string>('ningun');
     const [comentarios, setComentarios] = useState<Comentario[]>([]);
 
@@ -100,7 +100,7 @@ function ComentariosIndex() {
     return (
         <section className="h-80vh mt-10 flex flex-col items-center">
 
-            <div className="flex flex-col md:flex-row justify-center h-9/10">  
+            <div className="flex flex-col md:flex-row justify-center h-9/10 max-w-screen-2xl">  
 
                 <div>
                     <form
@@ -110,14 +110,14 @@ function ComentariosIndex() {
                         <h3 className='text-3xl'>¡Dejanos un comentario!</h3>
                         <SelectOptions campo="" nombre="servicio" setValue={setValue} error={errors.servicios} opciones={opcionesServicios} />
                         <InputTextArea customSize={"h-7/10"} require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario" errors={errors.comentario} />
-                        <button type="submit" className="p-3 mt-2 w-96 bg-green-700 hover:bg-green-800 text-white font-bold rounded-lg shadow-lg">
+                        <button type="submit" className="p-3 mt-2 w-96 bg-sage text-white font-bold rounded-lg shadow-lg">
                             Enviar
                         </button>
                     </form>
                 </div>
                 <div className="overflow-scroll m-5">
                     <div>
-                        <label htmlFor="opciones" className="text-xl font-bold ">Filtrar:</label>
+                        <label htmlFor="opciones" className="text-xl font-semibold ">Filtrar:</label>
                         <select className="border open-sans border-gray-300 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4 w-95/100" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
                             <option value="ningun">Sin filtro</option>
                             <option value="belleza">Belleza</option>
@@ -138,4 +138,3 @@ function ComentariosIndex() {
     )
 }
 
-export default ComentariosIndex

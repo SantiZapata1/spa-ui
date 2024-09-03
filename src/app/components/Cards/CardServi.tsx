@@ -1,31 +1,32 @@
 // components/CardServi.tsx
 import React from 'react';
 
-const CardServi: React.FC = () => {
+export default function CardServi(){
+
   const cards = [
     {
       imgSrc: "/Masajes/masaje1.png",
       title: "Masajes",
       description: "Técnicas de relajación y alivio muscular que mejoran la circulación, reducen el estrés y promueven el bienestar general.",
-      link: "/servicios/masaje"
+      link: "/servicios"
     },
     {
       imgSrc: "/Belleza/belleza1.jpg",
       title: "Belleza",
       description: "Servicios para realzar la apariencia, como depilación, manicuras, pedicuras y maquillaje.",
-      link: "/servicios/belleza"
+      link: "/servicios"
     },
     {
       imgSrc: "/tFacial/TF1.jpg",
       title: "Tratamiento Facial",
       description: "Procedimientos que tonifican, hidratan y rejuvenecen la piel del cuerpo, incluyendo exfoliaciones y envolturas.",
-      link: "/servicios/tFaciales"
+      link: "/servicios"
     },
     {
       imgSrc: "/tCorporal/TC1.png",
       title: "Tratamiento Corporal",
       description: "Rutinas de cuidado para limpiar, hidratar y revitalizar la piel del rostro, adaptadas a diferentes tipos de piel y necesidades.",
-      link: "/servicios/tCorporales"
+      link: "/servicios"
     },
   ];
 
@@ -41,7 +42,7 @@ const CardServi: React.FC = () => {
               <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-600">{card.title}</h5>
             </a>
             <p className="mb-3 font-normal text-gray-500 flex-grow">{card.description}</p>
-            <a href={card.link} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-blue-300  focus:ring-4 focus:outline-none  mt-auto">
+            <a href={card.link} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-sage focus:ring-blue-300  focus:ring-4 focus:outline-none  mt-auto">
               Ver más
               <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                 <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
@@ -54,5 +55,5 @@ const CardServi: React.FC = () => {
   );
 };
 
-export default CardServi;
+
 

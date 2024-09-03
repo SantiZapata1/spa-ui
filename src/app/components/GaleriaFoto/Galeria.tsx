@@ -16,7 +16,7 @@ export default function Galeria(){
     <div className="container mx-auto py-10">
       <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-3">
         {images.map((src, index) => (
-          <div key={index} className="relative w-full h-64 overflow-hidden rounded-lg bg-white border border-gray-200 shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
+          <div key={index} className=" relative w-full h-64 overflow-hidden rounded-lg bg-white border border-gray-200 shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
             <Image
               src={src}
               alt={`Imagen ${index + 1}`}

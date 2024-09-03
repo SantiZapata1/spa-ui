@@ -36,30 +36,7 @@ function NavBarOptions() {
     Noticias
   </Link>
 
-  <div className='relative'>
-    <button
-      onClick={toggleDropdown}
-      className={linkClass}
-    >
-      Servicios
-    </button>
-    {dropdownOpen && (
-      <div className='absolute bg-white text-gray-700 mt-2 rounded-lg shadow-lg z-50 w-full md:w-auto'>
-        <Link href="/servicios/masaje" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
-          Masajes
-        </Link>
-        <Link href="/servicios/belleza" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
-          Belleza
-        </Link>
-        <Link href="/servicios/tFacial" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
-          Tratamientos faciales
-        </Link>
-        <Link href="/servicios/tCorporales" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
-          Tratamientos corporales
-        </Link>
-      </div>
-    )}
-  </div>
+  <Link href='/servicios' className={linkClass}>Servicios</Link>
 
   <Link href="/#contacto" className={linkClass} onClick={closeDropdown}>
     Contacto

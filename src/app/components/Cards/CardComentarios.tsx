@@ -65,7 +65,7 @@ export default function CardComentarios() {
             <h2 className="text-3xl font-medium">Tus comentarios</h2>
 
             <form 
-                className="m-3 w-6/10 flex flex-col items-center justify-center p-2 rounded-md" 
+                className="m-3 w-4/10 flex flex-col items-center justify-center p-2 rounded-md" 
                 onSubmit={handleSubmit(onSubmit)}
             >
                 {mensajeError && <p className="text-red-500">{mensajeError}</p>}
@@ -92,7 +92,7 @@ export default function CardComentarios() {
 
                 <InputTextArea require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario"  errors={errors.comentario}/>
 
-                <button type="submit" className="p-3 mt-2 bg-green-900 w-96 hover:bg-green-700 text-white font-bold rounded-lg shadow-lg">
+                <button type="submit" className="p-3 mt-2 bg-sage w-96 text-white font-bold rounded-lg shadow-lg">
                     Enviar
                 </button>
             </form>

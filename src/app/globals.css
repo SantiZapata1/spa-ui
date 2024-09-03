@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+/* const bodoni = Bodoni_Moda({
+    weight: '400',
+    subsets: ['latin'],
+    display: 'swap',
+  })
+   */
+
 @font-face {
     font-family: 'montserrat';
     src: url('../../public/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
@@ -25,7 +34,18 @@
     --color-text: #333333; /* Gris oscuro */
     --color-accent: #FFFFFF; /* Blanco */
 
+    --color-beige:#F7EFE5;
+    --color-purple:#8C3061;
+
 }
+
+.bg-sage{
+    background-color: #5F6F52;
+}
+
+
+
+
 .header {
     position: sticky;
     top: 0;
@@ -52,7 +72,9 @@ h1{
 h2{
     font-size: 44px;
     text-align: center;
+    color: #333333;
 }
+
 .center{
     margin: auto;
 }
@@ -67,8 +89,8 @@ h2{
 .tx-violet-logo{
     color: var(--violet-color);
 }
-.tx-green-logo{
-    color: var(--green-color);
+.tx-sage{
+    color: #333333;
 }
 
 /* nuevas clases para la pagina */
@@ -133,7 +155,12 @@ h2{
 
 
 
-
+.secciones{
+    background-color: var(--color-background);
+}
+.secciones > :nth-child(odd){
+    background-color: var(--color-beige);
+}
 
 /* otras secciones del inicio*/
 .secciones > section{

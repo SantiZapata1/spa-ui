@@ -22,9 +22,9 @@ export default function ContactoForm(){
     <div className="flex flex-col w-full md:w-4/10">
       <main className="flex-grow bg-white p-8 rounded-lg shadow-lg">
 
-        <h1 className="text-3xl text-center text-green-700 mb-8">
+        <h2 className="text-4xl ">
           Contáctanos
-        </h1>
+        </h2>
 
         <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
           
@@ -83,7 +83,7 @@ export default function ContactoForm(){
             errors={errors.nombre}
             valor={user ? user.correo_electronico : ''}
           />
-          <label className="block font-bold text-gray-700">Mensaje</label>
+          <label className="block font-semibold text-gray-700">Mensaje</label>
           <InputTextArea
             campo="Mensaje"
             nombre="mensaje"
@@ -96,7 +96,7 @@ export default function ContactoForm(){
           <div className="text-center">
             <button
               type="submit"
-              className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300"
+              className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-sage transition duration-300"
             >
               Enviar mensaje
             </button>
