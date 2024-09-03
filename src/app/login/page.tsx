@@ -47,6 +47,8 @@ export default function Login() {
 
         <form className="space-y-6" onSubmit={onSubmit}>
 
+          
+
               <InputText
                 campo="Nombre de usuario"
                 nombre="nombre_de_usuario"

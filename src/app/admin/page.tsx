@@ -7,7 +7,9 @@ import { useAuth } from './../../context/auth'
 // Componentes
 import Servicios from '../components/Servicios/Servicios';
 import { useState } from 'react';
-function page() {
+
+export default function Page() {
+    
     const { user, isAuthenticated, isLoading } = useAuth();
     const [isHScreen, setIsHScreen] = useState(true);
 
@@ -69,5 +71,3 @@ function page() {
     </section>
   )
 }
-
-export default page

@@ -100,15 +100,17 @@ function ComentariosIndex() {
 
 
     return (
-        <section className="h-80vh mt-10 flex flex-col items-center p-5">
-            <h2>Comentarios</h2>
-            <div className="flex flex-col md:flex-row justify-center h-9/10 ">
-                <div className="">
+        <section className="h-80vh mt-10 flex flex-col items-center">
+
+            <div className="flex flex-col md:flex-row justify-center h-9/10">  
+
+                <div>
                     <form
                         className="flex flex-col p-2 rounded-md"
                         onSubmit={handleSubmit(onSubmit)}
                     >
-                        <SelectOptions campo="Servicios" nombre="servicio" setValue={setValue} error={errors.servicios} opciones={opcionesServicios} />
+                        <h3>Escriba un nuevo comentario!</h3>
+                        <SelectOptions campo="" nombre="servicio" setValue={setValue} error={errors.servicios} opciones={opcionesServicios} />
                         <InputTextArea require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario" errors={errors.comentario} />
                         <button type="submit" className="p-3 mt-2 w-96 bg-green-700 hover:bg-green-800 text-white font-bold rounded-lg shadow-lg">
                             Enviar

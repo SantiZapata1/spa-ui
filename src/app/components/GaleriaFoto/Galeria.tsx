@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 
-const Galeria = () => {
+export default function Galeria(){
   // Definir las imágenes dentro del componente
   const images = [
     '/Belleza/belleza1.jpg',
@@ -13,9 +13,8 @@ const Galeria = () => {
   ];
 
   return (
-    <div className="py-8 bg-gray-100">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-center">Galería</h2>
-      <div className="grid grid-cols-2 gap-4 px-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+    <div>
+      <div className="grid grid-cols-2 gap-4 px-4 pt-10 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {images.map((src, index) => (
           <div key={index} className="relative w-full h-64 overflow-hidden rounded-lg bg-white">
             <Image
@@ -32,4 +31,4 @@ const Galeria = () => {
   );
 };
 
-export default Galeria;
+

@@ -121,6 +121,9 @@ h2{
 .titulo{
 
 }
+.h-80{
+    height: 80vh;
+}
 
 .eslogan{
     font-size: 20px;
@@ -128,9 +131,13 @@ h2{
 }
 
 
+
+
+
+
 /* otras secciones del inicio*/
 .secciones > section{
-    border-bottom: thin solid rgb(108, 106, 106);
+    border-bottom: thin solid rgb(212, 212, 212);
 }
 
 .quienes-somos, .servicios, .testimonios, .galeria, .contacto{

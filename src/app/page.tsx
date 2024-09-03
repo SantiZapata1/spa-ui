@@ -31,34 +31,40 @@ export default function Home() {
       />
 
       <div className="secciones bg-beige">
+        
         {/* Quiénes somos */}
-        <section className="flex flex-col items-center justify-center min-h-screen p-8">
-          <div className="text-center max-w-4xl">
-            <h2 className="text-4xl font-bold mb-4">Quiénes Somos</h2>
-            <h3 className="text-lg font-medium">
+        <section className="flex flex-col items-center min-h-screen">
+          <h2 className="mt-5">Quiénes Somos</h2>
+
+          <div className="flex flex-col items-center justify-around max-w-4xl h-80">
+
+            {/* <p className="text-lg font-medium">
               Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
-            </h3>
+            </p> */}
+
               <Link href="/about" >
-            <button className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
-              Ir a Quienes Somos
-            </button>
+                <button className="bg-green-700 hover:bg-green-800 text-white font-bold px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
+                  Ir a Quienes Somos
+                </button>
               </Link>
           </div>
         </section>
 
         {/* Servicios */}
-        <section className="flex flex-col p-8">
-          <h2 className="text-2xl font-bold mb-4">Servicios</h2>
+        <section className="flex flex-col py-8">
+          <h2>Servicios</h2>
           <CardServi />
         </section>
 
         {/* Galería */}
         <section className="p-8">
+          <h2>Galeria</h2>
           <Galeria />
         </section>
 
         {/* Comentarios */}
         <section className="p-8">
+          <h2>Comentarios</h2>
           <ComentariosIndex />
         </section>
 

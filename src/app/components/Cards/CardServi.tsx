@@ -30,17 +30,17 @@ const CardServi: React.FC = () => {
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full ">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-7 pt-7">
       {cards.map((card, index) => (
-        <div key={index} className="bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex flex-col h-full transform transition-transform duration-300 ease-in-out hover:scale-105">
+        <div key={index} className=" border border-gray-200 rounded-lg shadow flex flex-col h-full transform transition-transform duration-300 ease-in-out hover:scale-105">
           <a href={card.link}>
             <img className="rounded-t-lg w-full h-48 object-cover" src={card.imgSrc} alt={card.title} />
           </a>
           <div className="p-5 flex flex-col flex-1">
             <a href={card.link}>
-              <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 dark:text-white">{card.title}</h5>
+              <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-600">{card.title}</h5>
             </a>
-            <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 flex-grow">{card.description}</p>
+            <p className="mb-3 font-normal text-gray-500 flex-grow">{card.description}</p>
             <a href={card.link} className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-green-700 hover:bg-green-800 focus:ring-blue-300  focus:ring-4 focus:outline-none  mt-auto">
               Ver más
               <svg className="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
