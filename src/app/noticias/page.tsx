@@ -104,7 +104,8 @@ export default function NoticiasPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {noticias.map((noticia: any) => (
             <Card
-              key={noticia?.id}
+              key={noticia?._id}
+              id={noticia?._id}
               title={noticia?.titulo}
               text={noticia?.contenido}
               imageUrl={noticia?.imagen ? `${API_URL}/images/noticias/${noticia?.imagen}` : ""}

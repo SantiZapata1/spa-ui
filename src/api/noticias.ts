@@ -22,3 +22,12 @@ export const createNoticia = async (noticia: any) => {
       console.log(error);
   }
 };
+
+export const deleteNoticia = async (id: string) => {
+  try{
+    console.log(id)
+    await axios.delete(`/eliminar-noticia/${id}`);
+  }catch(error){
+    console.log(error)
+  }
+}
