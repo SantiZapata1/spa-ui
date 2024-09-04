@@ -15,6 +15,8 @@ import { createNoticia, getNoticias } from '../../api/noticias';
 import Swal from 'sweetalert2';
 import { useEffect } from 'react';
 
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
+
 export default function NoticiasPage() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -46,8 +48,19 @@ export default function NoticiasPage() {
       <div className="flex-grow p-8 lg:p-10">
         {user?.admin && (
           <div className='flex flex-col-items-center justify-center m-4'>
-            <form  encType="multipart/form-data" className='w-full md:w-4/10' onSubmit={
+            <form method='post' encType="multipart/form-data" className='w-full md:w-4/10' onSubmit={
               handleSubmit(async (values) => {
+                // @ts-ignore
+                const file = fileInputRef?.current?.files[0];
+                if (!file) {
+                  Swal.fire('Error', 'Por favor, selecciona una imagen.', 'error');
+                  return;
+                }
+                const noticia = {
+                  titulo: values.titulo,
+                  contenido: values.contenido,
+                  imagen: file
+                };
                 Swal.fire({
                   title: '¿Estás seguro?',
                   text: "Estás por subir una noticia",
@@ -65,10 +78,10 @@ export default function NoticiasPage() {
                       icon: 'success',
                       confirmButtonText: 'Aceptar',
                       confirmButtonColor: '#7BB263',
-                    }).then((result: any) => {
+                    }).then(async (result: any) => {
                       if (result.isConfirmed)
                         try {
-                          createNoticia(values);
+                          await createNoticia(noticia);
                           window.location.reload();
                         } catch (error) {
                           console.log(error);
@@ -80,7 +93,7 @@ export default function NoticiasPage() {
 
               <InputText campo="Título" nombre="titulo" type="text" register={register} require={true} errors={errors.titulo} />
               <InputTextArea type="text" placeholder='Contenido de la noticia' campo="Texto" nombre="contenido" register={register} require={true} errors={errors.texto} />
-              <input ref={fileInputRef} type="file" accept="image/*" className='mb-2'/>
+              <input ref={fileInputRef} type="file" accept="image/*" className='mb-2' />
               <button className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300">
                 Subir noticia
               </button>
@@ -94,7 +107,7 @@ export default function NoticiasPage() {
               key={noticia?.id}
               title={noticia?.titulo}
               text={noticia?.contenido}
-              imageUrl=""
+              imageUrl={noticia?.imagen ? `${API_URL}/images/noticias/${noticia?.imagen}` : ""}
             />
           ))}
         </div>
