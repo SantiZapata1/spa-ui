@@ -3,7 +3,7 @@
 import {Bodoni_Moda} from "next/font/google"
 
 import Swal from 'sweetalert2';
-import { useState, useEffect, React } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { getServicesRequest, deleteServicesRequest, createServiceRequest } from "../../api/servicios";
 import Service from "../components/ServiceList/Service";
