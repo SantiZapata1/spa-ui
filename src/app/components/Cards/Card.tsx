@@ -63,7 +63,18 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
         const titulo = (document.getElementById('titulo') as HTMLInputElement).value;
         const contenido = (document.getElementById('contenido') as HTMLTextAreaElement).value;
         editNoticia(id, { titulo, contenido });
-        window.location.reload();
+        Swal.fire({
+          title: '¡Listo!',
+          text: '¡Tu noticia ha sido editada correctamente!',
+          icon: 'success',
+          confirmButtonText: 'Aceptar',
+          confirmButtonColor: '#7BB263'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            window.location.reload();
+          }
+        }
+        );
       }
     });
   }
