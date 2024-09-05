@@ -14,7 +14,8 @@ module.exports = {
       backgroundColor: {
         "spa-purple": "#9F2C71",
         "spa-light-purple": "#F075AA",
-        "musgo": "#729762"
+        "musgo": "#729762",
+        "sage": "#5F6F52"
       },
       fontSize: {
         vw: '0.9vw',

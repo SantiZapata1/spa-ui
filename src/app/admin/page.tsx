@@ -13,7 +13,7 @@ import Turnos from '../components/Turnos/Turnos';
 export default function Page() {
     
     const { user, isAuthenticated, isLoading } = useAuth();
-    const [isHScreen, setIsHScreen] = useState(true);
+    const [isHScreen, setIsHScreen] = useState(false);
 
     const [isShowServicios, setIsShowServicios] = useState(true);
     const [isShowTurnos, setIsShowTurnos] = useState(false);
@@ -53,11 +53,11 @@ export default function Page() {
         }
 
     return (
-        <section className={`${isHScreen ? 'h-screen' : 'h-full'  }`}>
+        <section className={`h-full`}>
 
             <h1 className='text-5xl text-center mt-8'>Página de administración</h1>
 
-            <div className='flex'>
+            <div className='flex flex-col justify-center items-center'>
 
                 <div className='flex flex-col mt-5'>
                     <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleServicios()}>
