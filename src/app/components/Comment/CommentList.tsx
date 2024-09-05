@@ -22,7 +22,7 @@ export default function CommentList({ comentarios, recargarComentarios }:any) {
 
 
   return (
-    <div className="max-h-screen overflow-scroll w-full">
+    <div className="max-h-screen w-full">
     <ul className="flex flex-wrap justify-center">
         {comentarios.length > 0 ? (
             comentarios
