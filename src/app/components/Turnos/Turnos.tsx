@@ -30,7 +30,7 @@ export default function Turnos() {
     }, []);
 
     return (
-        <div className="w-full">
+        <div className="w-full p-4">
             <h1>Turnos</h1>
 
             <DataTable
