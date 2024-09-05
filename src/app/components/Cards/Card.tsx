@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { useAuth } from '../../../context/auth';
-import { deleteNoticia } from '../../../api/noticias';
+import { deleteNoticia, editNoticia } from '../../../api/noticias';
 import Swal from 'sweetalert2';
 
 interface CardProps {
@@ -46,6 +46,27 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
     });
   };
 
+  const handleEdit = () => {
+    Swal.fire({
+      html: `
+        <input type="text" id="titulo" class="swal2-input" value="${title}">
+        <textarea id="contenido" class="swal2-textarea" style="resize: none;">${text}</textarea>
+            `,
+      showCancelButton: true,
+      confirmButtonColor: '#7BB263',
+      cancelButtonColor: '#D8316C',
+      confirmButtonText: 'Guardar',
+      cancelButtonText: 'Cancelar',
+
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const titulo = (document.getElementById('titulo') as HTMLInputElement).value;
+        const contenido = (document.getElementById('contenido') as HTMLTextAreaElement).value;
+        editNoticia(id, { titulo, contenido });
+      }
+    });
+  }
+
   return (
     <div className="h-full border rounded-lg shadow bg-gray-800 border-gray-700 flex flex-col justify-between">
       <Image
@@ -67,7 +88,7 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
 
       {user?.admin && (
         <div className="flex flex-row justify-end p-5">
-          <button className="bg-green-700 text-white px-4 py-2 rounded-lg mr-2">
+          <button className="bg-green-700 text-white px-4 py-2 rounded-lg mr-2" onClick={() => handleEdit()}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"

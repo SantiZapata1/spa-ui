@@ -31,3 +31,11 @@ export const deleteNoticia = async (id: string) => {
     console.log(error)
   }
 }
+
+export const editNoticia = async (id: string, noticia: any) => {
+  try{
+    await axios.put(`/editar-noticia/${id}`, noticia);
+  }catch(error){
+    console.log(error)
+  }
+}
