@@ -63,6 +63,7 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
         const titulo = (document.getElementById('titulo') as HTMLInputElement).value;
         const contenido = (document.getElementById('contenido') as HTMLTextAreaElement).value;
         editNoticia(id, { titulo, contenido });
+        window.location.reload();
       }
     });
   }
