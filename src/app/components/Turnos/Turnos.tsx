@@ -31,7 +31,7 @@ export default function Turnos() {
 
     return (
         <div className="w-full p-4">
-            <h1>Turnos</h1>
+            <h2 className="text-left">Turnos</h2>
 
             <DataTable
                 columns={columnsTurnos}

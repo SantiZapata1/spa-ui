@@ -108,7 +108,7 @@ export default function Servicios() {
     ]
 
     return (
-        <div className="min-h-screen p-7 ">
+        <div className="min-h-screen min-w-full p-7 ">
 
             <div className="mb-8">
                 <h2 className="text-3xl mb-4 text-left inline mr-5">Todos los servicios ({servicios.length})</h2>
@@ -142,18 +142,17 @@ export default function Servicios() {
                     </form>
                 ) : (
                     <button
-                        className='px-3 py-1 bg-green-800 text-white rounded-lg '
+                        className='px-3 py-1 text-white bg-sage rounded-lg '
                         onClick={() => setIsCreatingService(true)}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-</svg>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
 
                     </button>
                 )}
             </div>
-            <div className='flex flex-col w-full items-center justify-center my-3'>
-                <div className='w-2/10'>
+                <div className='w-fit mb-5'>
 
                     <form
                         className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md flex"
@@ -172,8 +171,7 @@ export default function Servicios() {
 
                     </form>
                 </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {serviciosFiltrados.length > 0 ? (
                     serviciosFiltrados
                         .sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) // Ordenar por fecha de creación (descendente)
