@@ -3,122 +3,138 @@
 import Swal from 'sweetalert2';
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { getServicesRequest, deleteServicesRequest, createServiceRequest } from "../../../api/servicios";
-import Service from "../ServiceList/Service";
-import ServiceEdit from '../ServiceList/ServiceEdit';
-
+import DataTable from "react-data-table-component";
+import { getServicesRequest, deleteServicesRequest, createServiceRequest, updateServiceRequest } from "../../../api/servicios";
+import columnsServicios from './columnsServicios';
+import customStylesServicios from '../Turnos/customStyles';
 import InputText from '../Inputs/InputText';
 import SelectOptions from '../Select/SelectOptions';
+import ServiceEdit from '../ServiceList/ServiceEdit';
 
 export default function Servicios() {
-
     const [servicios, setServicios] = useState<any[]>([]);
     const [serviciosFiltrados, setServiciosFiltrados] = useState<any[]>([]);
     const [isCreatingService, setIsCreatingService] = useState(false);
+    const [isEditingService, setIsEditingService] = useState(false);
     const [editingServiceId, setEditingServiceId] = useState<number | null>(null);
+    const [currentService, setCurrentService] = useState<any>(null);
 
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const { register, handleSubmit, setValue, setError, clearErrors, formState: { errors } } = useForm();
 
+    // Función para obtener la lista de servicios
     const obtenerListaServicios = async () => {
         try {
             const respuesta = await getServicesRequest();
-            setServicios(respuesta.data);
-            setServiciosFiltrados(respuesta.data);
+            if (respuesta.data && Array.isArray(respuesta.data)) {
+                setServicios(respuesta.data);
+                setServiciosFiltrados(respuesta.data);
+            } else {
+                console.log("La respuesta de la API no es válida");
+            }
         } catch (error) {
-            console.log("error al obtener los Servicios", error);
+            console.log("Error al obtener los Servicios", error);
         }
-    }
+    };
 
-    const deleteService = async (_id: number) => {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "No podrás revertir esto",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#7BB263',
-                cancelButtonColor: '#D8316C',
-                confirmButtonText: 'Sí, borrar',
-                cancelButtonText: 'Cancelar'
-            }).then(async (result) => {
+    // Elimina un servicio
+    const deleteService = async (id: number) => {
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "No podrás revertir esto",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#7BB263',
+            cancelButtonColor: '#D8316C',
+            confirmButtonText: 'Sí, borrar',
+            cancelButtonText: 'Cancelar'
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await deleteServicesRequest(id);
+                    obtenerListaServicios();  // Actualiza la lista después de eliminar
+                    Swal.fire('¡Eliminado!', 'El servicio ha sido eliminado.', 'success');
+                } catch (error) {
+                    console.log("Error al eliminar el servicio", error);
+                }
+            }
+        });
+    };
+
+    // Maneja la edición de un servicio
+    const handleEdit = (id: number) => {
+        const service = servicios.find(s => s._id === id);
+        if (service) {
+            setCurrentService(service);
+            setEditingServiceId(id);
+            setIsEditingService(true);
+        }
+    };
+
+    // Maneja la creación y actualización de un servicio
+    const onSubmit = async (values: any) => {
+        try {
+            if (editingServiceId) {
+                // Actualizar servicio
                 Swal.fire({
-                    title: '¡Eliminado!',
-                    text: 'El servicio ha sido eliminado.',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar',
+                    title: '¿Estás seguro?',
+                    icon: 'warning',
+                    showCancelButton: true,
                     confirmButtonColor: '#7BB263',
+                    cancelButtonColor: '#D8316C',
+                    confirmButtonText: 'Sí, enviar',
+                    cancelButtonText: 'Cancelar'
                 }).then(async (result) => {
                     if (result.isConfirmed) {
                         try {
-                            const respuesta = await deleteServicesRequest(_id);
-                            obtenerListaServicios();
+                            await updateServiceRequest({ ...values, id: editingServiceId });
+                            Swal.fire('¡Listo!', '¡Servicio actualizado correctamente!', 'success');
+                            obtenerListaServicios();  // Actualiza la lista después de crear o actualizar
+                            setIsCreatingService(false);
+                            setEditingServiceId(null);
+                            setCurrentService(null);
                         } catch (error) {
-                            console.log("error eliminado servicio", error);
+                            console.log("Error al actualizar el servicio", error);
                         }
                     }
                 });
-            });
-    }
-
-    useEffect(() => {
-        obtenerListaServicios();
-    }, []);
-
-    const onSubmit = async (values: any) => {
-        try {
-            Swal.fire({
-                title: '¿Estás seguro?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#7BB263',
-                cancelButtonColor: '#D8316C',
-                confirmButtonText: 'Sí, enviar',
-                cancelButtonText: 'Cancelar'
-            }).then(async (result) => {
-                if (result.isConfirmed) {
-                    try {
-                        Swal.fire({
-                            title: '¡Listo!',
-                            text: '¡Tu mensaje ha sido enviado correctamente!',
-                            icon: 'success',
-                            confirmButtonText: 'Aceptar',
-                            confirmButtonColor: '#7BB263',
-                        }).then(async (result) => {
-                            if (result.isConfirmed) {
-                                const respuesta = await createServiceRequest(values);
-                                console.log("servicio creado correctamente");
-                                obtenerListaServicios();
-                                setIsCreatingService(false);
-                            }
-                        });
-                    } catch (error) {
-                        console.log(error);
-                    }
-                }
-            });
+            } else {
+                // Crear nuevo servicio
+                await createServiceRequest(values);
+                Swal.fire('¡Listo!', '¡Servicio creado correctamente!', 'success');
+                obtenerListaServicios();  // Actualiza la lista después de crear o actualizar
+                setIsCreatingService(false);
+                setEditingServiceId(null);
+                setCurrentService(null);
+            }
         } catch (error) {
-            console.log("error al crear un servicio", error);
+            console.log("Error al guardar el servicio", error);
         }
-    }
+    };
 
+    // Opciones para el filtro
     const opcionesServicios = [
         { value: "belleza", nombre: "Belleza" },
         { value: "masajes", nombre: "Masajes" },
         { value: "tratamientos-corporales", nombre: "Tratamientos corporales" },
         { value: "tratamientos-faciales", nombre: "Tratamientos faciales" },
-    ]
+    ];
+
+    // Efecto para obtener los servicios al montar el componente
+    useEffect(() => {
+        obtenerListaServicios();
+    }, []);
 
     return (
-        <div className="min-h-screen min-w-full p-7 ">
-
+        <div className="min-h-screen min-w-full p-7">
             <div className="mb-8">
                 <h2 className="text-3xl mb-4 text-left inline mr-5">Todos los servicios ({servicios.length})</h2>
 
-                {isCreatingService ? (
+                {isCreatingService && !isEditingService ? (
                     <form
                         className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md"
                         onSubmit={handleSubmit(onSubmit)}
                     >
-                        <h3 className='text-2xl font-semibold mb-4'>Nuevo servicio</h3>
+                        <h3 className='text-2xl font-semibold mb-4'>{editingServiceId ? 'Editar servicio' : 'Nuevo servicio'}</h3>
                         <div className="mb-4">
                             <InputText campo="Nombre del servicio" nombre="nombre" type="text" register={register} errors={errors.nombre} />
                         </div>
@@ -130,77 +146,61 @@ export default function Servicios() {
                             <InputText campo="Detalles" nombre="detalles" type="text" register={register} errors={errors.detalles} />
                         </div>
                         <button type="submit" className="py-2 px-4 bg-green-700 hover:bg-green-800 text-white rounded-lg mr-2">
-                            Enviar
+                            {editingServiceId ? 'Actualizar' : 'Enviar'}
                         </button>
                         <button
                             type='button'
-                            onClick={() => setIsCreatingService(false)}
+                            onClick={() => {
+                                setIsCreatingService(false);
+                                setEditingServiceId(null);
+                                setCurrentService(null);
+                                setIsEditingService(false);
+                            }}
                             className='py-2 px-4 bg-orange-700 hover:bg-orange-800 text-white rounded-lg'
                         >
                             Cancelar
                         </button>
                     </form>
+                ) : isEditingService && currentService ? (
+                    <ServiceEdit
+                        id={editingServiceId}
+                        setIsEditing={() => setIsEditingService(false)}
+                        obtenerListaServicios={obtenerListaServicios}
+                        service={currentService}
+                    />
                 ) : (
                     <button
-                        className='px-3 py-1 text-white bg-sage rounded-lg '
+                        className='px-3 py-1 text-white bg-sage rounded-lg'
                         onClick={() => setIsCreatingService(true)}
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                         </svg>
-
                     </button>
                 )}
             </div>
-                <div className='w-fit mb-5'>
 
-                    <form
-                        className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md flex"
-                        onSubmit={ 
-                            handleSubmit((values) => {
-                                // Modifica servicios para que solo muestre donde coincida tipos con el filtro
-                                setServiciosFiltrados(servicios.filter((servicio) => servicio.tipo === values.filtro))
-                            })
-
-                        }
-                    >
-                        <SelectOptions campo="filtro" nombre='filtro' opciones={opcionesServicios} setValue={setValue} error={errors.tipo} />
-                        <button className='px-3 ml-1 py-1 bg-green-800 text-white rounded-lg'>
-                            Buscar
-                        </button>
-
-                    </form>
-                </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {serviciosFiltrados.length > 0 ? (
-                    serviciosFiltrados
-                        .sort((a: any, b: any) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()) // Ordenar por fecha de creación (descendente)
-                        .map((service: any) => (
-                            <div key={service._id} className="bg-white p-4 rounded-lg shadow-md">
-                                {editingServiceId === service._id
-                                    ? <ServiceEdit
-                                        id={service._id}
-                                        setIsEditing={() => setEditingServiceId(null)}
-                                        obtenerListaServicios={obtenerListaServicios}
-                                        service={service}
-                                    />
-                                    : <Service
-                                        _id={service._id}
-                                        nombre={service.nombre}
-                                        tipo={service.tipo}
-                                        precio={service.precio}
-                                        detalles={service.detalles}
-                                        deleteService={() => deleteService(service._id)}
-                                        setIsEditing={() => setEditingServiceId(service._id)}
-                                    />
-                                }
-                            </div>
-                        ))
-                ) : (
-                    <p className="text-center col-span-full">No hay servicios disponibles.</p>
-                )}
-
+            <div className='w-fit mb-5'>
+                <form
+                    className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md flex"
+                    onSubmit={handleSubmit((values) => {
+                        setServiciosFiltrados(servicios.filter((servicio) => servicio.tipo === values.filtro));
+                    })}
+                >
+                    <SelectOptions campo="filtro" nombre='filtro' opciones={opcionesServicios} setValue={setValue} error={errors.tipo} />
+                    <button className='px-3 ml-1 py-1 bg-green-800 text-white rounded-lg'>
+                        Buscar
+                    </button>
+                </form>
             </div>
+
+            <DataTable
+                columns={columnsServicios(handleEdit, deleteService)}
+                data={serviciosFiltrados}
+                pagination
+                customStyles={customStylesServicios}
+                responsive={true}
+            />
         </div>
     );
 }
