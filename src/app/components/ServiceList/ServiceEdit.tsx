@@ -3,10 +3,17 @@ import { updateServiceRequest } from "../../../api/servicios";
 
 import InputText from "../Inputs/InputText";
 import SelectOptions from "../Select/SelectOptions";
-import { useEffect } from "react";
 
 import Swal from "sweetalert2";
-export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, service }: any) {
+
+
+type ServiceEditProps = {
+    id: any;
+    setIsEditing: any;
+    service: any;
+}
+
+export default function ServiceEdit({ id, setIsEditing, service }: ServiceEditProps) {
 
     const {
         handleSubmit,
@@ -23,7 +30,7 @@ export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, s
                 showCancelButton: true,
                 confirmButtonColor: '#7BB263',
                 cancelButtonColor: '#D8316C',
-                confirmButtonText: 'Sí, enviar',
+                confirmButtonText: 'Sí, editar',
                 cancelButtonText: 'Cancelar'
               }).then(async (result) => {
     
@@ -32,17 +39,17 @@ export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, s
                     // Aquí iría la conexión a la BD
                     Swal.fire({
                       title: '¡Listo!',
-                      text: '¡Tu mensaje ha sido enviado correctamente!',
+                      text: 'El servicio ha sido editado correctamente!',
                       icon: 'success',
                       confirmButtonText: 'Aceptar',
                       confirmButtonColor: '#7BB263',
                     }).then(async (result) => {
                       if (result.isConfirmed) {
                         // Si se confirma, recargar la página
-                        const response = await updateServiceRequest({ ...values, id: id });
                         setIsEditing(false);
-                        obtenerListaServicios()
+                        values.id = id;
                         window.location.reload();
+                        const response = await updateServiceRequest(values);
                       }
                     });
                   } catch (error) {
@@ -68,7 +75,7 @@ export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, s
     return (
         <div>
             <form
-                className="space-y-3 p-2 flex flex-col w-96"
+                className="space-y-3 p-2 flex flex-col w-full"
                 onSubmit={handleSubmit(onSubmit)}
             >
                 <div>
@@ -87,14 +94,14 @@ export default function ServiceEdit({ id, setIsEditing, obtenerListaServicios, s
                 <div className="flex flex-col md:flex-row mt-2 justify-center">
                     <button
                         type="button"  // Cambiar tipo a "button"
-                        className=" m-2 bg-red-600 hover:bg-red-700 text-white cursor-pointer py-2 px-4 rounded mt-2 md:mt-0"
-                        onClick={setIsEditing}  // Desactivar el modo de edición
+                        className=" py-2 px-4 bg-orange-700 hover:bg-orange-800 text-white rounded-lg mr-2"
+                        onClick={() => setIsEditing(false)}  // Desactivar el modo de edición
                     >
                         Cancelar
                     </button>
                     <button
                         type="submit"
-                        className="m-2 bg-green-600 hover:bg-green-700 text-white cursor-pointer py-2 px-4 rounded flex items-center justify-center mt-2 md:mt-0"
+                        className="py-2 px-4 bg-green-700 hover:bg-green-800 text-white rounded-lg mr-2"
                     >
                         Guardar
                     </button>

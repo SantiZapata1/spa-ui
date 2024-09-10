@@ -9,7 +9,9 @@ import columnsServicios from './columnsServicios';
 import customStylesServicios from '../Turnos/customStyles';
 import InputText from '../Inputs/InputText';
 import SelectOptions from '../Select/SelectOptions';
-import ServiceEdit from '../ServiceList/ServiceEdit';
+import expandedComponent from './expandedComponents';
+import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
+
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
@@ -20,6 +22,11 @@ export default function Servicios() {
     const [currentService, setCurrentService] = useState<any>(null);
 
     const { register, handleSubmit, setValue, setError, clearErrors, formState: { errors } } = useForm();
+
+    const expandableIcon = {
+        collapsed: <ArrowDownCircleIcon className='h-6 w-6' />,
+        expanded: <ArrowUpCircleIcon className='h-6 w-6' />
+    }
 
     // Función para obtener la lista de servicios
     const obtenerListaServicios = async () => {
@@ -33,40 +40,6 @@ export default function Servicios() {
             }
         } catch (error) {
             console.log("Error al obtener los Servicios", error);
-        }
-    };
-
-    // Elimina un servicio
-    const deleteService = async (id: number) => {
-        Swal.fire({
-            title: '¿Estás seguro?',
-            text: "No podrás revertir esto",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#7BB263',
-            cancelButtonColor: '#D8316C',
-            confirmButtonText: 'Sí, borrar',
-            cancelButtonText: 'Cancelar'
-        }).then(async (result) => {
-            if (result.isConfirmed) {
-                try {
-                    await deleteServicesRequest(id);
-                    obtenerListaServicios();  // Actualiza la lista después de eliminar
-                    Swal.fire('¡Eliminado!', 'El servicio ha sido eliminado.', 'success');
-                } catch (error) {
-                    console.log("Error al eliminar el servicio", error);
-                }
-            }
-        });
-    };
-
-    // Maneja la edición de un servicio
-    const handleEdit = (id: number) => {
-        const service = servicios.find(s => s._id === id);
-        if (service) {
-            setCurrentService(service);
-            setEditingServiceId(id);
-            setIsEditingService(true);
         }
     };
 
@@ -152,22 +125,11 @@ export default function Servicios() {
                             type='button'
                             onClick={() => {
                                 setIsCreatingService(false);
-                                setEditingServiceId(null);
-                                setCurrentService(null);
-                                setIsEditingService(false);
                             }}
-                            className='py-2 px-4 bg-orange-700 hover:bg-orange-800 text-white rounded-lg'
-                        >
+                            className='py-2 px-4 bg-orange-700 hover:bg-orange-800 text-white rounded-lg'>
                             Cancelar
                         </button>
                     </form>
-                ) : isEditingService && currentService ? (
-                    <ServiceEdit
-                        id={editingServiceId}
-                        setIsEditing={() => setIsEditingService(false)}
-                        obtenerListaServicios={obtenerListaServicios}
-                        service={currentService}
-                    />
                 ) : (
                     <button
                         className='px-3 py-1 text-white bg-sage rounded-lg'
@@ -195,7 +157,10 @@ export default function Servicios() {
             </div>
 
             <DataTable
-                columns={columnsServicios(handleEdit, deleteService)}
+                columns={columnsServicios()}
+                expandableRowsComponent={expandedComponent}
+                expandableRows
+                expandableIcon={expandableIcon}
                 data={serviciosFiltrados}
                 pagination
                 customStyles={customStylesServicios}

@@ -9,7 +9,7 @@ export const getServicesRequest = () => axios.get("/servicios");
 export const createServiceRequest = (servicio:any) => axios.post("/crear-servicio", servicio);
 
 // actualiazar un comentario
-export const updateServiceRequest = (servicio:any) => axios.put(`/editar-servicio/${servicio.id}`, servicio);
+export const updateServiceRequest = (servicio:any) => axios.put(`/editar-servicio/${servicio._id}`, servicio);
 
 // eliminar un comentario
 export const deleteServicesRequest = (id:any) => axios.delete(`/eliminar-servicio/${id}`);

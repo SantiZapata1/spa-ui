@@ -1,5 +1,5 @@
 type Row = {
-    id: string;
+    _id: string;
     fecha: string;
     hora: string;
     cliente: string;
@@ -7,12 +7,16 @@ type Row = {
     comentarios: string;
 }
 
+const formatServicio = (servicio: string) => {
+    // Pone la primer letra en mayúscula y si tiene un - en medio, pone un espacio
+    return servicio.charAt(0).toUpperCase() + servicio.slice(1).replace('-', ' ');
+}
 
 
 const columnsTurnos = [
     {
         name: 'ID',
-        selector: (row: Row) => row.id,
+        selector: (row: Row) => row._id,
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -44,7 +48,7 @@ const columnsTurnos = [
     },
     {
         name: 'Servicio',
-        selector: (row: Row) => row.servicio,
+        selector: (row: Row) => formatServicio(row.servicio),
         style: {
             fontSize: '14px',
             fontWeight: 500,
