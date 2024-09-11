@@ -52,7 +52,7 @@ export default function Home() {
 
         {/* Galería */}
         <section className="p-8">
-          <h2>Galeria</h2>
+          <h2>Veni a conocernos</h2>
           <Galeria />
         </section>
 

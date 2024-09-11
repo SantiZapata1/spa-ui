@@ -54,10 +54,9 @@ export default function QuienesSomos() {
       {/* Imagen de fondo*/}
       <div className="absolute inset-0">
 
-        <Image
+        <img
           src="/About/bambu.png"
           alt="Fondo difuminado"
-          layout="fill"
           className="w-full h-full object-cover filter blur-sm absolute inset-0"
         />
       </div>
@@ -103,10 +102,9 @@ export default function QuienesSomos() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
                     {profesionales.map((prof) => (
                       <div key={prof.nombre} className="p-4 bg-white rounded-lg shadow-md flex flex-col items-center text-center">
-                        <Image
+                        <img
                           src={prof.foto}
                           alt={`${prof.nombre} ${prof.apellido}`}
-                          layout="fill"
                           className="w-24 h-24 rounded-full mb-4 object-cover"
                         />
                         <h3 className="text-xl font-semibold mb-2">{prof.nombre} {prof.apellido}</h3>

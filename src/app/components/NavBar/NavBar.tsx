@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
-// import logo from "/logo sin fondo.png";
+// import logo from "/logo_sin_fondo.png";
 import { useAuth } from './../../../context/auth';
 import NavBarOptions from './NavBarOptions';
 export default function NavBar() {
@@ -34,8 +34,8 @@ export default function NavBar() {
         <Link href="/" onClick={closeDropdown}>
 
           <div className='w-20 pb-1'>
-            <Image
-              src="/logo sin fondo.png"
+            <img
+              src="logo_sin_fondo.png"
               alt="logo del spa" 
             />
           </div>
