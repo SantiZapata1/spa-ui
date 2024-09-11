@@ -35,10 +35,9 @@ const QuienesSomos = () => {
         className="md:w-1/2 flex items-center justify-center overflow-hidden"
       >
         <div className="relative w-full h-full">
-          <Image
+          <img
             src="/Masajes/masaje1.png"
             alt="Imagen representativa"
-            fill
             style={{ objectFit: 'cover' }}
           />
         </div>

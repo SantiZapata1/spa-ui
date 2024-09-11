@@ -81,7 +81,7 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
 
   return (
     <div className="h-full border rounded-lg shadow bg-gray-800 border-gray-700 flex flex-col justify-between">
-      <Image
+      <img
         className="rounded-t-lg h-4/10"
         src={imageUrl}
         alt="Imagen de la noticia"

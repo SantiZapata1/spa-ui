@@ -17,10 +17,9 @@ export default function Galeria(){
       <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-3">
         {images.map((src, index) => (
           <div key={index} className=" relative w-full h-64 overflow-hidden rounded-lg bg-white border border-gray-200 shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
-            <Image
+            <img
               src={src}
               alt={`Imagen ${index + 1}`}
-              fill
               className="object-cover"
               sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
             />

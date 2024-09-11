@@ -1,6 +1,5 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 interface CarouselProps {
@@ -46,10 +45,9 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
             className={`duration-700 ease-in-out ${index === currentIndex ? 'block' : 'hidden'}`}
             data-carousel-item
           >
-            <Image 
+            <img 
               src={image} 
-              alt={`Slide ${index + 1}`} 
-              fill 
+              alt={`Slide ${index + 1}`}  
               style={{ objectFit: 'cover' }} 
             />
           </div>

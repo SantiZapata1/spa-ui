@@ -35,7 +35,7 @@ export default function CardServi(){
       {cards.map((card, index) => (
         <div key={index} className=" border border-gray-200 rounded-lg shadow flex flex-col h-full transform transition-transform duration-300 ease-in-out hover:scale-105">
           <a href={card.link}>
-            <Image className="rounded-t-lg w-full h-48 object-cover" src={card.imgSrc} alt={card.title}  layout="fill"/>
+            <img className="rounded-t-lg w-full h-48 object-cover" src={card.imgSrc} alt={card.title}  layout="fill"/>
           </a>
           <div className="p-5 flex flex-col flex-1">
             <a href={card.link}>
