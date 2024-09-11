@@ -32,20 +32,22 @@ export default function NavBar() {
     <div className='flex flex-col md:flex-row w-full items-center z-50 relative'>
       <div className='flex flex-col md:flex-row justify-center w-full items-center space-y-4 md:space-y-0 md:space-x-6 py-1'>
         <Link href="/" onClick={closeDropdown}>
-          <Image
-            src="logo sin fondo.png"
-            alt="logo del spa"
-            className='w-20 pb-1'
-          />
+
+          <div className='w-20 pb-1'>
+            <Image
+              src="/logo sin fondo.png"
+              alt="logo del spa" 
+            />
+          </div>
         </Link>
         <div className='hidden md:flex'>
-          <NavBarOptions/>
+          <NavBarOptions />
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="block md:hidden size-6 cursor-pointer" onClick={() => setDropOptionsOnMobile(!dropOptionsOnMobile)}>
           <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
         </svg>
         {dropOptionsOnMobile && (
-          <NavBarOptions/>
+          <NavBarOptions />
         )}
       </div>
     </div>
