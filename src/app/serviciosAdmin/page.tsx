@@ -1,6 +1,5 @@
 'use client';
 
-import {Bodoni_Moda} from "next/font/google"
 
 import Swal from 'sweetalert2';
 import { useState, useEffect } from "react";
@@ -10,6 +9,7 @@ import Service from "../components/ServiceList/Service";
 import ServiceEdit from '../components/ServiceList/ServiceEdit';
 
 export default function Servicios() {
+    
     const [servicios, setServicios] = useState<any[]>([]);
     const [isCreatingService, setIsCreatingService] = useState(false);
     const [editingServiceId, setEditingServiceId] = useState<number | null>(null);
