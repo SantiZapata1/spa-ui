@@ -34,7 +34,7 @@ export default function NavBar() {
         <Link href="/" onClick={closeDropdown}>
 
           <div className='w-20 pb-1'>
-            <Image
+            <img
               src="logo_sin_fondo.png"
               alt="logo del spa" 
             />
