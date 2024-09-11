@@ -35,7 +35,7 @@ export default function NavBar() {
 
           <div className='w-20 pb-1'>
             <Image
-              src="./logo_sin_fondo.png"
+              src="logo_sin_fondo.png"
               alt="logo del spa" 
             />
           </div>
