@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from "next/image";
 import Link from 'next/link';
-import logo from "../../../../public/logo sin fondo.png";
+// import logo from "/logo sin fondo.png";
 import { useAuth } from './../../../context/auth';
 import NavBarOptions from './NavBarOptions';
 export default function NavBar() {
@@ -33,7 +33,7 @@ export default function NavBar() {
       <div className='flex flex-col md:flex-row justify-center w-full items-center space-y-4 md:space-y-0 md:space-x-6 py-1'>
         <Link href="/" onClick={closeDropdown}>
           <Image
-            src={logo}
+            src="/logo sin fondo.png"
             alt="logo del spa"
             className='w-20 pb-1'
           />
