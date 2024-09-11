@@ -1,8 +1,11 @@
-"use client";
+
+import React from 'react';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Image from "next/image";
 
-export default function Galeria(){
-  // Definir las imágenes dentro del componente
+export default function Galeria() {
   const images = [
     '/Belleza/belleza1.jpg',
     '/Belleza/belleza2.jpeg',
@@ -12,22 +15,42 @@ export default function Galeria(){
     '/Masajes/masaje4.jpg'
   ];
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: '0',
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+        }
+      }
+    ]
+  };
+
   return (
     <div className="container mx-auto py-10">
-      <div className="grid grid-cols-2 gap-6 px-4 sm:grid-cols-3">
+      <Slider {...settings}>
         {images.map((src, index) => (
-          <div key={index} className=" relative w-full h-64 overflow-hidden rounded-lg bg-white border border-gray-200 shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-lg">
-            <img
-              src={src}
-              alt={`Imagen ${index + 1}`}
-              className="object-cover"
-              sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
-            />
+          <div key={index} className="px-4">
+            <div className="relative w-full h-80 overflow-hidden rounded-lg shadow-md">
+              <Image
+                src={src}
+                alt={`Imagen ${index + 1}`}
+                fill
+                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+              />
+            </div>
           </div>
         ))}
-      </div>
+      </Slider>
     </div>
   );
-};
-
-
+}

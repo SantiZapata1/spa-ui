@@ -1,6 +1,6 @@
 import Link from 'next/link'; 
 import { motion } from 'framer-motion'; 
-import Image from 'next/image';
+//import Image from 'next/image';
 import { useInView } from 'react-intersection-observer';
 
 const QuienesSomos = () => {
