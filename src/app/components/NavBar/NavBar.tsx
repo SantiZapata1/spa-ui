@@ -33,7 +33,7 @@ export default function NavBar() {
       <div className='flex flex-col md:flex-row justify-center w-full items-center space-y-4 md:space-y-0 md:space-x-6 py-1'>
         <Link href="/" onClick={closeDropdown}>
           <Image
-            src="/logo sin fondo.png"
+            src="logo sin fondo.png"
             alt="logo del spa"
             className='w-20 pb-1'
           />
