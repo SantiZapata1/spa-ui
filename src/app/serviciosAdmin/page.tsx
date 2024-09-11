@@ -159,7 +159,7 @@ export default function Servicios() {
                                 ? <ServiceEdit
                                     id={service._id}
                                     setIsEditing={() => setEditingServiceId(null)}
-                                    obtenerListaServicios={obtenerListaServicios}
+                                    // obtenerListaServicios={obtenerListaServicios}
                                     service={service}
                                 />
                                 : <Service

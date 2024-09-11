@@ -38,7 +38,7 @@ export default function CardComentarios() {
 
     useEffect(() => {
         listaComentarios(); // Cargar comentarios cuando el componente se monta
-    }, []);
+    }, );
 
     // Destructuramos useForm
     const { 

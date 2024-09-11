@@ -3,7 +3,6 @@ import { deleteServicesRequest } from '../../../api/servicios'
 // Hooks
 import { useState } from 'react'
 // Componentes
-import EditService from './EditService'
 import ServiceEdit from '../ServiceList/ServiceEdit' 
 type CardServicioProps = {
     data: any

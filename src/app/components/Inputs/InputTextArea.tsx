@@ -21,11 +21,11 @@ function InputTextArea({customSize, require, errors, campo, nombre, register, ty
     // Si no se recibe un placeholder, se setea como string vacío
     placeholder ? placeholder : ''
     // Si se recibe un valor, se setea en el formulario directamente con setValue
+    useEffect(() => {
     if (valor) {
-        useEffect(() => {
             setValue(nombre, valor);
-        }, [setValue, nombre, valor]);
-    }
+        }
+    }, [setValue, nombre, valor]);
     return (
         <>
                {errors && <span className="mt-2 text-red-600">{placeholder} es requerido</span>} 
