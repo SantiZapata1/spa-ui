@@ -55,22 +55,26 @@ export default function Page() {
     return (
         <section className={`h-full`}>
 
-            <h1 className='text-5xl text-center mt-8'>Página de administración</h1>
+            <div className='flex justify-between p-5'>
+                <h2 className='text-3xl text-center mt-8'>Panel de admin</h2>
+
+                <div className='flex mt-5 justify-center items-center'>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleServicios()}>
+                            Servicios
+                        </button>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleTurnos()}>
+                            Turnos
+                        </button>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleMensajes()}>
+                            Mensajes
+                        </button>
+                </div>
+            </div>
+            
 
             <div className='flex flex-col justify-center items-center'>
 
-                <div className='flex flex-col mt-5'>
-                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleServicios()}>
-                        Servicios
-                    </button>
-                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleTurnos()}>
-                        Turnos
-                    </button>
-                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleMensajes()}>
-                        Mensajes
-                    </button>
-                </div>
-
+                
                 {isShowServicios && <Servicios />}
                 {isShowTurnos && <Turnos/>}
                 {isShowMensajes && <Mensajes/>}

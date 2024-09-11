@@ -13,7 +13,7 @@ type ServiceEditProps = {
     service: any;
 }
 
-export default function ServiceEdit({ id, setIsEditing, service }: ServiceEditProps) {
+export default function  ServiceEdit({ id, setIsEditing, service }: ServiceEditProps) {
 
     const {
         handleSubmit,

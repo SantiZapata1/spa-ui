@@ -1,19 +1,31 @@
 'use client';
 
 import Swal from 'sweetalert2';
+
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
+import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
+
 import DataTable from "react-data-table-component";
-import { getServicesRequest, deleteServicesRequest, createServiceRequest, updateServiceRequest } from "../../../api/servicios";
 import columnsServicios from './columnsServicios';
+import expandedComponent from './expandedComponents';
+
 import customStylesServicios from '../Turnos/customStyles';
+
 import InputText from '../Inputs/InputText';
 import SelectOptions from '../Select/SelectOptions';
-import expandedComponent from './expandedComponents';
-import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
+
+import { 
+    getServicesRequest, 
+    deleteServicesRequest,
+    createServiceRequest, 
+    updateServiceRequest } from "../../../api/servicios";
 
 
 export default function Servicios() {
+
+
+    // Hooks states
     const [servicios, setServicios] = useState<any[]>([]);
     const [serviciosFiltrados, setServiciosFiltrados] = useState<any[]>([]);
     const [isCreatingService, setIsCreatingService] = useState(false);
@@ -21,7 +33,13 @@ export default function Servicios() {
     const [editingServiceId, setEditingServiceId] = useState<number | null>(null);
     const [currentService, setCurrentService] = useState<any>(null);
 
-    const { register, handleSubmit, setValue, setError, clearErrors, formState: { errors } } = useForm();
+    const { 
+        register, 
+        handleSubmit, 
+        setValue, 
+        setError, 
+        clearErrors, 
+        formState: { errors } } = useForm();
 
     const expandableIcon = {
         collapsed: <ArrowDownCircleIcon className='h-6 w-6' />,
@@ -32,6 +50,7 @@ export default function Servicios() {
     const obtenerListaServicios = async () => {
         try {
             const respuesta = await getServicesRequest();
+
             if (respuesta.data && Array.isArray(respuesta.data)) {
                 setServicios(respuesta.data);
                 setServiciosFiltrados(respuesta.data);
@@ -46,8 +65,9 @@ export default function Servicios() {
     // Maneja la creación y actualización de un servicio
     const onSubmit = async (values: any) => {
         try {
+            
+            // Actualizar servicio
             if (editingServiceId) {
-                // Actualizar servicio
                 Swal.fire({
                     title: '¿Estás seguro?',
                     icon: 'warning',
@@ -70,11 +90,17 @@ export default function Servicios() {
                         }
                     }
                 });
-            } else {
-                // Crear nuevo servicio
+            } 
+            // Crear nuevo servicio
+            else {
+                
                 await createServiceRequest(values);
                 Swal.fire('¡Listo!', '¡Servicio creado correctamente!', 'success');
-                obtenerListaServicios();  // Actualiza la lista después de crear o actualizar
+
+                // Actualiza la lista después de crear o actualizar
+                obtenerListaServicios();  
+
+                // actualizar estados
                 setIsCreatingService(false);
                 setEditingServiceId(null);
                 setCurrentService(null);
@@ -86,6 +112,7 @@ export default function Servicios() {
 
     // Opciones para el filtro
     const opcionesServicios = [
+        {value:"ninguno", nombre:"sin filtro"},
         { value: "belleza", nombre: "Belleza" },
         { value: "masajes", nombre: "Masajes" },
         { value: "tratamientos-corporales", nombre: "Tratamientos corporales" },
@@ -98,10 +125,12 @@ export default function Servicios() {
     }, []);
 
     return (
-        <div className="min-h-screen min-w-full p-7">
+        <div className="min-h-screen min-w-full p-5">
             <div className="mb-8">
-                <h2 className="text-3xl mb-4 text-left inline mr-5">Todos los servicios ({servicios.length})</h2>
 
+                <h2 className="text-2xl mb-4 text-left inline mr-5">Todos los servicios ({servicios.length})</h2>
+
+                {/* formulario para agregar un nuevo servicio */}
                 {isCreatingService && !isEditingService ? (
                     <form
                         className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md"
@@ -118,6 +147,7 @@ export default function Servicios() {
                         <div className="mb-4">
                             <InputText campo="Detalles" nombre="detalles" type="text" register={register} errors={errors.detalles} />
                         </div>
+
                         <button type="submit" className="py-2 px-4 bg-green-700 hover:bg-green-800 text-white rounded-lg mr-2">
                             {editingServiceId ? 'Actualizar' : 'Enviar'}
                         </button>
@@ -142,20 +172,26 @@ export default function Servicios() {
                 )}
             </div>
 
-            <div className='w-fit mb-5'>
+            {/* Formulario para filtrar los servicios */}
+            <div className='w-fit mb-2'>
                 <form
-                    className="mx-auto max-w-4xl bg-white p-6 rounded-lg shadow-md flex"
+                    className="mx-auto max-w-4xl bg-white p-2 rounded-lg shadow-md flex"
                     onSubmit={handleSubmit((values) => {
-                        setServiciosFiltrados(servicios.filter((servicio) => servicio.tipo === values.filtro));
+                        if(values.filtro=="ninguno"){
+                            setServiciosFiltrados(servicios)
+                        }else{
+                            setServiciosFiltrados(servicios.filter((servicio) => servicio.tipo === values.filtro));
+                        }
                     })}
                 >
                     <SelectOptions campo="filtro" nombre='filtro' opciones={opcionesServicios} setValue={setValue} error={errors.tipo} />
-                    <button className='px-3 ml-1 py-1 bg-green-800 text-white rounded-lg'>
+                    <button className='px-3 ml-1 py-1 bg-sage text-white rounded-lg'>
                         Buscar
                     </button>
                 </form>
             </div>
 
+            {/* tabla de servicios */}
             <DataTable
                 columns={columnsServicios()}
                 expandableRowsComponent={expandedComponent}

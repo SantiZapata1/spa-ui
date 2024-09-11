@@ -25,14 +25,14 @@ export default function InputText({  campo, placeholder, type, nombre, register,
 
   return (
     <>
-      <label className="block font-semibold text-gray-700
+      <label className="block font-semibold text-white
       ">
         {campo}
       </label>
        {errors && <span className="mt-1 text-red-600">{placeholder || campo} es requerido</span>} 
       <input
         type={type}
-        className={`block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-900`}
+        className={`block text-black w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-900`}
         {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder}
       />
     </>
