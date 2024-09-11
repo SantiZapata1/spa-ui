@@ -62,7 +62,7 @@ export default function Page() {
           campo="Nombre"
           nombre="nombre"
           type="text"
-          placeholder=""
+          placeholder="Ingresa tu nombre"
           register={register}
           setValue={setValue}
           errors={errors.nombre}
@@ -71,7 +71,7 @@ export default function Page() {
           campo="Apellido"
           nombre="apellido"
           type="text"
-          placeholder=""
+          placeholder="Ingrese su apellido"
           register={register}
           setValue={setValue}
           errors={errors.apellido}
@@ -80,7 +80,7 @@ export default function Page() {
           campo="Correo electrónico"
           nombre="correo_electronico"
           type="email"
-          placeholder=""
+          placeholder="Ingrese su correo electrónico"
           register={register}
           setValue={setValue}
           errors={errors.correo_electronico}
@@ -89,7 +89,7 @@ export default function Page() {
           campo="Teléfono"
           nombre="telefono"
           type="text"
-          placeholder=""
+          placeholder="ingrese su teléfono"
           register={register}
           setValue={setValue}
           errors={errors.telefono}
@@ -98,7 +98,7 @@ export default function Page() {
           campo="Nombre de usuario"
           nombre="nombre_de_usuario"
           type="text"
-          placeholder=""
+          placeholder="Ingrese su nombre de usuario"
           register={register}
           setValue={setValue}
           errors={errors.nombre_de_usuario}
@@ -107,7 +107,7 @@ export default function Page() {
           campo="Contraseña"
           nombre="pass"
           type="password"
-          placeholder=""
+          placeholder="Ingrese una contraseña"
           register={register}
           setValue={setValue}
           errors={errors.pass}
@@ -116,7 +116,7 @@ export default function Page() {
           campo="Repite la contraseña"
           nombre="passrepeat"
           type="password"
-          placeholder=""
+          placeholder="Repite la contraseña ingresada"
           register={register}
           setValue={setValue}
           errors={errors.pass}

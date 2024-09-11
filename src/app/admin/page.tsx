@@ -68,6 +68,9 @@ export default function Page() {
                         <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleMensajes()}>
                             Mensajes
                         </button>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleMensajes()}>
+                            Candidatos
+                        </button>
                 </div>
             </div>
             
