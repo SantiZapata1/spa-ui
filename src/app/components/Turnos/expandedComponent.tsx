@@ -1,9 +1,8 @@
 import React from 'react'
 
-function expandedComponent() {
+export default function expandedComponent() {
   return (
-    <div>expandedComponent</div>
+    <div>Aca iria el componente para editar el turno</div>
   )
 }
 
-export default expandedComponent

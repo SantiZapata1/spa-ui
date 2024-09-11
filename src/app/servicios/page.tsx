@@ -94,8 +94,6 @@ export default function Servicios() {
                                         tipo={service.tipo}
                                         precio={service.precio}
                                         detalles={service.detalles}
-                                        // deleteService={() => deleteService(service._id)}
-                                        // setIsEditing={() => setEditingServiceId(service._id)}
                                     />
                                 }
                             </div>
