@@ -15,15 +15,6 @@ import Link from "next/link";
 // Backend
 import ComentariosIndex from "./components/Comment/ComentariosIndex";
 
-import {Bodoni_Moda} from "next/font/google"
-
-
-const bodoni = Bodoni_Moda({
-  weight: '400',
-  subsets: ['latin'],
-  display: 'swap',
-})
-
 // interfaz del comentario
 type Comentario = {
   id: number;
