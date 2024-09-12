@@ -31,7 +31,7 @@ export default function Service({nombre, tipo, precio, detalles}:any){
             <button onClick={openCardTurnos} className="bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 mr-2 rounded-xl">Pedir turno</button>
 
 
-            <CardModalTurnos isOpen={isCardTurnosOpen} onClose={closeCardTurnos}/>
+            <CardModalTurnos isOpen={isCardTurnosOpen} onClose={closeCardTurnos} servicio={nombre}/>
 
         </div>
     );
