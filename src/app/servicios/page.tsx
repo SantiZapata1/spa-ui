@@ -90,7 +90,7 @@ export default function Servicios() {
                                 {
                                     <Service
                                         _id={service._id}
-                                        nombre={service.nombre}
+                                        nombreServicio={service.nombre}
                                         tipo={service.tipo}
                                         precio={service.precio}
                                         detalles={service.detalles}
