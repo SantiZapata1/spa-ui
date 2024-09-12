@@ -69,6 +69,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     //Login
     const signIn = async (user: any) => {
         try {
+            console.log(PRODUCCION)
             // Se realiza la petición de login
             const res = await loginRequest(user)
             // Se establece al usuario en el estado
