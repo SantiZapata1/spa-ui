@@ -25,10 +25,11 @@ export default function InputText({  campo, placeholder, type, nombre, register,
 
   return (
     <>
-      <label className="block font-semibold text-white
-      ">
+    {
+      <label className={"block font-semibold"}>
         {campo}
       </label>
+      }
        {errors && <span className="mt-1 text-red-600">{placeholder || campo} es requerido</span>} 
       <input
         type={type}

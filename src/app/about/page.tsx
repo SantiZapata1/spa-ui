@@ -55,7 +55,7 @@ export default function QuienesSomos() {
       <div className="absolute inset-0">
 
         <img
-          src="/About/bambu.png"
+          src="/About/SpaFondo.jpeg"
           alt="Fondo difuminado"
           className="w-full h-full object-cover filter blur-sm absolute inset-0"
         />

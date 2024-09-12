@@ -40,7 +40,7 @@ export default function Galeria() {
       <Slider {...settings}>
         {images.map((src, index) => (
           <div key={index} className="px-4">
-            <div className="relative w-full h-80 overflow-hidden rounded-lg shadow-md">
+            <div className="relative w-full h-80 overflow-hidden rounded-lg shadow-md cursor-pointer">
               <Image
                 src={src}
                 alt={`Imagen ${index + 1}`}
