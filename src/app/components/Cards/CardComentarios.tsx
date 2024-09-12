@@ -7,7 +7,7 @@ import { useAuth } from '../../../context/auth';
 import CommentList from "../Comment/CommentList";
 import InputText from "../Inputs/InputText";
 import InputTextArea from "../Inputs/InputTextArea";
-
+import SelectOptions from "../Select/SelectOptions";
 // controladores api
 import {
     getCommentsFromUserRequest,
@@ -58,7 +58,15 @@ export default function CardComentarios() {
             console.error("Error al enviar el comentario:", error);
             setMensajeError("Hubo un problema al enviar el comentario.");
         }
-    };
+    }
+
+
+    const opcionesServicios = [
+        { nombre: "Belleza", valor: "belleza" },
+        { nombre: "Masajes", valor: "masajes" },
+        { nombre: "Tratamientos corporales", valor: "tratamientos-corporales" },
+        { nombre: "Tratamientos faciales", valor: "tratamientos-faciales" },
+    ]
 
     return (
         <div className="mb-5 flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-6/10 p-4 mt-5">
@@ -73,22 +81,10 @@ export default function CardComentarios() {
                 {isAuthenticated && <InputText valor={user.id} type="hidden" campo="" nombre="user_id" register={register} setValue={setValue} errors={errors._id} placeholder="" /> }
 
                 {/* Lista de servicios */}
-                <div>
-                    <label htmlFor="servicio">Elige una opción:</label>
-                    <input
-                    list="lista-servicio"
-                    id="servicio"
-                    className="p-1 m-1 font-bold"
-                    {...register('servicio', { required: true })} 
-                    />
-                    <datalist id="lista-servicio">
-                        <option value="belleza" />
-                        <option value="masajes" />
-                        <option value="tratamientos-corporales" />
-                        <option value="tratamientos-faciales"/>
-                    </datalist>
-                    {errors.servicio && <p className="text-red-500">Este campo es requerido</p>}
+                <div className="w-full">
+                    <SelectOptions campo="Elige una opción" nombre="servicio" opciones={opcionesServicios} setValue={setValue} error={errors.servicio} isRequired />
                 </div>
+                
 
                 <InputTextArea require type="text" placeholder="Comentario" register={register} setValue={setValue} campo="" nombre="comentario"  errors={errors.comentario}/>
 
