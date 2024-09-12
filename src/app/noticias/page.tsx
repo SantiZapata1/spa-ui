@@ -108,7 +108,7 @@ export default function NoticiasPage() {
               id={noticia?._id}
               title={noticia?.titulo}
               text={noticia?.contenido}
-              imageUrl={noticia?.imagen ? `${API_URL}/images/noticias/${noticia?.imagen}` : ""}
+              imageUrl={noticia?.imagen ? `${API_URL}/images/Noticias/${noticia?.imagen}` : ""}
             />
           ))}
         </div>
