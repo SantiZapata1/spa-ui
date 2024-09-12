@@ -15,7 +15,8 @@ module.exports = {
         "spa-purple": "#9F2C71",
         "spa-light-purple": "#F075AA",
         "musgo": "#729762",
-        "sage": "#5F6F52"
+        "sage": "#5F6F52",
+        "sage-hover": "#4F5F42",
       },
       fontSize: {
         vw: '0.9vw',

@@ -30,7 +30,7 @@ export default function RootLayout({
         </AuthProvider>
 
       </body>
-      <link rel="icon" href="logo sin fondo.png" sizes="any" />
+      <link rel="icon" href="logo_sin_fondo.png" sizes="any" />
     </html>
   );
 }

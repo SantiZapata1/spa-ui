@@ -3,7 +3,6 @@ import React from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
 
 export default function Galeria() {
   const images = [
@@ -40,12 +39,11 @@ export default function Galeria() {
       <Slider {...settings}>
         {images.map((src, index) => (
           <div key={index} className="px-4">
-            <div className="relative w-full h-80 overflow-hidden rounded-lg shadow-md">
-              <Image
+            <div className="relative w-full h-80 overflow-hidden rounded-lg shadow-md cursor-pointer">
+              <img
                 src={src}
                 alt={`Imagen ${index + 1}`}
-                fill
-                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 w-full h-full"
               />
             </div>
           </div>

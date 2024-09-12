@@ -9,6 +9,8 @@ import { logoutRequest, loginRequest, verifyToken, editUser } from '../api/auth'
 // Una librería para manejar cookies en el navegador.
 import Cookies from 'js-cookie'
 
+const PRODUCCION =  process.env.NEXT_PUBLIC_PRODUCCION
+
 
 type AuthContextType = {
     signUp: (user: any) => Promise<void>; 
@@ -67,12 +69,13 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     //Login
     const signIn = async (user: any) => {
         try {
+            console.log(PRODUCCION)
             // Se realiza la petición de login
             const res = await loginRequest(user)
             // Se establece al usuario en el estado
             setUser(res.data);
             // Guarda el token en las cookies
-            // Cookies.set('token', res.data.token );            // Se establece la autenticación en true
+            PRODUCCION === "true" && Cookies.set('token', res.data.token );            
             setIsAuthenticated(true);
         } catch (error: any) {
             console.log(error)
@@ -88,7 +91,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
             // Se establece la autenticación en false
             setIsAuthenticated(false);
             // Se establece al usuario en null
-            // Cookies.set('token', "" );            // Se establece la autenticación en true
+            PRODUCCION === "true" && Cookies.set('token', "" );
             setUser(null);
         } catch (error) {
             console.log(error)
