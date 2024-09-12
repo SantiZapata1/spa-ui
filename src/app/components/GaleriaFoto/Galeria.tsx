@@ -43,7 +43,7 @@ export default function Galeria() {
               <img
                 src={src}
                 alt={`Imagen ${index + 1}`}
-                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+                className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 w-full h-full"
               />
             </div>
           </div>
