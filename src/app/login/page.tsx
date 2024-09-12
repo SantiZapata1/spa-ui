@@ -6,7 +6,7 @@ import Link from 'next/link'
 // hooks
 import { useForm } from 'react-hook-form'
 import { useAuth } from '../../context/auth'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { redirect } from 'next/navigation'
 
 export default function Login() {
@@ -23,7 +23,7 @@ export default function Login() {
 
   //  destructuramos useAuth
    const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
-   
+   const [error, setError] = useState('')
   //  si esta autenticado rediriquimos al home
     if(isAuthenticated){
       redirect('/')
@@ -31,7 +31,7 @@ export default function Login() {
 
     const onSubmit = handleSubmit(async(values)=>{
       // console.log(values);
-      signIn(values)
+       await signIn(values)
     });
 
 
@@ -45,10 +45,9 @@ export default function Login() {
               Iniciar sesión
         </h1>
 
+        {errorsAuth && <div className='rounded-md bg-orange-500 p-2 text-white flex flex-col justify-center items-center'>{errorsAuth}</div>}
+
         <form className="space-y-6" onSubmit={onSubmit}>
-
-          
-
               <InputText
                 campo="Nombre de usuario"
                 nombre="nombre_de_usuario"

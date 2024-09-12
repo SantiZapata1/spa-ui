@@ -40,7 +40,7 @@ function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, v
             {/* <span className='ml-4 font-medium '> {campo} </span>  */}
             <div className={`flex flex-col 2xl:flex-col xl:w-full`}>
                 <select
-                className= {"border open-sans border-gray-300 text-black rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 w-95/10" }
+                className= {"border open-sans border-gray-300 text-black rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 w-95/100" }
                 name={nombre}
                 value={selectedOpcion}
                 onChange={handleOptionChange}
