@@ -13,11 +13,11 @@
 
 @font-face {
     font-family: 'montserrat';
-    src: url('Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
+    src: url('/Montserrat/Montserrat-VariableFont_wght.ttf') format('ttf');
 }
 @font-face {
     font-family: 'bodoni';
-    src: url('Bodoni_Moda/static/BodoniModa_9pt-MediumItalic.ttf') format('ttf');
+    src: url('/Bodoni_Moda/static/BodoniModa_9pt-MediumItalic.ttf') format('ttf');
 }
 
 /* variables de colores para usar */
