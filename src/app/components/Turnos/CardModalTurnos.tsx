@@ -9,7 +9,6 @@ import { useAuth } from '@/context/auth';
 
 // Componentes
 import InputText from '../Inputs/InputText';
-import { redirect } from 'next/dist/server/api-utils';
 
 import { useRouter } from 'next/navigation';
 // interfaz
@@ -31,7 +30,12 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
     const router = useRouter();
 
 
-    const {user, isAuthenticated}=useAuth();
+    const {user, isAuthenticated} = useAuth();
+
+    useEffect(() => {
+        console.log('Auth state:', isAuthenticated);
+      }, [isAuthenticated]);
+      
 
     // Para cerrar el modal al presionar la tecla escape
     useEffect(() => {
@@ -53,40 +57,19 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
 
     if (!isOpen) return null; // No mostrar el modal si no está abierto
 
-    const onSubmit=async(values : any) =>{
+    const onSubmit= async(values : any) =>{
         console.log(values);
+
         if(isAuthenticated){
 
-            Swal.fire({
-                title: '¿Estás seguro?',
-                text: "Estás por solicitar un turno",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#7BB263',
-                cancelButtonColor: '#D8316C',
-                confirmButtonText: 'Sí, enviar',
-                cancelButtonText: 'Cancelar'
-              }).then((result: any) => {
-                if (result.isConfirmed)
-                  Swal.fire({
-                    title: '¡Listo!',
-                    text: '¡Tu turno ha sido enviada correctamente!',
-                    icon: 'success',
-                    confirmButtonText: 'Aceptar',
-                    confirmButtonColor: '#7BB263',
-                  }).then(async (result: any) => {
-                    if (result.isConfirmed)
-                      try {
-                        await createTurnoRequest(values);
-                        window.location.reload();
-                      } catch (error) {
-                        console.log(error);
-                      }
-                  }
-                  )
-              })
+            try {
+                await createTurnoRequest(values);
+                console.log("ok");
+              } catch (error) {
+                console.log(error);
+              }
         }else{
-            alert("debes loguearte para solicitar un servicio")
+            router.push('/login')
         }
 
         
@@ -134,7 +117,7 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
 
                     {/* nombre del cliente */}
                     <div className="">
-                        <InputText campo="cliente"  valor={user?.nombre ? user.nombre : ""}  nombre="cliente" register={register} setValue={setValue} errors={errors.servicio} type="text" />
+                        <InputText campo="cliente" valor={user?.nombre ? user.nombre : ""}  nombre="cliente" register={register} setValue={setValue} errors={errors.servicio} type="text" />
                     </div>
 
                     {/* nombre del servicio */}
@@ -150,7 +133,7 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
                         <label htmlFor="time" className="block text-sm font-bold mb-2">
                             Comentario:
                         </label>
-                        <InputText campo="" nombre="comentario" register={register} setValue={setValue} errors={errors.servicio} type="text" />
+                        <InputText campo="" nombre="comentarios" register={register} setValue={setValue} errors={errors.servicio} type="text" />
                     </div>
 
                     {/* boton enviar */}
