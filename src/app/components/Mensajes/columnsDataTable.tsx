@@ -58,7 +58,7 @@ const columnMensajes = [
       fontSize: '14px',
       fontWeight: 500,
     },
-    width: '300px',
+    width: '10%',
   },
   {
     name: 'Servicio',
@@ -67,7 +67,7 @@ const columnMensajes = [
       fontSize: '14px',
       fontWeight: 500,
     },
-    width: '300px',
+    width: '20%',
   },
   {
     name: 'Comentarios',
@@ -76,10 +76,11 @@ const columnMensajes = [
       fontSize: '14px',
       fontWeight: 500,
     },
-    width: '800px',
+    width: '60%',
   },
   {
     name: 'Acciones',
+    width: '10%',
     cell: (row: Row) => (
       <div className="flex space-x-2">
         <button

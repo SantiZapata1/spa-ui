@@ -12,11 +12,17 @@ const formatServicio = (servicio: string) => {
     return servicio.charAt(0).toUpperCase() + servicio.slice(1).replace('-', ' ');
 }
 
+// Pone en formato de fecha en formato DD/MM/AA y elimina la hora, para que 2024-09-13T00:00:00.000Z se vea como 13/09/2024
+const formatFecha = (fecha: string) => {
+    return fecha.split('T')[0].split('-').reverse().join('/');
+}   
+
 
 const columnsTurnos = [
     {
         name: 'ID',
         selector: (row: Row) => row._id,
+        width: '10%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -24,7 +30,8 @@ const columnsTurnos = [
     },
     {
         name: 'Fecha',
-        selector: (row: Row) => row.fecha,
+        selector: (row: Row) => formatFecha(row.fecha),
+        width: '5%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -33,6 +40,7 @@ const columnsTurnos = [
     {
         name: 'Hora',
         selector: (row: Row) => row.hora,
+        width: '5%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -41,6 +49,7 @@ const columnsTurnos = [
     {
         name: 'Cliente',
         selector: (row: Row) => row.cliente,
+        width: '10%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -49,6 +58,7 @@ const columnsTurnos = [
     {
         name: 'Servicio',
         selector: (row: Row) => formatServicio(row.servicio),
+        width: '10%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -57,6 +67,7 @@ const columnsTurnos = [
     {
         name: 'Comentarios',
         selector: (row: Row) => row.comentarios,
+        width: '60%',
         style: {
             fontSize: '14px',
             fontWeight: 500,

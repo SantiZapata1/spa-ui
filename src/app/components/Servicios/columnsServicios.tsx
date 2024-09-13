@@ -21,7 +21,7 @@ const columnsServicios = () => [
     name: 'ID',
     selector: (row: Service) => row._id,
     sortable: true,
-    width: '250px',
+    width: '10%',
     style: {
       fontSize: '14px',
       fontWeight: 500,
@@ -31,7 +31,7 @@ const columnsServicios = () => [
     name: 'Nombre',
     selector: (row: Service) => row.nombre,
     sortable: true,
-    width: '300px',
+    width: '10%',
     style: {
       fontSize: '14px',
       fontWeight: 500,
@@ -41,7 +41,7 @@ const columnsServicios = () => [
     name: 'Tipo',
     selector: (row: Service) => formatServicio(row.tipo),
     sortable: true,
-    width: '200px',
+    width: '5%',
     style: {
       fontSize: '14px',
       fontWeight: 500,
@@ -51,7 +51,7 @@ const columnsServicios = () => [
     name: 'Precio',
     selector: (row: Service) => row.precio,
     sortable: true,
-    width: '100px',
+    width: '5%',
     style: {
       fontSize: '14px',
       fontWeight: 500,

@@ -61,11 +61,14 @@ export default function CV() {
     }, []);
 
     return (
+        <>
         <div className="min-w-full p-5">
             <div className="flex flex-col items-center justify-center mb-8">
                 <h2 className="text-2xl mb-4">Candidatos({cvList.length})</h2>
 
                 {/* DataTable para mostrar los CVs */}
+            </div>
+        </div>
                 <DataTable
                     columns={columnsCV(eliminarCV)} // Pasa la función eliminarCV a las columnas
                     expandableRows
@@ -75,7 +78,6 @@ export default function CV() {
                     pagination
                     customStyles={customStylesCV} // Si tienes estilos personalizados
                 />
-            </div>
-        </div>
+                    </>
     );
 }
