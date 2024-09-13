@@ -27,6 +27,7 @@ export default function Page() {
         setIsShowServicios(false),
         setIsShowTurnos(false),
         setIsShowMensajes(false)
+        setIsShowCandidatos(false)
     }
 
 
