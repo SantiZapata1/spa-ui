@@ -1,26 +1,21 @@
 'use client';
 
+// Librerías
 import Swal from 'sweetalert2';
-
+import DataTable from "react-data-table-component";
+// Hooks
 import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
-
-import DataTable from "react-data-table-component";
-import columnsServicios from './columnsServicios';
+// Componentes
 import expandedComponent from './expandedComponents';
-
+import columnsServicios from './columnsServicios';
 import customStylesServicios from '../Turnos/customStyles';
-
 import InputText from '../Inputs/InputText';
 import SelectOptions from '../Select/SelectOptions';
-
-import {
-    getServicesRequest,
-    deleteServicesRequest,
-    createServiceRequest,
-    updateServiceRequest
-} from "../../../api/servicios";
+// Iconos
+import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline'
+// Backend
+import { getServicesRequest, deleteServicesRequest, createServiceRequest, updateServiceRequest} from "../../../api/servicios";
 
 
 export default function Servicios() {
