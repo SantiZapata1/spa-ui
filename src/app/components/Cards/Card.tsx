@@ -105,25 +105,25 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
           title={title}
           hashtags={['SPA', 'SentirseBien']}
         >
-          <XIcon className='rounded-2xl w-10 h-10 m-2' /></TwitterShareButton>
+          <XIcon className='rounded-2xl w-10 h-10 mr-1' /></TwitterShareButton>
         <WhatsappShareButton
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           title={title}
         >
-          <WhatsappIcon className='rounded-2xl w-10 h-10 m-2' ></WhatsappIcon>
+          <WhatsappIcon className='rounded-2xl w-10 h-10 mr-1' ></WhatsappIcon>
         </WhatsappShareButton>
         <FacebookShareButton
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           hashtag={`${title} #SPA #SentirseBien #Noticias`}
           >
-          <FacebookIcon className='rounded-2xl w-10 h-10 m-2' />
+          <FacebookIcon className='rounded-2xl w-10 h-10 mr-1' />
         </FacebookShareButton>
         <EmailShareButton 
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           subject={title}
           body={text}
         >
-            <EmailIcon className='rounded-2xl w-10 h-10 m-2'/>
+            <EmailIcon className='rounded-2xl w-10 h-10'/>
         </EmailShareButton>
       </div>
 

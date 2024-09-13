@@ -15,16 +15,20 @@ import { createNoticia, getNoticias } from '../../api/noticias';
 import Swal from 'sweetalert2';
 import { useEffect } from 'react';
 
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 export default function NoticiasPage() {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const { user, isAuthenticated, isLoading } = useAuth();
-  const [ noticias, setNoticias ] = useState([]);
+  const [noticias, setNoticias] = useState([]);
+  const [showAgregarNoticia, setShowAgregarNoticia] = useState(false);
   const fileInputRef = useRef(null);
 
-  
+
+
   useEffect(() => {
     const fetchNoticias = async () => {
       try {
@@ -34,7 +38,7 @@ export default function NoticiasPage() {
       } catch (error) {
         console.log(error);
       }
-    }  
+    }
     fetchNoticias();
   }, []);
 
@@ -46,58 +50,65 @@ export default function NoticiasPage() {
     <div className="min-h-screen flex flex-col">
 
       <div className="flex-grow p-8 lg:p-10">
-        {user?.admin && (
+        {(user?.admin) && (
           <div className='flex flex-col-items-center justify-center m-4'>
-            <form method='post' encType="multipart/form-data" className='w-full md:w-4/10' onSubmit={
-              handleSubmit(async (values) => {
-                // @ts-ignore
-                const file = fileInputRef?.current?.files[0];
-                if (!file) {
-                  Swal.fire('Error', 'Por favor, selecciona una imagen.', 'error');
-                  return;
-                }
-                const noticia = {
-                  titulo: values.titulo,
-                  contenido: values.contenido,
-                  imagen: file
-                };
-                Swal.fire({
-                  title: '¿Estás seguro?',
-                  text: "Estás por subir una noticia",
-                  icon: 'warning',
-                  showCancelButton: true,
-                  confirmButtonColor: '#7BB263',
-                  cancelButtonColor: '#D8316C',
-                  confirmButtonText: 'Sí, enviar',
-                  cancelButtonText: 'Cancelar'
-                }).then((result: any) => {
-                  if (result.isConfirmed)
-                    Swal.fire({
-                      title: '¡Listo!',
-                      text: '¡Tu noticia ha sido enviada correctamente!',
-                      icon: 'success',
-                      confirmButtonText: 'Aceptar',
-                      confirmButtonColor: '#7BB263',
-                    }).then(async (result: any) => {
-                      if (result.isConfirmed)
-                        try {
-                          await createNoticia(noticia);
-                          window.location.reload();
-                        } catch (error) {
-                          console.log(error);
-                        }
-                    }
-                    )
-                })
-              })}>
+            {showAgregarNoticia ?
+              <form method='post' encType="multipart/form-data" className='w-full md:w-4/10' onSubmit={
+                handleSubmit(async (values) => {
+                  // @ts-ignore
+                  const file = fileInputRef?.current?.files[0];
+                  if (!file) {
+                    Swal.fire('Error', 'Por favor, selecciona una imagen.', 'error');
+                    return;
+                  }
+                  const noticia = {
+                    titulo: values.titulo,
+                    contenido: values.contenido,
+                    imagen: file
+                  };
+                  Swal.fire({
+                    title: '¿Estás seguro?',
+                    text: "Estás por subir una noticia",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#7BB263',
+                    cancelButtonColor: '#D8316C',
+                    confirmButtonText: 'Sí, enviar',
+                    cancelButtonText: 'Cancelar'
+                  }).then((result: any) => {
+                    if (result.isConfirmed)
+                      Swal.fire({
+                        title: '¡Listo!',
+                        text: '¡Tu noticia ha sido enviada correctamente!',
+                        icon: 'success',
+                        confirmButtonText: 'Aceptar',
+                        confirmButtonColor: '#7BB263',
+                      }).then(async (result: any) => {
+                        if (result.isConfirmed)
+                          try {
+                            await createNoticia(noticia);
+                            window.location.reload();
+                          } catch (error) {
+                            console.log(error);
+                          }
+                      }
+                      )
+                  })
+                })}>
 
-              <InputText campo="Título" nombre="titulo" type="text" register={register} require={true} errors={errors.titulo} />
-              <InputTextArea type="text" placeholder='Contenido de la noticia' campo="Texto" nombre="contenido" register={register} require={true} errors={errors.texto} />
-              <input ref={fileInputRef} type="file" accept="image/*" className='mb-2' />
-              <button className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300">
-                Subir noticia
+                <InputText campo="Título" nombre="titulo" type="text" register={register} require={true} errors={errors.titulo} />
+                <InputTextArea type="text" placeholder='Contenido de la noticia' campo="Texto" nombre="contenido" register={register} require={true} errors={errors.texto} />
+                <input ref={fileInputRef} type="file" accept="image/*" className='mb-2' />
+                <button className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300">
+                  Subir noticia
+                </button>
+              </form>
+              :
+              <button className="w-2/10 py-3 flex flex-row justify-center items-center text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300" onClick={() => setShowAgregarNoticia(true)} >
+               <span>Agregar</span> 
+                <PlusCircleIcon className='ml-2 h-6 w-6' />
               </button>
-            </form>
+            }
           </div>
         )}
         {/* Grid layout para hasta 4 tarjetas en fila */}
