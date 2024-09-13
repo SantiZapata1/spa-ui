@@ -55,38 +55,29 @@ export default function Page() {
     return (
         <section className={`h-full`}>
 
-            <div className='flex justify-between p-5'>
+            <div className='flex flex-col md:flex-row justify-between p-5'>
                 <h2 className='text-3xl text-center mt-8'>Panel de admin</h2>
 
-                <div className='flex mt-5 justify-center items-center'>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleServicios()}>
+                <div className='flex flex-col md:flex-row mt-5 justify-center items-center'>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleServicios()}>
                             Servicios
                         </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleTurnos()}>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleTurnos()}>
                             Turnos
                         </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleMensajes()}>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleMensajes()}>
                             Mensajes
                         </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded' onClick={() => handleMensajes()}>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleMensajes()}>
                             Candidatos
                         </button>
                 </div>
             </div>
-            
-
-            <div className='flex flex-col justify-center items-center'>
-
-                
+            <div className='flex flex-col justify-center items-center'>                
                 {isShowServicios && <Servicios />}
                 {isShowTurnos && <Turnos/>}
                 {isShowMensajes && <Mensajes/>}
-                
-
-                
-
             </div>
-
         </section>
   )
 }
