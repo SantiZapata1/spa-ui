@@ -9,6 +9,7 @@ import Servicios from '../components/Servicios/Servicios';
 import { useState } from 'react';
 import Mensajes from '../components/Mensajes/Mensajes';
 import Turnos from '../components/Turnos/Turnos';
+import Candidatos from '../components/CV/CV';
 
 export default function Page() {
     
@@ -18,6 +19,8 @@ export default function Page() {
     const [isShowServicios, setIsShowServicios] = useState(true);
     const [isShowTurnos, setIsShowTurnos] = useState(false);
     const [isShowMensajes, setIsShowMensajes] = useState(false);
+    const [isShowCandidatos, setIsShowCandidatos] = useState(false);
+
     
     const handleReset = () => {
         setIsHScreen(false),
@@ -41,6 +44,12 @@ export default function Page() {
         handleReset();
         setIsShowMensajes(true);
     }
+
+    const handleCandidatos = () => {
+        handleReset();
+        setIsShowCandidatos(true);
+    }
+    
 
     if(isLoading){
         return <h1 className='text-4xl font-bold text-center mt-20'>Cargando...</h1>
@@ -68,15 +77,16 @@ export default function Page() {
                         <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleMensajes()}>
                             Mensajes
                         </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleMensajes()}>
-                            Candidatos
-                        </button>
+                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleCandidatos()}>
+                    Candidatos
+                </button>
                 </div>
             </div>
             <div className='flex flex-col justify-center items-center'>                
                 {isShowServicios && <Servicios />}
                 {isShowTurnos && <Turnos/>}
                 {isShowMensajes && <Mensajes/>}
+                {isShowCandidatos && <Candidatos />}
             </div>
         </section>
   )
