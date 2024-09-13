@@ -6,10 +6,7 @@ type Row = {
   comentarios: string;
 }
 
-const formatServicio = (servicio: string) => {
-  // Pone la primer letra en mayúscula y si tiene un - en medio, pone un espacio
-  return servicio.charAt(0).toUpperCase() + servicio.slice(1).replace('-', ' ');
-}
+
 import { deleteTurnoRequest } from '../../../api/turnos';
 import Swal from 'sweetalert2';
 
