@@ -9,7 +9,7 @@ import { useAuth } from '@/context/auth';
 
 // Componentes
 import InputText from '../Inputs/InputText';
-
+import InputTextArea from '../Inputs/InputTextArea';
 import { useRouter } from 'next/navigation';
 // interfaz
 type CardModalTurnosProps = {
@@ -61,17 +61,42 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
         console.log(values);
 
         if(isAuthenticated){
-
-            try {
-                await createTurnoRequest(values);
-                console.log("ok");
-              } catch (error) {
-                console.log(error);
-              }
+            Swal.fire({
+                // Haz una pregunta si estás seguro de enviar el formulario
+                title: '¿Estás seguro?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#7BB263',
+                cancelButtonColor: '#D8316C',
+                confirmButtonText: 'Sí, enviar',
+                cancelButtonText: 'Cancelar'
+            }).then(async (result) => {
+                if (result.isConfirmed) {
+                    try {
+                        Swal.fire({
+                            // Muestra un mensaje de éxito
+                            title: '¡Listo!',
+                            text: '¡Tu turno ha sido agendado correctamente!',
+                            icon: 'success',
+                            confirmButtonText: 'Aceptar',
+                            confirmButtonColor: '#7BB263',
+                        }).then(async (result) => {
+                            if (result.isConfirmed) {
+                                // Crea un turno con los datos del formulario
+                                values.cliente = user.nombre + user.apellido 
+                                values.idUsuario = user.id
+                                await createTurnoRequest(values);
+                            }
+                        });
+                    } catch (error) {
+                        console.log(error);
+                    }
+                }
+            }
+            )
         }else{
             router.push('/login')
         }
-
         
     }
 
@@ -114,18 +139,13 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
                             className="w-full px-3 py-2 border rounded"
                         />
                     </div>
-
-                    {/* nombre del cliente */}
-                    <div className="">
-                        <InputText campo="cliente" valor={user?.nombre ? user.nombre : ""}  nombre="cliente" register={register} setValue={setValue} errors={errors.servicio} type="text" />
-                    </div>
-
                     {/* nombre del servicio */}
                     <div className="my-4">
                         <label htmlFor="time" className="block text-sm font-bold">
                             Nombre del servicio:
                         </label>
-                        <InputText campo="" valor={nombreServicio} nombre="servicio" register={register} setValue={setValue} errors={errors.servicio} type="text" />
+                        <InputText campo="" valor={nombreServicio} nombre="servicio" register={register} setValue={setValue} errors={errors.servicio} type="hidden" />
+                        <p className="text-gray-500 text-xl ">{nombreServicio}</p>
                     </div>
                     
                     {/* comentario */}
@@ -133,7 +153,7 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio }: Car
                         <label htmlFor="time" className="block text-sm font-bold mb-2">
                             Comentario:
                         </label>
-                        <InputText campo="" nombre="comentarios" register={register} setValue={setValue} errors={errors.servicio} type="text" />
+                        <InputTextArea campo="" nombre="comentarios" placeholder='Agrega un comentario' register={register} setValue={setValue} errors={errors.servicio} type="text" />
                     </div>
 
                     {/* boton enviar */}

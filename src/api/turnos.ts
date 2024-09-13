@@ -14,3 +14,8 @@ export const updateTurnoRequest = (turno:any) => axios.put(`/editar-turno/${turn
 
 // eliminar un turno
 export const deleteTurnoRequest = (id:any) => axios.delete(`/eliminar-turno/${id}`);
+
+export const getTurnosByUser = async (id:any) => {
+  const response = await axios.get(`/obtener-turnos-usuario/${id}`);
+  return response.data;
+};

@@ -4,6 +4,7 @@ import { useState } from "react";
 import CardModalTurnos from "../Turnos/CardModalTurnos";
 
 import { useAuth } from "@/context/auth";
+import { useRouter } from 'next/navigation';
 
 
 // cada tarjeta de los diferentes servicios tiene un boton con un estado, que al preciosarlo se activa en true
@@ -15,8 +16,15 @@ export default function Service({nombreServicio, tipo, precio, detalles}:any){
 
     const [isCardTurnosOpen, setCardTurnosOpen] = useState(false);
 
+    const router = useRouter();
+
     const openCardTurnos = () => {
-        setCardTurnosOpen(true);
+        if(!user){
+            router.push('/login');
+        }
+        else{
+            setCardTurnosOpen(true);
+        }
     };
 
     const closeCardTurnos = () => {

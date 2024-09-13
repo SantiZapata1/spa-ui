@@ -13,6 +13,9 @@ import CardUserTurnos from '../components/Cards/CardUserTurnos';
 import CardComentarios from '../components/Cards/CardComentarios';
 import CardEditUser from '../components/Cards/CardEditUser';
 
+// Backend
+import { getTurnosByUser } from '../../api/turnos';
+
 export default function Profile(){
 
     // hook de contexto
@@ -24,11 +27,15 @@ export default function Profile(){
     
     // Estados
     const [isEditing, setIsEditing] = useState(false);
-    const [turnos, setTurnos] = useState([]);
+   
+  
+
 
     if(isLoading){
         return <p>Cargando...</p>
     }
+
+
 
     // Si no esta cargando y no esta autenticado se redirecciona al login
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
@@ -42,7 +49,7 @@ export default function Profile(){
                 ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
                 : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }
 
-                <CardUserTurnos turnos={[]}/>
+                <CardUserTurnos />
                 
                 <CardComentarios />               
 
