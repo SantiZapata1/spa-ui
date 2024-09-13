@@ -62,7 +62,7 @@ export default function CV() {
 
     return (
         <>
-        <div className="min-w-full p-5">
+        <div className="min-w-full  p-5">
             <div className="flex flex-col">
             <h2 className="text-2xl mb-4 text-left inline mr-5">Candidatos({cvList.length})</h2>
 
