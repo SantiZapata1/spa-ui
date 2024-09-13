@@ -15,6 +15,17 @@ function CardUserTurnos() {
     const fetchTurnos = async () => {
       if (!isLoading) {
         const turnos = await getTurnosByUser(user.id);
+        // Ordena por createdAt, el más reciente primero
+        turnos.sort((a: any, b: any) => {
+          if (a.createdAt > b.createdAt) {
+            return -1;
+          }
+          if (a.createdAt < b.createdAt) {
+            return 1;
+          }
+          return 0;
+        });
+
         setTurnos(turnos);
       }
     }

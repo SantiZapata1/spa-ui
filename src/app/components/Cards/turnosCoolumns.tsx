@@ -63,6 +63,9 @@ const columnsTurnos = [
   {
     name: 'Fecha',
     selector: (row: Row) => row.fecha,
+    sortable: true,
+    // @ts-ignore
+    sortFunction: (a: any, b:any) => new Date(b.fecha) - new Date(a.fecha),
     style: {
       fontSize: '14px',
       fontWeight: 500,

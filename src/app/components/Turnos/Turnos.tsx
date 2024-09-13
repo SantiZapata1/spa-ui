@@ -20,6 +20,16 @@ export default function Turnos() {
         const obtenerTurnos = async () => {
             try {
                 const response = await getTurnos();
+                // Ordena por created At, el más reciente primero
+                response.sort((a: any, b: any) => {
+                    if (a.createdAt > b.createdAt) {
+                        return -1;
+                    }
+                    if (a.createdAt < b.createdAt) {
+                        return 1;
+                    }
+                    return 0;
+                });
                 setListaTurnos(response);
                 setIsLoading(false);
             } catch (error) {
