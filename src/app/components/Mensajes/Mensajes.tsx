@@ -35,8 +35,8 @@ export default function Mensajes() {
     }
 
     return (
-        <div className="w-full">
-            <h2 >Mensajes</h2>
+        <div className="w-full p-5" >
+            <h2 className="text-2xl mb-4 text-left inline mr-5">Mensajes</h2>
             <DataTable
                 columns={columnsDataTable}
                 data={mensajes}

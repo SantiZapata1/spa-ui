@@ -63,8 +63,8 @@ export default function CV() {
     return (
         <>
         <div className="min-w-full p-5">
-            <div className="flex flex-col items-center justify-center mb-8">
-                <h2 className="text-2xl mb-4">Candidatos({cvList.length})</h2>
+            <div className="flex flex-col">
+            <h2 className="text-2xl mb-4 text-left inline mr-5">Candidatos({cvList.length})</h2>
 
                 {/* DataTable para mostrar los CVs */}
             </div>

@@ -10,9 +10,9 @@ import { useState } from 'react';
 import Mensajes from '../components/Mensajes/Mensajes';
 import Turnos from '../components/Turnos/Turnos';
 import Candidatos from '../components/CV/CV';
-
+import Contacto from '../components/Contacto/Contacto';
 export default function Page() {
-    
+
     const { user, isAuthenticated, isLoading } = useAuth();
     const [isHScreen, setIsHScreen] = useState(false);
 
@@ -20,14 +20,15 @@ export default function Page() {
     const [isShowTurnos, setIsShowTurnos] = useState(false);
     const [isShowMensajes, setIsShowMensajes] = useState(false);
     const [isShowCandidatos, setIsShowCandidatos] = useState(false);
+    const [isShowContactos, setIsShowContactos] = useState(false)
 
-    
     const handleReset = () => {
         setIsHScreen(false),
-        setIsShowServicios(false),
-        setIsShowTurnos(false),
-        setIsShowMensajes(false)
+            setIsShowServicios(false),
+            setIsShowTurnos(false),
+            setIsShowMensajes(false)
         setIsShowCandidatos(false)
+        setIsShowContactos(false)
     }
 
 
@@ -50,17 +51,21 @@ export default function Page() {
         handleReset();
         setIsShowCandidatos(true);
     }
-    
 
-    if(isLoading){
+    const handleContactos = () => {
+        handleReset();
+        setIsShowContactos(true);
+    }
+
+    if (isLoading) {
         return <h1 className='text-4xl font-bold text-center mt-20'>Cargando...</h1>
     }
-    if(!isAuthenticated){
+    if (!isAuthenticated) {
         return redirect('/')
-        }
-    if(!user.admin){
+    }
+    if (!user.admin) {
         return redirect('/')
-        }
+    }
 
     return (
         <section className={`h-full`}>
@@ -69,26 +74,31 @@ export default function Page() {
                 <h2 className='text-3xl text-center mt-8'>Panel de admin</h2>
 
                 <div className='flex flex-col md:flex-row mt-5 justify-center items-center'>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleServicios()}>
-                            Servicios
-                        </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleTurnos()}>
-                            Turnos
-                        </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleMensajes()}>
-                            Mensajes
-                        </button>
-                        <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleCandidatos()}>
-                    Candidatos
-                </button>
+                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleServicios()}>
+                        Servicios
+                    </button>
+                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleTurnos()}>
+                        Turnos
+                    </button>
+                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleMensajes()}>
+                        Mensajes
+                    </button>
+                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleCandidatos()}>
+                        Candidatos
+                    </button>
+                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleContactos()}>
+                        Contacto
+                    </button>
+                    
                 </div>
             </div>
-            <div className='flex flex-col justify-center items-center'>                
+            <div className='flex flex-col justify-center items-center'>
                 {isShowServicios && <Servicios />}
-                {isShowTurnos && <Turnos/>}
-                {isShowMensajes && <Mensajes/>}
+                {isShowTurnos && <Turnos />}
+                {isShowMensajes && <Mensajes />}
                 {isShowCandidatos && <Candidatos />}
+                {isShowContactos && <Contacto/>}
             </div>
         </section>
-  )
+    )
 }
