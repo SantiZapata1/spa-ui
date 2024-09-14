@@ -1,28 +1,17 @@
-// Hooks
 import { useState } from "react";
-// Componentes
 import CardModalTurnos from "../Turnos/CardModalTurnos";
-
 import { useAuth } from "@/context/auth";
 import { useRouter } from 'next/navigation';
 
-
-// cada tarjeta de los diferentes servicios tiene un boton con un estado, que al preciosarlo se activa en true
-// para que se abra una ventana modal que permita al usuario cargar los datos de su nuevo turno.
-
-export default function Service({nombreServicio, tipo, precio, detalles}:any){
-
-    const { user} = useAuth();
-
+export default function Service({ nombreServicio, tipo, precio, detalles }: any) {
+    const { user } = useAuth();
     const [isCardTurnosOpen, setCardTurnosOpen] = useState(false);
-
     const router = useRouter();
 
     const openCardTurnos = () => {
-        if(!user){
+        if (!user) {
             router.push('/login');
-        }
-        else{
+        } else {
             setCardTurnosOpen(true);
         }
     };
@@ -32,24 +21,42 @@ export default function Service({nombreServicio, tipo, precio, detalles}:any){
     };
 
     // Remplaza la primer letra por mayúscula y los - por espacios
-    const formatText = (text:string) => {
+    const formatText = (text: string) => {
         return text.charAt(0).toUpperCase() + text.slice(1).replace(/-/g, ' ');
     }
 
-    return(
-        <div className="text-xl space-y-3">
-
-            <h3 className=""><span className="font-semibold">Título:</span> {nombreServicio}</h3>
-            <h4><span className=" font-semibold">Tipo:</span> <i>{formatText(tipo)}</i></h4>
-            <p><span className=" font-semibold">Precio:</span> ${precio}</p>
-            <p><span className="font-semibold">Detalles:</span> {detalles}</p>
-            <button onClick={openCardTurnos} className="bg-sage hover:bg-sage-hover text-white px-4 py-2 mr-2 rounded-xl">Pedir turno</button>
+    return (
 
 
-            <CardModalTurnos 
-                isOpen={isCardTurnosOpen} 
-                onClose={closeCardTurnos} 
-                nombreServicio={nombreServicio} 
+        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-sage dark:border-gray-700">
+            <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{formatText(nombreServicio)}</h5>
+            
+            <div className="flex items-baseline text-gray-900 dark:text-white">
+                <span className="text-3xl font-semibold">$</span>
+                <span className="text-5xl font-extrabold tracking-tight">{precio}</span>
+                <span className="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400"></span>
+            </div>
+
+            <ul role="list" className="space-y-5 my-7">
+                <li className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                    <span className="font-semibold">Tipo:</span> {formatText(tipo)}
+                </li>
+                <li className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                    <span className="font-semibold">Detalles:</span> {detalles}
+                </li>
+            </ul>
+
+            <button
+                onClick={openCardTurnos}
+                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+            >
+                Pedir turno
+            </button>
+
+            <CardModalTurnos
+                isOpen={isCardTurnosOpen}
+                onClose={closeCardTurnos}
+                nombreServicio={nombreServicio}
             />
         </div>
     );
