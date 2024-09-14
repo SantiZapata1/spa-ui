@@ -99,12 +99,12 @@ export default function ComentariosIndex() {
 
     return (
         <section className="h-80vh flex flex-col items-center">
-            <h2>Comentarios  <span className='text-rose-700'>+{comentarios.length}</span> </h2>
+            <h2>Comentarios  <span className='text-rose-700'>{'('+comentariosFiltrados.length+')'}</span> </h2>
 
-            <div className="flex flex-col md:flex-row justify-center h-9/10 md:max-w-screen-2xl w-9/10">  
+            <div className="flex flex-col md:flex-row justify-center h-9/10 md:max-w-screen-2xl w-9/10 ">  
 
-                <div className="overflow-scroll mt-4 ">
-                    <div className='flex'>
+                <div className="overflow-scroll mt-4 overflow-x-hidden">
+                    <div className='flex flex-col'>
                         <label htmlFor="opciones" className="text-xl">Filtrar:</label>
                         <select className="border  px-5 open-sans border-gray-200 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
                             <option value="ningun">Sin filtro</option>
@@ -114,9 +114,8 @@ export default function ComentariosIndex() {
                             <option value="tratamientos-faciales">Tratamientos faciales</option>
                         </select>
                     </div>
-                    <div className=''>
+                    <div className='w-full'>
                         <CommentList comentarios={comentariosFiltrados}/>
-
                     </div>
                 </div>
                 

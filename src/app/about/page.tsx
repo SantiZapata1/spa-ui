@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import Image from 'next/image';
 
+import { Bars3Icon } from '@heroicons/react/24/outline';
+
 export default function QuienesSomos() {
 
   const [menuVisible, setMenuVisible] = useState(false);
@@ -61,15 +63,13 @@ export default function QuienesSomos() {
         />
       </div>
 
-      <div className="relative flex min-h-screen">
+      <div className="flex flex-row relative min-h-screen ">
         {/* Menú lateral */}
-        <div className="relative group">
+        <div className="hidden md:block relative group">
           {/* Botón que despliega el menú al pasar el mouse */}
           {!menuVisible && (
             <div className="header h-screen w-full p-4 bg-gray-100 bg-opacity-0 flex flex-col" onMouseEnter={() => setMenuVisible(true)}>
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-              </svg>
+              <Bars3Icon className="w-6 h-6 text-white"/>
             </div>
           )}
           {/* Menú desplegable */}
@@ -94,9 +94,9 @@ export default function QuienesSomos() {
             <section
               key={section.id}
               id={section.id}
-              className="min-h-screen flex flex-col justify-center items-center py-0 px-4 relative"
+              className="md:min-h-screen flex flex-col justify-center items-center py-0 px-4 relative"
             >
-              <div className="max-w-4xl w-full p-6 bg-white bg-opacity-80 rounded-lg shadow-lg">
+              <div className="m-10 md:m-1 max-w-4xl w-full p-6 bg-white bg-opacity-80 rounded-lg shadow-lg ">
                 <h2 className="text-3xl font-bold mb-4 text-center">{section.title}</h2>
                 {section.id === 'equipo' ? (
                   <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

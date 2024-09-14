@@ -2,9 +2,6 @@
 
 import Comment from "./Comment";
 
-// Utiliza useState para almacenar los comentarios y useEffect para realizar la solicitud cuando el componente se monta.
-import {useEffect } from "react";
-
 interface Comentario {
     _id: string;
     servicio: string;
@@ -14,15 +11,9 @@ interface Comentario {
 
 export default function CommentList({ comentarios }:any) {
 
-   // Efecto para manejar acciones cuando los comentarios cambian (si es necesario)
-   useEffect(() => {
-    // Puedes realizar alguna acción aquí cuando los comentarios cambian
-    // console.log("Comentarios actualizados:", comentarios);
-    }, [comentarios]);
-
 
   return (
-    <div className="min-w-[300px] w-full ">
+    <div className="min-w-[300px] md:min-w-[500px] w-full ">
     <ul className="">
         {comentarios.length > 0 ? (
             comentarios
