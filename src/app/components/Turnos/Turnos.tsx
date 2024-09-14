@@ -59,8 +59,9 @@ export default function Turnos() {
     
 
     return (
-        <div className="w-full p-4" id="#turnos">
-            <h2 className="text-left">Turnos</h2>
+
+        <div className="w-full p-5">
+              <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
 
             <DataTable
                 columns={columnsTurnos}
