@@ -1,5 +1,6 @@
 type Row = {
     _id: string;
+    creacion:Date
     fecha: string;
     hora: string;
     cliente: string;
@@ -14,9 +15,17 @@ const formatServicio = (servicio: string) => {
 
 
 const columnsTurnos = [
+    // {
+    //     name: 'ID',
+    //     selector: (row: Row) => row._id,
+    //     style: {
+    //         fontSize: '14px',
+    //         fontWeight: 500,
+    //     }
+    // },
     {
-        name: 'ID',
-        selector: (row: Row) => row._id,
+        name: 'Creacion',
+        selector: (row: Row) => row.creacion,
         style: {
             fontSize: '14px',
             fontWeight: 500,

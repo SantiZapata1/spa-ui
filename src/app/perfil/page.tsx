@@ -13,6 +13,8 @@ import CardUserTurnos from '../components/Cards/CardUserTurnos';
 import CardComentarios from '../components/Cards/CardComentarios';
 import CardEditUser from '../components/Cards/CardEditUser';
 
+import { getTurnoFromUserRequest } from '@/api/turnos';
+
 export default function Profile(){
 
     // hook de contexto
