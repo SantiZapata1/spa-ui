@@ -3,9 +3,10 @@
 import React from 'react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import Swal from 'sweetalert2';
-import InputText from '../components/Inputs/InputText'; // Asegúrate de ajustar la ruta según sea necesario
-import { createCvRequest } from '../../api/cv'; // Ajusta la ruta si es necesario
-// Define el tipo para los datos del formulario
+import InputText from '../components/Inputs/InputText'; 
+import { createCvRequest } from '../../api/cv'; 
+
+
 type FormData = {
   nombre: string;
   apellido: string;
@@ -17,46 +18,42 @@ type FormData = {
 const CVForm: React.FC = () => {
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<FormData>();
 
-  
   const onSubmit: SubmitHandler<FormData> = async (data) => {
-      Swal.fire({
-        title: '¿Estás seguro?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#7BB263',
-        cancelButtonColor: '#D8316C',
-        confirmButtonText: 'Sí, enviar',
-        cancelButtonText: 'Cancelar'
-      }).then(async (result) => {
-        if (result.isConfirmed) {
-          // Enviar los datos a la API
-          try{
-            Swal.fire({
-              title: '¡Listo!',
-              text: '¡Tu CV ha sido enviado correctamente!',
-              icon: 'success',
-              confirmButtonText: 'Aceptar',
-              confirmButtonColor: '#7BB263',
-            }).then((result) => {
-              if (result.isConfirmed) {
-                // Si se confirma, recargar la página
-                createCvRequest(data);
-                window.location.reload();
-              }
-            });
-          } catch (error) {
-            console.error('Error al enviar los datos:', error);
-            Swal.fire({
-              title: 'Error',
-              text: 'Hubo un error al enviar el CV.',
-              icon: 'error',
-              confirmButtonText: 'Aceptar',
-              confirmButtonColor: '#D8316C',
-            });
-          }
+    Swal.fire({
+      title: '¿Estás seguro?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#7BB263',
+      cancelButtonColor: '#D8316C',
+      confirmButtonText: 'Sí, enviar',
+      cancelButtonText: 'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // Enviar los datos a la API
+        try {
+          createCvRequest(data); // Enviar los datos del formulario a la API
+          Swal.fire({
+            title: '¡Listo!',
+            text: '¡Tu CV ha sido enviado correctamente!',
+            icon: 'success',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#7BB263',
+          }).then(() => {
+            window.location.reload();
+          });
+        } catch (error) {
+          console.error('Error al enviar los datos:', error);
+          Swal.fire({
+            title: 'Error',
+            text: 'Hubo un error al enviar el CV.',
+            icon: 'error',
+            confirmButtonText: 'Aceptar',
+            confirmButtonColor: '#D8316C',
+          });
         }
-      });
-    } 
+      }
+    });
+  };
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -115,6 +112,15 @@ const CVForm: React.FC = () => {
               placeholder="Escribe tu propuesta aquí"
             ></textarea>
             {errors.propuesta && <p className="text-red-500 text-xs mt-1">{errors.propuesta.message}</p>}
+          </div>
+
+          {/* Botón para subir archivos */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Subir Archivo</label>
+            <input
+              type="file"
+              className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+            />
           </div>
 
           <button
