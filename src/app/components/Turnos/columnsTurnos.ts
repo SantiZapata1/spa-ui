@@ -29,14 +29,10 @@ const columnsTurnos = [
     //     }
     // },
     {
-<<<<<<< HEAD
-        name: 'Creacion',
-        selector: (row: Row) => row.creacion,
-=======
+
         name: 'ID',
         selector: (row: Row) => row._id,
         width: '10%',
->>>>>>> decdf2845cd10d88f26496666d2d63d3a58baca1
         style: {
             fontSize: '14px',
             fontWeight: 500,
