@@ -13,12 +13,9 @@ import CardUserTurnos from '../components/Cards/CardUserTurnos';
 import CardComentarios from '../components/Cards/CardComentarios';
 import CardEditUser from '../components/Cards/CardEditUser';
 
-<<<<<<< HEAD
-import { getTurnoFromUserRequest } from '@/api/turnos';
-=======
 // Backend
 import { getTurnosByUser } from '../../api/turnos';
->>>>>>> decdf2845cd10d88f26496666d2d63d3a58baca1
+
 
 export default function Profile(){
 
