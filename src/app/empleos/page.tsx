@@ -105,7 +105,7 @@ const CVForm: React.FC = () => {
           />
 
           <div>
-            <label className="block text-sm font-medium text-gray-700">Propuesta</label>
+            <label className="block text-sm font-medium text-gray-700">¿Por qué queres trabajar con nosotros?</label>
             <textarea
               {...register('propuesta', { required: 'Este campo es obligatorio' })}
               className="mt-1 block w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 resize-none h-28"
@@ -116,7 +116,7 @@ const CVForm: React.FC = () => {
 
           {/* Botón para subir archivos */}
           <div>
-            <label className="block text-sm font-medium text-gray-700">Subir Archivo</label>
+            <label className="block text-sm font-medium text-gray-700">Mandanos tu CV</label>
             <input
               type="file"
               className="mt-1 block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"

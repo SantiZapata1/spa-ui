@@ -1,10 +1,11 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 export default function Galeria() {
+  const [showVideo, setShowVideo] = useState(false);
+
   const images = [
     '/Belleza/belleza1.jpg',
     '/Belleza/belleza2.jpeg',
@@ -49,6 +50,29 @@ export default function Galeria() {
           </div>
         ))}
       </Slider>
+      <div className="flex justify-center mt-6">
+        <button 
+          onClick={() => setShowVideo(!showVideo)} 
+          className="flex items-center justify-center bg-sage text-white py-2 px-4 rounded-lg shadow-md hover:bg-sage-hover focus:outline-none"
+        >
+          <svg className="w-6 h-6 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {showVideo ? (
+              <path d="M5 3.5h15v15H5z" /> 
+            ) : (
+              <path d="M5 3.5l15 9-15 9V3.5z" /> 
+            )}
+          </svg>
+          {showVideo ? 'Ocultar Video' : 'Mostrar Video'}
+        </button>
+      </div>
+      {showVideo && (
+        <div className="mt-6 flex justify-center">
+          <video controls className="w-full max-w-3xl rounded-lg shadow-md">
+            <source src="/path/to/your/video.mp4" type="video/mp4" />
+            Tu navegador no soporta la etiqueta de video.
+          </video>
+        </div>
+      )}
     </div>
   );
 }
