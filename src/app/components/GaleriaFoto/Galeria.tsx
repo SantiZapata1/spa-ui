@@ -8,7 +8,6 @@ export default function Galeria() {
 
   const images = [
     '/Belleza/belleza1.jpg',
-    '/Belleza/belleza2.jpeg',
     '/Belleza/belleza3.jpg',
     '/Belleza/belleza4.jpg',
     '/Masajes/masaje3.jpg',

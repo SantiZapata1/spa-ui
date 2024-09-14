@@ -24,7 +24,7 @@ type Comentario = {
 
 export default function Home() {
   return (
-    <main>
+    <main className="overflow-x-hidden">
       <HeroImage
         titulo="SPA - Sentirse bien"
         eslogan="Encuentra la paz en cada momento."

@@ -37,13 +37,13 @@ function Footer() {
           <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">Desarrolladores</h2>
           <nav className="list-none">
             <li>
-              <a href="https://github.com" className="text-gray-400 hover:text-white">GitHub</a>
+              <a href="https://github.com/GonzaAhrexd" className="text-gray-400 hover:text-white">Gonzalo Ebel</a>
             </li>
             <li>
-              <a href="https://github.com" className="text-gray-400 hover:text-white">GitHub</a>
+              <a href="https://github.com/MSCV2607" className="text-gray-400 hover:text-white">Mauro Camors Vecchietti</a>
             </li>
             <li>
-              <a href="https://github.com" className="text-gray-400 hover:text-white">GitHub</a>
+              <a href="https://github.com/SantiZapata1" className="text-gray-400 hover:text-white">Santiago Zapata</a>
             </li>
           </nav>
         </div>
