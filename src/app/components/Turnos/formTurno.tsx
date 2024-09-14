@@ -1,11 +1,11 @@
 "use client"
-import React from "react";
+
 import InputText from "../Inputs/InputText"
 import { useForm } from "react-hook-form"
 
 export default function FormTurno(){
 
-    // const{handleSubmit, register, formState:{errors},setValue }=useForm()
+    const{handleSubmit, register, formState:{errors},setValue }=useForm()
 
     return(
 

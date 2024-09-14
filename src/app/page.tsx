@@ -58,7 +58,6 @@ export default function Home() {
 
         {/* Comentarios */}
         <section className="p-8">
-          <h2>Comentarios</h2>
           <ComentariosIndex />
         </section>
 

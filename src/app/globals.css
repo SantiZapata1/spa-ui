@@ -174,5 +174,13 @@ h2{
     height: 90vh;
 }
 
+.gradient-background {
+    background: linear-gradient(150deg, #fdfbf4 60%, #FFC7EA 140%);
+  }
+  
 
+.gradient-background2 {
+    background: linear-gradient(180deg, transparent 60%, black 140%);
+  }
+  
 
