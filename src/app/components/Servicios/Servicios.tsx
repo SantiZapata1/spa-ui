@@ -188,7 +188,6 @@ export default function Servicios() {
 
                 </div>
             </div>
-            <div className='flex flex-col items-center w-full'>
                 <DataTable
                     columns={columnsServicios()}
                     expandableRowsComponent={expandedComponent}
@@ -199,7 +198,6 @@ export default function Servicios() {
                     customStyles={customStylesServicios}
                     responsive={true}
                 />
-            </div>
         </>
     );
 }

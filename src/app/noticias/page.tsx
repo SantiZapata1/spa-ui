@@ -104,9 +104,9 @@ export default function NoticiasPage() {
                 </button>
               </form>
               :
-              <button className="w-2/10 py-3 flex flex-row justify-center items-center text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300" onClick={() => setShowAgregarNoticia(true)} >
-               <span>Agregar</span> 
-                <PlusCircleIcon className='ml-2 h-6 w-6' />
+              <button className="w-full md:w-2/10 py-3 flex flex-row justify-center items-center text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300" onClick={() => setShowAgregarNoticia(true)} >
+               <span className=''>Agregar</span> 
+                <PlusCircleIcon className='md:ml-2 h-8 w-8 md:h-6 md:w-6' />
               </button>
             }
           </div>

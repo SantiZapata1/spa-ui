@@ -4,7 +4,6 @@ import { redirect } from 'next/navigation'
 // Contexto
 import { useAuth } from '../../context/auth';
 // Hooks
-import {  useForm } from "react-hook-form";
 import { useEffect, useState } from 'react';
 
 // Componentes
@@ -13,47 +12,29 @@ import CardUserTurnos from '../components/Cards/CardUserTurnos';
 import CardComentarios from '../components/Cards/CardComentarios';
 import CardEditUser from '../components/Cards/CardEditUser';
 
-// Backend
-import { getTurnosByUser } from '../../api/turnos';
-
-
 export default function Profile(){
 
     // hook de contexto
-    const { user, isAuthenticated, errorsAuth, isLoading } = useAuth();
-
-    useEffect(() => {
-        console.log(user)
-    }, [user])
+    const { user, isAuthenticated, isLoading } = useAuth();
     
     // Estados
     const [isEditing, setIsEditing] = useState(false);
    
-  
-
-
     if(isLoading){
         return <p>Cargando...</p>
     }
-
-
 
     // Si no esta cargando y no esta autenticado se redirecciona al login
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 
     return(
             <section className="w-full flex flex-col items-center justify-center">
-
                 <h2> Hola {user.nombre_de_usuario}</h2>             
-                   
                 {!isEditing 
                 ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
                 : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }
-
-                <CardUserTurnos />
-                
+                <CardUserTurnos />                
                 <CardComentarios />               
-
             </section>
     );
 }

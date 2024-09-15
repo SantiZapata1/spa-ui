@@ -69,11 +69,11 @@ export default function CardComentarios() {
     ]
 
     return (
-        <div className="mb-5 flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-6/10 p-4 mt-5">
+        <div className="mb-5 flex flex-col items-center justify-center bg-white shadow-lg rounded-lg md:w-6/10 w-full p-4 mt-5">
             <h2 className="text-3xl font-medium">Tus comentarios</h2>
 
             <form 
-                className="m-3 w-4/10 flex flex-col items-center justify-center p-2 rounded-md" 
+                className="m-3 w-full md:w-4/10 flex flex-col items-center justify-center p-2 rounded-md" 
                 onSubmit={handleSubmit(onSubmit)}
             >
                 {mensajeError && <p className="text-red-500">{mensajeError}</p>}

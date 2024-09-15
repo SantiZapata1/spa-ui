@@ -20,28 +20,11 @@ const formatFecha = (fecha: string) => {
 
 
 const columnsTurnos = [
-    // {
-    //     name: 'ID',
-    //     selector: (row: Row) => row._id,
-    //     style: {
-    //         fontSize: '14px',
-    //         fontWeight: 500,
-    //     }
-    // },
-    // {
 
-    //     name: 'ID',
-    //     selector: (row: Row) => row._id,
-    //     width: '10%',
-    //     style: {
-    //         fontSize: '14px',
-    //         fontWeight: 500,
-    //     }
-    // },
     {
         name: 'Fecha',
         selector: (row: Row) => formatFecha(row.fecha),
-        width: '5%',
+        width: '15%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -50,7 +33,7 @@ const columnsTurnos = [
     {
         name: 'Hora',
         selector: (row: Row) => row.hora,
-        width: '5%',
+        width: '10%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -59,7 +42,7 @@ const columnsTurnos = [
     {
         name: 'Cliente',
         selector: (row: Row) => row.cliente,
-        width: '10%',
+        width: '20%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -68,7 +51,7 @@ const columnsTurnos = [
     {
         name: 'Servicio',
         selector: (row: Row) => formatServicio(row.servicio),
-        width: '10%',
+        width: '20%',
         style: {
             fontSize: '14px',
             fontWeight: 500,
@@ -77,7 +60,7 @@ const columnsTurnos = [
     {
         name: 'Comentarios',
         selector: (row: Row) => row.comentarios,
-        width: '60%',
+        // width: '45%',
         style: {
             fontSize: '14px',
             fontWeight: 500,

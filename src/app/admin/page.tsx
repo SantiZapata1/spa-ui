@@ -1,6 +1,5 @@
 "use client"
 // Next
-import Link from 'next/link';
 import { redirect } from 'next/navigation';
 // Contexto
 import { useAuth } from './../../context/auth'
