@@ -43,7 +43,7 @@ function CardDataUsuario({datosUsuario, setIsEditing}: CardDataUsuarioProps) {
                     
                     try{
                         values.id = datosUsuario.id
-                        editProfile(values)
+                        await editProfile(values)
                         Swal.fire({
                             title: '¡Listo!',
                             text: '¡Tus datos han sido editados correctamente!',
