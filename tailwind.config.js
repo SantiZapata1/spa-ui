@@ -18,6 +18,12 @@ module.exports = {
         "sage": "#5F6F52",
         "sage-light": "#9CA89E",
         "sage-hover": "#4F5F42",
+        "cream": "#FFFFCC",
+        "light-pink": "#FFB36",
+        "dark-purple": "#9C225D",
+        "cream-gray": "#B9A9A7",
+        "darker-gray": "#303030",
+        "beiged": "#FDFBF4",
       },
       fontSize: {
         vw: '0.9vw',

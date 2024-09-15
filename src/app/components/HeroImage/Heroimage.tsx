@@ -24,7 +24,7 @@ export default function HeroImage({ titulo, eslogan, textoBoton }: HeroImageProp
         </p>
 
         <Link href="/servicios">
-          <button className="text-white py-2 px-6 rounded-3xl text-2xl bg-sage transform transition-transform duration-300 ease-in-out hover:scale-105">
+          <button className="text-white py-2 px-6 rounded-3xl text-2xl bg-dark-purple transform transition-transform duration-300 ease-in-out hover:scale-105">
             {textoBoton}
           </button>
         </Link>

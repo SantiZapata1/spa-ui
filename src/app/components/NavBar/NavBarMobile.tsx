@@ -1,79 +1,58 @@
-import React from 'react'
-
-import { HomeIcon, QuestionMarkCircleIcon, NewspaperIcon, SparklesIcon, ChatBubbleLeftIcon, UserIcon,  ArrowDownOnSquareIcon, ArrowRightEndOnRectangleIcon, WrenchScrewdriverIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
-import { useAuth } from './../../../context/auth'
-import { useState } from 'react'
+import React from 'react'
+import { useAuth } from '../../../context/auth'
 
-function NavBarMobile() {
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [userDropwdownOpen, setUserDropdownOpen] = useState(false);
+type NavBarMobileUpdatedProps = {
+    setDropOptionsOnMobile: any;
 
-  const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
-  };
-
-  const closeDropdown = () => {
-    setDropdownOpen(false);
-  };
-
-  const toggleUserDropdown = () => {
-    setDropdownOpen(false);
-    setUserDropdownOpen(!userDropwdownOpen);
-  };
-
-  const linkClass = 'text-pink-700 font-semibold px-4 py-2 transition text-lg navbar-button rounded-3xl cursor-pointer';
-
-  const { user, isAuthenticated } = useAuth();
-
-  return (
-    <>
-    {!userDropwdownOpen && 
-    <>  
-        <Link href="/">
-      <HomeIcon className="h-6 w-6 text-pink-700  "  />
-      </Link>
-      <Link href="/about">
-      <QuestionMarkCircleIcon className="h-6 w-6 text-pink-700" />
-      </Link>
-      <Link href='/noticias'>
-      <NewspaperIcon className="h-6 w-6 text-pink-700" />
-      </Link>
-      <Link href='/servicios'>
-      <SparklesIcon className="h-6 w-6 text-pink-700" />
-      </Link>
-      <Link href='/#contacto'>
-      <ChatBubbleLeftIcon className="h-6 w-6 text-pink-700" />
-      </Link>
-      {(!userDropwdownOpen && isAuthenticated) && <UserIcon className="h-6 w-6 text-pink-700 cursor-pointer"  onClick={toggleUserDropdown}/>}
-      </>  
-    }
-      {!isAuthenticated ? (
-        <Link href="/login" className={linkClass} onClick={closeDropdown}>
-        <ArrowDownOnSquareIcon className="h-6 w-6 text-pink-700 cursor-pointer"/>
-        </Link>
-  ) : (
-    <>
-    {userDropwdownOpen && (
-      <div className='flex flex-row justify-between w-full'>
-          <Link href="/perfil" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={toggleUserDropdown}>
-          <UserIcon className="h-6 w-6 text-pink-700"/>
-          </Link>
-          {user.admin && (
-            <Link href="/admin" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={toggleUserDropdown}>
-              <WrenchScrewdriverIcon className="h-6 w-6 text-pink-700" />
-            </Link>  
-          )}
-          <Link href="/logout" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={toggleUserDropdown}>
-            <ArrowRightEndOnRectangleIcon className='h-6 w-6 text-pink-700'/>
-          </Link>
-    </div>
-      )}
-      </>
-  )}
-      
-    </>
-  )
 }
 
-export default NavBarMobile
+function NavBarMobileUpdated({setDropOptionsOnMobile }: NavBarMobileUpdatedProps) {
+
+    const linkClass = 'block px-4 py-2 text-base hover:bg-gray-100 font-semibold px-4 py-2 transition text-lg navbar-button rounded-3xl cursor-pointer text-pink-900';
+
+    const { user, isAuthenticated } = useAuth();
+
+    return (
+        <div className="absolute bg-beiged text-gray-700 mt-2 rounded-lg shadow-lg right-0 w-6/10 bg-opacity-90"> 
+            <Link href="/" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                Inicio
+            </Link>
+
+            <Link href="/about" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                Quienes somos
+            </Link>
+
+            <Link href="/noticias" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                Noticias
+            </Link>
+
+            <Link href='/servicios' className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>Servicios</Link>
+
+            <Link href="/#contacto" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                Contacto
+            </Link>
+            {!isAuthenticated ? (
+                <Link href="/login" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                    Login
+                </Link>
+            ) : (
+                <>
+                    <Link href="/perfil" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                        Mi Perfil
+                    </Link>
+                    {user.admin && (
+                        <Link href="/admin" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                            Panel de administrador
+                        </Link>
+                    )}
+                    <Link href="/logout" className={linkClass} onClick={() => setDropOptionsOnMobile(false)}>
+                        Cerrar sesión
+                    </Link>
+                </>
+            )}
+
+        </div>)
+}
+
+export default NavBarMobileUpdated

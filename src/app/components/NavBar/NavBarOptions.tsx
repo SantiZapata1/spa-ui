@@ -18,7 +18,7 @@ function NavBarOptions() {
         setUserDropdownOpen(true);
     };
 
-    const handleMouseLeave = () => {
+    const handleMouseLeave:any = () => {
         setUserDropdownOpen(false);
     };
 
