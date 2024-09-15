@@ -124,7 +124,7 @@ export default function ComentariosIndex() {
                         className="flex flex-col p-2 rounded-md h-full justify-evenly w-full"
                         onSubmit={handleSubmit(onSubmit)}
                     >
-                        <h3 className="text-3xl">¡Dejanos un comentario!</h3>
+                        <h3 className="text-2xl text-center">¡Dejanos un comentario!</h3>
                         <SelectOptions
                             campo=""
                             nombre="servicio"
@@ -145,15 +145,15 @@ export default function ComentariosIndex() {
                         />
                         <button
                             type="submit"
-                            className="p-3 mt-2 w-full bg-sage text-white font-bold rounded-lg shadow-lg"
+                            className="p-3 mt-2 w-full bg-sage text-white font-semibold rounded-lg shadow-lg"
                         >
-                            Enviar
+                            ENVIAR
                         </button>
                     </form>
                 </div>
                 :
                 <button 
-                className="p-3 mt-10 w-full bg-sage text-white font-bold rounded-lg shadow-lg"
+                className="p-3 mt-14 w-full bg-sage text-white font-bold rounded-lg shadow-lg"
 
                 onClick={()=>{
                     setEstaComentando(true)
