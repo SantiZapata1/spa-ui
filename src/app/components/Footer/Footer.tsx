@@ -48,18 +48,18 @@ function Footer() {
           </nav>
         </div>
 
-        {/* Sección Legal en español */}
+        {/* Sección Legal */}
         <div className="w-full md:w-1/5 mb-6 md:mb-0 text-center">
           <h2 className="title-font font-medium text-white tracking-widest text-sm mb-3">Legal</h2>
           <nav className="list-none">
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">Política de privacidad</a>
+              <a href="/politicaPrivacidad" className="text-gray-400 hover:text-white">Política de privacidad</a>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">Términos y condiciones</a>
+              <a href="/terminosYcondiciones" className="text-gray-400 hover:text-white">Términos y condiciones</a>
             </li>
             <li>
-              <a href="#" className="text-gray-400 hover:text-white">Aviso legal</a>
+              <a href="/avisosLegales" className="text-gray-400 hover:text-white">Aviso legal</a>
             </li>
           </nav>
         </div>

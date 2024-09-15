@@ -43,8 +43,6 @@ export default function Turnos() {
                 columns={columnsTurnos}
                 data={listaTurnos}
                 pagination
-                expandableRows
-                expandableRowsComponent={expandedComponents}
                 customStyles={customStyles}
                 responsive={true}
                 striped={true}

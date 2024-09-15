@@ -7,7 +7,7 @@ import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outl
 import { getCvRequest, deleteCvRequest } from "../../../api/cv";
 import columnsCV from "./columnsCV";
 import customStylesCV from "../Turnos/customStyles"; // Opcional si tienes estilos personalizados para la tabla
-
+import expandedCvCompomnent from "./expandedCvComponent";
 export default function CV() {
     const [cvList, setCvList] = useState<any[]>([]);
     const [filteredCvList, setFilteredCvList] = useState<any[]>([]);
@@ -40,8 +40,8 @@ export default function CV() {
                 text: "No podrás revertir esto",
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#d33',
-                cancelButtonColor: '#3085d6',
+                confirmButtonColor: '#7BB263',
+                cancelButtonColor: '#D8316C',
                 confirmButtonText: 'Sí, eliminar',
                 cancelButtonText: 'Cancelar'
             });
@@ -72,7 +72,7 @@ export default function CV() {
                 <DataTable
                     columns={columnsCV(eliminarCV)} // Pasa la función eliminarCV a las columnas
                     expandableRows
-                    //expandableRowsComponent={({ data }) => <div>{data.detalles}</div>}
+                    expandableRowsComponent={expandedCvCompomnent}
                     expandableIcon={expandableIcon}
                     data={filteredCvList}
                     pagination

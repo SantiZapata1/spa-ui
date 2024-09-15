@@ -46,7 +46,6 @@ export default function Mensajes() {
                 expandableRowsComponent={expandableMensajes}
                 expandableIcon={expandableIcon}
             />
-
         </div>
     );
 

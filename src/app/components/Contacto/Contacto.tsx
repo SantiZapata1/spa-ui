@@ -42,13 +42,10 @@ function Contacto() {
       {listaContactos?.length > 0 && (
         <DataTable
         columns={columnsContacto} 
-        expandableRows
-        //expandableRowsComponent={({ data }) => <div>{data.detalles}</div>}
         expandableIcon={expandableIcon}
         data={listaContactos}
         pagination
         customStyles={customStyles} 
-        
         />
       )}
       </>

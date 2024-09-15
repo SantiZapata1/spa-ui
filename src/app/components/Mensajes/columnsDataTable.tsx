@@ -51,15 +51,6 @@ const handleDelete = async (id: string) => {
 
 
 const columnMensajes = [
-  // {
-  //   name: 'ID',
-  //   selector: (row: Row) => row._id,
-  //   style: {
-  //     fontSize: '14px',
-  //     fontWeight: 500,
-  //   },
-  //   width: '10%',
-  // },
   {
     name: 'Servicio',
     selector: (row: Row) => formatServicio(row.servicio),
@@ -80,7 +71,7 @@ const columnMensajes = [
   },
   {
     name: 'Acciones',
-    width: '10%',
+    width: '20%',
     cell: (row: Row) => (
       <div className="flex space-x-2">
         <button
