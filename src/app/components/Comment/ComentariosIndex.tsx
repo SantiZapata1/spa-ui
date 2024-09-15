@@ -102,11 +102,9 @@ export default function ComentariosIndex() {
             <h2>Comentarios  <span className='text-rose-700'>{'('+comentariosFiltrados.length+')'}</span> </h2>
 
             <div className="flex flex-col mt-14 md:flex-row justify-center h-9/10 md:max-w-screen-2xl">  
-
                 <div className="overflow-scroll overflow-x-hidden h-8/10">
                     <div className='flex flex-col'>
                         <label htmlFor="opciones" className="">Filtrar:</label>
-
                         <select className="border  px-5 open-sans border-gray-200 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
                             <option value="ningun">Sin filtro</option>
                             <option value="belleza">Belleza</option>

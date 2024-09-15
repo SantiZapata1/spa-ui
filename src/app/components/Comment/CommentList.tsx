@@ -13,7 +13,7 @@ export default function CommentList({ comentarios }:any) {
 
 
   return (
-    <div className="min-w-[300px]  w-full ">
+    <div className="min-w-[300px] md:min-w-[500px] w-full ">
     <ul className="">
         {comentarios.length > 0 ? (
             comentarios
