@@ -49,14 +49,14 @@ const handleDelete = async (id: string) => {
 
 
 const columnsTurnos = [
-  {
-    name: 'ID',
-    selector: (row: Row) => row._id,
-    style: {
-      fontSize: '14px',
-      fontWeight: 500,
-    }
-  },
+  // {
+  //   name: 'ID',
+  //   selector: (row: Row) => row._id,
+  //   style: {
+  //     fontSize: '14px',
+  //     fontWeight: 500,
+  //   }
+  // },
   {
     name: 'Fecha',
     selector: (row: Row) => row.fecha,

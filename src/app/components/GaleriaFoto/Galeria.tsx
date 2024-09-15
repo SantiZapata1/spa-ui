@@ -45,11 +45,12 @@ export default function Galeria() {
                 alt={`Imagen ${index + 1}`}
                 className="object-cover transition-transform duration-300 ease-in-out hover:scale-105 w-full h-full"
               />
+             
             </div>
           </div>
         ))}
       </Slider>
-      <div className="flex justify-center mt-6">
+      <div className="flex justify-center mt-10">
         <button 
           onClick={() => setShowVideo(!showVideo)} 
           className="flex items-center justify-center bg-sage text-white py-2 px-4 rounded-lg shadow-md hover:bg-sage-hover focus:outline-none"

@@ -11,6 +11,7 @@ import columnsTurnos from './turnosCoolumns';
 function CardUserTurnos() {
   const [turnos, setTurnos] = useState([]);
   const { user, isLoading } = useAuth();
+  
   useEffect(() => {
     const fetchTurnos = async () => {
       if (!isLoading) {

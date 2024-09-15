@@ -51,15 +51,15 @@ const handleDelete = async (id: string) => {
 
 
 const columnMensajes = [
-  {
-    name: 'ID',
-    selector: (row: Row) => row._id,
-    style: {
-      fontSize: '14px',
-      fontWeight: 500,
-    },
-    width: '10%',
-  },
+  // {
+  //   name: 'ID',
+  //   selector: (row: Row) => row._id,
+  //   style: {
+  //     fontSize: '14px',
+  //     fontWeight: 500,
+  //   },
+  //   width: '10%',
+  // },
   {
     name: 'Servicio',
     selector: (row: Row) => formatServicio(row.servicio),

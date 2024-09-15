@@ -59,7 +59,7 @@ export default function QuienesSomos() {
         <img
           src="/About/SpaFondo.jpeg"
           alt="Fondo difuminado"
-          className="w-full h-full object-cover filter blur-sm absolute inset-0"
+          className="w-full h-full object-cover filter blur-sm mt-2 absolute inset-0"
         />
       </div>
 

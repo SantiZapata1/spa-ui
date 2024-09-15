@@ -43,7 +43,7 @@ export default function Home() {
           <h2>Servicios</h2>
           <CardServi />
           <Link href="/servicios" >
-            <button className="bg-sage text-white px-6 py-4 rounded-3xl mt-5 transform transition-transform duration-300 ease-in-out hover:scale-105">
+            <button className="bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105">
                 Ver todos los servicios
             </button>
           </Link>

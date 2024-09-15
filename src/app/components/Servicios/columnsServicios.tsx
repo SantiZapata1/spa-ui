@@ -17,16 +17,16 @@ const formatServicio = (servicio: string) => {
 
 // Definir las columnas para el DataTable
 const columnsServicios = () => [
-  {
-    name: 'ID',
-    selector: (row: Service) => row._id,
-    sortable: true,
-    width: '10%',
-    style: {
-      fontSize: '14px',
-      fontWeight: 500,
-    },
-  },
+  // {
+  //   name: 'ID',
+  //   selector: (row: Service) => row._id,
+  //   sortable: true,
+  //   width: '10%',
+  //   style: {
+  //     fontSize: '14px',
+  //     fontWeight: 500,
+  //   },
+  // },
   {
     name: 'Nombre',
     selector: (row: Service) => row.nombre,

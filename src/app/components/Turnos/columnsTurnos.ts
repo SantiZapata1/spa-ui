@@ -28,16 +28,16 @@ const columnsTurnos = [
     //         fontWeight: 500,
     //     }
     // },
-    {
+    // {
 
-        name: 'ID',
-        selector: (row: Row) => row._id,
-        width: '10%',
-        style: {
-            fontSize: '14px',
-            fontWeight: 500,
-        }
-    },
+    //     name: 'ID',
+    //     selector: (row: Row) => row._id,
+    //     width: '10%',
+    //     style: {
+    //         fontSize: '14px',
+    //         fontWeight: 500,
+    //     }
+    // },
     {
         name: 'Fecha',
         selector: (row: Row) => formatFecha(row.fecha),

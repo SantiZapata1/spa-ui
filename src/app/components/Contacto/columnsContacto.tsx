@@ -6,11 +6,11 @@ type mensaje = {
 }
 
 const contactoRows = [
-    {
-        name: 'ID',
-        selector: (row: mensaje) => `${row._id}`,
-        sortable: true,
-    },
+    // {
+    //     name: 'ID',
+    //     selector: (row: mensaje) => `${row._id}`,
+    //     sortable: true,
+    // },
     {
         name: 'Nombre',
         selector: (row: mensaje) => row.nombre,
