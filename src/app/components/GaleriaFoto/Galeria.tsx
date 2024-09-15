@@ -67,7 +67,7 @@ export default function Galeria() {
       {showVideo && (
         <div className="mt-6 flex justify-center">
           <video controls className="w-full max-w-3xl rounded-lg shadow-md">
-            <source src="/path/to/your/video.mp4" type="video/mp4" />
+            <source src="SPA.mp4" type="video/mp4" />
             Tu navegador no soporta la etiqueta de video.
           </video>
         </div>
