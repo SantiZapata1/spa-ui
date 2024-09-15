@@ -11,7 +11,7 @@ function Footer() {
         {/* Logo y nombre */}
         <div className="w-full md:w-1/5 mb-6 md:mb-0">
           <a className="flex items-center justify-start text-white">
-            <img src="/logo_sin_fondo.png" alt="Logo" className="w-10 h-10" /> {/* Sin el círculo */}
+            <img src="/logo_sin_fondo.png" alt="Logo" className="w-10 h-10" /> 
             <span className="ml-3 text-xl">Spa Sentirse Bien™</span>
           </a>
         </div>
