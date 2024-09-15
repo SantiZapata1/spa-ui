@@ -26,25 +26,25 @@ export default function Service({ nombreServicio, tipo, precio, detalles }: any)
     }
 
     return (
-        <div className="w-full max-w-sm h-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-sage dark:border-gray-700">
-            <h2 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{formatText(nombreServicio)}</h2>
+        <div className="w-full max-w-sm h-full p-4  border rounded-lg shadow-sm sm:p-8 bg-sage border-gray-700">
+            <h2 className="mb-4 text-xl font-medium text-gray-200">{formatText(nombreServicio)}</h2>
             
-            <div className="flex flex-col items-center text-gray-900 dark:text-white">
+            <div className="flex flex-col items-center text-white">
                 <span className="text-4xl font-extrabold tracking-tight">${precio}</span>
             </div>
 
             <ul role="list" className="space-y-5 my-7">
-                <li className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                <li className="text-base font-normal leading-tight text-gray-200 ">
                     <span className="font-semibold">Tipo:</span> {formatText(tipo)}
                 </li>
-                <li className="text-base font-normal leading-tight text-gray-500 dark:text-gray-400">
+                <li className="text-base font-normal leading-tight text-gray-200">
                     <span className="font-semibold">Detalles:</span> {detalles}
                 </li>
             </ul>
 
             <button
                 onClick={openCardTurnos}
-                className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-900 font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
+                className="text-white bg-sage-hover hover:bg-sage-light focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 inline-flex justify-center w-full text-center"
             >
                 Pedir turno
             </button>

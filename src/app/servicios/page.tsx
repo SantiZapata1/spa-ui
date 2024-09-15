@@ -57,25 +57,25 @@ export default function Servicios() {
             <h2 className="text-3xl mb-4">Todos los servicios ({servicios.length})</h2>
 
             {/* Masajes */}
-            <section className="min-h-screen" id="masajes">
+            <section className="" id="masajes">
                 <h2 className="text-2xl mb-4">Masajes</h2>
                 {renderServiciosPorTipo("Masajes")}
             </section>
 
             {/* Belleza */}
-            <section className="min-h-screen" id="belleza">
+            <section className="" id="belleza">
                 <h2 className="text-2xl mb-4">Belleza</h2>
                 {renderServiciosPorTipo("Belleza")}
             </section>
 
             {/* Tratamientos faciales */}
-            <section className="min-h-screen" id="tFacial">
+            <section className="" id="tFacial">
                 <h2 className="text-2xl mb-4">Tratamientos faciales</h2>
                 {renderServiciosPorTipo("tratamientos-faciales")}
             </section>
 
             {/* Tratamientos corporales */}
-            <section className="min-h-screen" id="tCorporales">
+            <section className="" id="tCorporales">
                 <h2 className="text-2xl mb-4">Tratamientos corporales</h2>
                 {renderServiciosPorTipo("tratamientos-corporales")}
             </section>
