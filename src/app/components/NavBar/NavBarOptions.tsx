@@ -22,33 +22,33 @@ function NavBarOptions() {
         setUserDropdownOpen(false);
     };
 
-    const linkClass = 'text-pink-700 font-semibold px-4 py-2 transition text-lg navbar-button rounded-3xl cursor-pointer';
+    const linkClass = 'text-pink-700 font-semibold px-4 py-2 transition text-md navbar-button rounded-3xl cursor-pointer';
 
     const { user, isAuthenticated } = useAuth();
 
     return (
         <> 
             <Link href="/" className={linkClass} onClick={closeDropdown}>
-                Inicio
+                INICIO
             </Link>
 
             <Link href="/about" className={linkClass} onClick={closeDropdown}>
-                Quienes somos
+                NOSOTROS
             </Link>
 
             <Link href="/noticias" className={linkClass} onClick={closeDropdown}>
-                Noticias
+                NOTICIAS
             </Link>
 
-            <Link href='/servicios' className={linkClass}>Servicios</Link>
+            <Link href='/servicios' className={linkClass}>SERVICIOS</Link>
 
             <Link href="/#contacto" className={linkClass} onClick={closeDropdown}>
-                Contacto
+                CONTACTO
             </Link>
 
             {!isAuthenticated ? (
                 <Link href="/login" className={linkClass} onClick={closeDropdown}>
-                    Login
+                    LOG IN
                 </Link>
             ) : (
                 <div 

@@ -34,18 +34,22 @@ export default function NavBar() {
 
   return (
     <div className='flex flex-col md:flex-row w-full items-center z-50 relative'>
-      <div className='flex  md:flex-row justify-between p-2 md:justify-center w-full items-center space-y-4 md:space-y-0 md:space-x-6 py-1'>
+
+      <div className='flex  md:flex-row justify-between p-2 md:justify-around  w-full items-center space-y-4 md:space-y-0 md:space-x-6 py-1'>
         <Link href="/" onClick={closeDropdown}>
 
-          <div className='w-20 pb-1'>
+          <div className='w-40'>
             <img
-              src="logo_sin_fondo.png"
+              src="loguitodef.png"
               alt="logo del spa" 
             />
           </div>
         </Link>
         <div className='hidden md:flex'>
           <NavBarOptions />
+        </div>
+        <div>
+          REDES
         </div>
         <Bars3Icon className="block md:hidden size-6 cursor-pointer" onClick={() => setDropOptionsOnMobile(!dropOptionsOnMobile)} /> 
       </div>

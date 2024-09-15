@@ -153,11 +153,11 @@ export default function ComentariosIndex() {
                 </div>
                 :
                 <button 
-                className="p-3 mt-14 w-full bg-sage text-white font-bold rounded-lg shadow-lg"
+                className="p-3 mt-14 w-full bg-sage text-white font-semibold rounded-lg shadow-lg"
 
                 onClick={()=>{
                     setEstaComentando(true)
-                }}>Comentar</button>
+                }}>COMENTAR</button>
                 }
 
 
