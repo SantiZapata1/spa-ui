@@ -48,11 +48,16 @@ export default function ContactoForm(){
                   icon: 'success',
                   confirmButtonText: 'Aceptar',
                   confirmButtonColor: '#7BB263',
-                }).then((result) => {
+                }).then(async (result) => {
                   if (result.isConfirmed) {
                     // Si se confirma, recargar la página
-                    sendMessageContacto(values);
-                    window.location.reload();
+                    try{
+                      await sendMessageContacto(values);
+                      window.location.reload();
+                    }catch(error){
+                      console.log(error)
+                      
+                    }
                   }
                 });
               } catch (error) {
