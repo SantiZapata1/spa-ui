@@ -1,5 +1,4 @@
 "use client";
-
 // CSS
 import "./globals.css";
 // Componentes
@@ -11,23 +10,14 @@ import QuienesSomos from "./components/QuienesSomos/quienesSomos";
 import ComentariosIndex from "./components/Comment/ComentariosIndex";
 import ComentariosIndexMobile from "./components/Comment/ComentariosIndexMobile";
 // Hooks
-import { useState, useEffect } from "react";
 import Link from "next/link";
-// Backend
-import { getCommentsRequest } from "../api/comments";
-
-// interfaz del comentario
-type Comentario = {
-  id: number;
-  servicio: string;
-  comentario: string;
-};
 
 export default function Home() {
+
   return (
     <main className="overflow-x-hidden">
       <HeroImage
-        titulo="SPA - Sentirse bien"
+        titulo="SPA Sentirse bien"
         eslogan="Encuentra la paz en cada momento."
         textoBoton="Quiero mi sesión"
       />
