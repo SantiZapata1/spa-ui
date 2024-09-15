@@ -22,7 +22,7 @@ function NavBarOptions() {
         setUserDropdownOpen(false);
     };
 
-    const linkClass = 'text-pink-700 font-semibold px-4 py-2 transition text-md navbar-button rounded-3xl cursor-pointer';
+    const linkClass = 'text-pink-700 font-semibold px-4 py-2 my-1 transition text-md navbar-button rounded-3xl cursor-pointer';
 
     const { user, isAuthenticated } = useAuth();
 
