@@ -26,7 +26,6 @@ export default function Servicios() {
     const renderServiciosPorTipo = (tipo: string) => {
         const serviciosFiltrados = servicios.filter(service => {
             const tipoNormalizado = normalizeType(service.tipo);
-            console.log(`Servicio: ${service.nombre}, Tipo: ${tipoNormalizado}`); 
             return tipoNormalizado === normalizeType(tipo);
         });
 
@@ -35,11 +34,11 @@ export default function Servicios() {
         }
 
         return (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {serviciosFiltrados
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                     .map(service => (
-                        <div key={service._id} className="p-4 rounded-lg shadow-md">
+                        <div key={service._id} className="p-4">
                             <Service
                                 _id={service._id}
                                 nombreServicio={service.nombre}
@@ -83,3 +82,4 @@ export default function Servicios() {
         </div>
     );
 }
+

@@ -26,15 +26,11 @@ export default function Service({ nombreServicio, tipo, precio, detalles }: any)
     }
 
     return (
-
-
-        <div className="w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-8 dark:bg-sage dark:border-gray-700">
-            <h5 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{formatText(nombreServicio)}</h5>
+        <div className="w-full max-w-sm h-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm sm:p-8 dark:bg-sage dark:border-gray-700">
+            <h2 className="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">{formatText(nombreServicio)}</h2>
             
-            <div className="flex items-baseline text-gray-900 dark:text-white">
-                <span className="text-3xl font-semibold">$</span>
-                <span className="text-5xl font-extrabold tracking-tight">{precio}</span>
-                <span className="ms-1 text-xl font-normal text-gray-500 dark:text-gray-400"></span>
+            <div className="flex flex-col items-center text-gray-900 dark:text-white">
+                <span className="text-4xl font-extrabold tracking-tight">${precio}</span>
             </div>
 
             <ul role="list" className="space-y-5 my-7">
