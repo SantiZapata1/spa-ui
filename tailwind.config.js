@@ -67,6 +67,9 @@ module.exports = {
         'tablet': '640px',
         'desktop': '1024px',
       },
+      maxHeight:{
+        "30rem": "34rem",
+      }
     },
   },
   plugins: [],

@@ -6,14 +6,15 @@ import "./globals.css";
 import ContactoForm from "./contacto/page";
 import HeroImage from "./components/HeroImage/Heroimage";
 import Galeria from "./components/GaleriaFoto/Galeria";
-import { getCommentsRequest } from "../api/comments";
 import CardServi from "./components/Cards/CardServi";
 import QuienesSomos from "./components/QuienesSomos/quienesSomos";
+import ComentariosIndex from "./components/Comment/ComentariosIndex";
+import ComentariosIndexMobile from "./components/Comment/ComentariosIndexMobile";
 // Hooks
 import { useState, useEffect } from "react";
 import Link from "next/link";
 // Backend
-import ComentariosIndex from "./components/Comment/ComentariosIndex";
+import { getCommentsRequest } from "../api/comments";
 
 // interfaz del comentario
 type Comentario = {
@@ -57,10 +58,12 @@ export default function Home() {
         </section>
 
         {/* Comentarios */}
-        <section className="p-8">
+        <section className="p-8 hidden md:block">
           <ComentariosIndex />
         </section>
-
+        <section className="p-8 block md:hidden">
+          <ComentariosIndexMobile />
+        </section>
         {/* Contacto */}
         <section className="flex flex-col md:flex-row justify-evenly" id="contacto">
           <ContactoForm />
