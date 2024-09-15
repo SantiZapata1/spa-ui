@@ -34,7 +34,8 @@ export default function Servicios() {
         }
 
         return (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                
                 {serviciosFiltrados
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                     .map(service => (
@@ -53,32 +54,38 @@ export default function Servicios() {
     };
 
     return (
-        <div className="min-h-screen p-2">
-            <h2 className="text-3xl mb-4">Todos los servicios ({servicios.length})</h2>
+        <div className="p-2 flex justify-center bg-flores-beige">
 
-            {/* Masajes */}
-            <section className="" id="masajes">
-                <h2 className="text-2xl mb-4">Masajes</h2>
-                {renderServiciosPorTipo("Masajes")}
-            </section>
+            <div className="max-w-screen-xl bg-beige2 p-10 rounded-xl shadow-xl border ">
 
-            {/* Belleza */}
-            <section className="" id="belleza">
-                <h2 className="text-2xl mb-4">Belleza</h2>
-                {renderServiciosPorTipo("Belleza")}
-            </section>
+                <h2 className="text-3xl my-4">Nuestros servicios ({servicios.length})</h2>
 
-            {/* Tratamientos faciales */}
-            <section className="" id="tFacial">
-                <h2 className="text-2xl mb-4">Tratamientos faciales</h2>
-                {renderServiciosPorTipo("tratamientos-faciales")}
-            </section>
+                {/* Masajes */}
+                <section className="" id="masajes">
+                    <h2 className="ml-3 text-3xl text-left">Masajes</h2>
+                    {renderServiciosPorTipo("Masajes")}
+                </section>
 
-            {/* Tratamientos corporales */}
-            <section className="" id="tCorporales">
-                <h2 className="text-2xl mb-4">Tratamientos corporales</h2>
-                {renderServiciosPorTipo("tratamientos-corporales")}
-            </section>
+                {/* Belleza */}
+                <section className="" id="belleza">
+                    <h2 className="ml-3 mt-8 text-3xl text-left">Belleza</h2>
+                    {renderServiciosPorTipo("Belleza")}
+                </section>
+
+                {/* Tratamientos faciales */}
+                <section className="" id="tFacial">
+                    <h2 className="ml-3 mt-8 text-3xl text-left">Tratamientos faciales</h2>
+                    {renderServiciosPorTipo("tratamientos-faciales")}
+                </section>
+
+                {/* Tratamientos corporales */}
+                <section className="" id="tCorporales">
+                    <h2 className="ml-3 mt-8 text-3xl text-left">Tratamientos corporales</h2>
+                    {renderServiciosPorTipo("tratamientos-corporales")}
+                </section>
+
+            </div>
+            
         </div>
     );
 }

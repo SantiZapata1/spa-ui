@@ -62,7 +62,7 @@ export default function Galeria() {
               <path d="M5 3.5l15 9-15 9V3.5z" /> 
             )}
           </svg>
-          {showVideo ? 'Ocultar Video' : 'Mostrar Video'}
+          {showVideo ? 'Ocultar Video' : 'Ver Video'}
         </button>
       </div>
       {showVideo && (

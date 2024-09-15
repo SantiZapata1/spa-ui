@@ -45,6 +45,12 @@
     background-color: var(--color-secondary);
 }
 
+.bg-flores-beige{
+    background-image: url(../../public/Diseño\ sin\ título\ \(7\).png);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;}
+
 .header {
     position: sticky;
     top: 0;
@@ -88,7 +94,7 @@ h2{
 .tx-violet-logo{
     color: var(--violet-color);
 }
-.tx-sage{
+.tx-image{
     color: #333333;
 }
 
@@ -96,7 +102,9 @@ h2{
 .bg-beige{
     background-color: var(--color-background);
 }
-
+.bg-beige2{
+    background-color: var(--color-beige);
+}
 .navbar-button:hover{
     border: thin solid white;
     background-color: #f9deee;
