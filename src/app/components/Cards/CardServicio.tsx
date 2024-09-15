@@ -52,7 +52,7 @@ function CardServicio({data}: CardServicioProps) {
 
     return (
     // Haz un card con los datos del servicio que sea un cuadrado con bordes redondeados verde y la información por dentro
-    <div className='w-8/10 md:w-4/10 h-full bg-sage text-white rounded-lg p-4'>
+    <div className='w-full h-full  text-black rounded-lg p-4'>
 
         
         {showEdit ? <ServiceEdit id={data._id} setIsEditing={setShowEdit} service={data}/>
