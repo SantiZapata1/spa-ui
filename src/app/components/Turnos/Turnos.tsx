@@ -39,7 +39,6 @@ export default function Turnos() {
     return (
         <div className="w-full p-5">
               <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
-
             <DataTable
                 columns={columnsTurnos}
                 data={listaTurnos}
@@ -54,7 +53,8 @@ export default function Turnos() {
                 defaultSortFieldId={"Fecha"}
                 expandableIcon={expandableIcon}
                 progressPending={isLoading} // Mostrar un indicador de carga si está cargando
-            />
+                />
+       
 
         </div>
     );

@@ -1,16 +1,11 @@
 type mensaje = {
     _id: string;
     nombre: string;
-    email: string;
+    correo_electronico: string;
     mensaje: string;
 }
 
 const contactoRows = [
-    // {
-    //     name: 'ID',
-    //     selector: (row: mensaje) => `${row._id}`,
-    //     sortable: true,
-    // },
     {
         name: 'Nombre',
         selector: (row: mensaje) => row.nombre,
@@ -18,7 +13,7 @@ const contactoRows = [
     },
     {
         name: 'Correo electrónico',
-        selector: (row: mensaje) => row.email,
+        selector: (row: mensaje) => row.correo_electronico,
         sortable: true,
     },
     {

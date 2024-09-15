@@ -20,19 +20,12 @@ export default function Home() {
 
   return (
     <main className="overflow-x-hidden">
-      <HeroImage
-        titulo="SPA Sentirse bien"
-        eslogan="Encuentra la paz en cada momento."
-        textoBoton="Quiero mi sesión"
-      />
-
+      <HeroImage/>
       <div className="secciones">
-        
         {/* Quiénes somos */}
         <section className="flex flex-col items-center min-h-screen">
           <QuienesSomos />
         </section>
-
         {/* Servicios */}
         <section className="flex flex-col items-center py-8">
           <h2>Servicios</h2>
@@ -42,15 +35,12 @@ export default function Home() {
                 Ver todos los servicios
             </button>
           </Link>
-
         </section>
-
         {/* Galería */}
         <section className="p-8">
           <h2>Veni a conocernos</h2>
           <Galeria />
         </section>
-
         {/* Comentarios */}
         
         

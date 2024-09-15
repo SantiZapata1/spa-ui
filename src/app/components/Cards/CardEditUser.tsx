@@ -21,7 +21,7 @@ function CardDataUsuario({datosUsuario, setIsEditing}: CardDataUsuarioProps) {
     const { editProfile } = useAuth();
     
     return (
-    <div className="bg-white shadow-lg rounded-lg md:w-6/10 p-4">
+    <div className="bg-white shadow-lg rounded-lg md:w-6/10 w-9/10 p-4">
         <h2 className="text-3xl font-medium">Tus Datos</h2>
         <form
         className="space-y-3"
@@ -106,10 +106,10 @@ function CardDataUsuario({datosUsuario, setIsEditing}: CardDataUsuarioProps) {
         />  
         <div className="flex flex-col md:flex-row mt-2 justify-between">
 
-        <div className='mr-2 bg-spa-purple hover:bg-spa-light-purple text-white cursor-pointer font-bold py-2 px-4 rounded w-9/10 flex items-center justify-center mt-2 md:mt-0' onClick={() => setIsEditing(false)}>
+        <div className='mr-2 bg-spa-purple hover:bg-spa-light-purple text-white cursor-pointer font-bold py-2 px-4 rounded w-full md:w-9/10 flex items-center justify-center mt-2 md:mt-0' onClick={() => setIsEditing(false)}>
                 Cancelar
             </div>
-            <button className="bg-spa-purple hover:bg-spa-light-purple text-white cursor-pointer font-bold py-2 px-4 rounded w-9/10 flex items-center justify-center mt-2 md:mt-0">Guardar</button>
+            <button className="bg-spa-purple hover:bg-spa-light-purple text-white cursor-pointer font-bold py-2 px-4 rounded w-full md:w-9/10 flex items-center justify-center mt-2 md:mt-0">Guardar</button>
         </div>
             </form>
       </div>
