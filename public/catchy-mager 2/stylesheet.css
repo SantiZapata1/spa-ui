@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Catchy Mager';
+    src: url('CatchyMager-Normal.eot');
+    src: local('Catchy Mager'), local('CatchyMager-Normal'),
+        url('CatchyMager-Normal.eot?#iefix') format('embedded-opentype'),
+        url('CatchyMager-Normal.woff2') format('woff2'),
+        url('CatchyMager-Normal.woff') format('woff'),
+        url('CatchyMager-Normal.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+

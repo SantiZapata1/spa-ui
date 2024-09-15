@@ -20,13 +20,13 @@ export default function ContactoForm(){
 
   return (
     <div className="flex flex-col w-full md:w-4/10">
-      <main className="flex-grow bg-white p-8 rounded-lg shadow-lg">
+      <main className="flex-grow bg-beige p-8 rounded-lg shadow-lg">
 
-        <h2 className="text-4xl ">
+        <h2 className="text-3xl mt-10 mb-5 ">
           Contáctanos
         </h2>
 
-        <form className="space-y-6" onSubmit={handleSubmit(async (values) => {
+        <form className="space-y-4" onSubmit={handleSubmit(async (values) => {
           
           // Aquí pondriamos la conexión a la BD para enviar los datos del formulario usando React Hook Form
           Swal.fire({
@@ -101,9 +101,9 @@ export default function ContactoForm(){
           <div className="text-center">
             <button
               type="submit"
-              className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-sage transition duration-300"
+              className="w-full py-3  text-white text-md font-semibold rounded-lg shadow-lg bg-sage transition duration-300"
             >
-              Enviar mensaje
+              ENVIAR
             </button>
           </div>
         </form>

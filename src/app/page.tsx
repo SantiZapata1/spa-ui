@@ -9,10 +9,14 @@ import CardServi from "./components/Cards/CardServi";
 import QuienesSomos from "./components/QuienesSomos/quienesSomos";
 import ComentariosIndex from "./components/Comment/ComentariosIndex";
 import ComentariosIndexMobile from "./components/Comment/ComentariosIndexMobile";
+
+
 // Hooks
 import Link from "next/link";
+import { div } from "framer-motion/client";
 
 export default function Home() {
+
 
   return (
     <main className="overflow-x-hidden">
@@ -48,12 +52,21 @@ export default function Home() {
         </section>
 
         {/* Comentarios */}
-        <section className="p-8 hidden md:block">
+        
+        
+          <section className="p-8 block md:hidden">
+            <ComentariosIndexMobile />
+
+          </section>
+        
+
+          <section className="p-8 hidden md:block">
           <ComentariosIndex />
-        </section>
-        <section className="p-8 block md:hidden">
-          <ComentariosIndexMobile />
-        </section>
+          </section>
+
+        
+        
+
         {/* Contacto */}
         <section className="flex flex-col md:flex-row justify-evenly" id="contacto">
           <ContactoForm />

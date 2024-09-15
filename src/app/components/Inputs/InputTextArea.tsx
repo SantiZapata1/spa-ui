@@ -29,7 +29,7 @@ function InputTextArea({customSize, require, errors, campo, nombre, register, ty
     return (
         <>
                {errors && <span className="mt-2 text-red-600">{placeholder} es requerido</span>} 
-            <textarea className={`border open-sans p-2 my-2 resize-none text-lg border-gray-300 rounded-md w-full ${customSize ? customSize : "h-40"}`} type={type}
+            <textarea className={`border open-sans p-2 my-2 resize-none text-sm border-gray-300 rounded-md w-full ${customSize ? customSize : "h-40"}`} type={type}
                 {...register(nombre, { required: require === true ? true : false })} placeholder={placeholder}
                  />
                 </>

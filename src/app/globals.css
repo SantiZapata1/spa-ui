@@ -29,7 +29,7 @@
     --yellow-color: #FFDE95;
 
     --color-primary: #C8E4B2; /* Verde suave */
-    --color-secondary: #FFC7EA; /* Rosado suave */
+    --color-secondary: #fbe7f3; /* Rosado suave */
     --color-background: #fdfbf4; /* Beige */
     --color-text: #333333; /* Gris oscuro */
     --color-accent: #FFFFFF; /* Blanco */
@@ -37,6 +37,12 @@
     --color-beige:#F7EFE5;
     --color-purple:#8C3061;
 
+}
+.h-60vh{
+    height: 70vh;
+}
+.bg-rose{
+    background-color: var(--color-secondary);
 }
 
 .header {
@@ -181,6 +187,10 @@ h2{
 }
 
 .gradient-background {
+    background: linear-gradient(150deg, #fdfbf4 60%, #FFC7EA 140%);
+  }
+  
+.gradient-background3 {
     background: linear-gradient(150deg, #fdfbf4 60%, #FFC7EA 140%);
   }
   

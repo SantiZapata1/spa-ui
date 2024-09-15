@@ -8,6 +8,7 @@ import { createCommentRequest, getCommentsRequest } from '../../../api/comments'
 import SelectOptions from '../Select/SelectOptions';
 import InputTextArea from '../Inputs/InputTextArea';
 import CommentList from './CommentList';
+import { button, h2 } from 'framer-motion/client';
 
 type Comentario = {
     id: number;
@@ -18,6 +19,7 @@ type Comentario = {
 export default function ComentariosIndex() {
     const [filtro, setFiltro] = useState<string>('ningun');
     const [comentarios, setComentarios] = useState<Comentario[]>([]);
+    const [estaComentando, setEstaComentando]=useState(false)
 
     // Función para obtener los comentarios de la base de datos
     const listaComentarios = async () => {
@@ -71,6 +73,8 @@ export default function ComentariosIndex() {
                     ]);
 
                     setValue('comentario', ''); // Limpiar el campo de comentario después de enviar
+                    setEstaComentando(false)
+
 
                     Swal.fire({
                         title: '¡Listo!',
@@ -113,8 +117,8 @@ export default function ComentariosIndex() {
                     </div>
                 </div>
 
-
-                {/* Formulario de comentarios */}
+                {estaComentando ?
+                
                 <div className="w-full md:w-1/2 mt-6 md:mt-0">
                     <form
                         className="flex flex-col p-2 rounded-md h-full justify-evenly w-full"
@@ -147,6 +151,17 @@ export default function ComentariosIndex() {
                         </button>
                     </form>
                 </div>
+                :
+                <button 
+                className="p-3 mt-10 w-full bg-sage text-white font-bold rounded-lg shadow-lg"
+
+                onClick={()=>{
+                    setEstaComentando(true)
+                }}>Comentar</button>
+                }
+
+
+                
             </div>
         </section>
     );

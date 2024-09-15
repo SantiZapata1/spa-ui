@@ -16,7 +16,7 @@ export default function Comment({servicio, comentario, date}:CommentProps){
     }
 
     return(
-        <div className="p-3 border-b m-1 rounded-xl gradient-background">
+        <div className="p-3 border-b m-1 rounded-xl bg-beige shadow-md">
             <h3 className="mb-4"> <b>Servicio: </b>{formatServicio(servicio)}</h3>
             <p className="mb-4"><b></b>{comentario}</p>
             <p className="text-right"><b></b>{formattedDate}</p>
