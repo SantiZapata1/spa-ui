@@ -42,21 +42,12 @@ export default function Home() {
           <Galeria />
         </section>
         {/* Comentarios */}
-        
-        
-          <section className="p-8 block md:hidden">
+          <section className="p-2 block md:hidden">
             <ComentariosIndexMobile />
-
           </section>
-        
-
           <section className="p-8 hidden md:block">
           <ComentariosIndex />
           </section>
-
-        
-        
-
         {/* Contacto */}
         <section className="flex flex-col md:flex-row justify-evenly" id="contacto">
           <ContactoForm />
