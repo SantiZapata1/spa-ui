@@ -28,7 +28,8 @@ export default function Home() {
         </section>
         {/* Servicios */}
         <section className="flex flex-col items-center py-8">
-          <h2>Servicios</h2>
+          <img src="nuestrosservicios.png" alt="" className='xl:max-w-screen-sm md:max-w-xl sm:max-w-sm max-w-xs' />
+
           <CardServi />
           <Link href="/servicios" >
             <button className="bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105">
