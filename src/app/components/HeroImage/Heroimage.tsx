@@ -13,15 +13,15 @@ export default function HeroImage() {
             SPA <span className='hidden md:block'> - </span> Sentirse bien
         </h1> */}
 
-        <img src="titulo.png" alt="" className='xl:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm  mb-20' />
+        <img src="nuevoTitulo.png" alt="" className='md:max-w-screen-md sm:max-w-screen-sm  mb-20' />
 
         {/* <p className="eslogan text-xl mb-6 md:text-xl lg:text-xl">
           Estas a un masaje de estar de buen humor
         </p> */}
 
         <Link href="/servicios">
-          <button className="text-white py-2 px-6 rounded-3xl text-2xl bg-dark-purple transform transition-transform duration-300 ease-in-out hover:scale-105">
-            Quiero mi sesión
+          <button className="text-white py-3 px-7 font-semibold rounded-3xl text-lg bg-dark-purple transform transition-transform duration-300 ease-in-out hover:scale-105">
+            QUIERO MI SESION
           </button>
         </Link>
       </div>
