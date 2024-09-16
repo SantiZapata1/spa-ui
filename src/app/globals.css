@@ -84,6 +84,10 @@ h2{
     margin: auto;
 }
 
+.tx-beige{
+    color: var(--color-background);
+}
+
 /* background y color text del logo */
 .bg-violet-logo{
     background-color: var(--violet-color);
@@ -129,6 +133,12 @@ h2{
    background-size: cover;
    background-repeat: no-repeat;
 }
+.bg-flores-verdes{
+    background-image: url(../../public/Diseño\ sin\ título\ \(5\).png);
+   /* background-attachment: fixed; */
+   background-size: cover;
+   background-repeat: no-repeat;
+}
 
 .filtro{
     background-color: rgba(0, 13, 2, 0.8);
@@ -164,6 +174,7 @@ h2{
 
 .secciones{
     background-color: var(--color-background);
+    
 }
 .secciones > :nth-child(odd){
     background-color: var(--color-beige);
@@ -171,7 +182,7 @@ h2{
 
 /* otras secciones del inicio*/
 .secciones > section{
-    border-bottom: thin solid rgb(212, 212, 212);
+    /* border-bottom: thin solid rgb(81, 91, 83); */
 }
 
 .quienes-somos, .servicios, .testimonios, .galeria, .contacto{

@@ -14,26 +14,26 @@ const QuienesSomos = () => {
   });
 
   return (
-    <section className="flex flex-col md:flex-row min-h-screen">
+    <section className="flex flex-col md:flex-row w-full">
       {/* Columna Izquierda - Texto */}
       <motion.div
         ref={textRef}
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: textInView ? 1 : 0, x: textInView ? 0 : -100 }}
         transition={{ duration: 1 }}
-        className="md:w-1/2 flex flex-col justify-center p-10 bg-white"
+        className="md:w-1/2 flex flex-col justify-center p-10 bg-flores-verdes pl-32"
       >
-        <h2 className="text-4xl font-bold mb-6">Quiénes Somos</h2>
-        <p className="text-lg text-gray-700 leading-relaxed mb-6 text-center w-full">
-          Buscamos atraer la atención de nuestros clientes a través de experiencias inspiradas en la seducción de los sentidos. Adaptamos las propuestas con el objetivo de que logre desconectarse completamente de la rutina y disfrute de un momento de bienestar, en total armonía con la naturaleza.
-        </p>
-        <div className="flex justify-center mt-5">
+        <h2 className="text-5xl font-semibold mb-6 text-left tx-beige">Sobre nosotros...</h2>
+        <p className="text-xl text-left text-gray-700 leading-relaxed mb-6 tx-beige">
+        Ofrecemos experiencias sensoriales <br /> diseñadas para desconectar de la rutina <br /> y disfrutar de bienestar, <br /> en plena armonía con la naturaleza.        </p>
+        <div className=" mt-5">
           <Link href="/about">
-            <button className="bg-sage text-white font-bold px-6 py-4 rounded-3xl transform transition-transform duration-300 ease-in-out hover:scale-105">
-              VER MAS
+            <button className="bg-sage text-white font-semibold px-6 py-4 rounded-xl transform transition-transform duration-300 ease-in-out hover:scale-105 border">
+              CONOCENOS
             </button>
           </Link>
         </div>
+
       </motion.div>
 
       {/* Columna Derecha - Imagen */}

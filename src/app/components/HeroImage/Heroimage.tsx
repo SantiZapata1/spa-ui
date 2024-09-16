@@ -15,7 +15,7 @@ export default function HeroImage() {
         </h1>
 
         <p className="eslogan text-xl mb-6 md:text-xl lg:text-xl">
-          Encuentra la paz en cada momento.
+          Estas a un masaje de estar de buen humor
         </p>
 
         <Link href="/servicios">

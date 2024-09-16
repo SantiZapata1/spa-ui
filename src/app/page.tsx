@@ -23,7 +23,7 @@ export default function Home() {
       <HeroImage/>
       <div className="secciones">
         {/* Quiénes somos */}
-        <section className="flex flex-col items-center min-h-screen">
+        <section className="flex flex-col items-center">
           <QuienesSomos />
         </section>
         {/* Servicios */}
@@ -41,6 +41,7 @@ export default function Home() {
           <h2>Veni a conocernos</h2>
           <Galeria />
         </section>
+
         {/* Comentarios */}
           <section className="p-2 block md:hidden">
             <ComentariosIndexMobile />

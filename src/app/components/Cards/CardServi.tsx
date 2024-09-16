@@ -31,7 +31,7 @@ export default function CardServi(){
   ];
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-7 pt-7">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full px-7 pt-7 max-w-7xl">
       {cards.map((card, index) => (
         <div key={index} className=" border border-gray-200 rounded-lg shadow flex flex-col h-full transform transition-transform duration-300 ease-in-out hover:scale-105">
           <a href={card.link}>
