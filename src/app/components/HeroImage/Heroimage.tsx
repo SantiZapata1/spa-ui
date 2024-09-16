@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import icono from "../../../../public/Ttitulo1.svg"
 
 export default function HeroImage() {
   return (
@@ -15,11 +14,6 @@ export default function HeroImage() {
         </h1> */}
 
         <img src="titulo.png" alt="" className='xl:max-w-screen-lg md:max-w-screen-md sm:max-w-screen-sm  mb-20' />
-
-        
-
-
-        
 
         {/* <p className="eslogan text-xl mb-6 md:text-xl lg:text-xl">
           Estas a un masaje de estar de buen humor
