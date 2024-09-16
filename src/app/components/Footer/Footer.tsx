@@ -10,9 +10,9 @@ function Footer() {
         
         {/* Logo y nombre */}
         <div className="w-full md:w-1/5 mb-6 md:mb-0">
-          <a className="flex items-center justify-start text-white">
+          <a className="flex items-center justify-center text-white">
 
-            <img src="/loguitodef.png" alt="Logo" className="" /> 
+            <img src="/loguitodef.png" alt="Logo" className="max-w-80 xl:max-w-72" /> 
           </a>
         </div>
 
