@@ -84,7 +84,7 @@ export default function Servicios() {
                 {/* Tratamientos faciales */}
                 <section className="" id="tFacial">
                     {/* <h2 className="ml-3 mt-8 text-3xl text-left">Tratamientos faciales</h2> */}
-                    <img src="tratamientosfaciales.png" alt="" className='max-w-lg mt-10' />
+                    <img src="tratamientosfaciales.png" alt="" className='max-w-92 md:max-w-lg mt-10' />
 
                     {renderServiciosPorTipo("tratamientos-faciales")}
                 </section>
@@ -92,7 +92,7 @@ export default function Servicios() {
                 {/* Tratamientos corporales */}
                 <section className="" id="tCorporales">
                     {/* <h2 className="ml-3 mt-8 text-3xl text-left">Tratamientos corporales</h2> */}
-                    <img src="tratamientoscorporales.png" alt="" className='max-w-lg mt-10' />
+                    <img src="tratamientoscorporales.png" alt="" className='max-w-92 md:max-w-lg  mt-10' />
 
                     {renderServiciosPorTipo("tratamientos-corporales")}
                 </section>
