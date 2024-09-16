@@ -101,8 +101,8 @@ export default function ComentariosIndex() {
         <section className="h-60vh flex flex-col items-center">
             <h2>Comentarios  <span className='text-rose-700'>{'('+comentariosFiltrados.length+')'}</span> </h2>
 
-            <div className="flex flex-col mt-14 md:flex-row justify-center h-9/10 md:max-w-screen-2xl">  
-                <div className="overflow-scroll overflow-x-hidden h-8/10">
+            <div className="flex flex-col mt-5  md:flex-row justify-center h-9/10 md:max-w-screen-2xl">  
+                <div className="overflow-scroll overflow-x-hidden h-9/10">
                     <div className='flex flex-col'>
                         <label htmlFor="opciones" className="">Filtrar:</label>
                         <select className="border  px-5 open-sans border-gray-200 rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 xl:m-2 m-4" id="opciones" name="opciones" value={filtro} onChange={handleFiltroChange}>
@@ -120,7 +120,7 @@ export default function ComentariosIndex() {
                 
                 <div>
                     <form
-                        className="flex flex-col xl:ml-24 md:ml-10 p-10 h-8/10 rounded-md shadow-xl justify-evenly bg-beige"
+                        className="flex flex-col xl:ml-24 md:ml-10 p-10 h-9/10 rounded-md shadow-xl justify-evenly bg-beige"
                         onSubmit={handleSubmit(onSubmit)}
                     >
                         <h3 className='text-2xl text-center'>¡Dejanos un comentario!</h3>
