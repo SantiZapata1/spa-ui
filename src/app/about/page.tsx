@@ -35,35 +35,39 @@ export default function QuienesSomos() {
       nombre: 'Ana',
       apellido: 'Felicidad',
       foto: '/Personas/Ana Felicidad.png',
-      perfil: 'Apasionada especialista en bienestar con más de 10 años de experiencia en la industria del spa y la salud holística. Su enfoque integral y su habilidad para conectar con las personas la convierten en una profesional excepcional en el arte del masaje terapéutico y los tratamientos relajantes.',
+      perfil: 'Apasionada especialista en bienestar con más de 10 años de experiencia en la industria del spa y la salud holística. .',
     },
     {
       nombre: 'Dra. Romina',
       apellido: 'Felicidad',
       foto: '/Personas/Dra Romina.png',
-      perfil: 'Experta en medicina estética y bienestar, con una sólida formación académica y más de 15 años de experiencia en el campo de la salud y el rejuvenecimiento. Su enfoque médico se basa en la combinación de ciencia y arte para proporcionar tratamientos seguros, efectivos y personalizados que mejoren la calidad de vida de sus pacientes.',
+      perfil: 'Experta en medicina estética y bienestar, con una sólida formación académica y más de 15 años de experiencia en el campo de la salud y el rejuvenecimiento. .',
     },
     {
       nombre: 'Dr. Lionel Messi',
       apellido: 'Rique',
       foto: '/Personas/DrMessi.png',
-      perfil: 'Experto en medicina deportiva y rehabilitación con más de 12 años de experiencia en el tratamiento y la prevención de lesiones deportivas. Su enfoque se centra en combinar la ciencia médica con técnicas de rehabilitación avanzadas para ayudar a los clientes a recuperar su máximo rendimiento físico y mejorar su calidad de vida.',
+      perfil: 'Experto en medicina deportiva y rehabilitación con más de 12 años de experiencia en el tratamiento y la prevención de lesiones deportiva.',
     },
   ];
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen imagenAbout ">
       {/* Imagen de fondo*/}
-      <div className="absolute inset-0">
+      <div className=" filtro2 absolute inset-0 flex flex-col items-center justify-center text-center text-white p-8">
+        {/* <div className="absolute inset-0">
 
-        <img
-          src="/About/SpaFondo.jpeg"
-          alt="Fondo difuminado"
-          className="w-full h-full object-cover filter blur-sm mt-2 absolute inset-0"
-        />
+          <img
+            src="/About/SpaFondo.jpeg"
+            alt="Fondo difuminado"
+            className="w-full h-full object-cover mt-2 absolute inset-0"
+          />
+        </div> */}
+        
       </div>
+      
 
-      <div className="flex flex-row relative min-h-screen ">
+      <div className="flex flex-row relative min-h-screen">
         {/* Menú lateral */}
         <div className="hidden md:block relative group">
           {/* Botón que despliega el menú al pasar el mouse */}
@@ -88,38 +92,41 @@ export default function QuienesSomos() {
           )}
         </div>
 
-        {/* Contenido principal */}
-        <main className="flex-grow relative z-10">
-          {sections.map((section) => (
-            <section
-              key={section.id}
-              id={section.id}
-              className="md:min-h-screen flex flex-col justify-center items-center py-0 px-4 relative"
-            >
-              <div className="m-10 md:m-1 max-w-4xl w-full p-6 bg-white bg-opacity-80 rounded-lg shadow-lg ">
-                <h2 className="text-3xl font-bold mb-4 text-center">{section.title}</h2>
-                {section.id === 'equipo' ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {profesionales.map((prof) => (
-                      <div key={prof.nombre} className="p-4 bg-white rounded-lg shadow-md flex flex-col items-center text-center">
-                        <img
-                          src={prof.foto}
-                          alt={`${prof.nombre} ${prof.apellido}`}
-                          className="w-24 h-24 rounded-full mb-4 object-cover"
-                        />
-                        <h3 className="text-xl font-semibold mb-2">{prof.nombre} {prof.apellido}</h3>
-                        <p>{prof.perfil}</p>
+              {/* Contenido principal */}
+            <main className="flex-grow relative z-10 mb-32">
+              {sections.map((section) => (
+                <section
+                  key={section.id}
+                  id={section.id}
+                  className="md:min-h-96 flex flex-col justify-center items-center py-0 px-4 relative"
+                >
+                  <div className="m-10 md:m-1 max-w-4xl w-full p-6 bg-white bg-opacity-80 rounded-lg shadow-lg ">
+                    <h2 className="text-3xl font-bold mb-4 text-center">{section.title}</h2>
+                    {section.id === 'equipo' ? (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                        {profesionales.map((prof) => (
+                          <div key={prof.nombre} className="p-4 bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+                            <img
+                              src={prof.foto}
+                              alt={`${prof.nombre} ${prof.apellido}`}
+                              className="w-24 h-24 rounded-full mb-4 object-cover"
+                            />
+                            <h3 className="text-xl font-semibold mb-2">{prof.nombre} {prof.apellido}</h3>
+                            <p>{prof.perfil}</p>
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                    ) : (
+                      <p className="text-xl text-center">{section.content}</p>
+                    )}
                   </div>
-                ) : (
-                  <p className="text-xl text-center">{section.content}</p>
-                )}
-              </div>
-            </section>
-          ))}
-        </main>
-      </div>
-    </div>
+                </section>
+              ))}
+            </main>
+          </div>
+
+        </div>
+
+        
   );
 }
