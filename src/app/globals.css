@@ -46,13 +46,13 @@
 }
 
 .bg-flores-beige{
-    background-image: url(../../public/Diseño\ sin\ título\ \(7\).png);
+    background-image: url(/Diseño\ sin\ título\ \(7\).png);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
 }
 .imagenAbout{
-    background-image: url(../../public/About/SpaFondo.jpeg);
+    background-image: url(/About/SpaFondo.jpeg);
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -134,13 +134,13 @@ h2{
    height: 100%;
 }
 .bg-image-spa{
-    background-image: url(../../public/imagen\ spa.jpg);
+    background-image: url(/imagen\ spa.jpg);
    background-attachment: fixed;
    background-size: cover;
    background-repeat: no-repeat;
 }
 .bg-flores-verdes{
-    background-image: url(../../public/Diseño\ sin\ título\ \(5\).png);
+    background-image: url(/Diseño\ sin\ título\ \(5\).png);
    /* background-attachment: fixed; */
    background-size: cover;
    background-repeat: no-repeat;
