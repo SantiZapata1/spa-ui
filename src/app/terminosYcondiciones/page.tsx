@@ -11,7 +11,7 @@ const TerminosYCondiciones = () => {
       <section>
         <h3 className="text-xl font-bold mb-4">SENTIRSE BIEN</h3>
         <p className="mb-6">
-          "Sentirse Bien" es una marca registrada que ofrece una variedad de servicios para mejorar la experiencia de bienestar de nuestros usuarios. Cada paquete de "Sentirse Bien" incluye tres elementos principales: un catálogo con detalles de los distintos servicios disponibles; una tarjeta/voucher o código que actúa como comprobante para canjear el servicio seleccionado, con validez única; y la caja que contiene tanto el catálogo como la tarjeta especificada.
+          &quot;Sentirse Bien&quot; es una marca registrada que ofrece una variedad de servicios para mejorar la experiencia de bienestar de nuestros usuarios. Cada paquete de &quot;Sentirse Bien&quot; incluye tres elementos principales: un catálogo con detalles de los distintos servicios disponibles; una tarjeta/voucher o código que actúa como comprobante para canjear el servicio seleccionado, con validez única; y la caja que contiene tanto el catálogo como la tarjeta especificada.
         </p>
       </section>
 
@@ -19,7 +19,7 @@ const TerminosYCondiciones = () => {
       <section>
         <h3 className="text-xl font-bold mb-4">CONDICIONES GENERALES</h3>
         <p className="mb-6">
-          Toda contratación con "Sentirse Bien" está sujeta a los presentes términos y condiciones. Recomendamos al usuario leerlos detenidamente. Si la persona que adquiere el servicio no es el usuario final, es su responsabilidad compartir estos términos con el beneficiario. "Sentirse Bien" se reserva el derecho de modificar estos términos en cualquier momento sin previo aviso. Al contratar nuestros servicios, el cliente acepta los términos vigentes al momento de la solicitud. Si el cliente no está de acuerdo con los términos, deberá abstenerse de adquirir el servicio.
+          Toda contratación con &quot;Sentirse Bien&quot; está sujeta a los presentes términos y condiciones. Recomendamos al usuario leerlos detenidamente. Si la persona que adquiere el servicio no es el usuario final, es su responsabilidad compartir estos términos con el beneficiario. &quot;Sentirse Bien&quot; se reserva el derecho de modificar estos términos en cualquier momento sin previo aviso. Al contratar nuestros servicios, el cliente acepta los términos vigentes al momento de la solicitud. Si el cliente no está de acuerdo con los términos, deberá abstenerse de adquirir el servicio.
         </p>
       </section>
 
@@ -27,7 +27,7 @@ const TerminosYCondiciones = () => {
       <section>
         <h3 className="text-xl font-bold mb-4">DERECHOS DEL USUARIO</h3>
         <p className="mb-6">
-          El usuario tiene el derecho de seleccionar uno de los servicios ofrecidos en el catálogo recibido dentro de su paquete, canjeándolo mediante la tarjeta/voucher con el prestador seleccionado. En caso de que algún prestador haya cerrado su negocio o ya no esté disponible, el usuario deberá elegir entre los prestadores actualizados que figuran en el sitio web de "Sentirse Bien".
+          El usuario tiene el derecho de seleccionar uno de los servicios ofrecidos en el catálogo recibido dentro de su paquete, canjeándolo mediante la tarjeta/voucher con el prestador seleccionado. En caso de que algún prestador haya cerrado su negocio o ya no esté disponible, el usuario deberá elegir entre los prestadores actualizados que figuran en el sitio web de &quot;Sentirse Bien&quot;.
         </p>
       </section>
 
@@ -43,7 +43,7 @@ const TerminosYCondiciones = () => {
       <section>
         <h3 className="text-xl font-bold mb-4">MODALIDAD DE ENTREGA</h3>
         <p className="mb-6">
-          Los paquetes de "Sentirse Bien" serán entregados por correo privado al domicilio indicado por el cliente. "Sentirse Bien" no se responsabiliza por retrasos en la entrega debidos a errores en la información proporcionada por el cliente, ni por ausencias en el domicilio al momento de la entrega.
+          Los paquetes de &quot;Sentirse Bien&quot; serán entregados por correo privado al domicilio indicado por el cliente. &quot;Sentirse Bien&quot; no se responsabiliza por retrasos en la entrega debidos a errores en la información proporcionada por el cliente, ni por ausencias en el domicilio al momento de la entrega.
         </p>
       </section>
 
@@ -62,7 +62,7 @@ const TerminosYCondiciones = () => {
       <section>
         <h3 className="text-xl font-bold mb-4">DESLINDE DE RESPONSABILIDAD</h3>
         <p className="mb-6">
-          "Sentirse Bien" no se hace responsable por cualquier accidente que pueda ocurrir durante la utilización de los servicios contratados. El usuario es consciente de que algunas actividades pueden implicar riesgos, los cuales acepta al participar. "Sentirse Bien" no asume ninguna responsabilidad por daños o lesiones que puedan surgir durante el uso de los servicios.
+          &quot;Sentirse Bien&quot; no se hace responsable por cualquier accidente que pueda ocurrir durante la utilización de los servicios contratados. El usuario es consciente de que algunas actividades pueden implicar riesgos, los cuales acepta al participar. &quot;Sentirse Bien&quot; no asume ninguna responsabilidad por daños o lesiones que puedan surgir durante el uso de los servicios.
         </p>
       </section>
     </div>
