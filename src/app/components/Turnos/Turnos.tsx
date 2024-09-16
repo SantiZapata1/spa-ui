@@ -20,12 +20,7 @@ export default function Turnos() {
             try {
                 const turnos = await getTurnos();
                 // Ordenar los turnos por fecha
-                const turnosOrdenados = turnos.sort((a: any, b: any) => {
-                    const fechaA = new Date(a.fecha);
-                    const fechaB = new Date(b.fecha);
-                    return fechaA.getTime() - fechaB.getTime();
-                });
-                setListaTurnos(turnosOrdenados);
+                setListaTurnos(turnos);
             } catch (error) {
                 console.error("Error al obtener los turnos:", error);
             } finally {
