@@ -7,11 +7,12 @@ export default function Galeria() {
   const [showVideo, setShowVideo] = useState(false);
 
   const images = [
-    '/Belleza/belleza1.jpg',
+    // '/Belleza/belleza1.jpg',
     '/Belleza/belleza3.jpg',
     '/Belleza/belleza4.jpg',
     '/Masajes/masaje3.jpg',
-    '/Masajes/masaje4.jpg'
+    '/Masajes/masaje4.jpg',
+    'spa1.jpg'
   ];
 
   const settings = {
@@ -39,7 +40,7 @@ export default function Galeria() {
       <Slider {...settings}>
         {images.map((src, index) => (
           <div key={index} className="px-4">
-            <div className="relative w-full h-80 overflow-hidden rounded-lg shadow-md cursor-pointer">
+            <div className="relative w-full h-72 overflow-hidden rounded-lg shadow-md cursor-pointer">
               <img
                 src={src}
                 alt={`Imagen ${index + 1}`}
