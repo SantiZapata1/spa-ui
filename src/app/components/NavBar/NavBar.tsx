@@ -42,11 +42,11 @@ export default function NavBar() {
             />
           </div>
         </Link>
-        <div className='hidden md:flex'>
+        <div className='hidden lg:flex'>
           <NavBarOptions />
         </div>
         {/* Redes Sociales */}
-        <div className='hidden md:flex space-x-4'>
+        <div className='hidden xl:flex space-x-4'>
           <a href="https://facebook.com" className="text-pink-700 hover:text-gray-800">
             <FaFacebookF className="w-5 h-5" />
           </a>
@@ -60,10 +60,10 @@ export default function NavBar() {
             <FaWhatsapp className="w-5 h-5" />
           </a>
         </div>
-        <Bars3Icon className="block md:hidden size-6 cursor-pointer" onClick={() => setDropOptionsOnMobile(!dropOptionsOnMobile)} /> 
+        <Bars3Icon className="block lg:hidden size-6 cursor-pointer" onClick={() => setDropOptionsOnMobile(!dropOptionsOnMobile)} /> 
       </div>
       {dropOptionsOnMobile && (
-        <div className='flex flex-col md:hidden'>
+        <div className='flex flex-col lg:hidden'>
           <NavBarMobileUpdated setDropOptionsOnMobile={setDropOptionsOnMobile} />
         </div>
       )}

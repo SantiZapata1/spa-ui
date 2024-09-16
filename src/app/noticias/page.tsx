@@ -49,7 +49,11 @@ export default function NoticiasPage() {
   return (
     <div className="min-h-screen flex flex-col items-center">
 
-      <h2>Nuestras noticias</h2>
+      {/* <h2>Nuestras noticias</h2>
+       */}
+
+      <img src="noticias.png" alt="" className='max-w-xs xs:max-w-96 mt-10' />
+
 
       <div className="flex-grow p-8 lg:p-10">
         {(user?.admin) && (

@@ -23,7 +23,10 @@ const QuienesSomos = () => {
         transition={{ duration: 1 }}
         className="md:w-1/2 flex flex-col justify-center p-10 bg-flores-verdes xl:pl-32 md:pl-10 sm:pl-10"
       >
-        <h2 className="text-5xl font-semibold mb-6 text-left tx-beige">Sobre nosotros...</h2>
+        {/* <h2 className="text-5xl font-semibold mb-6 text-left tx-beige">Sobre nosotros...</h2> */}
+
+        <img src="sobrenos-titulo.png" alt="" className=' sm:max-w-md max-w-xs' />
+
         <p className="text-xl text-left text-gray-700 leading-relaxed mb-6 tx-beige">
         Ofrecemos experiencias sensoriales <br /> diseñadas para desconectar de la rutina <br /> y disfrutar de bienestar, <br /> en plena armonía con la naturaleza.        </p>
         <div className=" mt-5">

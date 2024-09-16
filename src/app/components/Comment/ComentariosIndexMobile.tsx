@@ -97,7 +97,10 @@ export default function ComentariosIndex() {
 
     return (
         <section className="min-h-screen flex flex-col items-center">
-            <h2>Comentarios <span className="text-rose-700">{'(' + comentariosFiltrados.length + ')'}</span></h2>
+
+            <img src="comentarios.png" alt="" className=' md:max-w-sm sm:max-w-xs max-w-xs ' />
+
+            {/* <h2>Comentarios <span className="text-rose-700">{'(' + comentariosFiltrados.length + ')'}</span></h2> */}
 
             <div className="flex flex-col md:flex-row justify-center h-auto md:max-w-screen-2xl w-full px-4">
                 {/* Lista de comentarios */}
