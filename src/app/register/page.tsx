@@ -30,14 +30,12 @@ export default function Page() {
   }, [registrationSuccess]);
 
   return (
-    <main className="my-6 bg-white p-8 rounded-lg shadow-lg max-w-md w-full mx-auto mt-8">
 
-      <h1 className="text-3xl font-bold text-center tx-sage mb-8">Registrate!</h1>
+    <div className=" bg-flores-beige flex flex-col justify-center items-center overflow-scroll">
 
-      {mensajeError && <p className="text-red-500 text-center">{mensajeError}</p>}
 
       <form
-        className="space-y-3"
+        className="space-y-2 my-6 bg-white p-8 rounded-lg shadow-lg min-w-500 max-w-md mt-8 "
         method="post"
         onSubmit={handleSubmit(async (values) => {
           // Validación de contraseñas iguales
@@ -58,6 +56,9 @@ export default function Page() {
           }
         })}
       >
+        <h1 className="text-3xl font-bold text-center tx-sage mb-8">Registrate!</h1>
+        {mensajeError && <p className="text-red-500 text-center">{mensajeError}</p>}
+
         <InputText
           campo="Nombre"
           nombre="nombre"
@@ -126,6 +127,7 @@ export default function Page() {
           Registrarse
         </button>
       </form>
-    </main>
+    </div>
+    
   );
 }

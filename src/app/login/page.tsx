@@ -37,7 +37,7 @@ export default function Login() {
 
   return (
 
-    <div className="flex flex-col height-full">
+    <div className="flex flex-col height-full bg-flores-beige">
 
       <main className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full mt-16 mx-auto">
 
