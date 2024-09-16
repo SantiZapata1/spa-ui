@@ -99,7 +99,10 @@ export default function ComentariosIndex() {
 
     return (
         <section className="h-60vh flex flex-col items-center">
-            <h2>Comentarios  <span className='text-rose-700'>{'('+comentariosFiltrados.length+')'}</span> </h2>
+
+            <img src="comentarios.png" alt="" className=' md:max-w-sm sm:max-w-md ' />
+
+            {/* <h2> <span className='text-rose-700'>{'('+comentariosFiltrados.length+')'}</span> </h2> */}
 
             <div className="flex flex-col mt-5  md:flex-row justify-center h-9/10 md:max-w-screen-2xl">  
                 <div className="overflow-scroll overflow-x-hidden h-9/10">

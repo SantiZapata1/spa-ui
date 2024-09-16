@@ -37,8 +37,10 @@ export default function Home() {
           </Link>
         </section>
         {/* Galería */}
-        <section className="p-8">
-          <h2>Veni a conocernos</h2>
+        <section className="p-8 flex flex-col justify-center items-center">
+          {/* <h2>Veni a conocernos</h2> */}
+          <img src="veniaconocernos.png" alt="" className='xl:max-w-screen-sm md:max-w-xl sm:max-w-md ' />
+
           <Galeria />
         </section>
 
@@ -46,7 +48,7 @@ export default function Home() {
           <section className="p-2 block md:hidden">
             <ComentariosIndexMobile />
           </section>
-          <section className="p-8 hidden md:block">
+          <section className="p-8 hidden md:block pb-20">
           <ComentariosIndex />
           </section>
         {/* Contacto */}
