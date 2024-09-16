@@ -47,7 +47,9 @@ export default function NoticiasPage() {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col items-center">
+
+      <h2>Nuestras noticias</h2>
 
       <div className="flex-grow p-8 lg:p-10">
         {(user?.admin) && (
@@ -99,12 +101,12 @@ export default function NoticiasPage() {
                 <InputText campo="Título" nombre="titulo" type="text" register={register} require={true} errors={errors.titulo} />
                 <InputTextArea type="text" placeholder='Contenido de la noticia' campo="Texto" nombre="contenido" register={register} require={true} errors={errors.texto} />
                 <input ref={fileInputRef} type="file" accept="image/*" className='mb-2' />
-                <button className="w-full py-3  text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300">
+                <button className="w-full py-3 text-white text-xl rounded-lg shadow-lg bg-sage hover:bg-green-800 transition duration-300">
                   Subir noticia
                 </button>
               </form>
               :
-              <button className="w-full md:w-2/10 py-3 flex flex-row justify-center items-center text-white text-xl rounded-lg shadow-lg bg-green-700 hover:bg-green-800 transition duration-300" onClick={() => setShowAgregarNoticia(true)} >
+              <button className="w-full md:w-2/10 py-3 flex flex-row justify-center items-center text-white text-xl rounded-lg shadow-lg bg-sage hover:bg-green-800 transition duration-300" onClick={() => setShowAgregarNoticia(true)} >
                <span className=''>Agregar</span> 
                 <PlusCircleIcon className='md:ml-2 h-8 w-8 md:h-6 md:w-6' />
               </button>
@@ -112,7 +114,7 @@ export default function NoticiasPage() {
           </div>
         )}
         {/* Grid layout para hasta 4 tarjetas en fila */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 h-4/10">
+        <div className=" max-w-screen-xl grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 h-4/10">
           {noticias.map((noticia: any) => (
             <Card
               key={noticia?._id}

@@ -84,59 +84,64 @@ const Card: React.FC<CardProps> = ({ id, title, text, imageUrl }) => {
   }
 
   return (
-    <div className="h-full border rounded-lg shadow bg-gray-800 border-gray-700 flex flex-col justify-between">
+    <div className="max-h-500 border rounded-lg shadow bg-sage-hover border-gray-700 flex flex-col justify-between">
       <img
-        className="rounded-t-lg h-6/10 w-full object-cover"
+        className="rounded-t-lg max-h-40 w-full object-cover top-0"
         src={imageUrl}
         alt="Imagen de la noticia"
 
       />
       <div className="p-5 flex-grow">
         <a href="#">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
+          <h5 className="mb-2 text-xl font-semibold tracking-tight text-white">
             {title}
           </h5>
         </a>
-        <p className="mb-3 font-normal text-gray-400">{text}</p>
+        <p className="mb-3 font-normal text-gray-300">{text}</p>
       </div>
-      <div className="flex flex-row justify-end p-5 ">
+
+      <div className="flex flex-row items-center justify-between">
+        <div className='m-5'>
         <TwitterShareButton
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           title={title}
           hashtags={['SPA', 'SentirseBien']}
         >
-          <XIcon className='rounded-2xl w-10 h-10 mr-1' /></TwitterShareButton>
+          <XIcon className='rounded-2xl w-8 h-8 mr-1' /></TwitterShareButton>
         <WhatsappShareButton
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           title={title}
         >
-          <WhatsappIcon className='rounded-2xl w-10 h-10 mr-1' ></WhatsappIcon>
+          <WhatsappIcon className='rounded-2xl w-8 h-8 mr-1' ></WhatsappIcon>
         </WhatsappShareButton>
         <FacebookShareButton
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           hashtag={`${title} #SPA #SentirseBien #Noticias`}
           >
-          <FacebookIcon className='rounded-2xl w-10 h-10 mr-1' />
+          <FacebookIcon className='rounded-2xl w-8 h-8 mr-1' />
         </FacebookShareButton>
         <EmailShareButton 
           url="https://spa.sentirse-bien.gonzaloebel.tech/"
           subject={title}
           body={text}
         >
-            <EmailIcon className='rounded-2xl w-10 h-10'/>
+            <EmailIcon className='rounded-2xl w-8 h-8'/>
         </EmailShareButton>
-      </div>
-
-      {user?.admin && (
-        <div className="flex flex-row justify-end p-5">
-          <button className="bg-green-700 text-white px-4 py-2 rounded-lg mr-2" onClick={() => handleEdit()}>
+        </div>
+        
+        {user?.admin && (
+        <div className="pr-2">
+          <button className="bg-green-700 text-white px-2 py-1 rounded-lg mr-2" onClick={() => handleEdit()}>
             <PencilSquareIcon className='w-6 h-6' />
           </button>
-          <button className="bg-orange-700 text-white px-4 py-2 rounded-lg" onClick={() => handleDelete()}>
+          <button className="bg-orange-700 text-white px-2 py-1 rounded-lg" onClick={() => handleDelete()}>
             <TrashIcon className='w-6 h-6' />
           </button>
         </div>
       )}
+      </div>
+
+      
     </div>
   );
 };

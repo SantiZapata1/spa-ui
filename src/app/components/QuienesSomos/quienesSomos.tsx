@@ -21,7 +21,7 @@ const QuienesSomos = () => {
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: textInView ? 1 : 0, x: textInView ? 0 : -100 }}
         transition={{ duration: 1 }}
-        className="md:w-1/2 flex flex-col justify-center p-10 bg-flores-verdes pl-32"
+        className="md:w-1/2 flex flex-col justify-center p-10 bg-flores-verdes xl:pl-32 md:pl-10 sm:pl-10"
       >
         <h2 className="text-5xl font-semibold mb-6 text-left tx-beige">Sobre nosotros...</h2>
         <p className="text-xl text-left text-gray-700 leading-relaxed mb-6 tx-beige">

@@ -127,7 +127,9 @@ h2{
 .main{
     height: 94vh;
 }
-
+.max-h-500{
+    height: 500px;
+}
 .hero-image{
     height: 94vh;
    width:100%;
