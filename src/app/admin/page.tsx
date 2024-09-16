@@ -10,6 +10,7 @@ import Mensajes from '../components/Mensajes/Mensajes';
 import Turnos from '../components/Turnos/Turnos';
 import Candidatos from '../components/CV/CV';
 import Contacto from '../components/Contacto/Contacto';
+import Admins from '../components/AdminShow/Admins';
 export default function Page() {
 
     const { user, isAuthenticated, isLoading } = useAuth();
@@ -20,14 +21,16 @@ export default function Page() {
     const [isShowMensajes, setIsShowMensajes] = useState(false);
     const [isShowCandidatos, setIsShowCandidatos] = useState(false);
     const [isShowContactos, setIsShowContactos] = useState(false)
+    const [isShowAdmins, setIsShowAdmins] = useState(false)
 
     const handleReset = () => {
-        setIsHScreen(false),
-            setIsShowServicios(false),
-            setIsShowTurnos(false),
-            setIsShowMensajes(false)
+        setIsHScreen(false)
+        setIsShowServicios(false)
+        setIsShowTurnos(false)
+        setIsShowMensajes(false)
         setIsShowCandidatos(false)
         setIsShowContactos(false)
+        setIsShowAdmins(false)
     }
 
 
@@ -54,6 +57,11 @@ export default function Page() {
     const handleContactos = () => {
         handleReset();
         setIsShowContactos(true);
+    }
+
+    const handleAdmins = () => {
+        handleReset();
+        setIsShowAdmins(true);
     }
 
     if (isLoading) {
@@ -88,7 +96,9 @@ export default function Page() {
                     <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleContactos()}>
                         Contacto
                     </button>
-                    
+                    <button className='m-1 bg-sage text-white font-semibold py-2 px-4 rounded w-full' onClick={() => handleAdmins()}>
+                        Administradores
+                    </button>
                 </div>
             </div>
             <div className='flex flex-col justify-center items-center'>
@@ -96,7 +106,8 @@ export default function Page() {
                 {isShowTurnos && <Turnos />}
                 {isShowMensajes && <Mensajes />}
                 {isShowCandidatos && <Candidatos />}
-                {isShowContactos && <Contacto/>}
+                {isShowContactos && <Contacto />}
+                {isShowAdmins && <Admins />}
             </div>
         </section>
     )

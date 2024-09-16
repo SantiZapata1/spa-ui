@@ -1,3 +1,7 @@
+import { deleteContacto } from "../../../api/contacto";
+import Swal from "sweetalert2";
+
+
 type mensaje = {
     _id: string;
     nombre: string;
@@ -5,8 +9,6 @@ type mensaje = {
     mensaje: string;
 }
 
-import { deleteContacto } from "../../../api/contacto";
-import Swal from "sweetalert2";
 
 
 const handleSendEmail = (data: any) => {
