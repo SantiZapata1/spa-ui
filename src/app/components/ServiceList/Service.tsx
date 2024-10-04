@@ -20,33 +20,23 @@ export default function Service({ nombreServicio, tipo, precio, detalles }: any)
         setCardTurnosOpen(false);
     };
 
-    // Remplaza la primer letra por mayúscula y los - por espacios
     const formatText = (text: string) => {
         return text.toUpperCase().replace(/-/g, ' ');
-    }
+    };
 
     return (
         <div className="w-full max-w-sm flex flex-col justify-between h-full border rounded-lg shadow-xl bg-sage border-gray-700">
-
             <div className="p-5 rounded-lg">
-                <h2 className=" text-lg text-left font-semibold text-gray-100">{formatText(nombreServicio)}</h2>
-
+                <h2 className="text-lg text-left font-semibold text-gray-100">{formatText(nombreServicio)}</h2>
             </div>
 
-
             <div className="p-5">
-
                 <ul role="list" className="space-y-1">
                     <span className="text-xl font-light tracking-tight text-white">${precio}</span>
-
-                    {/* <li className="text-base font-normal leading-tight text-gray-200 ">
-                        {formatText(tipo)}
-                    </li> */}
                     <li className="text-base font-normal leading-tight text-gray-200 text-pretty">
                         <span className="font-semibold">Detalles:</span> {detalles}
                     </li>
                 </ul>
-                
             </div>
             
             <button
@@ -55,15 +45,15 @@ export default function Service({ nombreServicio, tipo, precio, detalles }: any)
             >
                 Pedir turno
             </button>
-            
-
-            
 
             <CardModalTurnos
                 isOpen={isCardTurnosOpen}
                 onClose={closeCardTurnos}
                 nombreServicio={nombreServicio}
+                precio={precio} // Pasar el precio al modal
+                detalles={detalles} // Pasar los detalles al modal
             />
         </div>
     );
 }
+
