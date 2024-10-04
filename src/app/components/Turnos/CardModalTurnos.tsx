@@ -46,12 +46,12 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio, preci
     const onSubmit = async (values: any) => {
         if (isAuthenticated) {
             Swal.fire({
-                title: '¿Estás seguro?',
+                title: '¿Proceder a pagar?',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#7BB263',
                 cancelButtonColor: '#D8316C',
-                confirmButtonText: 'Sí, enviar',
+                confirmButtonText: 'Sí, pagar',
                 cancelButtonText: 'Cancelar'
             }).then(async (result) => {
                 if (result.isConfirmed) {
