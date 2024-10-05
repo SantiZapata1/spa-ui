@@ -10,9 +10,7 @@ import { useRouter } from 'next/navigation';
 import { postcreateSession } from '../../../api/pay'; // Importar la función para crear la sesión de pago
 
 // Componentes
-import InputText from '../Inputs/InputText';
 import InputTextArea from '../Inputs/InputTextArea';
-
 
 // Interfaz
 type CardModalTurnosProps = {
@@ -119,6 +117,8 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio, preci
                             required
                             {...register('hora')}
                             className="w-full px-3 py-2 border rounded"
+                            min="08:00" // Hora mínima
+                            max="21:00" // Hora máxima
                         />
                     </div>
 
