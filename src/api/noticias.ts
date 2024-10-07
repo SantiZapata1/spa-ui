@@ -13,10 +13,10 @@ export const createNoticia = async (noticia: any) => {
       formData.append('titulo', noticia.titulo); // Asume que el objeto noticia tiene una propiedad 'titulo'
       formData.append('contenido', noticia.contenido); // Asume que el objeto noticia tiene una propiedad 'contenido'
 
-      await axios.post('/crear-noticia', formData, {
-          headers: {
-              'Content-Type': 'multipart/form-data'
-          }
+        await axios.post('/crear-noticia', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
       });
   } catch (error) {
       console.log(error);
