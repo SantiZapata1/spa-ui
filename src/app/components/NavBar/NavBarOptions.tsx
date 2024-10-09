@@ -62,7 +62,7 @@ function NavBarOptions() {
                             <Link href="/perfil" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
                                 Mi Perfil
                             </Link>
-                            {user.admin && (
+                            {user.rol == "Administrador" && (
                                 <Link href="/admin" className='block px-4 py-2 text-base hover:bg-gray-100' onClick={closeDropdown}>
                                     Panel de administrador
                                 </Link>  

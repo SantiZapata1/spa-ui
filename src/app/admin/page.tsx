@@ -70,8 +70,8 @@ export default function Page() {
     if (!isAuthenticated) {
         return redirect('/')
     }
-    if (!user.admin) {
-        return redirect('/')
+    if (user.rol != "Administrador") {
+        return redirect('/servicios')
     }
 
     return (

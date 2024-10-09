@@ -26,7 +26,7 @@ export default function Login() {
    const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
    const [error, setError] = useState('')
   //  si esta autenticado rediriquimos al home
-    if(isAuthenticated && user.admin){
+    if(isAuthenticated && user.rol == "Administrador"){
       redirect('/admin')
     }else if(isAuthenticated && user.admin === false){
       redirect('/servicios')
