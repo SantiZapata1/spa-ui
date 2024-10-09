@@ -1,3 +1,4 @@
+
 "use client"
 // componentes
 import InputText from '../components/Inputs/InputText'
@@ -25,8 +26,10 @@ export default function Login() {
    const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
    const [error, setError] = useState('')
   //  si esta autenticado rediriquimos al home
-    if(isAuthenticated){
-      redirect('/')
+    if(isAuthenticated && user.admin){
+      redirect('/admin')
+    }else if(isAuthenticated && user.admin === false){
+      redirect('/servicios')
     }
 
     const onSubmit = handleSubmit(async(values)=>{
