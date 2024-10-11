@@ -63,7 +63,7 @@ export default function Proyecto2() {
           </div>
 
           <main className="relative z-10 mb-32">
-            {/* Contenido principal - vacío para mostrar solo la bienvenida */}
+            
           </main>
         </div>
       </div>
