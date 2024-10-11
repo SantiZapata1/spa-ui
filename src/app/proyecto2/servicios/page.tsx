@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { getServicesRequest } from "../../../api/servicios";
 import Service from "../../components/ServiceList/Service";
+import MenuLateral2 from '../../components/Menu/menuLateral2'; 
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
@@ -35,6 +36,11 @@ export default function Servicios() {
 
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+
+                {/* Menú lateral */}
+      <div className="absolute top-0 left-0">
+        <MenuLateral2 /> 
+      </div>
                 
                 {serviciosFiltrados
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())

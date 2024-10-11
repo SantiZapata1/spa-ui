@@ -3,6 +3,7 @@
 import { useAuth } from '../../context/auth';
 import MenuLateral2 from '../components/Menu/menuLateral2'; 
 
+
 export default function Proyecto2() {
   const { user, isAuthenticated } = useAuth();
   const role = isAuthenticated ? user.rol : 'Invitado'; // Definimos el rol
