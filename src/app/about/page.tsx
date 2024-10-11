@@ -1,12 +1,11 @@
+// QuienesSomos.tsx
 "use client";
 import { useState } from 'react';
-import Image from 'next/image';
-
-import { Bars3Icon } from '@heroicons/react/24/outline';
+import MenuLateral from '../components/Menu/menuLateral'; // Asegúrate de que la ruta sea correcta
 
 export default function QuienesSomos() {
-
   const [menuVisible, setMenuVisible] = useState(false);
+  
   const sections = [
     {
       id: 'quienes-somos',
@@ -53,80 +52,42 @@ export default function QuienesSomos() {
 
   return (
     <div className="relative min-h-screen imagenAbout ">
-      {/* Imagen de fondo*/}
-      <div className=" filtro2 absolute inset-0 flex flex-col items-center justify-center text-center text-white p-8">
-        {/* <div className="absolute inset-0">
-
-          <img
-            src="/About/SpaFondo.jpeg"
-            alt="Fondo difuminado"
-            className="w-full h-full object-cover mt-2 absolute inset-0"
-          />
-        </div> */}
-        
-      </div>
-      
+      <div className="filtro2 absolute inset-0 flex flex-col items-center justify-center text-center text-white p-8"></div>
 
       <div className="flex flex-row relative min-h-screen">
-        {/* Menú lateral */}
-        <div className="hidden md:block relative group">
-          {/* Botón que despliega el menú al pasar el mouse */}
-          {!menuVisible && (
-            <div className="header h-screen w-full p-4 bg-gray-100 bg-opacity-0 flex flex-col" onMouseEnter={() => setMenuVisible(true)}>
-              <Bars3Icon className="w-6 h-6 text-white"/>
-            </div>
-          )}
-          {/* Menú desplegable */}
-          {menuVisible && (
-            <aside className="header w-64 p-4 bg-gray-100 bg-opacity-50 h-screen flex flex-col" onMouseLeave={() => setMenuVisible(false)}>
-              <ul className="space-y-4 mt-6">
-                {sections.map((section) => (
-                  <li key={section.id}>
-                    <a href={`#${section.id}`} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-green-700 rounded-lg">
-                      {section.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </aside>
-          )}
-        </div>
+        <MenuLateral sections={sections} />
 
-              {/* Contenido principal */}
-            <main className="flex-grow relative z-10 mb-32">
-              {sections.map((section) => (
-                <section
-                  key={section.id}
-                  id={section.id}
-                  className="md:min-h-96 flex flex-col justify-center items-center py-0 px-4 relative"
-                >
-                  <div className="m-10 md:m-1 max-w-4xl w-full p-6 bg-white bg-opacity-80 rounded-lg shadow-lg ">
-                    <h2 className="text-3xl font-bold mb-4 text-center">{section.title}</h2>
-                    {section.id === 'equipo' ? (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                        {profesionales.map((prof) => (
-                          <div key={prof.nombre} className="p-4 bg-white rounded-lg shadow-md flex flex-col items-center text-center">
-                            <img
-                              src={prof.foto}
-                              alt={`${prof.nombre} ${prof.apellido}`}
-                              className="w-24 h-24 rounded-full mb-4 object-cover"
-                            />
-                            <h3 className="text-xl font-semibold mb-2">{prof.nombre} {prof.apellido}</h3>
-                            <p>{prof.perfil}</p>
-                          </div>
-                        ))}
+        <main className="flex-grow relative z-10 mb-32">
+          {sections.map((section) => (
+            <section
+              key={section.id}
+              id={section.id}
+              className="md:min-h-96 flex flex-col justify-center items-center py-0 px-4 relative"
+            >
+              <div className="m-10 md:m-1 max-w-4xl w-full p-6 bg-white bg-opacity-80 rounded-lg shadow-lg ">
+                <h2 className="text-3xl font-bold mb-4 text-center">{section.title}</h2>
+                {section.id === 'equipo' ? (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    {profesionales.map((prof) => (
+                      <div key={prof.nombre} className="p-4 bg-white rounded-lg shadow-md flex flex-col items-center text-center">
+                        <img
+                          src={prof.foto}
+                          alt={`${prof.nombre} ${prof.apellido}`}
+                          className="w-24 h-24 rounded-full mb-4 object-cover"
+                        />
+                        <h3 className="text-xl font-semibold mb-2">{prof.nombre} {prof.apellido}</h3>
+                        <p>{prof.perfil}</p>
                       </div>
-                    ) : (
-                      <p className="text-xl text-center">{section.content}</p>
-                    )}
+                    ))}
                   </div>
-                </section>
-              ))}
-            </main>
-          </div>
-
-        </div>
-
-        
+                ) : (
+                  <p className="text-xl text-center">{section.content}</p>
+                )}
+              </div>
+            </section>
+          ))}
+        </main>
+      </div>
+    </div>
   );
 }
