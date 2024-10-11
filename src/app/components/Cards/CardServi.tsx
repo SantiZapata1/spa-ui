@@ -8,25 +8,25 @@ export default function CardServi(){
       imgSrc: "/Masajes/masaje1.png",
       title: "Masajes",
       description: "Técnicas de relajación y alivio muscular que mejoran la circulación, reducen el estrés y promueven el bienestar general.",
-      link: "/servicios#masajes"
+      link: "/servicios/masaje"
     },
     {
       imgSrc: "/Belleza/belleza1.jpg",
       title: "Belleza",
       description: "Servicios para realzar la apariencia, como depilación, manicuras, pedicuras y maquillaje.",
-      link: "/servicios#belleza"
+      link: "/servicios/belleza"
     },
     {
       imgSrc: "/tFacial/TF1.jpg",
       title: "Tratamiento Facial",
       description: "Procedimientos que tonifican, hidratan y rejuvenecen la piel del cuerpo, incluyendo exfoliaciones y envolturas.",
-      link: "/servicios#tFacial"
+      link: "/servicios/tFacial"
     },
     {
       imgSrc: "/tCorporal/TC1.png",
       title: "Tratamiento Corporal",
       description: "Rutinas de cuidado para limpiar, hidratar y revitalizar la piel del rostro, adaptadas a diferentes tipos de piel y necesidades.",
-      link: "/servicios#tCorporales"
+      link: "/servicios/tCorporales"
     },
   ];
 

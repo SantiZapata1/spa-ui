@@ -7,13 +7,13 @@ interface CarouselProps {
   title: string;
   description: string;
   buttonText: string;
-  buttonLink: string; // Nueva prop para la URL de redirección
+  buttonLink: string; 
 }
 
 const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonText, buttonLink }) => {
   
   const [currentIndex, setCurrentIndex] = useState(0);
-  const router = useRouter(); // Hook para manejar la navegación
+  const router = useRouter(); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,7 +38,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
   return (
     <div id="default-carousel" className="relative w-full h-screen">
       {/* Carousel wrapper */}
-      <div className="relative w-full h-full overflow-hidden rounded-lg">
+      <div className="relative w-full h-full overflow-hidden">
         {images.map((image, index) => (
           <div
             key={index}
@@ -48,7 +48,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
             <img 
               src={image} 
               alt={`Slide ${index + 1}`}  
-              style={{ objectFit: 'cover' }} 
+              className="w-full h-full object-cover" 
             />
           </div>
         ))}
@@ -72,7 +72,7 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
         <p className="text-lg text-white mb-4 max-w-5xl">{description}</p>
         <button 
           className="bg-green-600 hover:bg-green-400 text-white py-2 px-4 rounded" 
-          onClick={handleButtonClick} // Maneja el clic del botón
+          onClick={handleButtonClick} 
         >
           {buttonText}
         </button>
@@ -82,4 +82,3 @@ const Carousel: React.FC<CarouselProps> = ({ images, title, description, buttonT
 };
 
 export default Carousel;
-

@@ -27,7 +27,8 @@
     "react-share": "^5.1.0",
     "react-slick": "^0.30.2",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.12.4"
+    "sweetalert2": "^11.12.4",
+    "swiper": "^11.1.14"
   },
   "devDependencies": {
     "@types/js-cookie": "^3.0.6",
