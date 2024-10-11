@@ -16,11 +16,13 @@ const MenuLateral: React.FC<MenuLateralProps> = ({ sections }) => {
 
   return (
     <div className="hidden md:block relative group">
+      {/* Botón que despliega el menú al pasar el mouse */}
       {!menuVisible && (
         <div className="header h-screen w-full p-4 bg-gray-100 bg-opacity-0 flex flex-col" onMouseEnter={() => setMenuVisible(true)}>
-          <Bars3Icon className="w-6 h-6 text-white" />
+          <Bars3Icon className="w-6 h-6 text-lime-600" />
         </div>
       )}
+      {/* Menú desplegable */}
       {menuVisible && (
         <aside className="header w-64 p-4 bg-gray-100 bg-opacity-50 h-screen flex flex-col" onMouseLeave={() => setMenuVisible(false)}>
           <ul className="space-y-4 mt-6">
