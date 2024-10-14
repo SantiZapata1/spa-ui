@@ -17,8 +17,8 @@ export default function RootLayout({
   const pathname = usePathname(); // Obtiene la ruta actual
 
   // Verifica si la ruta actual comienza con lo que quiero que no muestre el NavBar y el Footer
-  const shouldHideNavFooter = pathname.startsWith("/proyecto2");
-
+  const shouldHideNavFooter = pathname.startsWith("/panel-general");
+  
   return (
     <html lang="es">
       <body className={inter.className}>

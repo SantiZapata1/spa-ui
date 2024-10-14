@@ -16,31 +16,31 @@ const MenuLateral2 = () => {
 
   // Definir las secciones según el rol dentro del componente
   const seccionesAdmin: Section[] = [
-    { id: 'perfil', title: 'Perfil', route: '/proyecto2/perfil' },
-    { id: 'servicios', title: 'Servicios', route: '/proyecto2/servicios' },
-    { id: 'noticias', title: 'Noticias', route: '/proyecto2/noticias' },
-    { id: 'mis-turnos', title: 'Mis turnos', route: '/proyecto2/mis-turnos' },
-    { id: 'turnos', title: 'Turnos', route: '/proyecto2/turnos' },
-    { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/proyecto2/turnos-hoy' },
-    { id: 'usuarios', title: 'Usuarios', route: '/proyecto2/usuarios' },
+    { id: 'perfil', title: 'Perfil', route: '/panel-general/perfil' },
+    { id: 'servicios', title: 'Servicios', route: '/panel-general/servicios' },
+    { id: 'noticias', title: 'Noticias', route: '/panel-general/noticias' },
+    { id: 'mis-turnos', title: 'Mis turnos', route: '/panel-general/mis-turnos' },
+    { id: 'turnos', title: 'Turnos', route: '/panel-general/turnos' },
+    { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/panel-general/turnos-hoy' },
+    { id: 'usuarios', title: 'Usuarios', route: '/panel-general/usuarios' },
   ];
 
   const seccionesEmpleado: Section[] = [
-    { id: 'perfil', title: 'Perfil', route: '/proyecto2/perfil' },
-    { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/proyecto2/turnos-hoy' },
-    { id: 'turnos', title: 'Turnos', route: '/proyecto2/turnos' },
+    { id: 'perfil', title: 'Perfil', route: '/panel-general/perfil' },
+    { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/panel-general/turnos-hoy' },
+    { id: 'turnos', title: 'Turnos', route: '/panel-general/turnos' },
   ];
 
   const seccionesSecretario: Section[] = [
-    { id: 'perfil', title: 'Perfil', route: '/proyecto2/perfil' },
-    { id: 'turnos', title: 'Turnos', route: '/proyecto2/turnos' },
+    { id: 'perfil', title: 'Perfil', route: '/panel-general/perfil' },
+    { id: 'turnos', title: 'Turnos', route: '/panel-general/turnos' },
   ];
 
   const seccionesUsuario: Section[] = [
-    { id: 'perfil', title: 'Perfil', route: '/proyecto2/perfil' },
-    { id: 'servicios', title: 'Servicios', route: '/proyecto2/servicios' },
-    { id: 'noticias', title: 'Noticias', route: '/proyecto2/noticias' },
-    { id: 'mis-turnos', title: 'Mis turnos', route: '/proyecto2/mis-turnos' },
+    { id: 'perfil', title: 'Perfil', route: '/panel-general/perfil' },
+    { id: 'servicios', title: 'Servicios', route: '/panel-general/servicios' },
+    { id: 'noticias', title: 'Noticias', route: '/panel-general/noticias' },
+    { id: 'mis-turnos', title: 'Mis turnos', route: '/panel-general/mis-turnos' },
   ];
 
   // Determinar las secciones a mostrar en función del rol del usuario

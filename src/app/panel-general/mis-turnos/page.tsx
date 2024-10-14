@@ -24,6 +24,11 @@ export default function Turnos() {
     if (isLoading) {
         return <p>Cargando...</p>
     }
+    
+    
+    // Si no esta cargando y no esta autenticado se redirecciona al login
+    if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
+
 
     return (
         <section className="w-full flex flex-col items-center justify-center">

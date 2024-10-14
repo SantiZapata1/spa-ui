@@ -1,11 +1,19 @@
 'use client';
 
+import { redirect } from 'next/navigation';
 import { useAuth } from '../../context/auth';
 import MenuLateral2 from '../components/Menu/menuLateral2'; 
 
 export default function Proyecto2() {
-  const { user, isAuthenticated } = useAuth();
+  const { user, isAuthenticated, isLoading } = useAuth();
   const role = isAuthenticated ? user.rol : 'Invitado'; // Definimos el rol
+
+  if(isLoading){
+    return <p>Cargando...</p>
+}
+
+  if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
+
 
   return (
     <div className="relative min-h-screen flex bg-cover bg-center" style={{ backgroundImage: "url('/Diseño_flores.png')" }}>

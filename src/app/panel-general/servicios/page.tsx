@@ -3,7 +3,9 @@
 import { useState, useEffect } from "react";
 import { getServicesRequest } from "../../../api/servicios";
 import Service from "../../components/ServiceList/Service";
-import MenuLateral2 from '../../components/Menu/menuLateral2'; 
+import MenuLateral2 from '../../components/Menu/menuLateral2';
+import { useAuth } from "@/context/auth";
+import { redirect } from "next/navigation";
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
@@ -34,14 +36,24 @@ export default function Servicios() {
             return <p className="text-center col-span-full">No hay servicios de {tipo.toLowerCase()} disponibles.</p>;
         }
 
+
+        const { user, isAuthenticated, isLoading } = useAuth();
+        if (isLoading) {
+            return <p>Cargando...</p>
+        }
+
+        // Si no esta cargando y no esta autenticado se redirecciona al login
+        if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
+
+
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
                 {/* Menú lateral */}
-      <div className="absolute top-0 left-0">
-        <MenuLateral2 /> 
-      </div>
-                
+                <div className="absolute top-0 left-0">
+                    <MenuLateral2 />
+                </div>
+
                 {serviciosFiltrados
                     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
                     .map(service => (
@@ -72,7 +84,7 @@ export default function Servicios() {
                 {/* Masajes */}
                 <section className="" id="masajes">
                     {/* <h2 className="ml-3 text-3xl text-left">Masajes</h2> */}
-                    
+
                     <img src="masajes.png" alt="" className='max-w-52 mt-10' />
 
                     {renderServiciosPorTipo("Masajes")}
@@ -104,7 +116,7 @@ export default function Servicios() {
                 </section>
 
             </div>
-            
+
         </div>
     );
 }

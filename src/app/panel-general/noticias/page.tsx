@@ -17,6 +17,7 @@ import Swal from 'sweetalert2';
 import { useEffect } from 'react';
 
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import { redirect } from 'next/navigation';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -46,6 +47,11 @@ export default function NoticiasPage() {
   if (isLoading) {
     return <h1 className='text-4xl font-bold text-center mt-20'>Cargando...</h1>
   }
+
+
+  // Si no esta cargando y no esta autenticado se redirecciona al login
+  if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
+
 
   return (
     <div className="min-h-screen flex flex-col items-center">

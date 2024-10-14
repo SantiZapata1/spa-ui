@@ -16,11 +16,11 @@ import MenuLateral2 from '../../components/Menu/menuLateral2';
 export default function Profile(){
 
     // hook de contexto
-    const { user, isAuthenticated, isLoading } = useAuth();
     
     // Estados
     const [isEditing, setIsEditing] = useState(false);
-   
+    
+    const { user, isAuthenticated, isLoading } = useAuth();
     if(isLoading){
         return <p>Cargando...</p>
     }
