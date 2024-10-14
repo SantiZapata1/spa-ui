@@ -26,10 +26,8 @@ export default function Login() {
    const { signIn, errorsAuth, user, isAuthenticated} = useAuth()
    const [error, setError] = useState('')
   //  si esta autenticado rediriquimos al home
-    if(isAuthenticated && user.rol == "Administrador"){
-      redirect('/admin')
-    }else if(isAuthenticated && user.admin === false){
-      redirect('/servicios')
+    if(isAuthenticated){
+      redirect('/proyecto2')
     }
 
     const onSubmit = handleSubmit(async(values)=>{
