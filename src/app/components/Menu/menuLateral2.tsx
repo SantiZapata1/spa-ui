@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '../../../context/auth'; 
+import { useRouter } from 'next/navigation';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 
 interface Section {
@@ -13,6 +14,7 @@ interface Section {
 const MenuLateral2 = () => {
   const [menuVisible, setMenuVisible] = useState(false);
   const { user, isAuthenticated } = useAuth();
+  const router = useRouter(); // Hook para redirigir a logout
 
   // Definir las secciones según el rol dentro del componente
   const seccionesAdmin: Section[] = [
@@ -55,6 +57,11 @@ const MenuLateral2 = () => {
     sections = seccionesUsuario;
   }
 
+  // Función para redirigir a la página de logout
+  const handleLogout = () => {
+    router.push('/logout');
+  };
+
   return (
     <div className="hidden md:block relative group">
       {!menuVisible && (
@@ -63,7 +70,7 @@ const MenuLateral2 = () => {
         </div>
       )}
       {menuVisible && (
-        <aside className="header w-64 p-4 bg-gray-100 bg-opacity-50 h-screen flex flex-col" onMouseLeave={() => setMenuVisible(false)}>
+        <aside className="header w-64 p-4 bg-gray-100 bg-opacity-50 h-screen flex flex-col justify-between" onMouseLeave={() => setMenuVisible(false)}>
           <ul className="space-y-4 mt-6">
             {sections.map((section) => (
               <li key={section.id}>
@@ -73,6 +80,13 @@ const MenuLateral2 = () => {
               </li>
             ))}
           </ul>
+          {/* Botón de Cerrar sesión */}
+          <button
+            onClick={handleLogout} 
+            className="mt-auto block w-full p-3 text-left text-gray-900 hover:bg-red-200 hover:text-red-700 rounded-lg"
+          >
+            Cerrar sesión
+          </button>
         </aside>
       )}
     </div>
@@ -80,4 +94,3 @@ const MenuLateral2 = () => {
 };
 
 export default MenuLateral2;
-
