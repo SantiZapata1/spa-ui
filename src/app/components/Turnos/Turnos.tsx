@@ -22,14 +22,14 @@ export default function Turnos({ today }: Turnos) {
     useEffect(() => {
         const obtenerTurnos = async () => {
             try {
-                const turnos = await getTurnos();
                 // Ordenar los turnos por fecha
                 if (today) {
                     const fechaHoyNormalizada = new Date().toLocaleDateString().replace(/\//g, "-");
                     const turnosHoy = await getTurnosByDate(fechaHoyNormalizada, fechaHoyNormalizada);
                     setListaTurnos(turnosHoy)
-
+                    
                 } else {
+                    const turnos = await getTurnos();
                     setListaTurnos(turnos);
                 }
             } catch (error) {
@@ -55,6 +55,7 @@ export default function Turnos({ today }: Turnos) {
                 highlightOnHover={true}
                 noDataComponent="No hay turnos para mostrar"
                 defaultSortFieldId={"Fecha"}
+                defaultSortAsc={false}
                 expandableIcon={expandableIcon}
                 progressPending={isLoading} // Mostrar un indicador de carga si está cargando
             />

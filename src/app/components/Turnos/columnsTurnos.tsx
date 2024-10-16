@@ -74,6 +74,7 @@ const columnsTurnos = [
         name: 'Fecha',
         selector: (row: Row) => formatFecha(row.fecha),
         width: '15%',
+        id: 'Fecha',
         style: {
             fontSize: '14px',
             fontWeight: 500,
