@@ -5,8 +5,12 @@ import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outl
 import customStyles from './customStyles';
 import expandedComponents from './expandedComponent';
 import columnsTurnos from './columnsTurnos';
+import { getTurnosByDate } from "../../../api/turnos";
+type Turnos = {
+    today?: boolean;
+}
 
-export default function Turnos() {
+export default function Turnos({ today }: Turnos) {
     const [listaTurnos, setListaTurnos] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -20,7 +24,14 @@ export default function Turnos() {
             try {
                 const turnos = await getTurnos();
                 // Ordenar los turnos por fecha
-                setListaTurnos(turnos);
+                if (today) {
+                    const fechaHoyNormalizada = new Date().toLocaleDateString().replace(/\//g, "-");
+                    const turnosHoy = await getTurnosByDate(fechaHoyNormalizada, fechaHoyNormalizada);
+                    setListaTurnos(turnosHoy)
+
+                } else {
+                    setListaTurnos(turnos);
+                }
             } catch (error) {
                 console.error("Error al obtener los turnos:", error);
             } finally {
@@ -33,7 +44,7 @@ export default function Turnos() {
 
     return (
         <div className="w-full p-5">
-              <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
+            <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
             <DataTable
                 columns={columnsTurnos}
                 data={listaTurnos}
@@ -46,8 +57,8 @@ export default function Turnos() {
                 defaultSortFieldId={"Fecha"}
                 expandableIcon={expandableIcon}
                 progressPending={isLoading} // Mostrar un indicador de carga si está cargando
-                />
-       
+            />
+
 
         </div>
     );

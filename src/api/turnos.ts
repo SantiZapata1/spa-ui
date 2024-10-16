@@ -19,3 +19,13 @@ export const getTurnosByUser = async (id:any) => {
   const response = await axios.get(`/obtener-turnos-usuario/${id}`);
   return response.data;
 };
+
+export const getTurnosToday = async () => {
+  const response = await axios.get('/obtener-turnos-hoy');
+  return response.data;
+};
+
+export const getTurnosByDate = async (desde:any, hasta:any) => {
+  const response = await axios.get(`/obtener-turno-por-fechas/${desde}/${hasta}`);
+  return response.data;
+};

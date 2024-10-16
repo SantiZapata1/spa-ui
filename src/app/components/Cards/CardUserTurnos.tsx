@@ -8,7 +8,12 @@ import { getTurnosByUser } from '../../../api/turnos';
 import DataTable from 'react-data-table-component';
 import customStyles from '../Turnos/customStyles';
 import columnsTurnos from './turnosCoolumns';
-function CardUserTurnos() {
+
+type CardUserTurnosProps = {
+  today?: boolean;
+}
+
+function CardUserTurnos({today}: CardUserTurnosProps) {
   const [turnos, setTurnos] = useState([]);
   const { user, isLoading } = useAuth();
   
