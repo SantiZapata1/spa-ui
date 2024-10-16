@@ -46,6 +46,7 @@ export default function Turnos({ today }: Turnos) {
         <div className="w-full p-5">
             <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
             <DataTable
+                // @ts-ignore
                 columns={columnsTurnos}
                 data={listaTurnos}
                 pagination

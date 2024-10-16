@@ -72,9 +72,11 @@ const columnsTurnos = [
 
     {
         name: 'Fecha',
-        selector: (row: Row) => formatFecha(row.fecha),
+        selector: (row: Row) => new Date(row.fecha),
         width: '15%',
         id: 'Fecha',
+        format: (row: Row) => formatFecha(row.fecha),
+        Sortable: true,
         style: {
             fontSize: '14px',
             fontWeight: 500,
