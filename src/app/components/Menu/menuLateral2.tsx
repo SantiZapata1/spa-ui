@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useAuth } from '../../../context/auth'; 
 import { useRouter } from 'next/navigation';
 import { Bars3Icon } from '@heroicons/react/24/outline';
-
+import { ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
 interface Section {
   id: string;
   title: string;
@@ -70,12 +70,14 @@ const MenuLateral2 = () => {
         </div>
       )}
       {menuVisible && (
-        <aside className="header w-64 p-4 bg-gray-100 bg-opacity-50 h-screen flex flex-col justify-between" onMouseLeave={() => setMenuVisible(false)}>
+        <aside className="header w-64 p-4 bg-gray-100 bg-opacity-80 h-screen flex flex-col justify-between" onMouseLeave={() => setMenuVisible(false)}>
           <ul className="space-y-4 mt-6">
             {sections.map((section) => (
               <li key={section.id}>
                 <Link href={section.route} className="block p-3 text-gray-900 hover:bg-gray-200 hover:text-green-700 rounded-lg">
-                  {section.title}
+                  <span className='font-semibold'> 
+                    {section.title}
+                    </span>
                 </Link>
               </li>
             ))}
@@ -83,9 +85,9 @@ const MenuLateral2 = () => {
           {/* Botón de Cerrar sesión */}
           <button
             onClick={handleLogout} 
-            className="mt-auto block w-full p-3 text-left text-gray-900 hover:bg-red-200 hover:text-red-700 rounded-lg"
+            className="font-semibold mt-auto block w-full p-3 text-left text-gray-900 hover:bg-red-200 hover:text-red-700 rounded-lg"
           >
-            Cerrar sesión
+            Cerrar sesión <ArrowRightStartOnRectangleIcon className="w-6 h-6 inline-block" />
           </button>
         </aside>
       )}
