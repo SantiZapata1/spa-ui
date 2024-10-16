@@ -16,7 +16,10 @@ export default function Proyecto2() {
 
 
   return (
-    <div className="relative min-h-screen flex bg-cover bg-center" style={{ backgroundImage: "url('/Diseño_flores.png')" }}>
+  <html>
+    <section>
+
+  <div className="relative min-h-screen flex bg-cover bg-center" style={{ backgroundImage: "url('/Diseño_flores.png')" }}>
       {/* Menú lateral */}
       <div className="absolute top-0 left-0">
         <MenuLateral2 /> 
@@ -32,5 +35,8 @@ export default function Proyecto2() {
         </main>
       </div>
     </div>
-  );
+    </section>
+      <link rel="icon" href="logo_sin_fondo.png" sizes="any" />
+  </html>
+    );
 }

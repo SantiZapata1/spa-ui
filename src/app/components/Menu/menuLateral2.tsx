@@ -26,6 +26,8 @@ const MenuLateral2 = () => {
     { id: 'turnos', title: 'Turnos', route: '/panel-general/turnos' },
     { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/panel-general/turnos-hoy' },
     { id: 'usuarios', title: 'Usuarios', route: '/panel-general/usuarios' },
+    { id: 'informes', title: 'Informes', route: '/panel-general/informes' },
+    
   ];
 
   const seccionesEmpleado: Section[] = [

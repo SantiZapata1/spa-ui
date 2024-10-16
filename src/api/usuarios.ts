@@ -16,3 +16,12 @@ export const getAdmins = async () => {
         console.log(error)
     }
 }
+
+export const buscarUsuarios = async (values: any) => {
+    try {
+        const { data } = await axios.get(`/buscar-usuario/${values.nombre_de_usuario ? values.nombre_de_usuario : "no_ingresado"}/${values.rol ? values.rol : "no_ingresado"}`);
+        return data;
+    } catch(error){
+        console.log(error)
+    }
+}

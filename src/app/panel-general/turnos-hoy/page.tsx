@@ -11,7 +11,9 @@ function page() {
     </div>
     <h2>Turnos de hoy:</h2>
     <Turnos today/>
-</section>  )
+</section>  
+
+)
 }
 
 export default page

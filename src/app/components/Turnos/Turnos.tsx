@@ -8,9 +8,10 @@ import columnsTurnos from './columnsTurnos';
 import { getTurnosByDate } from "../../../api/turnos";
 type Turnos = {
     today?: boolean;
+    user? : string;
 }
 
-export default function Turnos({ today }: Turnos) {
+export default function Turnos({ today, user }: Turnos) {
     const [listaTurnos, setListaTurnos] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -28,7 +29,9 @@ export default function Turnos({ today }: Turnos) {
                     const turnosHoy = await getTurnosByDate(fechaHoyNormalizada, fechaHoyNormalizada);
                     setListaTurnos(turnosHoy)
                     
-                } else {
+                } else if(user){
+                    console.log("Nada aún")
+                } else{
                     const turnos = await getTurnos();
                     setListaTurnos(turnos);
                 }
