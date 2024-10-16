@@ -21,6 +21,7 @@ export default function RootLayout({
   
   return (
     <html lang="es">
+      <title>SPA - Sentirse Bien</title>
       <body className={inter.className}>
         <AuthProvider>
           {!shouldHideNavFooter && <NavBar />}

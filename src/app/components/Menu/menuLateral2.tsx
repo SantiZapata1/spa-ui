@@ -5,6 +5,7 @@ import { useAuth } from '../../../context/auth';
 import { useRouter } from 'next/navigation';
 import { Bars3Icon } from '@heroicons/react/24/outline';
 import { ArrowRightStartOnRectangleIcon } from '@heroicons/react/24/outline';
+
 interface Section {
   id: string;
   title: string;
