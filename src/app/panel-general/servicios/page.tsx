@@ -9,6 +9,7 @@ import { redirect } from "next/navigation";
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
+    const { user, isAuthenticated, isLoading } = useAuth();
 
     const obtenerListaServicios = async () => {
         try {
@@ -25,7 +26,7 @@ export default function Servicios() {
 
     // Normaliza los tipos para asegurar que se comparen de manera consistente
     const normalizeType = (tipo: string) => tipo.trim().toLowerCase();
-
+    
     const renderServiciosPorTipo = (tipo: string) => {
         const serviciosFiltrados = servicios.filter(service => {
             const tipoNormalizado = normalizeType(service.tipo);
@@ -35,9 +36,9 @@ export default function Servicios() {
         if (serviciosFiltrados.length === 0) {
             return <p className="text-center col-span-full">No hay servicios de {tipo.toLowerCase()} disponibles.</p>;
         }
+        
 
 
-        const { user, isAuthenticated, isLoading } = useAuth();
         if (isLoading) {
             return <p>Cargando...</p>
         }
