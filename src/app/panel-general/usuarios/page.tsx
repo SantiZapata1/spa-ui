@@ -6,15 +6,17 @@ import customStyles from '@/app/components/Turnos/customStyles';
 import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outline';
 import { useState } from 'react'
 import DataTable from 'react-data-table-component';
-import { useForm } from 'react-hook-form';
+
 import columnsUsuarios from './columnsUsuarios';
 import { buscarUsuarios } from '@/api/usuarios';
 import expandedComponents from './expandedComponents'
 
-function page() {
-    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+import { useForm } from 'react-hook-form';
 
+function Page() {
+    
     const [listaUsuarios, setListaUsuarios] = useState([])
+    const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const rolOpciones = [
         { value: 'Administrador', nombre: 'Administrador' },
         { value: 'Profesional', nombre: 'Profesional' },
@@ -71,4 +73,4 @@ function page() {
     )
 }
 
-export default page
+export default Page

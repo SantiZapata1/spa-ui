@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { getServicesRequest } from "../../../api/servicios";
 import Service from "../../components/ServiceList/Service";
 import MenuLateral2 from '../../components/Menu/menuLateral2';
-import { useAuth } from "@/context/auth";
+import { useAuth } from "../../../context/auth";
 import { redirect } from "next/navigation";
 
 export default function Servicios() {
