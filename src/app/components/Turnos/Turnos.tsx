@@ -5,7 +5,7 @@ import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outl
 import customStyles from './customStyles';
 import expandedComponents from './expandedComponent';
 import columnsTurnos from './columnsTurnos';
-import { getTurnosByDate } from "../../../api/turnos";
+import { getTurnosByDate, getTurnosByUser } from "../../../api/turnos";
 type Turnos = {
     today?: boolean;
     user? : string;
@@ -30,7 +30,9 @@ export default function Turnos({ today, user }: Turnos) {
                     setListaTurnos(turnosHoy)
                     
                 } else if(user){
-                    console.log("Nada aún")
+                    const turnos = await getTurnosByUser(user);
+                    setListaTurnos(turnos);
+
                 } else{
                     const turnos = await getTurnos();
                     setListaTurnos(turnos);
