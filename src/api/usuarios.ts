@@ -25,3 +25,10 @@ export const buscarUsuarios = async (values: any) => {
         console.log(error)
     }
 }
+
+export const cambiarRol = async (values: any) => {
+
+    const { data } = await axios.put(`/cambiar-rol/${values._id}`, values);
+    return data;
+
+}

@@ -14,9 +14,10 @@ interface Props {
     isRequired?: any
     valor?: any
     mid?: boolean
+    width?: string
 }
 
-function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, valor, mid }: Props) {
+function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, valor, mid, width }: Props) {
     // Estados
     const [requiredInput,] = useState(isRequired != undefined ? isRequired : true)
     const [selectedOpcion, setSelectedOpcion] = useState('');
@@ -35,12 +36,12 @@ function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, v
     }
 
     return (
-        <div className={`flex flex-row`}>
-        <div className='flex-inline w-full'>
+        // <div className={`flex flex-row`}>
+        <div className={`flex-inline ${width ? width : "w-full"}`}>
             {/* <span className='ml-4 font-medium '> {campo} </span>  */}
             <div className={`flex flex-col 2xl:flex-col xl:w-full`}>
                 <select
-                className= {"border open-sans border-gray-300 text-black rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 w-100" }
+                className= {"border open-sans border-gray-300 text-black rounded-md h-10 xl:h-8 2xl:h-10 my-2 xl:my-1 w-full" }
                 name={nombre}
                 value={selectedOpcion}
                 onChange={handleOptionChange}
@@ -59,7 +60,7 @@ function SelectOptions({ campo, nombre, opciones, setValue, error, isRequired, v
                  
         </div>
         </div>
-    </div>
+    // </div>
     );
 
 }
