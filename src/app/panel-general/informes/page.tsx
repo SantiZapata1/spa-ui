@@ -7,10 +7,30 @@ import { useForm } from 'react-hook-form'
 import TableStats from '@/app/components/TableStats/TableStats';
 import { generarEstadisticaTurnos } from '@/api/turnos'
 import { useState } from 'react';
+import { pdf } from '@react-pdf/renderer';
+import PDF from './PDF';
 function page() {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
 
     const [ estadisticas, setEstadisticas ] = useState<any>([])
+
+
+    
+    const handlePrint = async (data: any) => {
+        try{
+
+            const blob = await pdf(<PDF estadisticas={data}  />).toBlob();
+            // Crea una URL de objeto a partir del blob
+            const url = URL.createObjectURL(blob);
+            // Abre la URL en una nueva pestaña
+            window.open(url);
+
+        }catch(error){
+            console.log(error)
+        }
+
+    }
+
   return (
     <section className="w-full flex flex-col items-center justify-center">
     <div className="absolute top-0 left-0">
@@ -33,6 +53,9 @@ function page() {
     </form>
         <TableStats estadisticas = {estadisticas} />
 
+        <button
+            className='bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105' onClick={() => handlePrint(estadisticas)}
+        >Imprimir</button>
 </section>  
 
 
