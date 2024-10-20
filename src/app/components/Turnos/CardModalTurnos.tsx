@@ -56,7 +56,7 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio, preci
                     try {
                         values.cliente = user.nombre + user.apellido;
                         values.idUsuario = user.id;
-
+                        values.precio = precio;
                         // Crear un turno con los datos del formulario
                         await createTurnoRequest(values);
                         

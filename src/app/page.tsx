@@ -10,13 +10,21 @@ import QuienesSomos from "./components/QuienesSomos/quienesSomos";
 import ComentariosIndex from "./components/Comment/ComentariosIndex";
 import ComentariosIndexMobile from "./components/Comment/ComentariosIndexMobile";
 
-
+import { useAuth } from '../context/auth';
 // Hooks
 import Link from "next/link";
 import { div } from "framer-motion/client";
+import { redirect } from "next/navigation";
 
 export default function Home() {
 
+  const {  isAuthenticated, isLoading } = useAuth();
+
+  if(isLoading){
+    return <p>Cargando...</p>
+}
+
+  if ((!isLoading) && (isAuthenticated)) return redirect('/panel-general');
 
   return (
     <main className="overflow-x-hidden">

@@ -29,3 +29,8 @@ export const getTurnosByDate = async (desde:any, hasta:any) => {
   const response = await axios.get(`/obtener-turno-por-fechas/${desde}/${hasta}`);
   return response.data;
 };
+
+export const generarEstadisticaTurnos = async (desde:any, hasta:any) => {
+  const response = await axios.get(`/generar-estadistica-turnos/${desde}/${hasta}`);
+  return response.data;
+}
