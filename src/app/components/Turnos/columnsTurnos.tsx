@@ -65,6 +65,7 @@ const handleRealizado = async (id: String)  => {
 
 
 }
+ 
 
 
 
@@ -120,7 +121,11 @@ const columnsTurnos = [
     },
     {
         name: 'Acciones',
-        cell: (row: Row) => <button className='bg-spa-purple hover:bg-spa-light-purple text-white font-bold py-2 px-4 rounded w-full' onClick={() => handleRealizado(row._id)}>Realizado</button>,
+        cell: (row: Row) => 
+        <>
+        <button className='bg-spa-purple hover:bg-spa-light-purple text-white font-bold py-2 px-4 rounded w-full' onClick={() => handleRealizado(row._id)}>Realizado</button>
+        </>,
+        
         button: true,
         width: '10%',
         style: {

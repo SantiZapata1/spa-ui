@@ -32,3 +32,12 @@ export const cambiarRol = async (values: any) => {
     return data;
 
 }
+
+export const getProfesionales = async () => {
+    try {
+        const { data } = await axios.get('/obtener-profesionales');
+        return data;
+    } catch(error){
+        console.log(error)
+    }
+}

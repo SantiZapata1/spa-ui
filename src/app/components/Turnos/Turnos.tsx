@@ -50,10 +50,13 @@ export default function Turnos({ today, user }: Turnos) {
     return (
         <div className="w-full p-5">
             <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
+            <div className="m-12">
+
             <DataTable
                 // @ts-ignore
                 columns={columnsTurnos}
                 data={listaTurnos}
+                
                 pagination
                 customStyles={customStyles}
                 responsive={true}
@@ -62,9 +65,12 @@ export default function Turnos({ today, user }: Turnos) {
                 noDataComponent="No hay turnos para mostrar"
                 defaultSortFieldId={"Fecha"}
                 defaultSortAsc={false}
+                expandableRows
+                expandableRowsComponent={expandedComponents}
                 expandableIcon={expandableIcon}
                 progressPending={isLoading} // Mostrar un indicador de carga si está cargando
-            />
+                />
+                </div>
 
 
         </div>
