@@ -7,18 +7,18 @@ import { useForm } from 'react-hook-form'
 import TableStats from '@/app/components/TableStats/TableStats';
 import { generarEstadisticaTurnos } from '@/api/turnos'
 import { useState } from 'react';
-// import PDF from './PDF';
-// import { pdf } from '@react-pdf/renderer';
+import PDF from './PDF';
+import { pdf } from '@react-pdf/renderer';
 import { useAuth } from '@/context/auth'
 import { redirect } from 'next/navigation';
 
 
-import dynamic from 'next/dynamic';
+// import dynamic from 'next/dynamic';
 
 // @ts-ignore
-const pdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
+// const pdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
 
-const PDF = dynamic(() => import('./PDF'), { ssr: false });
+// const PDF = dynamic(() => import('./PDF'), { ssr: false });
 
 
 function Page() {
