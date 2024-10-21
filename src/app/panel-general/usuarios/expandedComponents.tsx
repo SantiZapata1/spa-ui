@@ -8,7 +8,7 @@ type expandedProps = {
     data: any
 }
 
-function expandedComponents({ data }: expandedProps) {
+function ExpandedComponents({ data }: expandedProps) {
 
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();  
     const opcionesRol = [
@@ -78,4 +78,4 @@ function expandedComponents({ data }: expandedProps) {
     )
 }
 
-export default expandedComponents
+export default ExpandedComponents

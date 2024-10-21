@@ -8,7 +8,7 @@ import Turnos from '@/app/components/Turnos/Turnos'
 import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
 
-function page() {
+function TurnosHoyPage() {
     const { user, isLoading, isAuthenticated } = useAuth();
 
     const isSecretario = (user?.rol === 'Secretario' || user?.rol === 'Administrador');
@@ -37,20 +37,4 @@ function page() {
 )
 }
 
-export default page
-/*
-import MenuLateral2 from '@/app/components/Menu/menuLateral2';
-import React from 'react';
-import TurnosHoy from '@/app/components/Turnos/turnosHoy';
-import { useAuth } from '../../../context/auth';
-import { redirect } from 'next/navigation';
-
-export default function Page() {
-    return (
-        <div>
-            
-            <TurnosHoy />
-        </div>
-    );
-}
-    */
+export default TurnosHoyPage

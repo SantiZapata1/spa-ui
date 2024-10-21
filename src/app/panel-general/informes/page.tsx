@@ -11,7 +11,7 @@ import { pdf } from '@react-pdf/renderer';
 import PDF from './PDF';
 import { useAuth } from '@/context/auth'
 import { redirect } from 'next/navigation';
-function page() {
+function Page() {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const { user, isLoading, isAuthenticated } = useAuth();
 
@@ -74,4 +74,4 @@ function page() {
 )
 }
 
-export default page
+export default Page
