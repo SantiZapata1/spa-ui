@@ -1,7 +1,9 @@
+
 "use client"
 
 import MenuLateral2 from '@/app/components/Menu/menuLateral2'
 import React from 'react'
+import TurnosHoy from '@/app/components/Turnos/turnosHoy';
 import Turnos from '@/app/components/Turnos/Turnos'
 import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
@@ -29,10 +31,26 @@ function page() {
         <MenuLateral2 /> 
     </div>
     {user.rol === 'Profesional' ? <h2>Turnos asignados hoy</h2> : <h2>Turnos de hoy:</h2>}
-    <Turnos today/>
+    <TurnosHoy />
 </section>  
 
 )
 }
 
 export default page
+/*
+import MenuLateral2 from '@/app/components/Menu/menuLateral2';
+import React from 'react';
+import TurnosHoy from '@/app/components/Turnos/turnosHoy';
+import { useAuth } from '../../../context/auth';
+import { redirect } from 'next/navigation';
+
+export default function Page() {
+    return (
+        <div>
+            
+            <TurnosHoy />
+        </div>
+    );
+}
+    */
