@@ -1,4 +1,4 @@
-import { deleteTurnoRequest } from '../../../api/turnos';
+import { setTurnoRealizado } from '../../../api/turnos';
 import Swal from 'sweetalert2';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable'; 
@@ -36,7 +36,7 @@ const handleRealizado = async (id: string) => {
     }).then(async (result) => {
         if (result.isConfirmed) {
             try {
-                await deleteTurnoRequest(id);
+                await setTurnoRealizado(id);
                 Swal.fire({
                     title: 'Realizado!',
                     text: 'El turno ha sido marcado como realizado',

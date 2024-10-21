@@ -8,6 +8,7 @@ import { getProfesionales, getUsuarioPorId } from '@/api/usuarios'
 import { asignarTurnoAProfesional, setTurnoRealizado } from '@/api/turnos'
 import Swal from 'sweetalert2'
 import { useAuth } from '@/context/auth'
+import { EmailShareButton } from 'react-share'
 type expandedComponentProps = {
   data: any
 }
@@ -156,8 +157,19 @@ export default function expandedComponent({ data }: expandedComponentProps) {
         className='bg-spa-purple hover:bg-spa-light-purple text-white font-bold py-2 px-4 rounded w-4/10'
         onClick={() => handleRealizado(data._id)}
         >Realizado</button>
-        </div>
+        <EmailShareButton className='w-full'
+          url="https://spa.sentirse-bien.gonzaloebel.tech/"
+          subject={`Factura de turno ${data._id}`}
+          body={`Estimado cliente ${data.cliente}, le enviamos la factura de su turno. Muchas gracias por elegirnos.`}
 
+        >
+          <button
+            className='w-4/10 m-2 bg-spa-purple hover:bg-spa-light-purple text-white font-bold py-2 px-4 rounded '
+          >
+        Enviar correo
+          </button>
+        </EmailShareButton>
+        </div>
     </div>
   )
 }
