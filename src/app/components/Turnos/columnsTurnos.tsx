@@ -127,8 +127,8 @@ const handleGeneratePDF = async (row: Row) => {
         const finalY = (doc as any).lastAutoTable.finalY || 270;
         doc.setFontSize(16); // Tamaño de la fuente más grande
         doc.setTextColor(95, 111, 82); 
-        doc.text('SPA Sentirse Bien', pageWidth / 2, finalY + 60, { align: 'center' }); 
-
+        // doc.text('SPA Sentirse Bien', pageWidth / 2, finalY + 60, { align: 'center' }); 
+        doc.addImage('/logo_sin_fondo.png', 'PNG', pageWidth / 2 - 32, finalY + 70, 64, 64);
         // Descargar el PDF
         doc.save(`factura_turno_${row._id}.pdf`);
     } catch (error) {
