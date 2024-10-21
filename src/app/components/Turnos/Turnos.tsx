@@ -5,7 +5,9 @@ import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outl
 import customStyles from './customStyles';
 import expandedComponents from './expandedComponent';
 import columnsTurnos from './columnsTurnos';
-import { getTurnosByDate, getTurnosByUser } from "../../../api/turnos";
+import { getTurnosByDate, getTurnosByUser, obtenerMisTurnosAsignados } from "../../../api/turnos";
+import { useAuth } from '../../../context/auth'
+
 type Turnos = {
     today?: boolean;
     user? : string;
@@ -14,6 +16,7 @@ type Turnos = {
 export default function Turnos({ today, user }: Turnos) {
     const [listaTurnos, setListaTurnos] = useState<any[]>([]);
     const [isLoading, setIsLoading] = useState(true);
+    const { user: usuario } = useAuth();
 
     const expandableIcon = {
         collapsed: <ArrowDownCircleIcon className='h-6 w-6' />,
@@ -24,7 +27,12 @@ export default function Turnos({ today, user }: Turnos) {
         const obtenerTurnos = async () => {
             try {
                 // Ordenar los turnos por fecha
-                if (today) {
+                if(usuario?.rol === 'Profesional'){
+                    console.log(usuario)
+                    const turnos = await obtenerMisTurnosAsignados(usuario.id);
+                    setListaTurnos(turnos);
+                }
+                else if (today) {
                     const fechaHoyNormalizada = new Date().toLocaleDateString().replace(/\//g, "-");
                     const turnosHoy = await getTurnosByDate(fechaHoyNormalizada, fechaHoyNormalizada);
                     setListaTurnos(turnosHoy)

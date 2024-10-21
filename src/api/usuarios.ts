@@ -26,6 +26,16 @@ export const buscarUsuarios = async (values: any) => {
     }
 }
 
+export const getUsuarioPorId = async (id: string) => {
+    try {
+        const { data } = await axios.get(`/obtener-usuario/${id}`);
+        return data;
+    } catch(error){
+        console.log(error)
+    }
+}
+
+
 export const cambiarRol = async (values: any) => {
 
     const { data } = await axios.put(`/cambiar-rol/${values._id}`, values);

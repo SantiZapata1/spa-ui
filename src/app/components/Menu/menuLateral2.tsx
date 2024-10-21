@@ -30,7 +30,7 @@ const MenuLateral2 = () => {
     
   ];
 
-  const seccionesEmpleado: Section[] = [
+  const seccionesProfesional: Section[] = [
     { id: 'perfil', title: 'Perfil', route: '/panel-general/perfil' },
     { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/panel-general/turnos-hoy' },
     { id: 'turnos', title: 'Turnos', route: '/panel-general/turnos' },
@@ -52,8 +52,8 @@ const MenuLateral2 = () => {
   let sections = [];
   if (isAuthenticated && user.rol === 'Administrador') {
     sections = seccionesAdmin;
-  } else if (isAuthenticated && user.rol === 'Empleado') {
-    sections = seccionesEmpleado;
+  } else if (isAuthenticated && user.rol === 'Profesional') {
+    sections = seccionesProfesional;
   } else if (isAuthenticated && user.rol === 'Secretario') {
     sections = seccionesSecretario;
   } else {
