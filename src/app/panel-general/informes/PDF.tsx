@@ -1,5 +1,5 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import { Page, Text, View, Document, StyleSheet, Image } from '@react-pdf/renderer';
 type PDFProps = {
     estadisticas: any;
     };
@@ -45,7 +45,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  }
+  },
+  images: {
+    width: "64px",
+    height: "64px"
+},
 });
 
 // Componente para el PDF
@@ -53,6 +57,16 @@ const MyDocument = ({ estadisticas }: PDFProps ) => (
 
     <Document>
     <Page size="A4">
+        {/* Agrega una imagen del logo del SPA en public */}
+        <View style={
+          {display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          }
+        }>
+        <Image src="/logo_sin_fondo.png" style={styles.images} />
+        </View>
+
         <Text style={styles.header}>Informe SPA - Sentirse Bien</Text>
       <View style={styles.table}>
         {/* Cabecera */}
