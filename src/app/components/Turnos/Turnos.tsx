@@ -10,7 +10,7 @@ import { useAuth } from '../../../context/auth'
 
 type Turnos = {
     today?: boolean;
-    user? : string;
+    user?: string;
 }
 
 export default function Turnos({ today, user }: Turnos) {
@@ -27,8 +27,20 @@ export default function Turnos({ today, user }: Turnos) {
         const obtenerTurnos = async () => {
             try {
                 // Ordenar los turnos por fecha
-                if(usuario?.rol === 'Profesional'){
-                    console.log(usuario)
+                if (usuario?.rol === 'Profesional' && today) {
+                    console.log("AQUÍ ESTÁ ")
+                    const fechaHoyNormalizada = new Date().toLocaleDateString().replace(/\//g, "-");
+                    const turnosHoy = await getTurnosByDate(fechaHoyNormalizada, fechaHoyNormalizada);
+                    // Devuelveme los turnos con el id igual al usuario
+                    const turnosHoyProfesional = turnosHoy.filter((turno: any) => turno.profesional_asignado === usuario.id);
+
+
+                    setListaTurnos(turnosHoyProfesional);
+
+                }
+                else if (usuario?.rol === 'Profesional') {
+                    
+                    console.log("AQUÍ ESTÁ  2")
                     const turnos = await obtenerMisTurnosAsignados(usuario.id);
                     setListaTurnos(turnos);
                 }
@@ -36,12 +48,12 @@ export default function Turnos({ today, user }: Turnos) {
                     const fechaHoyNormalizada = new Date().toLocaleDateString().replace(/\//g, "-");
                     const turnosHoy = await getTurnosByDate(fechaHoyNormalizada, fechaHoyNormalizada);
                     setListaTurnos(turnosHoy)
-                    
-                } else if(user){
+
+                } else if (user) {
                     const turnos = await getTurnosByUser(user);
                     setListaTurnos(turnos);
 
-                } else{
+                } else {
                     const turnos = await getTurnos();
                     setListaTurnos(turnos);
                 }
@@ -60,25 +72,25 @@ export default function Turnos({ today, user }: Turnos) {
             <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
             <div className="m-12">
 
-            <DataTable
-                // @ts-ignore
-                columns={columnsTurnos}
-                data={listaTurnos}
-                
-                pagination
-                customStyles={customStyles}
-                responsive={true}
-                striped={true}
-                highlightOnHover={true}
-                noDataComponent="No hay turnos para mostrar"
-                defaultSortFieldId={"Fecha"}
-                defaultSortAsc={false}
-                expandableRows
-                expandableRowsComponent={expandedComponents}
-                expandableIcon={expandableIcon}
-                progressPending={isLoading} // Mostrar un indicador de carga si está cargando
+                <DataTable
+                    // @ts-ignore
+                    columns={columnsTurnos}
+                    data={listaTurnos}
+
+                    pagination
+                    customStyles={customStyles}
+                    responsive={true}
+                    striped={true}
+                    highlightOnHover={true}
+                    noDataComponent="No hay turnos para mostrar"
+                    defaultSortFieldId={"Fecha"}
+                    defaultSortAsc={false}
+                    expandableRows
+                    expandableRowsComponent={expandedComponents}
+                    expandableIcon={expandableIcon}
+                    progressPending={isLoading} // Mostrar un indicador de carga si está cargando
                 />
-                </div>
+            </div>
 
 
         </div>

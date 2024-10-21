@@ -14,7 +14,7 @@ export default function Proyecto2() {
 
   if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 
-
+ 
   return (
   <html>
     <section>

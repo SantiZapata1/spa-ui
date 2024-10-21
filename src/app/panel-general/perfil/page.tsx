@@ -37,7 +37,6 @@ export default function Profile(){
                 {!isEditing 
                 ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
                 : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }
-                <CardUserTurnos />                
                 <CardComentarios />               
             </section>
     );

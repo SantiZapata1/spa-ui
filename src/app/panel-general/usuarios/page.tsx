@@ -12,6 +12,8 @@ import { buscarUsuarios } from '@/api/usuarios';
 import expandedComponents from './expandedComponents'
 
 import { useForm } from 'react-hook-form';
+import { redirect } from 'next/navigation';
+import { useAuth } from '@/context/auth';
 
 function Page() {
     
@@ -20,7 +22,7 @@ function Page() {
     const rolOpciones = [
         { value: 'Administrador', nombre: 'Administrador' },
         { value: 'Profesional', nombre: 'Profesional' },
-        { value: 'Secretaria', nombre: 'Secretaria' },
+        { value: 'Secretario', nombre: 'Secretario' },
         { value: 'Usuario', nombre: 'Usuario' }
     ]
 
@@ -29,6 +31,23 @@ function Page() {
         collapsed: <ArrowDownCircleIcon className='h-6 w-6' />,
         expanded: <ArrowUpCircleIcon className='h-6 w-6' />
     };
+
+    const { user, isAuthenticated, isLoading } = useAuth();
+    
+    const isSecretario = (user?.rol === 'Secretario' || user?.rol === 'Administrador');
+    const isProfesional = (user?.rol === 'Profesional' || user?.rol === 'Administrador');
+    const isAdmin = (user?.rol === 'Administrador');
+
+    if(isLoading){
+        return <div>Cargando...</div>
+    }
+
+    if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
+
+    if(!isLoading && !isAdmin){
+        redirect('/panel-general/')
+    }
+
 
     return (
         <section className="w-full flex flex-col items-center justify-center">

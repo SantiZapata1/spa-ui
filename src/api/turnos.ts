@@ -46,3 +46,8 @@ export const obtenerMisTurnosAsignados = async (idProfesional:any) => {
   const response = await axios.get(`/obtener-mis-turnos-asignados/${idProfesional}`);
   return response.data;
 }
+
+export const setTurnoRealizado = async (id:any) => {
+  const response = await axios.put(`/marcar-turno-realizado/${id}`);
+  return response.data;
+}

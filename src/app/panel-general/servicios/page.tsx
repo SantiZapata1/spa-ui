@@ -46,6 +46,7 @@ export default function Servicios() {
         // Si no esta cargando y no esta autenticado se redirecciona al login
         if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 
+        
 
         return (
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">

@@ -9,8 +9,11 @@ import { generarEstadisticaTurnos } from '@/api/turnos'
 import { useState } from 'react';
 import { pdf } from '@react-pdf/renderer';
 import PDF from './PDF';
+import { useAuth } from '@/context/auth'
+import { redirect } from 'next/navigation';
 function page() {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
+    const { user, isLoading, isAuthenticated } = useAuth();
 
     const [ estadisticas, setEstadisticas ] = useState<any>([])
 
@@ -29,6 +32,15 @@ function page() {
             console.log(error)
         }
 
+    }
+
+    if(isLoading){
+        return <div>Cargando...</div>
+    }
+    if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
+
+    if(!isLoading && user?.rol !== 'Administrador'){
+        redirect('/panel-general/')
     }
 
   return (

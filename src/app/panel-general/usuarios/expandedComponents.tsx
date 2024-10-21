@@ -14,7 +14,7 @@ function expandedComponents({ data }: expandedProps) {
     const opcionesRol = [
         { value: 'Administrador', nombre: 'Administrador' },
         { value: 'Profesional', nombre: 'Profesional' },
-        { value: 'Secretaria', nombre: 'Secretaria' },
+        { value: 'Secretario', nombre: 'Secretario' },
         { value: 'Usuario', nombre: 'Usuario' }
     ]
 

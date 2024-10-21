@@ -21,50 +21,6 @@ const formatFecha = (fecha: string) => {
     return fecha.split('T')[0].split('-').reverse().join('/');
 }   
 
-const handleRealizado = async (id: String)  => {
-    
-
-    Swal.fire({
-        title: '¿Estás seguro?',
-        text: "Una vez marcado como realizado, no podrás deshacer esta acción",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#7BB263',
-        cancelButtonColor: '#D8316C',
-        confirmButtonText: 'Sí, marcar como realizado',
-        cancelButtonText: 'Cancelar'
-    }).then(async (result) => {
-        if (result.isConfirmed) {
-            try {
-                await deleteTurnoRequest(id);
-                Swal.fire({
-                    
-                    title: 'Realizado!',
-                    text: 'El turno ha sido marcado como realizado',
-                    icon: 'success',
-                    confirmButtonColor: '#7BB263',
-                    cancelButtonColor: '#D8316C',
-                }
-                ).then(() => {
-                    window.location.reload();
-                })
-            } catch (error) {
-                Swal.fire({
-
-                    title: 'Error',
-                    text: 'Hubo un error al marcar el turno como realizado',
-                    icon: 'error',
-                    confirmButtonColor: '#7BB263',
-                    cancelButtonColor: '#D8316C',
-                }
-                )
-            }
-        }
-    })
-    
-
-
-}
  
 
 
@@ -119,20 +75,7 @@ const columnsTurnos = [
             fontWeight: 500,
         }
     },
-    {
-        name: 'Acciones',
-        cell: (row: Row) => 
-        <>
-        <button className='bg-spa-purple hover:bg-spa-light-purple text-white font-bold py-2 px-4 rounded w-full' onClick={() => handleRealizado(row._id)}>Realizado</button>
-        </>,
-        
-        button: true,
-        width: '10%',
-        style: {
-            fontSize: '14px',
-            fontWeight: 500,
-        }
-    }
+  
     
 
 ]
