@@ -14,7 +14,7 @@ type expandedComponentProps = {
 }
 
 
-export default function expandedComponent({ data }: expandedComponentProps) {
+export default function ExpandedComponent({ data }: expandedComponentProps) {
 
   const [listaProfesionales, setListaProfesionales] = useState([])
   const [profesionalNombre, setProfesionalNombre] = useState('')
