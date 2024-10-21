@@ -7,7 +7,6 @@ import { useForm } from 'react-hook-form'
 import TableStats from '@/app/components/TableStats/TableStats';
 import { generarEstadisticaTurnos } from '@/api/turnos'
 import { useState } from 'react';
-import { pdf } from '@react-pdf/renderer';
 import PDF from './PDF';
 import { useAuth } from '@/context/auth'
 import { redirect } from 'next/navigation';
@@ -22,6 +21,7 @@ function Page() {
     const handlePrint = async (data: any) => {
         try{
 
+            const { pdf } = await import('@react-pdf/renderer');
             const blob = await pdf(<PDF estadisticas={data}  />).toBlob();
             // Crea una URL de objeto a partir del blob
             const url = URL.createObjectURL(blob);
