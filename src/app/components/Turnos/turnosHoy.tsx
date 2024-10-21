@@ -49,8 +49,10 @@ export default function TurnosHoy() {
             <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos de Hoy</h2>
             <div className="m-12">
                 <DataTable
+                    // @ts-ignore
                     columns={columnsTurnos}
                     data={listaTurnos}
+                    
                     pagination
                     customStyles={customStyles}
                     responsive={true}
