@@ -1,7 +1,7 @@
 "use client";
 
 // Hooks
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { createTurnoRequest } from '@/api/turnos';
 import Swal from 'sweetalert2';
@@ -11,6 +11,7 @@ import { postcreateSession } from '../../../api/pay'; // Importar la función pa
 
 // Componentes
 import InputTextArea from '../Inputs/InputTextArea';
+import InputCheckbox from '../Inputs/InputCheckbox';
 
 // Interfaz
 type CardModalTurnosProps = {
@@ -26,6 +27,7 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio, preci
     const router = useRouter();
     const { user, isAuthenticated } = useAuth();
 
+    const [ pagoDiferido, setPagoDiferido ] = useState(false);
     // Para cerrar el modal al presionar la tecla escape
     useEffect(() => {
         const cerrarModal = (e: any) => {
@@ -58,17 +60,32 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio, preci
                         values.idUsuario = user.id;
                         values.precio = precio;
                         // Crear un turno con los datos del formulario
-                        await createTurnoRequest(values);
+                        const turno_creado = await createTurnoRequest(values);
                         
+                        if(!pagoDiferido){
+
+
                         // Crear la sesión de pago
                         const session = await postcreateSession({ 
                             nombreServicio, 
                             precio, 
-                            detalles 
-                        });
-
+                            detalles,
+                            idTurno: turno_creado._id
+                        });    
                         // Redirigir a la URL de Stripe
                         window.location.href = session.url; 
+                    }
+                        if(pagoDiferido){
+                            Swal.fire({
+                                title: 'Turno creado',
+                                text: 'Tu turno ha sido creado exitosamente, podrás pagarlo más adelante desde el apartado "Mis Turnos".',
+                                icon: 'success',
+                                confirmButtonColor: '#7BB263',
+                            }).then(() => {
+                                window.location.reload()
+                            });
+                        
+                    }
                     } catch (error) {
                         console.log(error);
                         Swal.fire({
@@ -147,11 +164,13 @@ export default function CardModalTurnos({ isOpen, onClose, nombreServicio, preci
                             errors={errors.servicio} 
                             type="text" 
                         />
+                        <InputCheckbox campo="Pagar después" nombre="pago_diferido" register={register} setValue={setValue} type="checkbox" setHook={setPagoDiferido} state={pagoDiferido}  id="pago_diferido"/>
+                    
                     </div>
-
                     <button type="submit" className="px-4 py-2 bg-sage hover:bg-sage-hover text-white rounded">
-                        Pagar
+                        Proceder
                     </button>
+                    
                 </form>
             </div>
         </div>

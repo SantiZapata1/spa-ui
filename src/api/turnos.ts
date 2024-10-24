@@ -6,7 +6,10 @@ export const getTurnos = async () => {
 };
 
 // crear un turno
-export const createTurnoRequest = (turno:any) => axios.post("/solicitar-turno", turno);
+export const createTurnoRequest = async (turno:any) => {
+  const response = await axios.post("/solicitar-turno", turno);
+  return response.data;
+} 
 
 // agregar este controlador y ruta en la api
 // actualiazar un turno
