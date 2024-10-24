@@ -12,6 +12,7 @@ import DateRangePicker from "../DateRangePicker/DateRangePicker";
 import { DefaultDeserializer } from "v8";
 import SelectOptions from "../Select/SelectOptions";
 import { getProfesionales, getUsuarioPorId } from "../../../api/usuarios";
+import Excel from "./Excel";
 
 type Turnos = {
     today?: boolean;
@@ -23,6 +24,7 @@ export default function Turnos({ today, user }: Turnos) {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const [listaTurnos, setListaTurnos] = useState<any[]>([]);
     const [listaProfesionales, setListaProfesionales] = useState<any[]>([]);
+    const [showExcel, setShowExcel] = useState(false);
     const { user: usuario } = useAuth();
 
     const expandableIcon = {
@@ -30,62 +32,46 @@ export default function Turnos({ today, user }: Turnos) {
         expanded: <ArrowUpCircleIcon className='h-6 w-6' />
     };
 
-useEffect(() => {
-
-    // const obtenerProfesionalNombre = async () => {
-    //     try {
-    //       const profesional = await getUsuarioPorId(data.profesional_asignado);
-    //       setProfesionalNombre(profesional.nombre + ' ' + profesional.apellido);
-    //     } catch (error) {
-    //       console.error("Error al obtener el profesional:", error);
-    //     }
-    //   }
-  
-
-    const obtenerProfesionales = async () => {
-        try {
-          const profesionales = await getProfesionales();
-          const listaProfesionales = profesionales.map((profesional: any) => {
-            return { nombre: profesional.nombre + ' ' + profesional.apellido, value: profesional._id }  
-        })
-
-        listaProfesionales.push({nombre: 'Todos', value: 'all'}, {nombre: 'Sin asignar', value: 'No asignado'})
-          setListaProfesionales(listaProfesionales);
-        } catch (error) {
-          console.error("Error al obtener los profesionales:", error);
-        }
-      };
-      obtenerProfesionales();
-    //   obtenerProfesionalNombre();
-
-    }, []);
-
-
+    useEffect(() => {
+        const obtenerProfesionales = async () => {
+            try {
+              const profesionales = await getProfesionales();
+              const listaProfesionales = profesionales.map((profesional: any) => {
+                return { nombre: profesional.nombre + ' ' + profesional.apellido, value: profesional._id }  
+            })
+    
+            listaProfesionales.push({nombre: 'Todos', value: 'all'}, {nombre: 'Sin asignar', value: 'No asignado'})
+              setListaProfesionales(listaProfesionales);
+            } catch (error) {
+              console.error("Error al obtener los profesionales:", error);
+            }
+          };
+          obtenerProfesionales();
+    }),[];
 
     return (
         <div className="w-full p-5">
             <h2 className="text-2xl mb-4 text-left inline mr-5">Turnos</h2>
-            
             <form action="" className='m-4 flex flex-col items-center justify-center  w-full'
             onSubmit={
-            handleSubmit( async (values: any) => {
-                console.log(values)
+                handleSubmit( async (values: any) => {
+                    console.log(values)
+                    
+                    const fechaDesde = values.desde;
+                    const fechaHasta = values.hasta;
+                    
+                    
+                    
+                    const turnosDate = await getTurnosByDateAndProfesional(fechaDesde, fechaHasta, values.profesional);
+                    
+                    setListaTurnos(turnosDate);
+                    setShowExcel(true);
+                    
 
-                const fechaDesde = values.desde;
-                const fechaHasta = values.hasta;
 
-                
-
-                const turnosDate = await getTurnosByDateAndProfesional(fechaDesde, fechaHasta, values.profesional);
-
-                console.log(turnosDate)
-                setListaTurnos(turnosDate);
-
-
-
-            })
-        }
-    >
+                })
+            }
+            >
 
             <DateRangePicker setValue={setValue} isRequired={true} />
             {/*  Para profesionales */}
@@ -100,6 +86,12 @@ useEffect(() => {
 
             
             <div className="m-12">
+                
+                { showExcel && 
+                <div className="w-full flex flex-col items-center justify-center my-4">
+                <Excel data={listaTurnos} />        
+                </div>
+            }
 
                 <DataTable
                     // @ts-ignore
