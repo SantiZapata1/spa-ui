@@ -5,11 +5,13 @@ import { ArrowDownCircleIcon, ArrowUpCircleIcon } from '@heroicons/react/24/outl
 import customStyles from './customStyles';
 import expandedComponents from './expandedComponent';
 import columnsTurnos from './columnsTurnos';
-import { getTurnosByDate, getTurnosByUser, obtenerMisTurnosAsignados } from "../../../api/turnos";
+import { getTurnosByDateAndProfesional } from "../../../api/turnos";
 import { useAuth } from '../../../context/auth'
 import { useForm } from "react-hook-form";
 import DateRangePicker from "../DateRangePicker/DateRangePicker";
 import { DefaultDeserializer } from "v8";
+import SelectOptions from "../Select/SelectOptions";
+import { getProfesionales, getUsuarioPorId } from "../../../api/usuarios";
 
 type Turnos = {
     today?: boolean;
@@ -20,13 +22,44 @@ export default function Turnos({ today, user }: Turnos) {
     // const [isLoading, setIsLoading] = useState(true);
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const [listaTurnos, setListaTurnos] = useState<any[]>([]);
-    
+    const [listaProfesionales, setListaProfesionales] = useState<any[]>([]);
     const { user: usuario } = useAuth();
 
     const expandableIcon = {
         collapsed: <ArrowDownCircleIcon className='h-6 w-6' />,
         expanded: <ArrowUpCircleIcon className='h-6 w-6' />
     };
+
+useEffect(() => {
+
+    // const obtenerProfesionalNombre = async () => {
+    //     try {
+    //       const profesional = await getUsuarioPorId(data.profesional_asignado);
+    //       setProfesionalNombre(profesional.nombre + ' ' + profesional.apellido);
+    //     } catch (error) {
+    //       console.error("Error al obtener el profesional:", error);
+    //     }
+    //   }
+  
+
+    const obtenerProfesionales = async () => {
+        try {
+          const profesionales = await getProfesionales();
+          const listaProfesionales = profesionales.map((profesional: any) => {
+            return { nombre: profesional.nombre + ' ' + profesional.apellido, value: profesional._id }  
+        })
+
+        listaProfesionales.push({nombre: 'Todos', value: 'all'}, {nombre: 'Sin asignar', value: 'No asignado'})
+          setListaProfesionales(listaProfesionales);
+        } catch (error) {
+          console.error("Error al obtener los profesionales:", error);
+        }
+      };
+      obtenerProfesionales();
+    //   obtenerProfesionalNombre();
+
+    }, []);
+
 
 
     return (
@@ -43,7 +76,7 @@ export default function Turnos({ today, user }: Turnos) {
 
                 
 
-                const turnosDate = await getTurnosByDate(fechaDesde, fechaHasta);
+                const turnosDate = await getTurnosByDateAndProfesional(fechaDesde, fechaHasta, values.profesional);
 
                 console.log(turnosDate)
                 setListaTurnos(turnosDate);
@@ -55,6 +88,9 @@ export default function Turnos({ today, user }: Turnos) {
     >
 
             <DateRangePicker setValue={setValue} isRequired={true} />
+            {/*  Para profesionales */}
+            <SelectOptions nombre="profesional" campo="Profesional" opciones={listaProfesionales} setValue={setValue} isRequired={false} error={errors.profesional} width="w-5/10" /> 
+
             <button
             className="bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105 w-5/10"
             >

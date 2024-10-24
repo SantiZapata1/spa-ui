@@ -30,6 +30,10 @@ export const getTurnosByDate = async (desde:any, hasta:any) => {
   return response.data;
 };
 
+export const getTurnosByDateAndProfesional = async (desde:any, hasta:any, idProfesional:any) => {
+  const response = await axios.get(`/obtener-turno-por-fechas-y-profesional/${desde}/${hasta}/${idProfesional ? idProfesional : 'all'}`);
+  return response.data;
+}
 
 
 export const generarEstadisticaTurnos = async (desde:any, hasta:any) => {
