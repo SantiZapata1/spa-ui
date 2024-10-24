@@ -7,7 +7,7 @@ import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
 
 
-function page() {
+function TurnosPage() {
 
   const { user, isLoading, isAuthenticated } = useAuth();
 
@@ -38,4 +38,4 @@ function page() {
   )
 }
 
-export default page
+export default TurnosPage

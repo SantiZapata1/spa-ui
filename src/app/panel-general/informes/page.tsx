@@ -7,11 +7,21 @@ import { useForm } from 'react-hook-form'
 import TableStats from '@/app/components/TableStats/TableStats';
 import { generarEstadisticaTurnos } from '@/api/turnos'
 import { useState } from 'react';
-import { pdf } from '@react-pdf/renderer';
 import PDF from './PDF';
+import { pdf } from '@react-pdf/renderer';
 import { useAuth } from '@/context/auth'
 import { redirect } from 'next/navigation';
-function page() {
+
+
+// import dynamic from 'next/dynamic';
+
+// @ts-ignore
+// const pdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
+
+// const PDF = dynamic(() => import('./PDF'), { ssr: false });
+
+
+function Page() {
     const { register, handleSubmit, setValue, formState: { errors } } = useForm();
     const { user, isLoading, isAuthenticated } = useAuth();
 
@@ -22,6 +32,7 @@ function page() {
     const handlePrint = async (data: any) => {
         try{
 
+            // @ts-ignore
             const blob = await pdf(<PDF estadisticas={data}  />).toBlob();
             // Crea una URL de objeto a partir del blob
             const url = URL.createObjectURL(blob);
@@ -73,4 +84,4 @@ function page() {
 )
 }
 
-export default page
+export default Page
