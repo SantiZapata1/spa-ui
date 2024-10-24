@@ -76,7 +76,6 @@ export default function Turnos({ today, user }: Turnos) {
                     // @ts-ignore
                     columns={columnsTurnos}
                     data={listaTurnos}
-
                     pagination
                     customStyles={customStyles}
                     responsive={true}

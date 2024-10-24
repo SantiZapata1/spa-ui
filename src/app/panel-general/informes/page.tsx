@@ -51,7 +51,6 @@ function page() {
     <form action="" className='m-4 flex flex-col items-center justify-center  w-full'
         onSubmit={
             handleSubmit( async (data: any) => {
-                console.log(data)
                 const response = await generarEstadisticaTurnos(data.desde, data.hasta)
 
                 setEstadisticas(response)

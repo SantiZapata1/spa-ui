@@ -2,7 +2,7 @@
 
 import MenuLateral2 from '@/app/components/Menu/menuLateral2'
 import React from 'react'
-import Turnos from '@/app/components/Turnos/Turnos'
+import TurnosConFiltro from '@/app/components/Turnos/TurnosConFiltro'
 import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
 
@@ -32,7 +32,7 @@ function page() {
           <MenuLateral2 />
         </div>
         {user?.rol === 'Profesional' ? <h2>Turnos asignados</h2> : <h2>Turnos</h2>}
-        <Turnos />
+        <TurnosConFiltro />
       </section>
   
   )
