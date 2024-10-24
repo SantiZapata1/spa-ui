@@ -47,7 +47,7 @@ export default function Turnos({ today, user }: Turnos) {
             }
           };
           obtenerProfesionales();
-    }),[];
+    },[]);
 
     return (
         <div className="w-full p-5">
