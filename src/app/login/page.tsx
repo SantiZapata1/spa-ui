@@ -38,17 +38,16 @@ export default function Login() {
 
   return (
 
-    <div className="flex flex-col height-full bg-flores-beige">
-
-      <main className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full mt-16 mx-auto">
-
-        <h1 className="text-3xl font-bold text-center tx-sage mb-8">
+    <div className="flex flex-col h-full md:bg-flores-beige">
+      <main className="flex flex-col items-center justify-center h-screen md:h-full w-full bg-white md:p-8 md:rounded-lg md:shadow-lg md:max-w-md md:mt-16 md:mx-auto">
+        
+        <h1 className="text-6xl md:text-3xl font-bold text-center tx-sage mb-8">
               Iniciar sesión
         </h1>
 
         {errorsAuth && <div className='rounded-md bg-orange-500 p-2 text-white flex flex-col justify-center items-center'>{errorsAuth}</div>}
 
-        <form className="space-y-6" onSubmit={onSubmit}>
+        <form className="space-y-4 w-9/10 md:space-y-6" onSubmit={onSubmit}>
               <InputText
                 campo="Nombre de usuario"
                 nombre="nombre_de_usuario"

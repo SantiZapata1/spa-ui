@@ -2,10 +2,11 @@
   "name": "SPA - Sentirse Bien",
   "short_name": "Spa",
   "description": "Estás a un masaje de sentirte bien",
-  "start_url": "/",
+  "start_url": "/login",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
+  
   "icons": [
     {
       "src": "/logo_SPA_192x192.png",
