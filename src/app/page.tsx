@@ -15,6 +15,9 @@ import { useAuth } from '../context/auth';
 import Link from "next/link";
 import { div } from "framer-motion/client";
 import { redirect } from "next/navigation";
+import Footer from "./components/Footer/Footer";
+import NavBar from "./components/NavBar/NavBar";
+import BotonInstalar from "./components/BotonInstalar/BotonInstalar";
 
 export default function Home() {
 
@@ -27,6 +30,8 @@ export default function Home() {
   if ((!isLoading) && (isAuthenticated)) return redirect('/panel-general');
 
   return (
+    <>
+    <NavBar />
     <main className="overflow-x-hidden">
       <HeroImage/>
       <div className="secciones">
@@ -67,5 +72,7 @@ export default function Home() {
         </section>
       </div>
     </main>
+    <Footer />
+    </>
   );
 }

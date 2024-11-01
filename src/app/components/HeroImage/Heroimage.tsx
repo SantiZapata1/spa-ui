@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import BotonInstalar from '../BotonInstalar/BotonInstalar';
 
 export default function HeroImage() {
   return (
@@ -19,11 +20,14 @@ export default function HeroImage() {
           Estas a un masaje de estar de buen humor
         </p> */}
 
+        <div className='flex items-center justify-center'>
+        <BotonInstalar />
         <Link href="/servicios">
           <button className="text-white py-3 px-7 font-semibold rounded-3xl text-lg bg-dark-purple transform transition-transform duration-300 ease-in-out hover:scale-105">
             QUIERO MI SESION
           </button>
         </Link>
+        </div>
       </div>
     </div>
   );
