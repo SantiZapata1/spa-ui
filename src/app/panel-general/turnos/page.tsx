@@ -6,6 +6,7 @@ import TurnosConFiltro from '@/app/components/Turnos/TurnosConFiltro'
 import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
 import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen'
+import BottomNav from '@/app/components/BottomNavbar/BottomNavbar'
 
 
 function TurnosPage() {
@@ -34,6 +35,7 @@ function TurnosPage() {
         </div>
         {user?.rol === 'Profesional' ? <h2>Turnos asignados</h2> : <h2>Turnos</h2>}
         <TurnosConFiltro />
+        <BottomNav />
       </section>
   
   )

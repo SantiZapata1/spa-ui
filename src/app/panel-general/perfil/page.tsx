@@ -13,6 +13,7 @@ import CardComentarios from '../../components/Cards/CardComentarios';
 import CardEditUser from '../../components/Cards/CardEditUser';
 import MenuLateral2 from '../../components/Menu/menuLateral2'; 
 import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
+import BottomNav from '@/app/components/BottomNavbar/BottomNavbar';
 
 export default function Profile(){
 
@@ -38,7 +39,8 @@ export default function Profile(){
                 {!isEditing 
                 ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
                 : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }
-                <CardComentarios />               
+                <CardComentarios />    
+                    <BottomNav />           
             </section>
     );
 }

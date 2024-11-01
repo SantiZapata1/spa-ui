@@ -7,6 +7,7 @@ import MenuLateral2 from '../../components/Menu/menuLateral2';
 import { useAuth } from "../../../context/auth";
 import { redirect } from "next/navigation";
 import LoadingScreen from "@/app/components/LoadingScreen/LoadingScreen";
+import BottomNav from "@/app/components/BottomNavbar/BottomNavbar";
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
@@ -68,7 +69,7 @@ export default function Servicios() {
 
     return (
         <div className="p-2 flex justify-center bg-flores-beige">
-            <div className="max-w-screen-xl bg-beige2 p-10 rounded-xl shadow-xl border flex flex-col items-center">
+            <div className="max-w-screen-sm md:max-w-screen-xl bg-beige2 p-10 rounded-xl shadow-xl border flex flex-col items-center">
                 {/* Logo en el centro */}
                 <div className="mb-8 flex justify-center w-full">
                     <img src="/nuestrosservicios.png" alt="Logo" className="max-w-3xl" /> 
@@ -84,6 +85,7 @@ export default function Servicios() {
                     {renderServiciosPorTipo("tratamientos-corporales")}
                 </section>
             </div>
+            <BottomNav />
         </div>
     );
 }

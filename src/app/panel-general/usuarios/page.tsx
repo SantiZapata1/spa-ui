@@ -14,6 +14,8 @@ import expandedComponents from './expandedComponents'
 import { useForm } from 'react-hook-form';
 import { redirect } from 'next/navigation';
 import { useAuth } from '@/context/auth';
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
+import BottomNav from '@/app/components/BottomNavbar/BottomNavbar';
 
 function Page() {
     
@@ -38,10 +40,10 @@ function Page() {
     const isProfesional = (user?.rol === 'Profesional' || user?.rol === 'Administrador');
     const isAdmin = (user?.rol === 'Administrador');
 
-    if(isLoading){
-        return <div>Cargando...</div>
-    }
-
+   
+  if(isLoading){
+    return <LoadingScreen/>
+}
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 
     if(!isLoading && !isAdmin){
@@ -87,6 +89,8 @@ function Page() {
                 expandableIcon={expandableIcon}
                 />
                 </div>
+                <BottomNav />
+
         </section>
 
     )

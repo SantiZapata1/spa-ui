@@ -15,6 +15,7 @@ import { redirect } from 'next/navigation';
 
 import dynamic from 'next/dynamic';
 import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
+import BottomNav from '@/app/components/BottomNavbar/BottomNavbar';
 
 // @ts-ignore
 const pdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
@@ -79,6 +80,7 @@ function Page() {
         <button
             className='bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105' onClick={() => handlePrint(estadisticas)}
         >Imprimir</button>
+            <BottomNav />
 </section>  
 
 
