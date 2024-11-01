@@ -12,6 +12,7 @@ import { redirect } from 'next/navigation'
 
 // API del BackEnd
 import { registerRequest } from "../../api/auth";
+import Link from "next/link";
 
 export default function Page() {
 
@@ -31,11 +32,9 @@ export default function Page() {
 
   return (
 
-    <div className=" bg-flores-beige flex flex-col justify-center items-center overflow-scroll">
-
-
+    <div className="md:bg-flores-beige flex flex-col justify-center items-center md:overflow-scroll overflow-hidden 	bg-white">
       <form
-        className="space-y-2 my-6 bg-white p-8 rounded-lg shadow-lg min-w-500 max-w-md mt-8 "
+        className="space-y-2 my-6 bg-white p-8 rounded-lg md:shadow-lg min-w-500 max-w-md mt-8 h-screen "
         method="post"
         onSubmit={handleSubmit(async (values) => {
           // Validación de contraseñas iguales
@@ -122,7 +121,16 @@ export default function Page() {
           setValue={setValue}
           errors={errors.pass}
         />
+        <span>¿Ya tenés cuenta? 
 
+        <Link
+          href="/login"
+          className="text-green-900"
+        >
+          Inicia Sesión
+        </Link>
+
+        </span>
         <button className="w-full py-3 bg-sage text-white text-2xl rounded-lg shadow-lg transition duration-300">
           Registrarse
         </button>
