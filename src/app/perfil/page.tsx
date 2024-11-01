@@ -11,6 +11,7 @@ import CardUserInfo from '../components/Cards/CardUserInfo';
 import CardUserTurnos from '../components/Cards/CardUserTurnos';
 import CardComentarios from '../components/Cards/CardComentarios';
 import CardEditUser from '../components/Cards/CardEditUser';
+import LoadingScreen from '../components/LoadingScreen/LoadingScreen';
 
 export default function Profile(){
 
@@ -20,9 +21,10 @@ export default function Profile(){
     // Estados
     const [isEditing, setIsEditing] = useState(false);
    
-    if(isLoading){
-        return <p>Cargando...</p>
-    }
+   
+  if(isLoading){
+    return <LoadingScreen/>
+}
 
     // Si no esta cargando y no esta autenticado se redirecciona al login
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
