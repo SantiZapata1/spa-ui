@@ -65,9 +65,9 @@ const MenuLateral2 = () => {
   };
 
   return (
-    <div className="hidden md:block relative group">
+    <div className="block relative group">
       {!menuVisible && (
-        <div className="header h-screen w-full p-4 bg-gray-100 bg-opacity-0 flex flex-col" onMouseEnter={() => setMenuVisible(true)}>
+        <div className="hidden md:flex header h-screen w-full p-4 bg-gray-100 bg-opacity-0 flex-col" onMouseEnter={() => setMenuVisible(true)}>
           <Bars3Icon className="w-6 h-6 text-lime-600" />
         </div>
       )}

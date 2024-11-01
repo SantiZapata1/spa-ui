@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { redirect } from 'next/navigation';
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -45,7 +46,7 @@ export default function NoticiasPage() {
   }, []);
 
   if (isLoading) {
-    return <h1 className='text-4xl font-bold text-center mt-20'>Cargando...</h1>
+    return <LoadingScreen/>
   }
 
 

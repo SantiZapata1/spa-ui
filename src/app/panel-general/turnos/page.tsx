@@ -5,6 +5,7 @@ import React from 'react'
 import TurnosConFiltro from '@/app/components/Turnos/TurnosConFiltro'
 import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen'
 
 
 function TurnosPage() {
@@ -17,7 +18,7 @@ function TurnosPage() {
   const isAdmin = (user?.rol === 'Administrador');
 
   if(isLoading){
-      return <div>Cargando...</div>
+      return <LoadingScreen/>
   }
 
   if ((!isLoading) && (!isAuthenticated)) return redirect('/login');

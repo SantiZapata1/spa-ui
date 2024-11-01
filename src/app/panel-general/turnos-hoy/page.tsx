@@ -7,6 +7,7 @@ import TurnosHoy from '@/app/components/Turnos/turnosHoy';
 import Turnos from '@/app/components/Turnos/Turnos'
 import { useAuth } from '../../../context/auth'
 import { redirect } from 'next/navigation'
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
 
 function TurnosHoyPage() {
     const { user, isLoading, isAuthenticated } = useAuth();
@@ -16,7 +17,7 @@ function TurnosHoyPage() {
     const isAdmin = (user?.rol === 'Administrador');
 
     if(isLoading){
-        return <div>Cargando...</div>
+        return <LoadingScreen/>
     }
 
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');

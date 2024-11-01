@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 // Componentes
 import MenuLateral2 from '../../components/Menu/menuLateral2'; 
 import CardUserTurnos from '../../components/Cards/CardUserTurnos';
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
 
 export default function Turnos() {
     // hook de contexto
@@ -22,7 +23,7 @@ export default function Turnos() {
     }, [isAuthenticated, isLoading]);
 
     if (isLoading) {
-        return <p>Cargando...</p>
+        return <LoadingScreen />;
     }
     
     

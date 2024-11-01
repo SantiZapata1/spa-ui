@@ -6,6 +6,7 @@ import Service from "../../components/ServiceList/Service";
 import MenuLateral2 from '../../components/Menu/menuLateral2';
 import { useAuth } from "../../../context/auth";
 import { redirect } from "next/navigation";
+import LoadingScreen from "@/app/components/LoadingScreen/LoadingScreen";
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
@@ -37,7 +38,7 @@ export default function Servicios() {
         }
 
         if (isLoading) {
-            return <p>Cargando...</p>
+            return <LoadingScreen/>
         }
 
         if ((!isLoading) && (!isAuthenticated)) return redirect('/login');

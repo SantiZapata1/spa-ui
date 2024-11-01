@@ -3,13 +3,16 @@
 import { redirect } from 'next/navigation';
 import { useAuth } from '../../context/auth';
 import MenuLateral2 from '../components/Menu/menuLateral2'; 
+import BottomNav from '../components/BottomNavbar/BottomNavbar';
+import LoadingScreen from '../components/LoadingScreen/LoadingScreen';
+
 
 export default function Proyecto2() {
   const { user, isAuthenticated, isLoading } = useAuth();
   const role = isAuthenticated ? user.rol : 'Invitado'; // Definimos el rol
 
   if(isLoading){
-    return <p>Cargando...</p>
+    return <LoadingScreen/>
 }
 
   if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
@@ -36,6 +39,7 @@ export default function Proyecto2() {
       </div>
     </div>
     </section>
+    <BottomNav />
       <link rel="icon" href="logo_sin_fondo.png" sizes="any" />
   </html>
     );

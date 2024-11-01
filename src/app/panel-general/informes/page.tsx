@@ -14,6 +14,7 @@ import { redirect } from 'next/navigation';
 
 
 import dynamic from 'next/dynamic';
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
 
 // @ts-ignore
 const pdf = dynamic(() => import('@react-pdf/renderer'), { ssr: false });
@@ -46,7 +47,7 @@ function Page() {
     }
 
     if(isLoading){
-        return <div>Cargando...</div>
+        return <LoadingScreen/>
     }
     if ((!isLoading) && (!isAuthenticated)) return redirect('/login');
 

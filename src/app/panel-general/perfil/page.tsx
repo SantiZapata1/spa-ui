@@ -12,6 +12,7 @@ import CardUserTurnos from '../../components/Cards/CardUserTurnos';
 import CardComentarios from '../../components/Cards/CardComentarios';
 import CardEditUser from '../../components/Cards/CardEditUser';
 import MenuLateral2 from '../../components/Menu/menuLateral2'; 
+import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
 
 export default function Profile(){
 
@@ -22,7 +23,7 @@ export default function Profile(){
     
     const { user, isAuthenticated, isLoading } = useAuth();
     if(isLoading){
-        return <p>Cargando...</p>
+        return <LoadingScreen/>
     }
 
     // Si no esta cargando y no esta autenticado se redirecciona al login
