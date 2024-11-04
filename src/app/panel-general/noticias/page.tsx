@@ -19,6 +19,7 @@ import { useEffect } from 'react';
 import { PlusCircleIcon } from '@heroicons/react/24/outline';
 import { redirect } from 'next/navigation';
 import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
+import BottomNav from '@/app/components/BottomNavbar/BottomNavbar';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
@@ -140,6 +141,7 @@ export default function NoticiasPage() {
           ))}
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 }

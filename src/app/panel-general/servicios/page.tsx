@@ -7,6 +7,7 @@ import MenuLateral2 from '../../components/Menu/menuLateral2';
 import { useAuth } from "../../../context/auth";
 import { redirect } from "next/navigation";
 import LoadingScreen from "@/app/components/LoadingScreen/LoadingScreen";
+import BottomNav from "@/app/components/BottomNavbar/BottomNavbar";
 
 export default function Servicios() {
     const [servicios, setServicios] = useState<any[]>([]);
@@ -26,7 +27,7 @@ export default function Servicios() {
     }, []);
 
     const normalizeType = (tipo: string) => tipo.trim().toLowerCase();
-    
+
     const renderServiciosPorTipo = (tipo: string) => {
         const serviciosFiltrados = servicios.filter(service => {
             const tipoNormalizado = normalizeType(service.tipo);
@@ -69,21 +70,25 @@ export default function Servicios() {
     return (
         <div className="p-2 flex justify-center bg-flores-beige">
             <div className="max-w-screen-xl bg-beige2 p-10 rounded-xl shadow-xl border flex flex-col items-center">
+                
                 {/* Logo en el centro */}
                 <div className="mb-8 flex justify-center w-full">
-                    <img src="/nuestrosservicios.png" alt="Logo" className="max-w-3xl" /> 
+                    <img 
+                        src="/nuestrosservicios.png" 
+                        alt="Logo" 
+                        className="w-full h-auto max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg xl:max-w-xl"
+                    /> 
                 </div>
 
-                <img src="nuestrosservicios.png" alt="" className='mb-14 xl:max-w-screen-sm md:max-w-xl sm:max-w-sm max-w-xs' />
-
                 {/* Mostrar todos los servicios automáticamente */}
-                <section className="">
+                <section className="w-full">
                     {renderServiciosPorTipo("Masajes")}
                     {renderServiciosPorTipo("Belleza")}
                     {renderServiciosPorTipo("tratamientos-faciales")}
                     {renderServiciosPorTipo("tratamientos-corporales")}
                 </section>
             </div>
+            <BottomNav />
         </div>
     );
 }
