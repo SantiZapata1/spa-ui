@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form'
 import TableStats from '@/app/components/TableStats/TableStats';
 import { generarEstadisticaTurnos } from '@/api/turnos'
 import { useState } from 'react';
+import Link from 'next/link';
 // import PDF from './PDF';
 // import { pdf } from '@react-pdf/renderer';
 import { useAuth } from '@/context/auth'
@@ -81,6 +82,8 @@ function Page() {
             className='bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105' onClick={() => handlePrint(estadisticas)}
         >Imprimir</button>
             <BottomNav />
+
+        <h2 className='text-center mt-5'>Estadisticas</h2>
 </section>  
 
 

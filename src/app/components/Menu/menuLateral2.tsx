@@ -28,7 +28,6 @@ const MenuLateral2 = () => {
     { id: 'turnos-hoy', title: 'Turnos Hoy', route: '/panel-general/turnos-hoy' },
     { id: 'usuarios', title: 'Usuarios', route: '/panel-general/usuarios' },
     { id: 'informes', title: 'Informes', route: '/panel-general/informes' },
-    { id: 'estadisticas', title: 'Estadisticas', route: '/panel-general/estadisticas' },
     
   ];
 
