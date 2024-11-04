@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '../../../context/auth'; 
@@ -14,6 +14,7 @@ interface Section {
 
 const MenuLateral2 = () => {
   const [menuVisible, setMenuVisible] = useState(false);
+  const [showAlways, setShowAlways] = useState(false); // Estado para el checkbox
   const { user, isAuthenticated } = useAuth();
   const router = useRouter(); // Hook para redirigir a logout
 
@@ -28,7 +29,6 @@ const MenuLateral2 = () => {
     { id: 'usuarios', title: 'Usuarios', route: '/panel-general/usuarios' },
     { id: 'informes', title: 'Informes', route: '/panel-general/informes' },
     { id: 'estadisticas', title: 'Estadisticas', route: '/panel-general/estadisticas' },
-    
   ];
 
   const seccionesProfesional: Section[] = [
@@ -67,13 +67,13 @@ const MenuLateral2 = () => {
 
   return (
     <div className="block relative group">
-      {!menuVisible && (
+      {!menuVisible && !showAlways && (
         <div className="hidden md:flex header h-screen w-full p-4 bg-gray-100 bg-opacity-0 flex-col" onMouseEnter={() => setMenuVisible(true)}>
-          <Bars3Icon className="w-6 h-6 text-lime-600" />
+          <Bars3Icon className="w-6 h-6" />
         </div>
       )}
-      {menuVisible && (
-        <aside className="header w-64 p-4 bg-gray-100 bg-opacity-80 h-screen flex flex-col justify-between" onMouseLeave={() => setMenuVisible(false)}>
+      {(menuVisible || showAlways) && (
+        <aside className="header w-64 p-4 bg-gray-100 bg-opacity-80 h-screen flex flex-col justify-between" onMouseLeave={() => !showAlways && setMenuVisible(false)}>
           <ul className="space-y-4 mt-6">
             {sections.map((section) => (
               <li key={section.id}>
@@ -85,6 +85,7 @@ const MenuLateral2 = () => {
               </li>
             ))}
           </ul>
+
           {/* Botón de Cerrar sesión */}
           <button
             onClick={handleLogout} 
@@ -92,6 +93,12 @@ const MenuLateral2 = () => {
           >
             Cerrar sesión <ArrowRightStartOnRectangleIcon className="w-6 h-6 inline-block" />
           </button>
+
+          {/* Checkbox para mostrar siempre */}
+          <label className="mt-4 flex items-center space-x-2">
+            <input type="checkbox" checked={showAlways} onChange={(e) => setShowAlways(e.target.checked)} />
+            <span className="text-gray-700">Mostrar siempre</span>
+          </label>
         </aside>
       )}
     </div>
