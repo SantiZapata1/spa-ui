@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '../../../context/auth'; 
@@ -29,6 +29,7 @@ const MenuLateral2 = () => {
     { id: 'usuarios', title: 'Usuarios', route: '/panel-general/usuarios' },
     { id: 'informes', title: 'Informes', route: '/panel-general/informes' },
     { id: 'estadisticas', title: 'Estadisticas', route: '/panel-general/estadisticas' },
+    
   ];
 
   const seccionesProfesional: Section[] = [
