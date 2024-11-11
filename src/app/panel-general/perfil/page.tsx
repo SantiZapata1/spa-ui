@@ -14,6 +14,7 @@ import CardEditUser from '../../components/Cards/CardEditUser';
 import MenuLateral2 from '../../components/Menu/menuLateral2'; 
 import LoadingScreen from '@/app/components/LoadingScreen/LoadingScreen';
 import BottomNav from '@/app/components/BottomNavbar/BottomNavbar';
+import Link from 'next/link';
 
 export default function Profile(){
 
@@ -23,6 +24,12 @@ export default function Profile(){
     const [isEditing, setIsEditing] = useState(false);
     
     const { user, isAuthenticated, isLoading } = useAuth();
+
+    const handleLogOut = () => {
+
+    }
+
+
     if(isLoading){
         return <LoadingScreen/>
     }
@@ -35,7 +42,11 @@ export default function Profile(){
                 <div className="absolute top-0 left-0">
         <MenuLateral2 /> 
       </div>
-                <h2> Hola {user.nombre_de_usuario}</h2>             
+                <h2> Hola {user.nombre_de_usuario}</h2>    
+                <Link href="/logout" className='block px-4 py-2 text-base hover:bg-gray-100' >
+                <button className="bg-sage text-white px-6 py-4 rounded-3xl mt-8 transform transition-transform duration-300 ease-in-out hover:scale-105">Cerrar sesión
+                </button>         
+                </Link>
                 {!isEditing 
                 ? <CardUserInfo datosUsuario={user} setIsEditing={setIsEditing} />
                 : <CardEditUser datosUsuario={user} setIsEditing={setIsEditing}/> }

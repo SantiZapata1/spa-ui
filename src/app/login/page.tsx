@@ -27,7 +27,7 @@ export default function Login() {
    const [error, setError] = useState('')
   //  si esta autenticado rediriquimos al home
     if(isAuthenticated){
-      redirect('/panel-general/estadisticas')
+      redirect('/panel-general/')
     }
 
     const onSubmit = handleSubmit(async(values)=>{

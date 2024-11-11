@@ -42,10 +42,11 @@ function InstallPWAButton() {
   return (
     <>
       {isInstallable && (
-        <button
-        className="bg-sage text-white px-6 py-4 rounded-3xl  transform transition-transform duration-300 ease-in-out hover:scale-105"
+        
+        <button className="flex flex-row w-full items-center justify-center text-white py-3 px-7 font-semibold rounded-3xl text-lg bg-sage transform transition-transform duration-300 ease-in-out hover:scale-105"
         onClick={handleInstallClick}>
-          <ArrowDownTrayIcon className="w-6 h-6"/>
+
+          <ArrowDownTrayIcon className="w-6 h-6"/><span className="font-semibold rounded-3xl text-lg">Descargar App</span>
         </button>
       )}
     </>

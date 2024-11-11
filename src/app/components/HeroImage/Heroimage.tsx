@@ -20,13 +20,13 @@ export default function HeroImage() {
           Estas a un masaje de estar de buen humor
         </p> */}
 
-        <div className='flex items-center justify-center'>
-        <BotonInstalar />
+        <div className='flex flex-col items-center justify-center'>
         <Link href="/servicios">
           <button className="text-white py-3 px-7 font-semibold rounded-3xl text-lg bg-dark-purple transform transition-transform duration-300 ease-in-out hover:scale-105">
             QUIERO MI SESION
           </button>
         </Link>
+        <BotonInstalar />
         </div>
       </div>
     </div>

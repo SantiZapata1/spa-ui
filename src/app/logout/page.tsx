@@ -9,6 +9,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/navigation';
 // Contexto
 import { useAuth } from '../../context/auth'
+import LoadingScreen from '../components/LoadingScreen/LoadingScreen';
 
 export default function Index() {
     const { logOut, isAuthenticated } = useAuth()
@@ -25,7 +26,7 @@ export default function Index() {
       
     return (
       <div className='h-screen'>
-        <h3>      Cerrando sesión...      </h3>
+        <LoadingScreen/>
       </div>
   )
 }
